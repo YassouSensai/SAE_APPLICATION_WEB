@@ -406,30 +406,37 @@ est essentielle pour la compréhension.
 
 ### Planning
 
->Ce projet a commencé par la rédaction de ce cahier des charges la semaine du 18 septembre.
->De plus, notre client nous a exigé certaines échéances telles que :
+>Ce projet a commencé par la rédaction de ce document la semaine du 25 septembre.
+>De plus, en accord avec notre client, nous avons mis en place certaines échéances :
 >
->>* Livraison du cahier des charges : semaine du 2 octobre
->>* Argumentaire du logo + site HTML statique : semaine du 9 octobre
->>* Livraison de la carte SD : semaine du 23 octobre
+>>* Argumentaire du logo + site HTML statique : 22 octobre
+>>* Livraison de la carte SD : Entre le 22 et le 29 octobre
+>>* Travail à remettre pour la gestion des risques : 29 octobre
 >>* du 6 novembre au mois de janvier :
 >>>* Organisation et réalisation des différents sprints pour la mise en place des modules de l'application web
 >>>* Exposé à présenter en anglais
 >>>* Travail à remettre en probabilités/statistiques
 >>>* Travail à remettre en cryptographie
 >>>* Travail à remettre dans le cadre de la RGPD
->>>* Travail à remettre pour la gestion des risques
 >>* Livraison du projet : mois de janvier
 >>* Soutenance de projet : mois de janvier
 
 ### Lise des tâches et durée minimale du projet
 
 >Grâce au planning ci-dessus et au cahier des charges (client), nous avons fait la liste des tâches
->à faire pour réaliser ce projet et avons établit une matrice des antécédents.
+>à faire pour réaliser ce projet et avons déterminé plusieurs cycles de vies en rapport avec la méthode 
+>agile que nous allons utiliser.
 
-#### Matrice des antécédents
+#### Premier cycle de vie :
 
-***Note : Les matrices des antécédents sont un outil de gestion de projet qui permet de représenterles relations et dépendances entre les tâches d'un projet***
+>***Nom :*** Lancement du projet et livraison d'une version minimaliste.  
+>***Durée :*** 4 semaines
+>  
+>Voici la matrice des antécédents des tâches qui seront faites lors de ce premier cycle : 
+
+***Note : Les matrices des antécédents sont un outil de gestion de projet qui permet de représenterles relations et dépendances entre les tâches d'un projet***  
+
+***Note : Afin de connaître les spécificités des cycles de vie, il est essentiel de consulter le [dossier de spécifications](specifications.md).***
 
 <table style="width: 100%;">
   <thead>
@@ -466,17 +473,30 @@ est essentielle pour la compréhension.
       <td>(début 1 jour après t3)</td>
     </tr>
     <tr>
-      <td>t5. Création du site HTML statique</td>
+      <td>t5. Création du site HTML statique + début d'une connexion grâce au serveur WEB</td>
       <td>7</td>
       <td>4</td>
       <td>(début 1 jour après t3)</td>
     </tr>
+  </tbody>
+</table>
+
+
+  
+
+#### Matrice des antécédents
+
+
+<table style="width: 100%;">
+  <thead>
     <tr>
-      <td>t6. Point individuel sur l'investissement</td>
-      <td>3</td>
-      <td>5</td>
-      <td>t4 et t5</td>
+      <th style="width: 20%;">Tâches</th>
+      <th style="width: 15%;">Durée (jours)</th>
+      <th style="width: 10%;">Niveau</th>
+      <th style="width: 55%;">Antécédents</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>t7. Préparation et livraison des cartes SD</td>
       <td>7</td>
@@ -664,4 +684,7 @@ est essentielle pour la compréhension.
 - Fournir des dossiers de conception
 - Documenter les procédures d'installation
 - Laisser le code mis à jour sur un dépôt distanciel GIT
-- Documenter le code
+- Documenter le code  
+
+
+

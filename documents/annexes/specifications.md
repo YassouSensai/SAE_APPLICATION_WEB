@@ -1,0 +1,1 @@
+![](images/MAINTENANCE_SPECIFICATIONS/page_de_garde_4.png)
