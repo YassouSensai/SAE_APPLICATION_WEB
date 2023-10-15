@@ -1,0 +1,340 @@
+
+/*##################################### CSS Général Commun A TOUTES LES PAGES #########################################*/
+.nav-header{
+    display: inline-list-item;
+    align-items: center;               /*on aligne tout ce que contient le nav-header*/
+    height: 50px;                      /*on définit la hauteur*/
+    background-color: transparent;
+    margin: 10px;
+    text-align: left;
+}
+header{
+    background-color: #21242f;  /* couleur fond  */
+    padding: 0 0 0.3em 0;       /* marge intérieure: haut, droite, bas, gauche */
+    margin: 0 0 1em 0;          /*marge extérieure: haut, droite, bas, gauche */
+}
+html, body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;                /* on définit une police */
+    font-size: 1em;                                   /*on définit la taille confortable pour l'utilisateur avec "em" */
+    background-color: #21242f;
+}
+.nav-header{
+    display: flex;                                 /*on définit une boîte flexible qu'on peut modifier facilement*/
+    padding: 2% 6%;                                /*marge intérieure : vertical,horizontal  en % par rapport au nav-header*/
+    justify-content: space-between;                /*en met de l'espace entre éléments dans la flex-box */
+}
+.nav-header img{
+    width: 200px;                                 /*on définit une largeur d'image*/
+}
+.nav-liens{
+    text-align: right;
+}
+.nav-liens ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-liens ul li{
+    list-style: none;                               /*on enleve le style de la liste */
+    display: inline-block;                          /*on met les "li" en ligne */
+    padding:6px 25px;
+}
+.nav-liens ul li a{
+    color: white;
+    text-decoration: none;                          /*on enleve le soulignement automatique des liens  */
+    font-size: 13px;                                /* on définit la taille des caractères */
+}
+.nav-liens ul li::after{                            /* ::after crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné */
+    content: '';                                    /*on ajoute rien en fin de li */
+    width: 0;
+    height: 2px;
+    background: #16a0b6;
+    display: block;                                 /*on définit une boite en block*/
+    margin: auto;                                   /*marge extérieur automatique*/
+    transition: 0.8s;                               /*on définit un temps d'extention de la barre verte des "li"*/
+}
+.nav-liens ul li:hover::after{
+    width: 100%;                                    /* on étent la ligne à 100% en 0,5s*/
+}
+section {
+    background-color: #21242f;
+    display: flex;
+    flex-direction: column;                         /*organisation en colonnes*/
+    margin: 0;
+    padding: 0;
+    min-height: 500px;                              /*on définit une hauteur minimale */
+}
+.texte-header{
+    width:100%;
+    color: white;
+    position: absolute;               /*L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page.*/
+    top: 50%;                         /*  <---|                                       */
+    left: 50%;                        /*  <---|---- on centre le titre de chaque page */
+    transform: translate(-50%,-50%);  /*  <---|                                       */
+    text-align: center;
+}
+.texte-header h1{
+    font-size: 35px;
+}
+.texte-header p{
+    margin:10px 0 40px;
+    font-size: 15px;
+    color:white;                      /* on définit la couleur du texte */
+}
+h2,h3{
+    margin: 0;
+    padding-left: 15px;             /*marge intérieure gauche*/
+    text-decoration: none;
+    text-align: left;
+    color: #fcfcfc;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+    border-left: 2px solid #16a0b6;              /*on dessine une ligne de 2px de largeur avec une couleur à gauche de chaque tire de niveau H2 et H3 */
+}
+h5{
+    text-align: center;
+    margin: 10px 0 30px;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: rgb(60, 193, 232);                     /*une autre manière de definir une couleur dans la quelle on peut définir aussi son degré */
+    padding-left: 15px;
+    text-decoration: none;
+
+}
+p{
+    line-height: 2em;                             /*hauteur de l'espace entre les lignes du texte */
+    color: white;
+    font-size: 15px;
+    padding-left: 20px;                           /*marge intérieure gauche que peut aussi etre "top","bottom","right" */
+}
+ul{
+    line-height: 2em;
+    color: white;
+    font-size: 15px;
+    padding-left: 20px;
+}
+footer{ /* zone du bas */
+    background-color: #21242f;                    /* fond */
+    border-top: 1px solid #0ac0b1;                /* bordure en haut de 1px */
+    margin: 2em 0 0 0;                            /* marge du dessus */
+    text-align: center;
+    padding: 20px 0;
+}
+footer  a{
+    color: #8daab7;
+}
+footer  p{
+    margin: 7px 0 0 0;
+}
+.block1{
+    background: #778899;
+    margin-bottom: 20%;                          /*marge de bas */
+    padding: 20px 20px;
+    box-sizing: border-box;                      /*box-sizing indique que l’on souhaite inclure les marges internes et les bordures dans le calcul de la taille d’un élément.(s'applique la boite contenant le contenu + le padding + les bordures)*/
+    transition: 0.5s;
+    margin-right: 5%;
+    margin-left: -100px;
+}                                                /* Block qui se partage que avec les pages : -page générale et -page Planning de voyage*/
+.block1:hover{
+    box-shadow: 0 0 20px 0 rgb(60, 193, 232);    /* ajoute une ombre lorsqu'on met le curseur sur le block1 */
+}
+.block1 a{
+    color: white;
+    text-decoration: underline;              /*on sousligne les liens hypertext */
+    font-size: 13px;                         /*on défini la taille des liens hypertext*/
+}
+@media(max-width: 700px){
+    .milieu-droite{
+        flex-direction: column;
+    }
+}
+
+
+/* ####################################################################################################################*/
+
+/*############################################### CSS page générale (index.html)###################################################*/
+.header-page-générale{
+    min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/femme-touriste-attendant-train.jpg);   /*image du fond page générale*/
+    background-position: center;                            /* centre l'image fond */
+    background-size: cover;
+    position: relative;
+}
+.milieu-gauche{
+    float: left;                             /*la position de la div est désormais à gauche */
+    width: 60%;
+    margin: 1.5em 0 1.5em 0;
+    background: #21242f;
+}
+.milieu-gauche{
+    width: 50%;
+    text-align:left;
+    padding-top:60px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logo-explication {
+    margin-bottom: 20px;
+}
+/* Ajustement de la taille du logo */
+.logo-explication img {
+    border-radius: 100%;
+    max-width: 300px; /* Ajustez la largeur du logo selon vos besoins */
+    height: auto; /* Conserve le rapport hauteur/largeur pour éviter la distorsion */
+}
+
+/* CSS pour la section "texte-logo" */
+.texte-logo {
+    background-color: #778899;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 20px; /* Ajout de padding pour l'espace intérieur */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif; /* Police de caractères */
+}
+.texte-logo:hover{
+    box-shadow: 0 0 20px 0 rgb(60, 193, 232);
+}
+@media(max-width: 700px){                   /* @media permet d'appliquer une partie d'une feuille de styles en fonction du résultat d'une ou plusieurs requêtes média (requetes marchent que si @media est verifié)*/
+    .milieu-gauche{
+        flex-direction: column;
+    }
+}
+.texte-logo h3 {
+    font-size: 24px; /* Taille de la police pour le titre */
+    margin-bottom: 10px; /* Marge inférieure pour séparer du texte */
+}
+
+.texte-logo p {
+    font-size: 16px; /* Taille de la police pour le texte */
+    line-height: 1.6; /* Espacement des lignes agréable */
+}
+
+/* Pour le lien en bas (s'il y en a un) */
+.texte-logo a {
+    color: #16a0b6; /* Couleur du lien */
+    text-decoration: underline; /* Soulignement du lien au survol */
+    font-weight: bold; /* Gras pour le lien */
+}
+
+/* Pour les mots en gras */
+.texte-logo strong {
+    font-weight: bold;
+}
+
+
+.milieu-droite{
+    float: right;                          /* la position de la div est désormais à droite(droite de millieu position) */
+    width: 35%;
+    margin: 1.5em 0 1.5em 0;
+    background: #21242f;
+}
+.milieu-droite{
+    margin-top:5%;
+    display: block;
+    justify-content: space-between;
+}
+
+.bas-page {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Hauteur à 100% de la hauteur de la fenêtre */
+}
+.bas-page{
+    display: inline-block;                   /* on met les éléments en ligne-block au sein de la div */
+}
+.block2 a{
+    color: white;
+    text-decoration: underline;              /*on sousligne les liens hypertext */
+    font-size: 13px;                         /*on défini la taille des liens hypertext*/
+}
+.block2 {
+    background: #778899;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.block2 p {
+    text-align: left;
+    color: white;
+    font-size: 15px;
+    margin-top: 20px; /* Ajoutez une marge en haut du paragraphe */
+}
+.block2 h5 {
+    margin: 0;
+    text-align: left;
+    color: #fcfcfc;
+    font-size: 30px;
+    border-left: 2px solid #21242f;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding-left: 15px;
+}
+.block2{
+    float: left;
+    width: 100%;
+    height:411px;
+    margin-top:0;
+    display: block;
+    justify-content: space-between;
+    text-align: center;
+}
+.block2:hover{
+    box-shadow: 0 0 20px 0 rgb(60, 193, 232);
+}
+@media(max-width: 700px){                   /* @media permet d'appliquer une partie d'une feuille de styles en fonction du résultat d'une ou plusieurs requêtes média (requetes marchent que si @media est verifié)*/
+    .milieu-droite{
+        flex-direction: column;
+    }
+}
+.block1 img{
+    height: 100%;
+    width: 50%;
+}
+.logo-rond {
+    display: flex;
+    border-radius: 100%;
+    justify-content: center;
+    margin-top: 10px; /* Ajustez la marge au-dessus du logo rond si nécessaire */
+    max-width: 100px; /* Ajustez la largeur du logo selon vos besoins */
+    height: auto;
+}
+
+
+/* Ajustez le CSS de la partie "L'équipe à votre service" et "Nos engagements" si nécessaire */
+.equipe-engagements h3,
+.equipe-engagements p,
+.block1 h5,
+.block1 p {
+    background: #778899;
+    color: white;
+    padding: 20px;
+    margin: 0 0 20px;
+    border-left: 2px solid #21242f;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* Ajustez le CSS du logo rond si nécessaire */
+.logo-rond img {
+    width: 100px; /* Ajustez la largeur du logo rond si nécessaire */
+    height: 100px; /* Ajustez la hauteur du logo rond si nécessaire */
+    border-radius: 50%; /* Pour rendre l'image ronde */
+}
+
+
