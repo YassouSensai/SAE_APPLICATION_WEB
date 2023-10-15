@@ -6,6 +6,7 @@
    * Analyse des besoins du client
    * Objectif
 2. [Architecture générale](#Architecture-générale)
+   * Schémas de l'architecture générale 
    
 
 
@@ -134,3 +135,17 @@
 
 
 # Architecture générale
+
+>L'architecture générale d'une application web constitue la structure organisationnelle déterminant l'ensemble 
+des interactions entre les composants de l'application, dans le but de fournir une expérience utilisateur 
+cohérente et opérationnelle. Elle englobe la conception des modules, leur disposition, leurs interrelations, 
+ainsi que l'usage de technologies et de normes pour garantir le bon fonctionnement de l'application. 
+L'objectif premier de cette architecture est d'assurer la solidité, la sécurité, la facilité de maintenance 
+et la capacité d'évolution de l'application, tout en répondant aux besoins spécifiques des utilisateurs. 
+Elle constitue le plan directeur qui oriente le développement de l'application web et qui assure la 
+coordination de tous les éléments en vue de fournir une expérience utilisateur fluide et fiable.  
+
+### Figure 1 : Shémas de l'architecture générale de l'application web
+
+
+
