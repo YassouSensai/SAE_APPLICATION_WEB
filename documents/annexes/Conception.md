@@ -7,6 +7,7 @@
    * Objectif
 2. [Architecture générale](#Architecture-générale)
    * Schémas de l'architecture générale 
+   * Explications
    
 
 
@@ -147,5 +148,22 @@ coordination de tous les éléments en vue de fournir une expérience utilisateu
 
 ### Figure 1 : Shémas de l'architecture générale de l'application web
 
+![architecture_generale.jpg](images%2FCONCEPTION%2Farchitecture_generale.jpg)
 
+### Explications de la figure 1 et de l'architecture
+
+>L'architecture repose sur un modèle client-serveur, et le client est l'utilisateur. 
+Les utilisateurs interagissent avec l'application en envoyant des requêtes HTTP. Ces requêtes sont reçues 
+et traitées par le serveur web Apache, qui utilise le langage de programmation PHP pour les exécuter. 
+PHP communique avec la base de données MySQL pour stocker et récupérer des données.
+>
+>La base de données MySQL est au cœur de l'application, stockant des informations essentielles telles que 
+les utilisateurs, les tickets de dépannage, les journaux d'activité, et plus encore. Parallèlement, 
+le journal d'activité enregistre de manière exhaustive toutes les actions effectuées, fournissant un 
+historique détaillé.
+>
+>La gestion des sessions est cruciale pour l'authentification et l'autorisation des utilisateurs, leur 
+permettant de rester connectés et de maintenir leur état pendant leur interaction. Cette architecture 
+garantit une gestion fluide des requêtes utilisateur, un stockage de données fiable et une sécurité 
+renforcée.
 
