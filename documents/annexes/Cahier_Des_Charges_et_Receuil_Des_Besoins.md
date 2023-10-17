@@ -421,7 +421,7 @@ est essentielle pour la compréhension.
 >>* Livraison du projet : mois de janvier
 >>* Soutenance de projet : mois de janvier
 
-### Lise des tâches et durée minimale du projet
+### Liste des tâches et durée minimale du projet
 
 >Grâce au planning ci-dessus et au cahier des charges (client), nous avons fait la liste des tâches
 >à faire pour réaliser ce projet et avons déterminé plusieurs cycles de vies en rapport avec la méthode 
@@ -436,7 +436,7 @@ est essentielle pour la compréhension.
 
 ***Note : Les matrices des antécédents sont un outil de gestion de projet qui permet de représenterles relations et dépendances entre les tâches d'un projet***  
 
-***Note : Afin de connaître les spécificités des cycles de vie, il est essentiel de consulter le [dossier de spécifications](specifications.md).***
+***Note : Afin de connaître les spécificités des cycles de vie, il est essentiel de consulter le [dossier de spécifications](Specifications.md).***
 
 <table style="width: 100%;">
   <thead>
