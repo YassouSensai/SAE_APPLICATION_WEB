@@ -1,11 +1,11 @@
-![](images/MAINTENANCE_SPECIFICATIONS/page_de_garde_4.png)
+![](images/DOCUMENTATIONS_SPECIFICATIONS/page_de_garde_4.png)
 
 # Sommaire
 1. [Introduction](#Introduction)
     * Contexte
     * Objectif
     * Contenu du dossier de spécifications
-2. [Premier Cycle](#Premier-Cycle)
+2. [Premier Cycle : Version minimaliste](#Premier-Cycle-:-Version-minimaliste)
 3. [Deuxième Cycle](#Deuxième-Cycle)
 4. [Troisième Cycle](#Troisième-Cycle)
 5. [Quatrième Cycle](#Quatrième-Cycle)
@@ -42,10 +42,12 @@ et à l'évolution du projet dans son ensemble.
 1. **Détails :** La durée, le but du cycle selon ce qui a été décidé avec le client
 2. **Exigences :** Les exigences fonctionnelles et non fonctionnelles pour ce cycle de vie.
 3. **Cas d'utilisations :** Les cas d'utilisations qui doivent être implémenté pour la version définitive et qui seront implémenté durant ce cycle de vie
-4. **Conclusion :** Une conclusion sur le travail fournit lors de la réalisation de ce cycle de vie.
+4. **Livrable :** Contenu et forme du livrable pour le cycle de vie.
+5. **Bilan :** Une conclusion sur le travail fournit lors de la réalisation de ce cycle de vie.
 
+***Remarque : Pour plus d'informations concernant les exigences et les cas d'utilisations, consultez les cahier des charges et le recueil des besoins [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins.md)***
 
-# Premier Cycle
+# Premier Cycle : Version minimaliste
 
 ### Détails
 
@@ -60,11 +62,36 @@ Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fourni
 de l'application web qui contient le site web statique avec le travail de communication (sujet [ici](#documents/sujets/sujet_SAE3_communication.pdf))
 et, une page de connexion où seulement l'administrateur web pourra se connecter et accèder à sa session (vide pour le moment).
 
-### Exigences
+### Exigences :
+Pendant ce premier cycle de vie, les principaux impératifs étaient les suivants :
+- Élaboration du cahier des charges pour énoncer les buts du projet.
+- Rassemblement des besoins du client et des parties prenantes.
+- Édification d'une page d'accueil pour le site web statique.
+- Développement du volet communication afin d'informer sur le projet.
+- Introduction d'une page de connexion pour le moment destinée exclusivement à l'administrateur web.
+- Création d'une version minimaliste de la base de données
+- Création de la carte SD 
 
-### Cas d'utilisations
+***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
 
-### Conclusion pour le premier cycle
+### Cas d'Utilisation :
+Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
+1. **Visualisation de la Page d'Accueil :** Les visiteurs ont eu la possibilité d'accéder à la page d'accueil du site web statique pour se renseigner sur le projet.
+2. **Consultation du Contenu de Communication :** Les utilisateurs ont pu consulter le matériel de communication pour obtenir une meilleure compréhension des objectifs du projet.
+3. **Connexion de l'Administrateur Web :** L'administrateur web a eu la capacité de se connecter à son espace, même si cette fonctionnalité restait inopérante à ce stade initial.
+
+### Livrable :
+Le livrable à la fin du cycle de vie sera le support du projet, soit, la carte SD. Son contenu est le suivant :
+1. L'OS (Operating System), ici Raspberry PI OS.
+2. Le serveur web APACHE
+3. Le code source de l'application.
+
+### Bilan :
+Ce premier cycle de vie s'est avéré fondamental pour établir les bases du projet. L'élaboration du cahier des charges et la collecte des besoins ont permis de définir clairement les objectifs du projet. La création de la page d'accueil et du volet communication a fourni une vitrine pour le projet, tandis que l'introduction de la page de connexion a permis de projeter les bases de l'authentification.
+
+Il s'agit de la première itération de l'application web, qui sera développée davantage au cours des cycles de vie ultérieurs. Ce cycle de vie a jeté les fondements pour la suite du projet en fournissant une version minimale de l'application et en éclaircissant les besoins du client. Il nous permettra de progresser et d'ajouter des fonctionnalités au fur et à mesure que le projet avancera.
+  
+
 
 
 

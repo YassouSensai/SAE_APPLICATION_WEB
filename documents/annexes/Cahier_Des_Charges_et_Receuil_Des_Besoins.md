@@ -637,7 +637,7 @@ est essentielle pour la compréhension.
 >principes énoncés dans ce document, nous sommes convaincus que nous réussirons
 >à concrétiser ce projet.
 
-# Annexes
+# Annexes   
 
 ### Annexe 1 : diagrammes des cas d'utilisation
 

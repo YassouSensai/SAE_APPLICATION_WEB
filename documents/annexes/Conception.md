@@ -6,8 +6,19 @@
    * Analyse des besoins du client
    * Objectif
 2. [Architecture générale](#Architecture-générale)
-   * Schémas de l'architecture générale 
+   * Figure 1 : Schémas de l'architecture générale 
    * Explications
+3. [Interface utilisateur](#Interface-utilisateur)
+   * Maquettes web
+   * Explications et but 
+4. [Base de données](#Base-de-données)
+   * Conception
+   * Développement
+   * Explications avec exemples 
+5. [Raspberry PI 4](#Raspberry-PI-4)
+   * Fonctionnement 
+   * Carte SD 
+   * Procédure
    
 
 
@@ -167,3 +178,24 @@ permettant de rester connectés et de maintenir leur état pendant leur interact
 garantit une gestion fluide des requêtes utilisateur, un stockage de données fiable et une sécurité 
 renforcée.
 
+
+# Interface utilisateur
+
+
+# Base de données
+## ***REMARQUE :*** *Pour le moment, la base de données contient uniquement une seule table utilisateurs avec l'administrateur web !*
+
+
+# Raspberry PI 4
+
+### Fonctionnement
+
+>Pour ce projet, il nous a été demandé de fournir une carte SD qui contiendra les éléments suivants :
+>1. **Raspberry PI OS :** Le système d'exploitation 
+>2. **APACHE :** Le serveur WEB qui permettra de démarrer l'application
+>3. **Le code source :** Afin de pouvoir avoir accès à l'application
+
+
+# Carte SD
+
+Nous fournissons une carte SD préparée pour être insérée dans le Raspberry Pi 4. Une fois la carte SD installée, notre équipe aura un accès sécurisé via un tunnel SSH (Secure Shell) pour effectuer des mises à jour du code source directement depuis les machines de l'IUT. Cette configuration permet une gestion aisée de l'application et garantit que les dernières mises à jour et améliorations peuvent être appliquées en toute simplicité. Notre objectif est de simplifier le processus d'installation et de maintenance de l'application, offrant ainsi une expérience agréable à notre client.
