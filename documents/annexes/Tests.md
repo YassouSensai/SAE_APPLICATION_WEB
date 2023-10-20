@@ -1,0 +1,1 @@
+![page_de_garde_5.png](images%2FTESTS%2Fpage_de_garde_5.png)

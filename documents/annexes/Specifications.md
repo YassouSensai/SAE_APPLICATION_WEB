@@ -5,7 +5,7 @@
     * Contexte
     * Objectif
     * Contenu du dossier de spécifications
-2. [Premier Cycle : Version minimaliste](#Premier-Cycle-:-Version-minimaliste)
+2. [Premier Cycle : Lancement et maquettes](#Premier-Cycle-:-Lancement-et-maquettes)
 3. [Deuxième Cycle](#Deuxième-Cycle)
 4. [Troisième Cycle](#Troisième-Cycle)
 5. [Quatrième Cycle](#Quatrième-Cycle)
@@ -47,30 +47,28 @@ et à l'évolution du projet dans son ensemble.
 
 ***Remarque : Pour plus d'informations concernant les exigences et les cas d'utilisations, consultez les cahier des charges et le recueil des besoins [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins.md)***
 
-# Premier Cycle : Version minimaliste
+# Premier Cycle : Lancement et maquettes
 
 ### Détails
 
-***Nom :*** Lancement du projet et Livraison d'une version minimaliste  
+***Nom :*** Lancement du projet et Livraison des maquettes au client  
 ***Début :*** 25 septembre 2023  
 ***Fin :*** 22 octobre 2023  
 ***Livraison :*** 23 octobre 2023
 
 >Ce premier cycle de vie, comme son nom l'indique, nous a permis de démarrer le projet
 par la rédaction du cahier des charges et du recueil de besoins (document [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins)).
-Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fournir une version minimaliste 
-de l'application web qui contient le site web statique avec le travail de communication (sujet [ici](#documents/sujets/sujet_SAE3_communication.pdf))
-et, une page de connexion où seulement l'administrateur web pourra se connecter et accèder à sa session (vide pour le moment).
+Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fournir deux maquettes pour la page d'accueil
+du site web statique. Notre client choisira l'une des deux maquettes.
+Nous fournirons également le travail de communication (sujet [ici](#documents/sujets/sujet_SAE3_communication.pdf)) qui apparaitra dans des pages du site web statique
+et, nous fournirons une maquette de la page de connexion.
 
 ### Exigences :
-Pendant ce premier cycle de vie, les principaux impératifs étaient les suivants :
+Durant ce premier cycle de vie, les principaux impératifs sont les suivants :
 - Élaboration du cahier des charges pour énoncer les buts du projet.
 - Rassemblement des besoins du client et des parties prenantes.
-- Édification d'une page d'accueil pour le site web statique.
-- Développement du volet communication afin d'informer sur le projet.
-- Introduction d'une page de connexion pour le moment destinée exclusivement à l'administrateur web.
-- Création d'une version minimaliste de la base de données
-- Création de la carte SD 
+- Édification de maquettes web pour le site statique.
+- Commencer le développement des pages html.
 
 ***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
 
