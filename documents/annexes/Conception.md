@@ -2,6 +2,7 @@
 
 # Sommaire
 1. [Introduction](#Introduction)
+2. 
    * Contexte
    * Analyse des besoins du client
    * Objectif
@@ -9,8 +10,8 @@
    * Figure 1 : Schémas de l'architecture générale 
    * Explications
 3. [Interface utilisateur](#Interface-utilisateur)
+   * But
    * Maquettes web
-   * Explications et but 
 4. [Base de données](#Base-de-données)
    * Conception
    * Développement
@@ -19,18 +20,19 @@
    * Fonctionnement 
    * Carte SD 
    * Procédure
+6. Annexes
+   * Maquettes web
    
 
 
-# Introduction 
+# Introduction
 
+### Contexte
 >Ce dossier de conception présente les détails de la conception pour la SAE 
 >du troisième semestre du BUT informatique. Le but de la SAE en question est de développer une plateforme 
 >de ticketing interne pour les salles informatiques de l'IUT. Cette plateforme a été demandée par notre client, 
 >M. Hoguin. La réalisation de cette plateforme est confiée à notre équipe de trois étudiants en deuxième 
 >année de formation en informatique.
-
-### Contexte
 
 ### Analyse des besoins du client
 
@@ -164,7 +166,7 @@ coordination de tous les éléments en vue de fournir une expérience utilisateu
 ### Explications de la figure 1 et de l'architecture
 
 >L'architecture repose sur un modèle client-serveur, et le client est l'utilisateur. 
-Les utilisateurs interagissent avec l'application en envoyant des requêtes HTTP. Ces requêtes sont reçues 
+Les utilisateurs interagissent avec l'application en envoyant des requêtes HTTP. Ces requêtes seront reçues 
 et traitées par le serveur web Apache, qui utilise le langage de programmation PHP pour les exécuter. 
 PHP communique avec la base de données MySQL pour stocker et récupérer des données.
 >
@@ -180,7 +182,42 @@ renforcée.
 
 
 # Interface utilisateur
+### But
 
+>L'interface utilisateur, dans le cadre du projet de plateforme de ticketing interne, a pour 
+rôle de créer une expérience conviviale et interactive pour tous les utilisateurs, qu'ils 
+soient administrateurs, techniciens, utilisateurs inscrits ou visiteurs. En résumé, elle 
+permet de simplifier la soumission des demandes de dépannage, la gestion des requêtes, 
+la supervision administrative, le travail des techniciens, l'accès aux informations pour 
+les visiteurs, ainsi que la mise à disposition de ressources explicatives. Elle joue un 
+rôle central pour garantir que le processus de ticketing interne soit efficace, transparent 
+et accessible à tous les utilisateurs.
+
+### Maquettes web
+***Note : Toutes les maquettes web sont réalisées avec le logiciel en ligne lucidspark.***
+
+>**Page d'accueil :** Le rôle principal de la page d'accueil dans le contexte de la plateforme de 
+ticketing interne est de fournir aux utilisateurs des informations essentielles sur le fonctionnement
+de l'application et de les orienter vers les actions qu'ils peuvent entreprendre. En bref, la 
+page d'accueil vise à :  
+>* Expliquer le service
+>* Faciliter la navigation
+>* Promouvoir la vidéo de démonstration
+>* Offrir un accès aux ressources
+>* Présenter l'application
+>  
+> La page d'accueil se doit donc d'être informative et conviviale, mais aussi, elle doit être axée sur l'action.
+>
+>***Remarque : Pour la page d'accueil, nous proposerons à notre client 2 maquettes qui respectent les points ci-dessus. Notre client devra donc choisir par préférence***
+![page_acceuil_1.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fpage_acceuil_1.jpeg)
+![page_accueil_2.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fpage_accueil_2.jpeg)
+
+>**Page de connexion :** La page de connexion, bien qu'étant un formulaire simple, est très importante pour l'application.
+En effet, celle-ci permettra aux utilisateurs d'accéder à leur profil et ils ne devront rencontrer aucun problème !
+![connexion.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fconnexion.jpeg)  
+
+***Note : Afin de consulter les maquettes des pages web pour la communication, veuillez consulter les annexes de ce dossier***  
+***Note : Les autres maquettes seront faites et proposées au client ultérieurement***
 
 # Base de données
 ## ***REMARQUE :*** *Pour le moment, la base de données contient uniquement une seule table utilisateurs avec l'administrateur web !*
@@ -195,7 +232,15 @@ renforcée.
 >2. **APACHE :** Le serveur WEB qui permettra de démarrer l'application
 >3. **Le code source :** Afin de pouvoir avoir accès à l'application
 
+## ***A compléter !!!***
 
 # Carte SD
 
 Nous fournissons une carte SD préparée pour être insérée dans le Raspberry Pi 4. Une fois la carte SD installée, notre équipe aura un accès sécurisé via un tunnel SSH (Secure Shell) pour effectuer des mises à jour du code source directement depuis les machines de l'IUT. Cette configuration permet une gestion aisée de l'application et garantit que les dernières mises à jour et améliorations peuvent être appliquées en toute simplicité. Notre objectif est de simplifier le processus d'installation et de maintenance de l'application, offrant ainsi une expérience agréable à notre client.
+
+## ***A compléter !!!***
+# Annexes 
+
+![charte_de_communication.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fcharte_de_communication.jpeg)
+![logo_1.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Flogo_1.jpeg)
+![logo_2.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Flogo_2.jpeg)

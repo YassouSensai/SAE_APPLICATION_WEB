@@ -6,7 +6,7 @@
     * Objectif
     * Contenu du dossier de spécifications
 2. [Premier Cycle : Lancement et maquettes](#Premier-Cycle-:-Lancement-et-maquettes)
-3. [Deuxième Cycle](#Deuxième-Cycle)
+3. [Deuxième Cycle : Livraison d'une version minimaliste](#Deuxième-Cycle-:-Livraison-d'une-version-minimaliste)
 4. [Troisième Cycle](#Troisième-Cycle)
 5. [Quatrième Cycle](#Quatrième-Cycle)
 
@@ -73,23 +73,95 @@ Durant ce premier cycle de vie, les principaux impératifs sont les suivants :
 ***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
 
 ### Cas d'Utilisation :
-Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
-1. **Visualisation de la Page d'Accueil :** Les visiteurs ont eu la possibilité d'accéder à la page d'accueil du site web statique pour se renseigner sur le projet.
-2. **Consultation du Contenu de Communication :** Les utilisateurs ont pu consulter le matériel de communication pour obtenir une meilleure compréhension des objectifs du projet.
-3. **Connexion de l'Administrateur Web :** L'administrateur web a eu la capacité de se connecter à son espace, même si cette fonctionnalité restait inopérante à ce stade initial.
+Ce cycle de vie ne nous a pas permis d'implémenter des cas d'utilisations. Néanmoins, il nous a permis de mettre en evidence dans le recueil des besoins, une liste des cas d'utilisations à implémenter.
+Ces cas d'utilisations seront à détailler et à implémenter durant les prochains cycles de vie.
 
 ### Livrable :
-Le livrable à la fin du cycle de vie sera le support du projet, soit, la carte SD. Son contenu est le suivant :
-1. L'OS (Operating System), ici Raspberry PI OS.
-2. Le serveur web APACHE
-3. Le code source de l'application.
+Le livrable à la fin du cycle de vie sera le début du dossier de conception qui contiendra les maquettes web ainsi que le début de la conception des autres composants de l'application.
 
 ### Bilan :
-Ce premier cycle de vie s'est avéré fondamental pour établir les bases du projet. L'élaboration du cahier des charges et la collecte des besoins ont permis de définir clairement les objectifs du projet. La création de la page d'accueil et du volet communication a fourni une vitrine pour le projet, tandis que l'introduction de la page de connexion a permis de projeter les bases de l'authentification.
+Ce premier cycle de vie s'est avéré fondamental pour établir les bases du projet. L'élaboration du cahier des charges et la collecte des besoins ont permis de définir clairement les objectifs du projet. La création des maquettes pour la page d'accueil et du volet communication a fourni une vitrine pour le projet, tandis que celle pour la page de connexion a permis de projeter les bases de l'authentification.
 
-Il s'agit de la première itération de l'application web, qui sera développée davantage au cours des cycles de vie ultérieurs. Ce cycle de vie a jeté les fondements pour la suite du projet en fournissant une version minimale de l'application et en éclaircissant les besoins du client. Il nous permettra de progresser et d'ajouter des fonctionnalités au fur et à mesure que le projet avancera.
-  
+Il s'agit là des bases afin de développer la première version de l'application web, et qui sera développée davantage au cours des cycles de vie ultérieurs. Ce cycle de vie a jeté les fondements pour la suite du projet en éclaircissant les besoins du client. Il nous permettra de progresser et d'ajouter des fonctionnalités au fur et à mesure que le projet avancera.
 
 
+
+# Deuxième Cycle : Livraison d'une version minimaliste
+
+### Détails
+
+***Nom :*** Livraison de la première version de l'application (simplifiée)  
+***Début :*** 23 octobre 2023  
+***Fin :*** 20 novembre 2023  
+***Livraison :*** 6 et 21 novembre 2023
+
+>Ce deuxième cycle nous permettra de démarrer le développement de l'application en implémentant certains cas d'utilisations.
+> Il nous permettra également de préparer le seul livrable matériel nécessaire pour notre client.
+
+### Exigences :
+Durant ce deuxième cycle de vie, les principales exigences sont les suivantes :
+- Faire toutes les installations sur la carte sd.
+- Concevoir la base de données.
+- Finir le développement des pages HTML. (*Remarque : ici, finir veut dire que si des modifications doivent être apportées, ces modifications pourront être faites*)
+- Commencer le développement des pages PHP.
+
+***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
+
+### Cas d'Utilisation :
+Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
+
+#### Cas 1 : Visionnage du site
+*(Il s'agit du cas 7 dans le recueil des besoins)*
+
+**Portée :** Les clients  
+**Niveau :** Objectif utilisateur  
+**Acteur :** Visiteurs  
+**Scénario :**  
+* Les visiteurs visionnent la page d'accueil
+* Les visiteurs visionnent les pages pour le devoir de communication
+* Les visiteurs visionnent la page d'authentification et d'inscription
+
+#### Cas 2 : Inscription sur l'application
+*(Il s'agit du cas 4 du recueil des besoins)*
+
+**Portée :** Les clients  
+**Niveau :** Objectif utilisateur  
+**Acteur :** Utilisateur inscrit, techniciens, administrateur web et administrateur système  
+**Scénario :**
+* Les acteurs accèdent à la page de connexion
+* Les acteurs entrent leurs identifiants
+* Les acteurs accèdent à leur profil
+
+#### Cas 3 : Authentification à l'application
+*(Il s'agit du cas 6 du recueil des besoins)*
+
+**Portée :** Les clients  
+**Niveau :** Objectif stratégique  
+**Acteur :** Visiteurs
+**Scénario :**
+* Les visiteurs accèdent au formulaire d'inscription
+* Les visiteurs entrent leurs informations
+* Les visiteurs valident le formulaire
+* Les visiteurs peuvent maintenant se connecter
+
+
+
+### Livrable :
+#### Livrable 1 : 6 novembre
+Le premier livrable sera la carte SD qui contiendra :
+* L'OS du Raspberry PI
+* Le serveur APACHE et MySQL
+* le site web statique (Version 1.1 de l'application)
+* La documentation nécessaire
+
+#### Livrable 2 : 21 novembre
+Le livrable final de ce cycle de vie sera de rendre la version 1.2 de l'application avec les cas d'utilisation implémentés.
+
+
+### Bilan :
+
+## ***A compléter !!!***
+
+# Troisième Cycle
 
 
