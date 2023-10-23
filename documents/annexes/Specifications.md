@@ -6,7 +6,7 @@
     * Objectif
     * Contenu du dossier de spécifications
 2. [Premier Cycle : Lancement et maquettes](#Premier-Cycle-:-Lancement-et-maquettes)
-3. [Deuxième Cycle : Livraison d'une version minimaliste](#Deuxième-Cycle-:-Livraison-d'une-version-minimaliste)
+3. [Deuxième Cycle](#Deuxième-Cycle)
 4. [Troisième Cycle](#Troisième-Cycle)
 5. [Quatrième Cycle](#Quatrième-Cycle)
 
@@ -47,7 +47,7 @@ et à l'évolution du projet dans son ensemble.
 
 ***Remarque : Pour plus d'informations concernant les exigences et les cas d'utilisations, consultez les cahier des charges et le recueil des besoins [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins.md)***
 
-# Premier Cycle : Lancement et maquettes
+# Premier Cycle : Lancement du projet et version minimaliste
 
 ### Détails
 
@@ -58,10 +58,8 @@ et à l'évolution du projet dans son ensemble.
 
 >Ce premier cycle de vie, comme son nom l'indique, nous a permis de démarrer le projet
 par la rédaction du cahier des charges et du recueil de besoins (document [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins)).
-Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fournir deux maquettes pour la page d'accueil
-du site web statique. Notre client choisira l'une des deux maquettes.
-Nous fournirons également le travail de communication (sujet [ici](#documents/sujets/sujet_SAE3_communication.pdf)) qui apparaitra dans des pages du site web statique
-et, nous fournirons une maquette de la page de connexion.
+Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fournir le site web statique ainsi que les maquettes correspondantes. Notre client choisira l'une des deux maquettes.
+Nous fournirons également le travail de communication (sujet [ici](#documents/sujets/sujet_SAE3_communication.pdf)) .
 
 ### Exigences :
 Durant ce premier cycle de vie, les principaux impératifs sont les suivants :
@@ -73,17 +71,30 @@ Durant ce premier cycle de vie, les principaux impératifs sont les suivants :
 ***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
 
 ### Cas d'Utilisation :
-Ce cycle de vie ne nous a pas permis d'implémenter des cas d'utilisations. Néanmoins, il nous a permis de mettre en evidence dans le recueil des besoins, une liste des cas d'utilisations à implémenter.
-Ces cas d'utilisations seront à détailler et à implémenter durant les prochains cycles de vie.
+Ce cycle de vie s'est principalement caractérisé par le cas d'utilisation suivant :
+#### Cas 1 : Visionnage du site
+*(Il s'agit du cas 7 dans le recueil des besoins)*
+
+**Portée :** Les clients  
+**Niveau :** Objectif utilisateur  
+**Acteur :** Visiteurs  
+**Scénario :**
+* Les visiteurs visionnent la page d'accueil
+* Les visiteurs visionnent les pages pour le devoir de communication
+* Les visiteurs visionnent la page d'authentification et d'inscription
 
 ### Livrable :
-Le livrable à la fin du cycle de vie sera le début du dossier de conception qui contiendra les maquettes web ainsi que le début de la conception des autres composants de l'application.
+Le livrable à la fin du cycle de vie sera une archive de notre dépôt git. Les documents principaux qui concernent ce cycle sont :
+1. Le code source du site statique dans le dossier ([HTML](..%2F..%2Fsrc%2FHTML))
+2. Les maquettes web disponibles dans le dossier de conception ([Conception.md](Conception.md))
+3. Le dossier de test ([Tests.md](Tests.md))
+4. Le cahier des charges et le recueil des besoins ([Cahier_Des_Charges_et_Receuil_Des_Besoins.md](Cahier_Des_Charges_et_Receuil_Des_Besoins.md))
+5. Le dossier de communication pour le devoir de communication ([dossier_de_communication.pdf](..%2Ftravaux%2Fdossier_de_communication.pdf))
 
 ### Bilan :
-Ce premier cycle de vie s'est avéré fondamental pour établir les bases du projet. L'élaboration du cahier des charges et la collecte des besoins ont permis de définir clairement les objectifs du projet. La création des maquettes pour la page d'accueil et du volet communication a fourni une vitrine pour le projet, tandis que celle pour la page de connexion a permis de projeter les bases de l'authentification.
+Ce premier cycle de vie s'est avéré fondamental pour établir les bases du projet. L'élaboration du cahier des charges et la collecte des besoins ont permis de définir clairement les objectifs du projet. La création de la page d'accueil et du volet communication a fourni une vitrine pour le projet, tandis que l'introduction de la page de connexion a permis de projeter les bases de l'authentification.
 
-Il s'agit là des bases afin de développer la première version de l'application web, et qui sera développée davantage au cours des cycles de vie ultérieurs. Ce cycle de vie a jeté les fondements pour la suite du projet en éclaircissant les besoins du client. Il nous permettra de progresser et d'ajouter des fonctionnalités au fur et à mesure que le projet avancera.
-
+Il s'agit de la première itération de l'application web, qui sera développée davantage au cours des cycles de vie ultérieurs. Ce cycle de vie a jeté les fondements pour la suite du projet en fournissant une version minimale de l'application et en éclaircissant les besoins du client. Il nous permettra de progresser et d'ajouter des fonctionnalités au fur et à mesure que le projet avancera.
 
 
 # Deuxième Cycle : Livraison d'une version minimaliste
@@ -110,18 +121,7 @@ Durant ce deuxième cycle de vie, les principales exigences sont les suivantes :
 ### Cas d'Utilisation :
 Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
 
-#### Cas 1 : Visionnage du site
-*(Il s'agit du cas 7 dans le recueil des besoins)*
-
-**Portée :** Les clients  
-**Niveau :** Objectif utilisateur  
-**Acteur :** Visiteurs  
-**Scénario :**  
-* Les visiteurs visionnent la page d'accueil
-* Les visiteurs visionnent les pages pour le devoir de communication
-* Les visiteurs visionnent la page d'authentification et d'inscription
-
-#### Cas 2 : Inscription sur l'application
+#### Cas 1 : Inscription sur l'application
 *(Il s'agit du cas 4 du recueil des besoins)*
 
 **Portée :** Les clients  
@@ -132,7 +132,7 @@ Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
 * Les acteurs entrent leurs identifiants
 * Les acteurs accèdent à leur profil
 
-#### Cas 3 : Authentification à l'application
+#### Cas 2 : Authentification à l'application
 *(Il s'agit du cas 6 du recueil des besoins)*
 
 **Portée :** Les clients  
@@ -151,7 +151,6 @@ Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
 Le premier livrable sera la carte SD qui contiendra :
 * L'OS du Raspberry PI
 * Le serveur APACHE et MySQL
-* le site web statique (Version 1.1 de l'application)
 * La documentation nécessaire
 
 #### Livrable 2 : 21 novembre
@@ -163,5 +162,9 @@ Le livrable final de ce cycle de vie sera de rendre la version 1.2 de l'applicat
 ## ***A compléter !!!***
 
 # Troisième Cycle
+
+  
+
+
 
 
