@@ -9,18 +9,19 @@
 2. [Architecture générale](#Architecture-générale)
    * Figure 1 : Schémas de l'architecture générale 
    * Explications
-3. [Interface utilisateur](#Interface-utilisateur)
+3. [Site web statique](#Site-web-statique)
    * But
    * Maquettes web
 4. [Base de données](#Base-de-données)
    * Conception
    * Développement
-   * Explications avec exemples 
+   * Explications avec exemples
 5. [Raspberry PI 4](#Raspberry-PI-4)
    * Fonctionnement 
    * Carte SD 
    * Procédure
-6. Annexes
+6. [Site web dynamique](#Site-web-dynamique)
+7. [Annexes]
    * Maquettes web
    
 
@@ -181,7 +182,7 @@ garantit une gestion fluide des requêtes utilisateur, un stockage de données f
 renforcée.
 
 
-# Interface utilisateur
+# Site web statique
 ### But
 
 >L'interface utilisateur, dans le cadre du projet de plateforme de ticketing interne, a pour 
@@ -192,6 +193,10 @@ la supervision administrative, le travail des techniciens, l'accès aux informat
 les visiteurs, ainsi que la mise à disposition de ressources explicatives. Elle joue un 
 rôle central pour garantir que le processus de ticketing interne soit efficace, transparent 
 et accessible à tous les utilisateurs.
+
+***Important : Pour le site web, il a été jugé inutile de fournir un diagramme UML. Néanmoins, il sera fait et disponible avant le développement du site web dynamique***  
+
+***Note : Vous pouvez consulter les tests d'acceptation dans le dossier de test ([Tests.md](Tests.md))***
 
 ### Maquettes web
 ***Note : Toutes les maquettes web sont réalisées avec le logiciel en ligne lucidspark.***
@@ -207,10 +212,7 @@ page d'accueil vise à :
 >* Présenter l'application
 >  
 > La page d'accueil se doit donc d'être informative et conviviale, mais aussi, elle doit être axée sur l'action.
->
->***Remarque : Pour la page d'accueil, nous proposerons à notre client 2 maquettes qui respectent les points ci-dessus. Notre client devra donc choisir par préférence***
-![page_acceuil_1.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fpage_acceuil_1.jpeg)
-![page_accueil_2.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fpage_accueil_2.jpeg)
+![page_accueil.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fpage_accueil.jpeg)
 
 >**Page de connexion :** La page de connexion, bien qu'étant un formulaire simple, est très importante pour l'application.
 En effet, celle-ci permettra aux utilisateurs d'accéder à leur profil et ils ne devront rencontrer aucun problème !
