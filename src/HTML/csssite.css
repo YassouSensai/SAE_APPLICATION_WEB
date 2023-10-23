@@ -444,7 +444,10 @@ footer  p{
     align-items: center;
     justify-content: center;
     height: auto;
-    margin: 20px; /* Ajoutez une marge autour de la div */
+    margin-left: 30px;
+    margin-right: 30px;
+    /* Ajoutez une marge autour de la div */
+    margin-bottom: 100px;
 }
 
 .description-explication h5 {
