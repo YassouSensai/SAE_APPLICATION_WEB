@@ -6,8 +6,9 @@
     * But
     * Utilisation
 2. [Site web statique](#Site-web-statique)
+    * Explications
     * Structure du site
-    * Description de spages
+    * Description des pages
     * Bilan
 
 
@@ -42,12 +43,16 @@ utilisateur optimale.
 
 4. **Navigation sur le Site :** Une fois le système installé, accédez à la plateforme via un navigateur web. Explorez les fonctionnalités.
 
-Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
+>Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
 Elle sera donc mis à jour à chaque fin de cycle.
 
 
 
 # Site web statique
+
+### Explications
+>Afin de mieux connaître les spécifications pour le site web statique, consultez le dossier de spécification ([Specifications.md](Specifications.md))
+dans la partie # Premier cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie # Site web statique.
 
 ### Structure du site
 Le projet du site web statique se compose de plusieurs pages HTML qui sont liées entre elles. Voici une vue d'ensemble de la structure du projet :
