@@ -233,7 +233,7 @@ de rechargement de la page, entre autres. En résumé, le DOM agit comme une int
 contenu HTML, permettant de créer des expériences utilisateur dynamiques et réactives sur le web.
 >
 >Voici le DOM de la page d'accueil : 
-
+![arbre_DOM_page_acceuil.png](images%2FCONCEPTION%2FMaquettes_WEB%2Farbre_DOM_page_acceuil.png)
 
 ***Note: Plus tard, si nous avons le temps, le(s) DOM(s) pourra(ont) être réalisé grâce au langage JavaScript***
 
