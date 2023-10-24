@@ -471,6 +471,54 @@ footer  p{
     box-shadow: 0 0 20px 0 #ffb4a2;
 }
 
+.milieu-gauche img{
+    border-radius: 100%;
+    max-width: 200px; /* Ajustez la largeur du logo selon vos besoins */
+    height: auto;
+}
+.logo-trans {
+    text-align: center; /* Centre les éléments dans le div */
+}
+
+.logo-trans img,
+.logo-trans p {
+    display: inline; /* Affiche les éléments en ligne les uns à côté des autres */
+    margin: 0 10px; /* Ajoute une marge de 10 pixels entre les éléments pour l'espace */
+}
+
+/* Si vous voulez que le premier logo soit à gauche et le deuxième à droite */
+.logo-trans img:first-child {
+    float: left;
+}
+
+.logo-trans img:last-child {
+    float: right;
+}
+
+/* Style pour les listes avec la classe .styled-list */
+.styled-list {
+    list-style: none;
+    text-align: left;
+}
+
+.styled-list li {
+    margin-bottom: 10px;
+}
+
+.styled-list ol {
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+.styled-list h5 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.styled-list p {
+    margin: 0;
+}
+
 /* ####################################################################################################################*/
 
 /*############################################### CSS page LOGO 2 ###################################################*/
