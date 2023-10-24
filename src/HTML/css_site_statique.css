@@ -30,6 +30,7 @@ html, body {
 .nav-liens{
     text-align: right;
 }
+
 .nav-liens ul {
     list-style: none;
     padding: 0;
@@ -57,6 +58,22 @@ html, body {
 .nav-liens ul li:hover::after{
     width: 100%;                                    /* on étent la ligne à 100% en 0,5s*/
 }
+
+.nav-logos{
+    text-align: left;
+}
+.nav-logos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-logos ul li{
+    list-style: none;                               /*on enleve le style de la liste */
+    display: inline-block;                          /*on met les "li" en ligne */
+    padding: 0;
+}
+
+
 section {
     background-color: #21242f;
     display: flex;
@@ -338,7 +355,7 @@ footer  p{
 /* Ajustez le CSS de la partie "L'équipe à votre service" et "Nos engagements" si nécessaire */
 .equipe-engagements h3,
 .equipe-engagements p,
-.block1 h5,
+.block1 h2,
 .block1 p {
     background: #6d6875;
     color: white;
@@ -482,44 +499,107 @@ footer  p{
 
 .logo-trans img,
 .logo-trans p {
-    display: inline; /* Affiche les éléments en ligne les uns à côté des autres */
     margin: 0 10px; /* Ajoute une marge de 10 pixels entre les éléments pour l'espace */
 }
 
-/* Si vous voulez que le premier logo soit à gauche et le deuxième à droite */
-.logo-trans img:first-child {
-    float: left;
+/* Utilisation de media queries pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    .logo-trans {
+        flex-direction: column; /* Passe à une disposition en colonne pour les écrans plus petits */
+        text-align: center; /* Centre les éléments en colonne */
+    }
+
+    .logo-trans img,
+    .logo-trans p {
+        margin: 10px 0; /* Ajoute de la marge en haut et en bas pour espacer les éléments en colonne */
+    }
 }
 
-.logo-trans img:last-child {
-    float: right;
+
+/* Styles for the "block2" section */
+.block2-transparent {
+    margin: 20px;
+    padding: 20px;
+    background-color: transparent;
+    border: 1px solid #ffcdb2;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Style pour les listes avec la classe .styled-list */
+/* Styles for the headings (h3) */
+.block2-transparent h3 { /* Couleur du texte des titres */
+    font-size: 24px; /* Taille de la police pour les titres */
+    margin-bottom: 10px; /* Espacement en bas des titres */
+}
+
+/* Styles for the unordered list (ul) */
 .styled-list {
-    list-style: none;
-    text-align: left;
+    list-style-type: disc; /* Style de la puce de la liste */
+    margin-left: 20px; /* Marge à gauche de la liste */
 }
 
+/* Styles for list items (li) */
 .styled-list li {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espacement en bas de chaque élément de la liste */
+    line-height: 1.4; /* Hauteur de ligne pour une meilleure lisibilité */
 }
 
-.styled-list ol {
-    list-style: decimal;
-    margin-left: 20px;
+/* Styles for strong (texte fort) */
+.block2-transparent strong {
+    font-weight: bold; /* Texte fort en gras */
 }
 
-.styled-list h5 {
-    margin-top: 20px;
-    font-weight: bold;
+/* Style for the paragraph inside "block2" */
+.block2-transparent p {
+    /* Couleur du texte du paragraphe */
+    font-size: 16px; /* Taille de la police pour les paragraphes */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
 }
 
-.styled-list p {
-    margin: 0;
+
+/*############################################### CSS page générale (connexion.html)###################################################*/
+
+/* Pour centrer le formulaire */
+.container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(130, 183, 196);
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 0 auto; /* Utilisation de "auto" pour centrer horizontalement */
+    margin-top: 20px; /* Ajoute de l'espace en haut du formulaire */
 }
 
-/* ####################################################################################################################*/
 
-/*############################################### CSS page LOGO 2 ###################################################*/
-
+h2 {
+    color: #333;
+}
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box; /* Ajout de cette règle pour inclure le rembourrage dans la largeur */
+}
+input[type="text"],
+input[type="password"] {
+    max-width: calc(100% - 20px); /* Définir la largeur maximale avec un espace pour la marge */
+}
+input[type="submit"] {
+    background-color: #ffcdb2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #ffb4a2;
+}
+.form-group {
+    margin: 10px 0;
+}

@@ -39,9 +39,7 @@ utilisateur optimale.
 
 2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache. Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
 
-3. **Installation du Système :** Consultez la section "Installation" de cette documentation pour obtenir des instructions détaillées sur la mise en place du système.
-
-4. **Navigation sur le Site :** Une fois le système installé, accédez à la plateforme via un navigateur web. Explorez les fonctionnalités.
+3. **Navigation sur le Site :** Pour le moment, accédez à la plateforme via un navigateur web en exécutant la page [index.html](..%2F..%2Fsrc%2FHTML%2Findex.html). Explorez les fonctionnalités.
 
 >Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
 Elle sera donc mis à jour à chaque fin de cycle.
@@ -53,6 +51,7 @@ Elle sera donc mis à jour à chaque fin de cycle.
 ### Explications
 >Afin de mieux connaître les spécifications pour le site web statique, consultez le dossier de spécification ([Specifications.md](Specifications.md))
 dans la partie # Premier cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie # Site web statique.
+>Vous pourrez également visionner le DOM de la page d'accueil.
 
 ### Structure du site
 Le projet du site web statique se compose de plusieurs pages HTML qui sont liées entre elles. Voici une vue d'ensemble de la structure du projet :

@@ -12,6 +12,7 @@
 3. [Site web statique](#Site-web-statique)
    * But
    * Maquettes web
+   * DOM page d'accueil
 4. [Base de données](#Base-de-données)
    * Conception
    * Développement
@@ -220,6 +221,21 @@ En effet, celle-ci permettra aux utilisateurs d'accéder à leur profil et ils n
 
 ***Note : Afin de consulter les maquettes des pages web pour la communication, veuillez consulter les annexes de ce dossier***  
 ***Note : Les autres maquettes seront faites et proposées au client ultérieurement***
+
+### DOM page d'accueil
+>Le Document Object Model (DOM) d'une page HTML joue un rôle essentiel en permettant d'interagir de manière 
+dynamique avec le contenu web. Il représente la structure de la page sous forme d'une hiérarchie d'objets 
+qui sont accessibles par des langages de programmation tels que JavaScript. Le DOM offre la possibilité de 
+manipuler et de modifier le contenu, les styles et les interactions de la page en temps réel. Cette 
+fonctionnalité se révèle particulièrement précieuse pour la création de sites web interactifs, la gestion 
+des événements utilisateur, l'ajout ou la suppression d'éléments, la mise à jour de données sans nécessiter 
+de rechargement de la page, entre autres. En résumé, le DOM agit comme une interface entre le code et le 
+contenu HTML, permettant de créer des expériences utilisateur dynamiques et réactives sur le web.
+>
+>Voici le DOM de la page d'accueil : 
+
+
+***Note: Plus tard, si nous avons le temps, le(s) DOM(s) pourra(ont) être réalisé grâce au langage JavaScript***
 
 # Base de données
 ## ***REMARQUE :*** *Pour le moment, la base de données contient uniquement une seule table utilisateurs avec l'administrateur web !*
