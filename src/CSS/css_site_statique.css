@@ -172,11 +172,11 @@ footer  p{
 
 /* ####################################################################################################################*/
 
-/*############################################### CSS page générale (index.html)###################################################*/
+/*############################################### CSS page générale (index.php)###################################################*/
 .header-page-générale{
     min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/femme-touriste-attendant-train.jpg);   /*image du fond page générale*/
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/femme-touriste-attendant-train.jpg);   /*image du fond page générale*/
     background-position: center;                            /* centre l'image fond */
     background-size: cover;
     position: relative;
@@ -184,7 +184,7 @@ footer  p{
 .header-page-générale2{
     min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/architect-customer-discussing-floor-plan.jpg);   /*image du fond page générale*/
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/architect-customer-discussing-floor-plan.jpg);   /*image du fond page générale*/
     background-position: center;                            /* centre l'image fond */
     background-size: cover;
     position: relative;
@@ -192,7 +192,7 @@ footer  p{
 .header-page-générale3{
     min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/idea-editing-program-application-interface-concept.jpg);   /*image du fond page générale*/
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/idea-editing-program-application-interface-concept.jpg);   /*image du fond page générale*/
     background-position: center;                            /* centre l'image fond */
     background-size: cover;
     position: relative;
@@ -200,7 +200,7 @@ footer  p{
 .header-page-générale4{
     min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/designer-with-sketch-book.jpg);   /*image du fond page générale*/
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/designer-with-sketch-book.jpg);   /*image du fond page générale*/
     background-position: center;                            /* centre l'image fond */
     background-size: cover;
     position: relative;
@@ -557,7 +557,7 @@ footer  p{
 }
 
 
-/*############################################### CSS page générale (connexion.html)###################################################*/
+/*############################################### CSS page générale (connexion.php)###################################################*/
 
 /* Pour centrer le formulaire */
 .container {
@@ -576,8 +576,10 @@ footer  p{
 h2 {
     color: #333;
 }
+
 input[type="text"],
 input[type="password"],
+input[type="number"],
 input[type="submit"] {
     width: 100%;
     max-width: 100%;
@@ -588,7 +590,8 @@ input[type="submit"] {
     box-sizing: border-box; /* Ajout de cette règle pour inclure le rembourrage dans la largeur */
 }
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
     max-width: calc(100% - 20px); /* Définir la largeur maximale avec un espace pour la marge */
 }
 input[type="submit"] {

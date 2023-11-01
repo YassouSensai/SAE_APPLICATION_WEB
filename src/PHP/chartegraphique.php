@@ -1,45 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="css_site_statique.css">
-    <title>Charte Graphique - Plateforme de Ticketing</title>
+    <link rel="stylesheet" href="../CSS/css_site_statique.css">
+    <title>Charte Graphique</title>
     <meta charset="UTF-8">
     <meta name="description" content="Description de la charte graphique de la plateforme de ticketing de l'IUT Vélizy.">
     <meta name="keywords" content="charte graphique, palette de couleurs, typographie, formes, accessibilité">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
 </head>
 <body>
-
-<section class="header-page-générale2">
-    <nav class="nav-header">
-        <div class="nav-logos">
-            <ul>
-                <li><a href="index.html">
-                    <img class="logo-rond" src="images/logo1.png" alt="Logo de la Plateforme de Ticketing">
-                </a>
-                </li>
-                <li><a href="https://www.iut-velizy-rambouillet.uvsq.fr/">
-                    <img src="images/logo_iut.png" alt="Logo de l'IUT Vélizy">
-                </a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-liens">
-            <ul>
-                <li class="no-animation" style="color: #ffcdb2; animation: none;">CHARTE GRAPHIQUE</li>
-                <li><a href="logo1.html">LOGO 1</a></li>
-                <li><a href="logo2.html">LOGO 2</a></li>
-                <li><a href="connexion.html">CONNEXION</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="texte-header">
-        <h1>Charte Graphique - Plateforme de Ticketing</h1>
-        <p> Découvrez les directives visuelles pour une expérience utilisateur unifiée.</p>
-    </div>
-    <div class="clear"></div>
-</section>
-
+<?php
+include('../HTML/entete.html');
+?>
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
@@ -59,18 +31,18 @@
             <p>Le symbole visuel principal qui représente notre plateforme de ticketing interne est le logo. Afin de garantir une uniformité visuelle, il est essentiel d'utiliser le logo de manière cohérente dans toutes les applications et sur tous les supports. Toutefois, il peut être requis de produire différentes versions du logo pour s'adapter à divers contextes. Ci-dessous, vous trouverez les principales variations du logo :</p>
 
             <p><strong>Logo principal (voir argumentaire partie 2. Logo 2) :</strong></p>
-            <img src="images/logonontrans.png" alt="Logo principal de la plateforme">
+            <img src="../images/logonontrans.png" alt="Logo principal de la plateforme">
             <p>La version principale du logo est le symbole visuel de notre plateforme. Il doit être utilisé dans des cas d'utilisation standard sur des fonds clairs et uniformes. La couleur prédominante du logo est le corail (#ffcdb2), avec des nuances de rose et de brun.</p>
 
             <p><strong>Dans le but de développer notre marque (™ : trade-mark) :</strong></p>
-            <img src="images/logonontransTM.png" alt="Logo avec symbole TM (marque de commerce)">
+            <img src="../images/logonontransTM.png" alt="Logo avec symbole TM (marque de commerce)">
             <p>Incorporer le symbole ™ (marque de commerce) dans un logo est une pratique fréquente pour signifier que le logo est protégé en tant que marque commerciale. Cela indique que le logo est la propriété exclusive de l'entreprise et ne peut pas être utilisé par d'autres sans autorisation. En ajoutant le symbole ™, l'entreprise affirme sa revendication légale sur le logo, ce qui peut dissuader les contrefacteurs et renforcer la protection de sa marque. Il est important de noter que l'ajout du symbole ™ ne confère pas le même niveau de protection juridique qu'une marque déposée (®), mais cela reste une étape essentielle dans la préservation de l'identité visuelle de l'entreprise.</p>
             <p><strong>Logos transparents :</strong></p>
             <div class="logo-trans">
                 <p><strong>Logo principal : </strong></p>
-                <img src="images/logotrans.png" alt="Logo principal transparent de la plateforme">
+                <img src="../images/logotrans.png" alt="Logo principal transparent de la plateforme">
                 <p><strong>Logo avec ™ : </strong></p>
-                <img src="images/logotransTM.png" alt="Logo avec symbole TM transparent de la plateforme">
+                <img src="../images/logotransTM.png" alt="Logo avec symbole TM transparent de la plateforme">
 
             </div>
             <p>Lorsque le logo doit être superposé à des images ou des arrière-plans variés, utilisez la version du logo avec un fond transparent pour qu'il se fonde harmonieusement dans l'environnement visuel.</p>
@@ -82,7 +54,7 @@
                     La palette de couleurs est un élément crucial de la conception visuelle d'un site web, en effet, elle influence directement la perception et l'expérience des utilisateurs naviguant sur le site. Ainsi les palettes de couleurs que notre groupe a sélectionnés jouent un rôle essentiel dans la création d'une ambiance visuelle appropriée pour votre site web. Puisque les couleurs sont très importantes pour cette SAE, nous avons choisi d'utiliser un mélange entre 2 palettes pour que notre site soit beaucoup plus esthétique, équilibré et riche en couleurs.
                 </p>
                 <h4 style="color: #FFFFFF">Première palette de couleurs :</h4>
-                <img src="images/palette1.PNG" alt="Première palette de couleurs">
+                <img src="../images/palette1.PNG" alt="Première palette de couleurs">
                 <ul>
                     <li><span style="background-color: #FFFFFF; color: #534F59;">#ffcdb2</span>: Cette teinte douce et chaleureuse de corail apporte une touche d'accueil et de convivialité à votre site web. Elle sert à créer une atmosphère accueillante et rassurante, ce qui est essentiel pour une plateforme de ticketing interne. Les utilisateurs se sentiront à l'aise lorsqu'ils soumettent des demandes de dépannage.</li>
                     <li><span style="background-color: #FFFFFF; color: #534F59;">#ffcdb2</span>: Le rose corail plus foncé ajoute une nuance d'optimisme à la palette. Cela peut symboliser l'engagement de l'IUT à fournir un service de qualité et à résoudre les problèmes de manière efficace.</li>
@@ -91,7 +63,7 @@
                     <li><span style="background-color: #FFFFFF; color: #534F59;">#ffcdb2</span>: Le gris foncé peut être utilisé pour des éléments de texte ou de contraste. Il offre une lisibilité claire et une séparation visuelle entre les différents éléments de la page.</li>
                 </ul>
                 <h4 style="color: #FFFFFF">Deuxième palette de couleurs :</h4>
-                <img src="images/palette2.PNG" alt="Deuxième palette de couleurs">
+                <img src="../images/palette2.PNG" alt="Deuxième palette de couleurs">
                 <ul>
                     <li><span style="background-color: #FFFFFF; color: #534F59;">#ffcdb2</span>: Le bleu marine foncé représente la confiance et la stabilité. Il suggère que la plateforme est un lieu sûr pour soumettre des demandes de dépannage et que l'IUT est déterminé à les résoudre de manière fiable.</li>
                     <li><span style="background-color: #FFFFFF; color: #534F59;">#ffcdb2</span>: La nuance de violet évoque la créativité et l'innovation. Elle peut suggérer que l'IUT adopte des approches novatrices pour résoudre les problèmes.</li>
@@ -245,6 +217,10 @@
         </div>
     </div>
 </section>
+
+<?php
+include('../HTML/pied.html');
+?>
 
 <section class="footer">
     <p>Mentions Légales | Contact</p>

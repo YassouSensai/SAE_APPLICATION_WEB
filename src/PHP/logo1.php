@@ -1,48 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="css_site_statique.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="../CSS/css_site_statique.css">
+    <title>Logo 1</title>
     <meta charset="UTF-8">
     <meta name="description" content="la description du site ">
     <meta name="keywords" content="mots-clés 1  mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
 </head>
 <body>
-<section class="header-page-générale3">
-    <nav class="nav-header">
-        <div class="nav-logos">
-            <ul>
-                <li><a href="index.html">
-                    <img class="logo-rond" src="images/logo1.png" alt="logo site">
-                </a>
-                </li>
-                <li><a href="https://www.iut-velizy-rambouillet.uvsq.fr/">
-                    <img src="images/logo_iut.png" alt="logo iut">
-                </a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-liens">
-            <ul>
-                <li><a href="chartegraphique.html">CHARTE GRAPHIQUE</a></li>
-                <li class="no-animation" style="color: #ffcdb2; animation : none;">LOGO 1</li>
-                <li><a href="logo2.html">LOGO 2</a></li>
-                <li><a href="connexion.html">CONNEXION</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="texte-header">
-        <h1> Nom groupe : votre source de billets pour les équipements de l'IUT</h1>
-        <p> Obtenez vos billets pour les machines de l'IUT dès maintenant </p>
-    </div>
-    <div class="clear"></div>
-</section>
+<?php
+include('../HTML/entete.html');
+?>
 <section>
     <div class="Toute-la-page">
         <div class="milieu-gauche">
             <div class="logo-image"> <!-- Ajout d'une div pour le logo rond -->
-                <img src="images/logo1.png" alt="logo de la plateforme">
+                <img src="../images/logo1.png" alt="logo de la plateforme">
             </div>
         </div>
         <div class="milieu-droite">
@@ -86,10 +60,8 @@
     </div>
     <div class="clear"></div>
 </section>
-<footer id="footer">
-    <div class="Toute-la-page">
-        <p>&copy; 2023 Conception et réalisation par Tymchyshyn Ostap et Elkhalki Yassine et Aaron Husleag. Tous droits réservés.</p>
-    </div>
-</footer>
+<?php
+include('../HTML/pied.html');
+?>
 </body>
 </html>
