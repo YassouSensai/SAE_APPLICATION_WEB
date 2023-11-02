@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../CSS/css_site_statique.css">
-    <title>Connexion</title>
+    <title>Inscription</title>
     <meta charset="UTF-8">
     <meta name="description" content="La description du site">
     <meta name="keywords" content="mots-clés 1, mots-clés 2">
@@ -11,23 +11,28 @@
 <body>
 
 <?php
-
 include('../HTML/entete.html');
 
-if (isset($_GET['err'])){
-    echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
+if (isset($_GET['err'])) {
+    echo "<p id='error-message' style='color: red'>Une erreur s'est produite. Veuillez réessayer !</p>";
 }
 ?>
 
 <div class="container">
-    <h2>Connexion</h2>
-    <form method="post" action="../PHP/action_connexion.php">
+    <h2>Inscription</h2>
+    <form method="post" action="../PHP/action_inscription.php">
         <div class="form-group">
-            <label for="pseudo">Identifiant</label>
-            <input id="pseudo" type="text" name="pseudo" placeholder="Identifiant" required>
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" type="text" name="username" placeholder="Nom d'utilisateur" required>
+
+            <label for="mail">Adresse e-mail</label>
+            <input id="mail" type="email" name="email" placeholder="Adresse e-mail" required>
 
             <label for="password">Mot de passe</label>
             <input id="password" type="password" name="password" placeholder="Mot de passe" required>
+
+            <label for="confirm_password">Confirmer le mot de passe</label>
+            <input id="confirm_password" type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
 
             <?php
             session_start();
@@ -41,11 +46,9 @@ if (isset($_GET['err'])){
             echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
             ?>
 
-            <input style="color: #303030" type="submit" value="Se connecter">
+            <input style="color: #303030" type="submit" value="S'inscrire">
         </div>
     </form>
-
-    <p style="color: black">Pas de compte ? Inscrivez-vous <a href="inscription.php">ici</a>.</p>
 </div>
 
 <?php
@@ -59,7 +62,7 @@ include('../HTML/pied.html');
         if (errorMessage) {
             errorMessage.style.display = 'none';
         }
-    }, 5000);
+    }, 5000); // 5000 millisecondes (5 secondes)
 </script>
 
 </body>
