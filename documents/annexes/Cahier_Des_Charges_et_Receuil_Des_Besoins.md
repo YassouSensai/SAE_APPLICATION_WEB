@@ -473,7 +473,7 @@ est essentielle pour la compréhension.
       <td>(début 1 jour après t3)</td>
     </tr>
     <tr>
-      <td>t5. Création du site HTML statique + début d'une connexion grâce au serveur WEB</td>
+      <td>t5. Création du site HTML statique</td>
       <td>7</td>
       <td>4</td>
       <td>(début 1 jour après t3)</td>
@@ -482,6 +482,50 @@ est essentielle pour la compréhension.
 </table>
 
 #### Deuxième cycle de vie :
+
+>***Nom :*** Livraison de la deuxième version de l'application.  
+>***Durée :*** 3 semaines
+>
+>Voici la matrice des antécédents des tâches qui seront faites lors de ce deuxième cycle :
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th style="width: 20%;">Tâches</th>
+      <th style="width: 15%;">Durée (jours)</th>
+      <th style="width: 10%;">Niveau</th>
+      <th style="width: 55%;">Antécédents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>t7. Préparation et livraison de la carte SD</td>
+      <td>7</td>
+      <td>6</td>
+      <td>t6</td>
+    </tr>
+    <tr>
+      <td>t8. Conception + Commencer la création de la base de données</td>
+      <td>10</td>
+      <td>6</td>
+      <td>(début 1 jour après t6)</td>
+    </tr>
+    <tr>
+      <td>t9. Premier point intermédiaire</td>
+      <td>3</td>
+      <td>7</td>
+      <td>t7 (début 5 jours après le début de t8)</td>
+    </tr>
+    <tr>
+      <td>t10. Conception et création des premières pages PHP</td>
+      <td>21</td>
+      <td>8</td>
+      <td>t9 et t8 (début 1 jour après t9)</td>
+    </tr>
+</tbody>
+</table>
+
+#### Troisième cycle de vie :
 ## ***A compléter !!!***
 
 #### Matrice des antécédents
@@ -497,30 +541,6 @@ est essentielle pour la compréhension.
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>t7. Préparation et livraison des cartes SD</td>
-      <td>7</td>
-      <td>6</td>
-      <td>t6</td>
-    </tr>
-    <tr>
-      <td>t8. Conception + Création de la base de données</td>
-      <td>10</td>
-      <td>6</td>
-      <td>(début 1 jour après t6)</td>
-    </tr>
-    <tr>
-      <td>t9. Premier point intermédiaire</td>
-      <td>3</td>
-      <td>7</td>
-      <td>t7 (début 5 jours après le début de t8)</td>
-    </tr>
-    <tr>
-      <td>t10. Conception et création des pages PHP/HTML</td>
-      <td>21</td>
-      <td>8</td>
-      <td>t9 et t8 (début 1 jour après t9)</td>
-    </tr>
     <tr>
       <td>t11. Présentation en anglais</td>
       <td>5</td>

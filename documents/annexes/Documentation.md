@@ -10,6 +10,11 @@
     * Structure du site
     * Description des pages
     * Bilan
+3. [Deuxième version](#Deuxième-version)
+    * Explications
+    * Dynamisation du site web statique
+    * Implémentations
+    * Bilan
 
 
 ## 1. Introduction
@@ -46,12 +51,13 @@ Elle sera donc mis à jour à chaque fin de cycle.
 
 
 
-# Site web statique
+# Site web statique 
+***Note : Il s'agit de la première version de l'application. Les données énoncées pourront être modifiées au cours des prochains cycle de vies.***
 
 ### Explications
 >Afin de mieux connaître les spécifications pour le site web statique, consultez le dossier de spécification ([Specifications.md](Specifications.md))
 dans la partie # Premier cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie # Site web statique.
->Vous pourrez également visionner le DOM de la page d'accueil.
+>Vous pourrez aussi visionner le DOM de la page d'accueil.
 
 ### Structure du site
 Le projet du site web statique se compose de plusieurs pages HTML qui sont liées entre elles. Voici une vue d'ensemble de la structure du projet :
@@ -81,8 +87,7 @@ La page de la charte graphique détaille les choix de conception pour le site, y
 La page de connexion permet aux utilisateurs de se connecter à leur compte. Elle comprend un formulaire pour entrer le pseudo et le mot de passe.
 
 
-
 ### Bilan
 Cette documentation fournit un aperçu complet du site web statique, y compris sa structure, sa conception, et les technologies utilisées. Elle peut servir de référence pour la maintenance et les futures mises à jour du site.
 
-# ***A compléter !!!!!!!!!***
+# Deuxième version
