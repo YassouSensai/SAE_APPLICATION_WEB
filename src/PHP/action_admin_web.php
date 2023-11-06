@@ -9,9 +9,16 @@ try {
 
 session_start();
 
-if (isset($_POST['pseudo']) && isset($_POST['mot_de_passe'])) {
+if (isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['captcha'])) {
     $pseudo = $_POST['pseudo'];
     $mot_de_passe = $_POST['mot_de_passe'];
+    $captcha = $_POST['captcha'];
+
+    if (!isset($_SESSION['captcha']) || ($_SESSION['captcha'] != $captcha)) {
+        // Redirection vers la page de connexion en cas d'échec de connexion
+        header('Location: connexion.php');
+        exit();
+    }
 
     // Utilisez des requêtes préparées pour éviter les attaques par injection SQL
     $query = "SELECT * FROM utilisateur WHERE pseudo = :pseudo AND mot_de_passe = :mot_de_passe";
@@ -37,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = $_POST['action'];
         switch ($action) {
             case 'ajouter_libelle':
-                // ....
+
                 break;
 
             case 'modifier_libelle':
