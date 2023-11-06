@@ -4,7 +4,8 @@
 1. [Introduction](#Introduction)
     * Contexte
     * But
-    * Utilisation
+    * Utilisation sur un environnement classique (ex : XAMP)
+    * Utilisation sur le Raspberry PI 4
 2. [Site web statique](#Site-web-statique)
     * Explications
     * Structure du site
@@ -36,20 +37,31 @@ fonctionnalités et des informations sur la maintenance. Cette documentation a p
 de faciliter la prise en main du logiciel, d'assurer sa stabilité et de garantir une expérience 
 utilisateur optimale.
 
-### Utilisation
+### Utilisation sur un environnement classique (ex : XAMPP)
 
 1. **Clonage du Dépôt Git :** Pour accéder au code source et aux fichiers du site, commencez par cloner le dépôt Git associé à ce projet. Utilisez la commande suivante dans votre terminal (ou seulement le lien dans votre IDE) :
 
 **git clone https://github.com/YassouSensai/SAE_APPLICATION_WEB.git**
 
-2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache. Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
+2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache (**Vous pouvez très bien utiliser le logiciel XAMPP). Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
 
-3. **Navigation sur le Site :** Pour le moment, accédez à la plateforme via un navigateur web en exécutant la page [index.html](..%2F..%2Fsrc%2FHTML%2Findex.html). Explorez les fonctionnalités.
+3. **Création d'un accès à l'application :** Pour simplifier l'accès à l'application, créez un Alias nommé "start" pour démarrer le serveur Apache et accéder directement à l'application depuis votre navigateur. Pour cela, modifiez le fichier de configuration d'Apache ("httpd.conf" situé dans le dossier de configuration de XAMPP XAMPP/apache/conf) et ajoutez l'Alias suivant :
+
+'''
+Alias /start "chemin_vers_le_dossier_de_votre_application"
+<Directory "chemin_vers_le_dossier_de_votre_application">
+    Options Indexes
+    Require all granted
+</Directory>
+'''
+Il vous suffit de lancer la page index.html s'il s'agit de la première version, index.php s'il s'agit de la version 2 ou postérieure.
+
+4. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
 
 >Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
 Elle sera donc mis à jour à chaque fin de cycle.
 
-
+### Utilisation sur le Raspberry PI 4
 
 # Site web statique 
 ***Note : Il s'agit de la première version de l'application. Les données énoncées pourront être modifiées au cours des prochains cycle de vies.***
