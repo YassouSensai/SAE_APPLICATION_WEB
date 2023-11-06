@@ -47,21 +47,47 @@ utilisateur optimale.
 
 3. **Création d'un accès à l'application :** Pour simplifier l'accès à l'application, créez un Alias nommé "start" pour démarrer le serveur Apache et accéder directement à l'application depuis votre navigateur. Pour cela, modifiez le fichier de configuration d'Apache ("httpd.conf" situé dans le dossier de configuration de XAMPP XAMPP/apache/conf) et ajoutez l'Alias suivant :
 
-'''
+```apache
 Alias /start "chemin_vers_le_dossier_de_votre_application"
 <Directory "chemin_vers_le_dossier_de_votre_application">
     Options Indexes
     Require all granted
 </Directory>
-'''
+```
 Il vous suffit de lancer la page index.html s'il s'agit de la première version, index.php s'il s'agit de la version 2 ou postérieure.
 
 4. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
 
+### Utilisation sur le Raspberry PI 4
+
+1. **Insertion de la carte SD :** Premièrement, il faut insérer la carte SD dans le Raspberry PI 4 au niveau de l'emplacement prévu. Dans cette carte sd, le serveur APACHE et MariaDb(mysql) ainsi que PHP et l'application sont déjà installé sur la carte SD. Il y a également le logiciel git d'installé et un tunnel ssh configuré.
+
+2. **Vérification des services :** Avant d'essayer de lancer l'application, vérifiez que les services sont bien actifs. Ainsi, il faut éxécuter les commandes suivantes :
+
+```shell
+systemctl restart apache2;
+systemctl restart mysql;
+```
+
+Ensuite, vérifiez :
+
+```shell
+systemctl status apache2;
+systemctl status mysql;
+```
+
+3. **Lancement de l'application :** Sur le Raspberry PI 4, l'accès à l'applicationa déjà été configuré.
+
+   - **Directement sur firefox via interface graphique :** Dans la barre de recherche, entrez : *localhost/start*
+   - **Depuis une machine de l'IUT :**
+        * Connectez vous au RPI *ssh admin@adresse_IP*, un mot de passe vous sera demandé (*#SAEadmin#*)
+        * Dans lla barre de recherche du navigateur de la machine de l'IUT, entrez : adresse_IP/start
+
+4. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
+
+
 >Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
 Elle sera donc mis à jour à chaque fin de cycle.
-
-### Utilisation sur le Raspberry PI 4
 
 # Site web statique 
 ***Note : Il s'agit de la première version de l'application. Les données énoncées pourront être modifiées au cours des prochains cycle de vies.***
