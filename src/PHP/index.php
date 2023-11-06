@@ -15,7 +15,7 @@ include('../HTML/entete.html');
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
-            <div class="block2">
+            <div class="block2-transparent">
                 <h2 style="color: #FFFFFF">Explication du but de la plateforme</h2>
                 <p style="font-size: 18px; text-align: center; margin-top: 20px;">
                     Bienvenue sur notre Plateforme de Ticketing Interne ! Notre mission est de simplifier et d'améliorer le processus de gestion des demandes de dépannage dans nos salles informatiques. Que vous soyez un étudiant, un professeur ou un membre du personnel, cette plateforme a été conçue pour vous. Grâce à notre système de tickets convivial, vous pouvez soumettre facilement vos demandes, suivre leur progression et obtenir rapidement l'assistance dont vous avez besoin. Nous sommes déterminés à vous offrir une expérience informatique fluide et à résoudre vos problèmes de manière efficace. Explorez notre plateforme, regardez la vidéo de démonstration, et commencez à profiter d'un support informatique de qualité. Votre satisfaction est notre priorité !

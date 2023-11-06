@@ -1,33 +1,42 @@
-
 /*##################################### CSS Général Commun A TOUTES LES PAGES #########################################*/
-.nav-header{
+.nav-header {
     display: inline-list-item;
-    align-items: center;               /*on aligne tout ce que contient le nav-header*/
-    height: 50px;                      /*on définit la hauteur*/
+    align-items: center; /*on aligne tout ce que contient le nav-header*/
+    height: 50px; /*on définit la hauteur*/
     background-color: transparent;
     margin: 10px;
+    padding: 0;
+    border: 0;
     text-align: left;
 }
-header{
-    background-color: #21242f;  /* couleur fond  */
-    padding: 0 0 0.3em 0;       /* marge intérieure: haut, droite, bas, gauche */
-    margin: 0 0 1em 0;          /*marge extérieure: haut, droite, bas, gauche */
+
+header {
+    background-color: #21242f; /* couleur fond  */
+    padding: 0 0 0.3em 0; /* marge intérieure: haut, droite, bas, gauche */
+    margin: 0 0 1em 0; /*marge extérieure: haut, droite, bas, gauche */
 }
+
 html, body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;                /* on définit une police */
-    font-size: 1em;                                   /*on définit la taille confortable pour l'utilisateur avec "em" */
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif; /* on définit une police */
+    font-size: 1em; /*on définit la taille confortable pour l'utilisateur avec "em" */
     background-color: #21242f;
 }
-.nav-header{
-    display: flex;                                 /*on définit une boîte flexible qu'on peut modifier facilement*/
-    padding: 2% 6%;                                /*marge intérieure : vertical,horizontal  en % par rapport au nav-header*/
-    justify-content: space-between;                /*en met de l'espace entre éléments dans la flex-box */
+
+.nav-header {
+    display: flex; /*on définit une boîte flexible qu'on peut modifier facilement*/
+    padding: 2% 6%; /*marge intérieure : vertical,horizontal  en % par rapport au nav-header*/
+    justify-content: space-between; /*en met de l'espace entre éléments dans la flex-box */
 }
-.nav-header img{
-    width: 200px;                                 /*on définit une largeur d'image*/
+
+.nav-header img {
+    width: 200px; /*on définit une largeur d'image*/
 }
-.nav-liens{
+
+.nav-liens {
     text-align: right;
 }
 
@@ -36,40 +45,46 @@ html, body {
     padding: 0;
     margin: 0;
 }
-.nav-liens ul li{
-    list-style: none;                               /*on enleve le style de la liste */
-    display: inline-block;                          /*on met les "li" en ligne */
-    padding:6px 25px;
+
+.nav-liens ul li {
+    list-style: none; /*on enleve le style de la liste */
+    display: inline-block; /*on met les "li" en ligne */
+    padding: 6px 25px;
 }
-.nav-liens ul li a{
+
+.nav-liens ul li a {
     color: white;
     text-decoration: none; /* on enlève le soulignement automatique des liens  */
     font-size: 13px; /* on définit la taille des caractères */
 }
-.nav-liens ul li::after{                            /* ::after crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné */
-    content: '';                                    /*on ajoute rien en fin de li */
+
+.nav-liens ul li::after { /* ::after crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionné */
+    content: ''; /*on ajoute rien en fin de li */
     width: 0;
     height: 2px;
     background: #ffb4a2;
-    display: block;                                 /*on définit une boite en block*/
-    margin: auto;                                   /*marge extérieur automatique*/
-    transition: 0.8s;                               /*on définit un temps d'extention de la barre verte des "li"*/
-}
-.nav-liens ul li:hover::after{
-    width: 100%;                                    /* on étent la ligne à 100% en 0,5s*/
+    display: block; /*on définit une boite en block*/
+    margin: auto; /*marge extérieur automatique*/
+    transition: 0.8s; /*on définit un temps d'extention de la barre verte des "li"*/
 }
 
-.nav-logos{
+.nav-liens ul li:hover::after {
+    width: 100%; /* on étent la ligne à 100% en 0,5s*/
+}
+
+.nav-logos {
     text-align: left;
 }
+
 .nav-logos ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.nav-logos ul li{
-    list-style: none;                               /*on enleve le style de la liste */
-    display: inline-block;                          /*on met les "li" en ligne */
+
+.nav-logos ul li {
+    list-style: none; /*on enleve le style de la liste */
+    display: inline-block; /*on met les "li" en ligne */
     padding: 0;
 }
 
@@ -77,95 +92,109 @@ html, body {
 section {
     background-color: #21242f;
     display: flex;
-    flex-direction: column;                         /*organisation en colonnes*/
+    flex-direction: column; /*organisation en colonnes*/
     margin: 0;
     padding: 0;
-    min-height: 50px;                              /*on définit une hauteur minimale */
+    min-height: 50px; /*on définit une hauteur minimale */
 }
 
-.texte-header{
-    width:100%;
+.texte-header {
+    width: 100%;
     color: white;
-    position: absolute;               /*L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page.*/
-    top: 50%;                         /*  <---|                                       */
-    left: 50%;                        /*  <---|---- on centre le titre de chaque page */
-    transform: translate(-50%,-50%);  /*  <---|                                       */
+    position: absolute; /*L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page.*/
+    top: 50%; /*  <---|                                       */
+    left: 50%; /*  <---|---- on centre le titre de chaque page */
+    transform: translate(-50%, -50%); /*  <---|                                       */
     text-align: center;
 }
-.texte-header h1{
+
+.texte-header h1 {
     font-size: 35px;
 }
-.texte-header p{
-    margin:10px 0 40px;
+
+.texte-header p {
+    margin: 10px 0 40px;
     font-size: 15px;
-    color:white;                      /* on définit la couleur du texte */
+    color: white; /* on définit la couleur du texte */
 }
-h2,h3{
+
+h2, h3 {
     margin: 0;
-    padding-left: 15px;             /*marge intérieure gauche*/
+    padding-left: 15px; /*marge intérieure gauche*/
     text-decoration: none;
     text-align: left;
     color: #fcfcfc;
     font-size: 30px;
     font-family: 'Trebuchet MS', sans-serif;
-    border-left: 2px solid #ffcdb2;              /*on dessine une ligne de 2px de largeur avec une couleur à gauche de chaque tire de niveau H2 et H3 */
+    border-left: 2px solid #ffcdb2; /*on dessine une ligne de 2px de largeur avec une couleur à gauche de chaque tire de niveau H2 et H3 */
 }
-h5{
+
+h5 {
     text-align: center;
     margin: 10px 0 30px;
     font-size: 15px;
     font-family: 'Trebuchet MS', sans-serif;
-    color: #ffcdb2;                     /*une autre manière de definir une couleur dans la quelle on peut définir aussi son degré */
+    color: #ffcdb2; /*une autre manière de definir une couleur dans la quelle on peut définir aussi son degré */
     padding-left: 15px;
     text-decoration: none;
 
 }
-p{
-    line-height: 2em;                             /*hauteur de l'espace entre les lignes du texte */
+
+p {
+    line-height: 2em; /*hauteur de l'espace entre les lignes du texte */
     color: white;
     font-size: 15px;
-    padding-left: 20px;                           /*marge intérieure gauche que peut aussi etre "top","bottom","right" */
+    padding-left: 20px; /*marge intérieure gauche que peut aussi etre "top","bottom","right" */
 }
-ul{
+
+ul {
     line-height: 2em;
     color: white;
     font-size: 15px;
     padding-left: 20px;
 }
-footer{ /* zone du bas */
-    background-color: #21242f;                    /* fond */
-    border-top: 1px solid #ffb4a2;                /* bordure en haut de 1px */
-    margin: 2em 0 0 0;                            /* marge du dessus */
+
+footer { /* zone du bas */
+    background-color: #21242f; /* fond */
+    border-top: 1px solid #ffb4a2; /* bordure en haut de 1px */
+    margin: 2em 0 0 0; /* marge du dessus */
     text-align: center;
     padding: 20px 0;
 }
-footer  a{
+
+footer a {
     color: #6d6875;
 }
-footer  p{
+
+footer p {
     margin: 7px 0 0 0;
 }
-.block1{
+
+.block1 {
     background: #6d6875;
-    margin-bottom: 20%;                          /*marge de bas */
+    margin-bottom: 20%; /*marge de bas */
     padding: 20px 20px;
     border-radius: 20px;
-    box-sizing: border-box;                      /*box-sizing indique que l’on souhaite inclure les marges internes et les bordures dans le calcul de la taille d’un élément.(s'applique la boite contenant le contenu + le padding + les bordures)*/
+    box-sizing: border-box; /*box-sizing indique que l’on souhaite inclure les marges internes et les bordures dans le calcul de la taille d’un élément.(s'applique la boite contenant le contenu + le padding + les bordures)*/
     transition: 0.5s;
     margin-right: 5%;
     margin-left: -100px;
-}                                                /* Block qui se partage que avec les pages : -page générale et -page Planning de voyage*/
+}
 
-.block1:hover{
-    box-shadow: 0 0 20px 0 #ffb4a2;    /* ajoute une ombre lorsqu'on met le curseur sur le block1 */
+/* Block qui se partage que avec les pages : -page générale et -page Planning de voyage*/
+
+.block1:hover {
+    box-shadow: 0 0 20px 0 #ffb4a2; /* ajoute une ombre lorsqu'on met le curseur sur le block1 */
 }
-.block1 a{
+
+.block1 a {
     color: white;
-    text-decoration: underline;              /*on sousligne les liens hypertext */
-    font-size: 13px;                         /*on défini la taille des liens hypertext*/
+    text-decoration: underline; /*on sousligne les liens hypertext */
+    font-size: 13px; /*on défini la taille des liens hypertext*/
 }
-@media(max-width: 700px){
-    .milieu-droite{
+
+@media (max-width: 700px) {
+    .milieu-droite {
         flex-direction: column;
     }
 }
@@ -173,24 +202,26 @@ footer  p{
 /* ####################################################################################################################*/
 
 /*############################################### CSS page générale (index.php)###################################################*/
-.header-page-générale{
-    min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
+.header-page-générale {
+    min-height: 60vh; /* vh : 1% de la hauteur de la zone d'affichage */
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/femme-touriste-attendant-train.jpg);   /*image du fond page générale*/
-    background-position: center;                            /* centre l'image fond */
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/femme-touriste-attendant-train.jpg); /*image du fond page générale*/
+    background-position: center; /* centre l'image fond */
     background-size: cover;
     position: relative;
 }
-.milieu-gauche{
-    float: left;                             /*la position de la div est désormais à gauche */
+
+.milieu-gauche {
+    float: left; /*la position de la div est désormais à gauche */
     width: 60%;
     margin: 1.5em 0 1.5em 0;
     background: #21242f;
 }
-.milieu-gauche{
+
+.milieu-gauche {
     width: 50%;
-    text-align:left;
-    padding-top:60px;
+    text-align: left;
+    padding-top: 60px;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -202,6 +233,7 @@ footer  p{
 .logo-explication {
     margin-bottom: 20px;
 }
+
 /* Ajustement de la taille du logo */
 .logo-explication img {
     border-radius: 100%;
@@ -223,14 +255,18 @@ footer  p{
     color: white;
     font-family: 'Arial', sans-serif; /* Police de caractères */
 }
-.texte-logo:hover{
+
+.texte-logo:hover {
     box-shadow: 0 0 20px 0 #ffcdb2;
 }
-@media(max-width: 700px){                   /* @media permet d'appliquer une partie d'une feuille de styles en fonction du résultat d'une ou plusieurs requêtes média (requetes marchent que si @media est verifié)*/
-    .milieu-gauche{
+
+@media (max-width: 700px) {
+    /* @media permet d'appliquer une partie d'une feuille de styles en fonction du résultat d'une ou plusieurs requêtes média (requetes marchent que si @media est verifié)*/
+    .milieu-gauche {
         flex-direction: column;
     }
 }
+
 .texte-logo h3 {
     font-size: 24px; /* Taille de la police pour le titre */
     margin-bottom: 10px; /* Marge inférieure pour séparer du texte */
@@ -254,14 +290,15 @@ footer  p{
 }
 
 
-.milieu-droite{
-    float: right;                          /* la position de la div est désormais à droite(droite de millieu position) */
+.milieu-droite {
+    float: right; /* la position de la div est désormais à droite(droite de millieu position) */
     width: 35%;
     margin: 1.5em 0 1.5em 0;
     background: #21242f;
 }
-.milieu-droite{
-    margin-top:5%;
+
+.milieu-droite {
+    margin-top: 5%;
     display: block;
     justify-content: space-between;
 }
@@ -271,8 +308,9 @@ footer  p{
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
 }
-.bas-page{
-    display: inline-block;                   /* on met les éléments en ligne-block au sein de la div */
+
+.bas-page {
+    display: inline-block; /* on met les éléments en ligne-block au sein de la div */
 }
 
 .block2 {
@@ -306,18 +344,22 @@ footer  p{
     margin-top: 20px;
 }
 
-.block2:hover{
+.block2:hover {
     box-shadow: 0 0 20px 0 #ffb4a2;
 }
-@media(max-width: 700px){                   /* @media permet d'appliquer une partie d'une feuille de styles en fonction du résultat d'une ou plusieurs requêtes média (requetes marchent que si @media est verifié)*/
-    .milieu-droite{
+
+@media (max-width: 700px) {
+    /* @media permet d'appliquer une partie d'une feuille de styles en fonction du résultat d'une ou plusieurs requêtes média (requetes marchent que si @media est verifié)*/
+    .milieu-droite {
         flex-direction: column;
     }
 }
-.block1 img{
+
+.block1 img {
     height: 100%;
     width: 50%;
 }
+
 .logo-rond {
     display: flex;
     border-radius: 100%;
@@ -358,6 +400,7 @@ footer  p{
     transition: none;
     text-decoration: none;
 }
+
 /* Ajustement de la taille du logo */
 .images-couleurs img {
     max-width: 100%; /* Ajustez la largeur de l'image en fonction de la largeur de la section */
@@ -419,6 +462,7 @@ footer  p{
 .logo-image {
     margin-bottom: 20px;
 }
+
 /* Ajustement de la taille du logo */
 .logo-image img {
     border-radius: 100%;
@@ -460,15 +504,16 @@ footer  p{
     margin-top: 20px;
 }
 
-.description-explication:hover{
+.description-explication:hover {
     box-shadow: 0 0 20px 0 #ffb4a2;
 }
 
-.milieu-gauche img{
+.milieu-gauche img {
     border-radius: 100%;
     max-width: 200px; /* Ajustez la largeur du logo selon vos besoins */
     height: auto;
 }
+
 .logo-trans {
     text-align: center; /* Centre les éléments dans le div */
 }
@@ -566,34 +611,41 @@ input[type="submit"] {
     border-radius: 10px;
     box-sizing: border-box; /* Ajout de cette règle pour inclure le rembourrage dans la largeur */
 }
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"] {
     max-width: calc(100% - 20px); /* Définir la largeur maximale avec un espace pour la marge */
 }
+
 input[type="submit"] {
     background-color: #ffcdb2;
     color: #fff;
     border: none;
     cursor: pointer;
 }
+
 input[type="submit"]:hover {
     background-color: #ffb4a2;
 }
+
 .form-group {
     margin: 10px 0;
 }
+
 #error-message {
-    color: red;
+    color: #ad3333;
     position: absolute;
-    top: 50%;
+    bottom: 15vh;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
+
+
 /* Nouveau style pour la page de connexion */
 .header-page-connexion {
-    min-height: calc(100vh - 100px);  /* Ajustez la valeur selon vos besoins */
+    min-height: calc(100vh - 100px); /* Ajustez la valeur selon vos besoins */
     width: 100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/image-page-conexion.jpg);
     background-position: center;

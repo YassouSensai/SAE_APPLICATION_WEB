@@ -15,7 +15,7 @@ include('../HTML/entete.html');
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
-            <div class="block2">
+            <div class="block2-transparent">
                 <h2 style="color: #FFFFFF">Présentation de la charte graphique</h2>
                 <p>Une charte graphique est un ensemble de directives visuelles et stylistiques essentielles pour guider la conception visuelle d'un projet, en l'occurrence, la plateforme de ticketing interne développée pour notre IUT (IUT Vélizy). Cette charte a pour but de définir l'identité visuelle de la plateforme en déterminant les couleurs, les polices de caractères, la mise en page, les éléments de navigation, et bien d'autres aspects visuels. Elle assure la cohérence et l'harmonie de l'ensemble, garantissant ainsi une expérience utilisateur unifiée.</p>
             </div>

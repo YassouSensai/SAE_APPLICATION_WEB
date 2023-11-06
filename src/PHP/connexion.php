@@ -32,11 +32,7 @@
             </ul>
         </div>
     </nav>
-    <?php
-    if (isset($_GET['err'])){
-        echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
-    }
-    ?>
+
     <div class="background-container">
         <div class="container">
             <h2>Connexion</h2>
@@ -65,17 +61,21 @@
             <p style="color: black">Pas de compte ? Inscrivez-vous <a href="inscription.php">ici</a>.</p>
         </div>
     </div>
-
-    <script>
-        // Code JavaScript pour cacher le message d'erreur après quelques secondes
-        setTimeout(function() {
-            var errorMessage = document.getElementById('error-message');
-            if (errorMessage) {
-                errorMessage.style.display = 'none';
-            }
-        }, 5000);
-    </script>
 </section>
+<?php
+if (isset($_GET['err'])){
+    echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
+}
+?>
+<script>
+    // Code JavaScript pour cacher le message d'erreur après quelques secondes
+    setTimeout(function() {
+        var errorMessage = document.getElementById('error-message');
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+    }, 5000);
+</script>
 <?php
 include('../HTML/pied.html');
 ?>
