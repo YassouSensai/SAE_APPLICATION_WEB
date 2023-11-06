@@ -590,7 +590,8 @@ footer p {
     border-radius: 15px;
     text-align: center;
     margin: 0 auto; /* Utilisation de "auto" pour centrer horizontalement */
-    margin-top: 20px; /* Ajoute de l'espace en haut du formulaire */
+    margin-top: 20vh; /* Ajoute de l'espace en haut du formulaire */
+    margin-bottom: 20vh;
 }
 
 
@@ -637,10 +638,17 @@ input[type="submit"]:hover {
 #error-message {
     color: #ad3333;
     position: absolute;
-    bottom: 15vh;
+    bottom: 0;  /* Le message s'affiche en bas du conteneur */
     left: 50%;
     transform: translateX(-50%);
+    padding: 10px;  /* Ajoutez du padding pour l'espacement du message */
+    margin: 0;  /* Supprimez la marge par défaut */
+    background-color: #fff;  /* Ajoutez un arrière-plan pour améliorer la lisibilité */
+    border-radius: 5px;  /* Arrondi les coins du message */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Ajoute une ombre pour la mise en évidence */
 }
+
+
 
 
 /* Nouveau style pour la page de connexion */
