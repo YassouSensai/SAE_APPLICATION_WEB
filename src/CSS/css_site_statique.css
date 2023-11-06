@@ -181,30 +181,6 @@ footer  p{
     background-size: cover;
     position: relative;
 }
-.header-page-générale2{
-    min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
-    width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/architect-customer-discussing-floor-plan.jpg);   /*image du fond page générale*/
-    background-position: center;                            /* centre l'image fond */
-    background-size: cover;
-    position: relative;
-}
-.header-page-générale3{
-    min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
-    width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/idea-editing-program-application-interface-concept.jpg);   /*image du fond page générale*/
-    background-position: center;                            /* centre l'image fond */
-    background-size: cover;
-    position: relative;
-}
-.header-page-générale4{
-    min-height: 60vh;                                    /* vh : 1% de la hauteur de la zone d'affichage */
-    width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/designer-with-sketch-book.jpg);   /*image du fond page générale*/
-    background-position: center;                            /* centre l'image fond */
-    background-size: cover;
-    position: relative;
-}
 .milieu-gauche{
     float: left;                             /*la position de la div est désormais à gauche */
     width: 60%;
@@ -608,3 +584,25 @@ input[type="submit"]:hover {
 .form-group {
     margin: 10px 0;
 }
+#error-message {
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Nouveau style pour la page de connexion */
+.header-page-connexion {
+    min-height: calc(100vh - 100px);  /* Ajustez la valeur selon vos besoins */
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/image-page-conexion.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+
+.header-page-connexion .texte-header {
+    padding: 10% 0; /* Marge intérieure pour centrer le contenu */
+}
+

@@ -12,7 +12,6 @@
 <?php
 include('../HTML/entete.html');
 ?>
-
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
