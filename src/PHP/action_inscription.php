@@ -6,8 +6,10 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])){
     $nb2 = $_SESSION['nb2'];
     $result = $nb1 * $nb2;
 
-    if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['captcha'])){
+    if (isset($_POST['username']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['captcha'])){
         $username = $_POST['username'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];

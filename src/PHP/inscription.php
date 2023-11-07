@@ -40,6 +40,12 @@
                     <label for="username">Nom d'utilisateur</label>
                     <input id="username" type="text" name="username" placeholder="Nom d'utilisateur" required>
 
+                    <label for="nom">Nom</label>
+                    <input id="nom" type="text" name="nom" placeholder="Nom" required>
+
+                    <label for="prenom">Prénom</label>
+                    <input id="prenom" type="text" name="prenom" placeholder="Prénom" required>
+
                     <label for="mail">Adresse e-mail</label>
                     <input id="mail" type="email" name="email" placeholder="Adresse e-mail" required>
 
