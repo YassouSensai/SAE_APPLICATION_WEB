@@ -35,7 +35,6 @@
 -- Supprimer les tables si elles existent :
 DROP TABLE AdresseIP;
 DROP TABLE HistoriqueTickets;
-DROP TABLE JournalActivite;
 DROP TABLE NiveauUrgence;
 DROP TABLE StatutTicket;
 DROP TABLE CategorieProbleme;
@@ -126,18 +125,6 @@ CREATE TABLE Ticket (
     nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
     CHECK (nv_urgence_tic IN (1, 2, 3, 4))
 );
-
--- Table Journaux d'Activité :
-CREATE TABLE JournalActivite (
-    id_journact INTEGER PRIMARY KEY,
-    dateheure_journact DATE DEFAULT CURRENT_DATE NOT NULL,
-    IP_journact VARCHAR(15) NOT NULL,
-    utilis_asso_journact INTEGER NOT NULL REFERENCES Utilisateur(id_util),
-    tic_asso_journact INTEGER NOT NULL REFERENCES Ticket(id_tic),
-    nv_urgence_asso_journact INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
-);
-
-
 --TESTS:
 
 -- Insérer des données fictives dans la table Utilisateur
@@ -186,13 +173,6 @@ VALUES (1, 'Problème 1', 1, 1, 1, 3, CURRENT_DATE),
        (2, 'Problème 2', 2, 2, 1, 2, CURRENT_DATE),
        (3, 'Problème 3', 3, 1, 3, 1, CURRENT_DATE);
 
-
--- Insérer des données fictives dans la table JournalActivite
-INSERT INTO JournalActivite (id_journact, dateheure_journact, IP_journact, utilis_asso_journact, tic_asso_journact, nv_urgence_asso_journact) VALUES
-(1, '2023-11-02', '192.168.0.1', 1, 1, 3),
-(2, '2023-11-03', '192.168.0.2', 2, 2, 2),
-(3, '2023-11-04', '192.168.0.3', 3, 1, 1);
-
 -- Insérer des données fictives dans la table HistoriqueTickets
 INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
 (1, 1),
@@ -221,7 +201,6 @@ SELECT * FROM Ticket;
 SELECT * FROM CategorieProbleme;
 SELECT * FROM StatutTicket;
 SELECT * FROM NiveauUrgence;
-SELECT * FROM JournalActivite;
 SELECT * FROM HistoriqueTickets;
 SELECT * FROM AdresseIP;
 
