@@ -20,7 +20,7 @@
 5. [Raspberry PI 4](#Raspberry-PI-4)
    * Fonctionnement 
    * Carte SD 
-   * Procédure
+   * UML compos
 6. [Site web dynamique](#Site-web-dynamique)
 7. [Annexes](#Annexes)
    * Maquettes web
@@ -233,7 +233,7 @@ de rechargement de la page, entre autres. En résumé, le DOM agit comme une int
 contenu HTML, permettant de créer des expériences utilisateur dynamiques et réactives sur le web.
 >
 >Voici le DOM de la page d'accueil : 
-
+![arbre_DOM_page_acceuil.png](images%2FCONCEPTION%2FMaquettes_WEB%2Farbre_DOM_page_acceuil.png)
 
 ***Note: Plus tard, si nous avons le temps, le(s) DOM(s) pourra(ont) être réalisé grâce au langage JavaScript***
 
@@ -245,16 +245,19 @@ contenu HTML, permettant de créer des expériences utilisateur dynamiques et r�
 
 ### Fonctionnement
 
->Pour ce projet, il nous a été demandé de fournir une carte SD qui contiendra les éléments suivants :
->1. **Raspberry PI OS :** Le système d'exploitation 
+>Nous fournirons une carte SD préparée pour être insérée dans le Raspberry Pi 4. Une fois la carte SD installée, notre équipe aura un accès sécurisé via un tunnel SSH (Secure Shell) pour effectuer des mises à jour du code source directement depuis les machines de l'IUT. Cette configuration permet une gestion aisée de l'application et garantit que les dernières mises à jour et améliorations peuvent être appliquées en toute simplicité. Notre objectif est de simplifier le processus d'installation et de maintenance de l'application, offrant ainsi une expérience agréable à notre client.
+
+### Carte SD
+
+>Pour ce projet, il nous a donc été demandé de fournir une carte SD qui contiendra les éléments suivants :
+>1. **Raspberry PI OS :** Le système d'exploitation
 >2. **APACHE :** Le serveur WEB qui permettra de démarrer l'application
->3. **Le code source :** Afin de pouvoir avoir accès à l'application
+>3. **MariaDB :** Le serveur de bases de données
+>4. **Le code source :** Afin de pouvoir avoir démarrer l'application
+>5. **Git :** L'outil de versionnage et de collaboration qui nous permet de développer l'application, et qui nous permettra de mettre à jour l'application.
 
-## ***A compléter !!!***
+***Note : La carte SD sera insérée dans un Raspberry PI 4 par M. Hoguin qui nous fournira l'adresse IP correspondante. ce qui nous permettra de se connecter grâce au tunnel ssh, et ainsi, mettre le code source de l'application à jour.***
 
-# Carte SD
-
-Nous fournissons une carte SD préparée pour être insérée dans le Raspberry Pi 4. Une fois la carte SD installée, notre équipe aura un accès sécurisé via un tunnel SSH (Secure Shell) pour effectuer des mises à jour du code source directement depuis les machines de l'IUT. Cette configuration permet une gestion aisée de l'application et garantit que les dernières mises à jour et améliorations peuvent être appliquées en toute simplicité. Notre objectif est de simplifier le processus d'installation et de maintenance de l'application, offrant ainsi une expérience agréable à notre client.
 
 ## ***A compléter !!!***
 # Annexes 

@@ -4,11 +4,17 @@
 1. [Introduction](#Introduction)
     * Contexte
     * But
-    * Utilisation
+    * Utilisation sur un environnement classique (ex : XAMP)
+    * Utilisation sur le Raspberry PI 4
 2. [Site web statique](#Site-web-statique)
     * Explications
     * Structure du site
     * Description des pages
+    * Bilan
+3. [Deuxième version](#Deuxième-version)
+    * Explications
+    * Dynamisation du site web statique
+    * Implémentations
     * Bilan
 
 
@@ -31,27 +37,65 @@ fonctionnalités et des informations sur la maintenance. Cette documentation a p
 de faciliter la prise en main du logiciel, d'assurer sa stabilité et de garantir une expérience 
 utilisateur optimale.
 
-### Utilisation
+### Utilisation sur un environnement classique (ex : XAMPP)
 
 1. **Clonage du Dépôt Git :** Pour accéder au code source et aux fichiers du site, commencez par cloner le dépôt Git associé à ce projet. Utilisez la commande suivante dans votre terminal (ou seulement le lien dans votre IDE) :
 
 **git clone https://github.com/YassouSensai/SAE_APPLICATION_WEB.git**
 
-2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache. Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
+2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache (**Vous pouvez très bien utiliser le logiciel XAMPP). Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
 
-3. **Navigation sur le Site :** Pour le moment, accédez à la plateforme via un navigateur web en exécutant la page [index.html](..%2F..%2Fsrc%2FHTML%2Findex.html). Explorez les fonctionnalités.
+3. **Création d'un accès à l'application :** Pour simplifier l'accès à l'application, créez un Alias nommé "start" pour démarrer le serveur Apache et accéder directement à l'application depuis votre navigateur. Pour cela, modifiez le fichier de configuration d'Apache ("httpd.conf" situé dans le dossier de configuration de XAMPP XAMPP/apache/conf) et ajoutez l'Alias suivant :
+
+```apache
+Alias /start "chemin_vers_le_dossier_de_votre_application"
+<Directory "chemin_vers_le_dossier_de_votre_application">
+    Options Indexes
+    Require all granted
+</Directory>
+```
+Il vous suffit de lancer la page index.html s'il s'agit de la première version, index.php s'il s'agit de la version 2 ou postérieure.
+
+4. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
+
+### Utilisation sur le Raspberry PI 4
+
+1. **Insertion de la carte SD :** Premièrement, il faut insérer la carte SD dans le Raspberry PI 4 au niveau de l'emplacement prévu. Dans cette carte sd, le serveur APACHE et MariaDb(mysql) ainsi que PHP et l'application sont déjà installé sur la carte SD. Il y a également le logiciel git d'installé et un tunnel ssh configuré.
+
+2. **Vérification des services :** Avant d'essayer de lancer l'application, vérifiez que les services sont bien actifs. Ainsi, il faut éxécuter les commandes suivantes :
+
+```shell
+systemctl restart apache2;
+systemctl restart mysql;
+```
+
+Ensuite, vérifiez :
+
+```shell
+systemctl status apache2;
+systemctl status mysql;
+```
+
+3. **Lancement de l'application :** Sur le Raspberry PI 4, l'accès à l'applicationa déjà été configuré.
+
+   - **Directement sur firefox via interface graphique :** Dans la barre de recherche, entrez : *localhost/start*
+   - **Depuis une machine de l'IUT :**
+        * Connectez vous au RPI *ssh admin@adresse_IP*, un mot de passe vous sera demandé (*#SAEadmin#*)
+        * Dans lla barre de recherche du navigateur de la machine de l'IUT, entrez : adresse_IP/start
+
+4. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
+
 
 >Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
 Elle sera donc mis à jour à chaque fin de cycle.
 
-
-
-# Site web statique
+# Site web statique 
+***Note : Il s'agit de la première version de l'application. Les données énoncées pourront être modifiées au cours des prochains cycle de vies.***
 
 ### Explications
 >Afin de mieux connaître les spécifications pour le site web statique, consultez le dossier de spécification ([Specifications.md](Specifications.md))
 dans la partie # Premier cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie # Site web statique.
->Vous pourrez également visionner le DOM de la page d'accueil.
+>Vous pourrez aussi visionner le DOM de la page d'accueil.
 
 ### Structure du site
 Le projet du site web statique se compose de plusieurs pages HTML qui sont liées entre elles. Voici une vue d'ensemble de la structure du projet :
@@ -81,8 +125,7 @@ La page de la charte graphique détaille les choix de conception pour le site, y
 La page de connexion permet aux utilisateurs de se connecter à leur compte. Elle comprend un formulaire pour entrer le pseudo et le mot de passe.
 
 
-
 ### Bilan
 Cette documentation fournit un aperçu complet du site web statique, y compris sa structure, sa conception, et les technologies utilisées. Elle peut servir de référence pour la maintenance et les futures mises à jour du site.
 
-# ***A compléter !!!!!!!!!***
+# Deuxième version

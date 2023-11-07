@@ -34,4 +34,4 @@ Le projet est organisé comme suit :
 >Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
 Elle sera donc mis à jour à chaque fin de cycle.
 
-Nous espérons que ce README.md vous fournisse des informations de base sur le projet et son organisation. N'hésitez pas à le personnaliser davantage en fonction de vos besoins spécifiques.
+Nous espérons que ce README.md vous fournisse des informations de base sur le projet et son organisation. 

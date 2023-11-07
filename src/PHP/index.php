@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="css_site_statique.css">
+    <link rel="stylesheet" href="../CSS/css_site_statique.css">
     <title>Title</title>
     <meta charset="utf-8">
     <meta name="description" content="la description du site">
@@ -9,43 +9,18 @@
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
 </head>
 <body>
-<section class="header-page-générale">
-    <nav class="nav-header">
-        <div class="nav-logos">
-            <ul>
-                <li><a href="index.html">
-                    <img class="logo-rond" src="images/logo1.png" alt="logo site">
-                </a>
-                </li>
-                <li><a href="https://www.iut-velizy-rambouillet.uvsq.fr/">
-                    <img src="images/logo_iut.png" alt="logo iut">
-                </a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-liens">
-            <ul>
-                <li><a href="chartegraphique.html">CHARTE GRAPHIQUE</a></li>
-                <li><a href="logo1.html">LOGO 1</a></li>
-                <li><a href="logo2.html">LOGO 2</a></li>
-                <li><a href="connexion.html">CONNEXION</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="texte-header">
-        <h1> Nom groupe : votre source de billets pour les équipements de l'IUT</h1>
-        <p>Obtenez vos billets pour les machines de l'IUT dès maintenant</p>
-    </div>
-</section>
+<?php
+include('../HTML/entete.html');
+?>
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
-            <div class="block2">
+            <div class="block2-transparent">
                 <h2 style="color: #FFFFFF">Explication du but de la plateforme</h2>
                 <p style="font-size: 18px; text-align: center; margin-top: 20px;">
                     Bienvenue sur notre Plateforme de Ticketing Interne ! Notre mission est de simplifier et d'améliorer le processus de gestion des demandes de dépannage dans nos salles informatiques. Que vous soyez un étudiant, un professeur ou un membre du personnel, cette plateforme a été conçue pour vous. Grâce à notre système de tickets convivial, vous pouvez soumettre facilement vos demandes, suivre leur progression et obtenir rapidement l'assistance dont vous avez besoin. Nous sommes déterminés à vous offrir une expérience informatique fluide et à résoudre vos problèmes de manière efficace. Explorez notre plateforme, regardez la vidéo de démonstration, et commencez à profiter d'un support informatique de qualité. Votre satisfaction est notre priorité !
                 </p>
-                <a style="color: #FFFFFF" href="chartegraphique.html">Consultez la charte graphique</a>
+                <a style="color: #FFFFFF" href="chartegraphique.php">Consultez la charte graphique</a>
             </div>
         </div>
     </div>
@@ -55,7 +30,7 @@
         <div class="bas-page">
             <div class="block2">
                 <video style="max-width: 75%; height: auto" controls>
-                    <source src="images/video.mp4" type="video/mp4" alt="future vidéo d'explication">
+                    <source src="../images/video.mp4" type="video/mp4" alt="future vidéo d'explication">
                 </video>
                 <br>
                 <br>
@@ -68,10 +43,8 @@
         </div>
     </div>
 </section>
-<footer id="footer">
-    <div class="Toute-la-page">
-        <p>© 2023 Conception et réalisation par Tymchyshyn Ostap, Elkhalki Yassine et Aaron Husleag. Tous droits réservés.</p>
-    </div>
-</footer>
+<?php
+include('../HTML/pied.html');
+?>
 </body>
 </html>

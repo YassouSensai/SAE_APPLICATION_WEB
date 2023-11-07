@@ -6,7 +6,7 @@
     * Objectif
     * Contenu du dossier de spécifications
 2. [Premier Cycle : Lancement et maquettes](#Premier-Cycle-:-Lancement-et-maquettes)
-3. [Deuxième Cycle](#Deuxième-Cycle)
+3. [Deuxième Cycle : Livraison d'une version minimaliste](#Deuxième-Cycle-:-Livraison-d'une-version-minimaliste)
 4. [Troisième Cycle](#Troisième-Cycle)
 5. [Quatrième Cycle](#Quatrième-Cycle)
 
@@ -51,14 +51,14 @@ et à l'évolution du projet dans son ensemble.
 
 ### Détails
 
-***Nom :*** Lancement du projet et Livraison des maquettes au client  
+***Nom :*** Lancement du projet et Livraison du site statique
 ***Début :*** 25 septembre 2023  
 ***Fin :*** 22 octobre 2023  
 ***Livraison :*** 23 octobre 2023
 
 >Ce premier cycle de vie, comme son nom l'indique, nous a permis de démarrer le projet
 par la rédaction du cahier des charges et du recueil de besoins (document [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins)).
-Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fournir le site web statique ainsi que les maquettes correspondantes. Notre client choisira l'une des deux maquettes.
+Ainsi, en accord avec le client, le but de ce premier cycle de vie est de fournir le site web statique ainsi que les maquettes correspondantes.
 Nous fournirons également le travail de communication (sujet [ici](#documents/sujets/sujet_SAE3_communication.pdf)) .
 
 ### Exigences :
@@ -101,10 +101,10 @@ Il s'agit de la première itération de l'application web, qui sera développée
 
 ### Détails
 
-***Nom :*** Livraison de la première version de l'application (simplifiée)  
+***Nom :*** Livraison de la deuxième version de l'application.  
 ***Début :*** 23 octobre 2023  
-***Fin :*** 20 novembre 2023  
-***Livraison :*** 6 et 21 novembre 2023
+***Fin :*** 12 novembre 2023  
+***Livraison :*** 13 novembre 2023
 
 >Ce deuxième cycle nous permettra de démarrer le développement de l'application en implémentant certains cas d'utilisations.
 > Il nous permettra également de préparer le seul livrable matériel nécessaire pour notre client.
@@ -112,7 +112,7 @@ Il s'agit de la première itération de l'application web, qui sera développée
 ### Exigences :
 Durant ce deuxième cycle de vie, les principales exigences sont les suivantes :
 - Faire toutes les installations sur la carte sd.
-- Concevoir la base de données.
+- Concevoir et commencer le développement de la base de données.
 - Finir le développement des pages HTML. (*Remarque : ici, finir veut dire que si des modifications doivent être apportées, ces modifications pourront être faites*)
 - Commencer le développement des pages PHP.
 
@@ -121,7 +121,7 @@ Durant ce deuxième cycle de vie, les principales exigences sont les suivantes :
 ### Cas d'Utilisation :
 Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
 
-#### Cas 1 : Inscription sur l'application
+#### Cas 1 : Authentification à l'application
 *(Il s'agit du cas 4 du recueil des besoins)*
 
 **Portée :** Les clients  
@@ -132,7 +132,7 @@ Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
 * Les acteurs entrent leurs identifiants
 * Les acteurs accèdent à leur profil
 
-#### Cas 2 : Authentification à l'application
+#### Cas 2 : Inscription sur l'application
 *(Il s'agit du cas 6 du recueil des besoins)*
 
 **Portée :** Les clients  
@@ -146,16 +146,13 @@ Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
 
 
 
-### Livrable :
-#### Livrable 1 : 6 novembre
-Le premier livrable sera la carte SD qui contiendra :
+### Livrable : 13 novembre
+Le livrable sera la carte SD qui contiendra :
 * L'OS du Raspberry PI
 * Le serveur APACHE et MySQL
 * La documentation nécessaire
 
-#### Livrable 2 : 21 novembre
-Le livrable final de ce cycle de vie sera de rendre la version 1.2 de l'application avec les cas d'utilisation implémentés.
-
+Ainsi que la version 2 de l'application avec les cas d'utilisation implémentés.
 
 ### Bilan :
 
@@ -163,7 +160,23 @@ Le livrable final de ce cycle de vie sera de rendre la version 1.2 de l'applicat
 
 # Troisième Cycle
 
-  
+### Détails
+
+***Nom :*** Livraison de la troisième version de l'application.  
+***Début :*** 13 octobre 2023  
+***Fin :*** 11 décembre 2023  
+***Livraison :*** 12 décembre 2023
+
+>L'objectif de ce troisième cycle de vie est de parachever les cas d'utilisations manquants afin de livrer 
+>une troisième version de l'application web. En effet, nous commencerons le développement des cas d'utilisations manquants
+>et proposerons une version qui se rapproche le plus possible de la version définitive.
+
+### Exigences
+
+Durant ce troisième cycle de vie, les principales exigences sont les suivantes :
+- Terminer le développement de la base de données.
+- Commencer à sécuriser l'application
+- Développer les pages php pour l'implémentation des cas d'utilisations.
 
 
 
