@@ -123,8 +123,24 @@ CREATE TABLE Ticket (
     tech_charge_tic INTEGER NOT NULL REFERENCES Technicien(id_tech),
     status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
     nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
-    CHECK (nv_urgence_tic IN (1, 2, 3, 4))
 );
+
+--TRIGGERS :
+DELIMITER //
+
+CREATE TRIGGER trig_check_urgence
+    BEFORE INSERT ON Ticket
+    FOR EACH ROW
+BEGIN
+    IF NOT NEW.nv_urgence_tic IN (1, 2, 3, 4) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La valeur de nv_urgence_tic doit être entre 1 et 4';
+END IF;
+END;
+//
+
+DELIMITER ;
+
+
 --TESTS:
 
 -- Insérer des données fictives dans la table Utilisateur
