@@ -1,4 +1,230 @@
-DROP DATABASE bd_sae;
-CREATE DATABASE bd_sae;
+-- Entités principales :
+-- Utilisateur
+-- Administrateur système
+-- Administrateur web
+-- Technicien
+-- Ticket
+-- Catégorie de problème
+-- Statut du ticket
+-- Niveau d'urgence
+-- Journal d'activité
+-- Historique des tickets
+-- Adresse IP
 
-USE bd_sae;
+-- Relations entre les entités :
+
+-- Un Utilisateur peut avoir plusieurs Tickets (1-N)
+-- Un Administrateur web peut gérer plusieurs Catégories de problème (1-N)
+-- Un Administrateur web peut gérer plusieurs Statuts de ticket (1-N)
+-- Un Administrateur web peut gérer plusieurs Niveaux d'urgence (1-N)
+-- Un Administrateur web peut créer plusieurs Comptes Techniciens (1-N)
+
+-- Un Ticket peut être attribué à un Technicien (N-1)
+-- Un Ticket peut avoir un Statut de ticket (N-1)
+-- Un Ticket peut avoir un Niveau d'urgence (N-1)
+-- Un Ticket peut générer un Journal d'activité (1-N)
+
+-- Un Utilisateur peut avoir un Historique de tickets (1-N)
+
+-- Un Journal d'activité est associé à un Utilisateur (N-1)
+-- Un Journal d'activité est associé à un Ticket (N-1)
+-- Un Journal d'activité est associé à une Adresse IP (N-1)
+
+-- Les Tickets fermés sont archivés dans l'Historique des tickets (1-N)
+
+-- Supprimer les tables si elles existent :
+DROP TABLE AdresseIP;
+DROP TABLE HistoriqueTickets;
+DROP TABLE JournalActivite;
+DROP TABLE NiveauUrgence;
+DROP TABLE StatutTicket;
+DROP TABLE CategorieProbleme;
+DROP TABLE Ticket;
+DROP TABLE Technicien;
+DROP TABLE AdminWeb;
+DROP TABLE AdminSysteme;
+DROP TABLE Utilisateur;
+
+-- Création des tables
+
+-- Table Utilisateurs :
+CREATE TABLE Utilisateur (
+    id_util INTEGER PRIMARY KEY,
+    nom_util VARCHAR(50) NOT NULL,
+    prenom_util VARCHAR(50) NOT NULL,
+    email_util VARCHAR(100) NOT NULL UNIQUE,
+    mdp_util VARCHAR(20) NOT NULL,
+    type_util VARCHAR(30) NOT NULL
+);
+
+-- Table Administrateurs_Système :
+CREATE TABLE AdminSysteme (
+    id_adminsys INTEGER PRIMARY KEY,
+    nom_adminsys VARCHAR(50) NOT NULL,
+    prenom_adminsys VARCHAR(50) NOT NULL,
+    identifiant_adminsys VARCHAR(30) NOT NULL,
+    mdp_adminsys VARCHAR(20) NOT NULL
+);
+
+-- Table Administrateurs_Web :
+CREATE TABLE AdminWeb (
+    id_adminw INTEGER PRIMARY KEY,
+    nom_adminw VARCHAR(50) NOT NULL,
+    prenom_adminw VARCHAR(50) NOT NULL,
+    identifiant_adminw VARCHAR(30) NOT NULL,
+    mdp_adminw VARCHAR(20) NOT NULL
+);
+
+-- Table Techniciens :
+CREATE TABLE Technicien (
+    id_tech INTEGER PRIMARY KEY,
+    nom_tech VARCHAR(50) NOT NULL,
+    prenom_tech VARCHAR(50) NOT NULL,
+    identifiant_tech VARCHAR(30) NOT NULL,
+    mdp_tech VARCHAR(20) NOT NULL
+);
+-- Table Catégories de Problème :
+CREATE TABLE CategorieProbleme (
+    id_cat_pb INTEGER PRIMARY KEY,
+    libelle_cat_pb VARCHAR(50) NOT NULL
+);
+
+-- Table Statuts de Ticket :
+CREATE TABLE StatutTicket (
+    id_status_tic INTEGER PRIMARY KEY,
+    libelle_status_tic VARCHAR(50) NOT NULL
+);
+
+-- Table Niveaux d'Urgence :
+CREATE TABLE NiveauUrgence (
+    id_nv_urgence INTEGER PRIMARY KEY,
+    libelle_nv_urgence VARCHAR(50) NOT NULL
+);
+
+-- Table l'Historique des Tickets :
+CREATE TABLE HistoriqueTickets (
+    id_histtic INTEGER PRIMARY KEY,
+    archive_tic INTEGER NOT NULL CHECK (archive_tic IN (0, 1)),
+    date_archivage DATE DEFAULT CURRENT_DATE NOT NULL
+);
+
+-- Table AdressesIP :
+CREATE TABLE AdresseIP (
+    id_ip INTEGER PRIMARY KEY,
+    ip VARCHAR(15) NOT NULL
+);
+
+-- Table Tickets :
+CREATE TABLE Ticket (
+    id_tic INTEGER PRIMARY KEY,
+    desc_pb_tic VARCHAR(255) NOT NULL,
+    date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
+    date_maj_tic DATE,
+    createur_tic INTEGER NOT NULL REFERENCES Utilisateur(id_util),
+    tech_charge_tic INTEGER NOT NULL REFERENCES Technicien(id_tech),
+    status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
+    nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
+    CHECK (nv_urgence_tic IN (1, 2, 3, 4))
+);
+
+-- Table Journaux d'Activité :
+CREATE TABLE JournalActivite (
+    id_journact INTEGER PRIMARY KEY,
+    dateheure_journact DATE DEFAULT CURRENT_DATE NOT NULL,
+    IP_journact VARCHAR(15) NOT NULL,
+    utilis_asso_journact INTEGER NOT NULL REFERENCES Utilisateur(id_util),
+    tic_asso_journact INTEGER NOT NULL REFERENCES Ticket(id_tic),
+    nv_urgence_asso_journact INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
+);
+
+
+--TESTS:
+
+-- Insérer des données fictives dans la table Utilisateur
+INSERT INTO Utilisateur (id_util, nom_util, prenom_util, email_util, mdp_util, type_util) VALUES
+(1, 'Doe', 'John', 'john.doe@example.com', 'motdepasse1', 'Utilisateur'),
+(2, 'Smith', 'Alice', 'alice.smith@example.com', 'motdepasse2', 'Utilisateur'),
+(3, 'Johnson', 'Bob', 'bob.johnson@example.com', 'motdepasse3', 'Utilisateur');
+
+-- Insérer des données fictives dans la table AdminSysteme
+INSERT INTO AdminSysteme (id_adminsys, nom_adminsys, prenom_adminsys, identifiant_adminsys, mdp_adminsys) VALUES
+(1, 'AdminSys1', 'AdminSys1', 'adminsys1', 'motdepasseadmin1'),
+(2, 'AdminSys2', 'AdminSys2', 'adminsys2', 'motdepasseadmin2');
+
+-- Insérer des données fictives dans la table AdminWeb
+INSERT INTO AdminWeb (id_adminw, nom_adminw, prenom_adminw, identifiant_adminw, mdp_adminw) VALUES
+(1, 'AdminWeb1', 'AdminWeb1', 'adminweb1', 'motdepasseadminweb1'),
+(2, 'AdminWeb2', 'AdminWeb2', 'adminweb2', 'motdepasseadminweb2');
+
+-- Insérer des données fictives dans la table Technicien
+INSERT INTO Technicien (id_tech, nom_tech, prenom_tech, identifiant_tech, mdp_tech) VALUES
+(1, 'Tech1', 'Tech1', 'tech1', 'motdepassetech1'),
+(2, 'Tech2', 'Tech2', 'tech2', 'motdepassetech2');
+
+-- Insérer des données fictives dans la table CatégorieProbleme
+INSERT INTO CategorieProbleme (id_cat_pb, libelle_cat_pb) VALUES
+(1, 'Catégorie 1'),
+(2, 'Catégorie 2'),
+(3, 'Catégorie 3');
+
+-- Insérer des données fictives dans la table StatutTicket
+INSERT INTO StatutTicket (id_status_tic, libelle_status_tic) VALUES
+(1, 'Ouvert'),
+(2, 'Fermé'),
+(3, 'En attente');
+
+-- Insérer des données fictives dans la table NiveauUrgence
+INSERT INTO NiveauUrgence (id_nv_urgence, libelle_nv_urgence) VALUES
+(1, 'Urgence faible'),
+(2, 'Urgence modérée'),
+(3, 'Urgence élevée'),
+(4, 'Urgence critique');
+
+-- Insérer des données fictives dans la table Ticket
+INSERT INTO Ticket (id_tic, desc_pb_tic, createur_tic, tech_charge_tic, status_tic, nv_urgence_tic, date_maj_tic)
+VALUES (1, 'Problème 1', 1, 1, 1, 3, CURRENT_DATE),
+       (2, 'Problème 2', 2, 2, 1, 2, CURRENT_DATE),
+       (3, 'Problème 3', 3, 1, 3, 1, CURRENT_DATE);
+
+
+-- Insérer des données fictives dans la table JournalActivite
+INSERT INTO JournalActivite (id_journact, dateheure_journact, IP_journact, utilis_asso_journact, tic_asso_journact, nv_urgence_asso_journact) VALUES
+(1, '2023-11-02', '192.168.0.1', 1, 1, 3),
+(2, '2023-11-03', '192.168.0.2', 2, 2, 2),
+(3, '2023-11-04', '192.168.0.3', 3, 1, 1);
+
+-- Insérer des données fictives dans la table HistoriqueTickets
+INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
+(1, 1),
+(2, 1),
+(3, 0);
+
+-- Insérer des données fictives dans la table AdresseIP
+INSERT INTO AdresseIP (id_ip, ip) VALUES
+(1, '192.168.0.1'),
+(2, '192.168.0.2'),
+(3, '192.168.0.3');
+
+
+--ON AFFICHE LES TABLES:
+
+GRANT SELECT ON ma_base_de_donnees.ma_table TO user;
+GRANT SELECT, ADD, INSERT, DELETE, UPDATE ON ticket TO admin;
+GRANT UPDATE
+
+
+SELECT * FROM Utilisateur;
+SELECT * FROM AdminSysteme;
+SELECT * FROM AdminWeb;
+SELECT * FROM Technicien;
+SELECT * FROM Ticket;
+SELECT * FROM CategorieProbleme;
+SELECT * FROM StatutTicket;
+SELECT * FROM NiveauUrgence;
+SELECT * FROM JournalActivite;
+SELECT * FROM HistoriqueTickets;
+SELECT * FROM AdresseIP;
+
+
+
+
