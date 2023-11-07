@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS sae_bd;
+CREATE DATABASE sae_bd;
+USE sae_bd;
+
 -- Entités principales :
 -- Utilisateur
 -- Administrateur système
@@ -33,22 +37,21 @@
 -- Les Tickets fermés sont archivés dans l'Historique des tickets (1-N)
 
 -- Supprimer les tables si elles existent :
-DROP TABLE AdresseIP;
-DROP TABLE HistoriqueTickets;
-DROP TABLE NiveauUrgence;
-DROP TABLE StatutTicket;
-DROP TABLE CategorieProbleme;
-DROP TABLE Ticket;
-DROP TABLE Technicien;
-DROP TABLE AdminWeb;
-DROP TABLE AdminSysteme;
-DROP TABLE Utilisateur;
+DROP TABLE IF EXISTS HistoriqueTickets;
+DROP TABLE IF EXISTS NiveauUrgence;
+DROP TABLE IF EXISTS StatutTicket;
+DROP TABLE IF EXISTS CategorieProbleme;
+DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS Technicien;
+DROP TABLE IF EXISTS AdminWeb;
+DROP TABLE IF EXISTS AdminSysteme;
+DROP TABLE IF EXISTS Utilisateur;
 
 -- Création des tables
 
 -- Table Utilisateurs :
 CREATE TABLE Utilisateur (
-    id_util INTEGER PRIMARY KEY,
+    id_util INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_util VARCHAR(50) NOT NULL,
     prenom_util VARCHAR(50) NOT NULL,
     email_util VARCHAR(100) NOT NULL UNIQUE,
@@ -58,7 +61,7 @@ CREATE TABLE Utilisateur (
 
 -- Table Administrateurs_Système :
 CREATE TABLE AdminSysteme (
-    id_adminsys INTEGER PRIMARY KEY,
+    id_adminsys INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_adminsys VARCHAR(50) NOT NULL,
     prenom_adminsys VARCHAR(50) NOT NULL,
     identifiant_adminsys VARCHAR(30) NOT NULL,
@@ -67,7 +70,7 @@ CREATE TABLE AdminSysteme (
 
 -- Table Administrateurs_Web :
 CREATE TABLE AdminWeb (
-    id_adminw INTEGER PRIMARY KEY,
+    id_adminw INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_adminw VARCHAR(50) NOT NULL,
     prenom_adminw VARCHAR(50) NOT NULL,
     identifiant_adminw VARCHAR(30) NOT NULL,
@@ -76,7 +79,7 @@ CREATE TABLE AdminWeb (
 
 -- Table Techniciens :
 CREATE TABLE Technicien (
-    id_tech INTEGER PRIMARY KEY,
+    id_tech INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_tech VARCHAR(50) NOT NULL,
     prenom_tech VARCHAR(50) NOT NULL,
     identifiant_tech VARCHAR(30) NOT NULL,
@@ -84,38 +87,33 @@ CREATE TABLE Technicien (
 );
 -- Table Catégories de Problème :
 CREATE TABLE CategorieProbleme (
-    id_cat_pb INTEGER PRIMARY KEY,
+    id_cat_pb INTEGER PRIMARY KEY AUTO_INCREMENT,
     libelle_cat_pb VARCHAR(50) NOT NULL
 );
 
 -- Table Statuts de Ticket :
 CREATE TABLE StatutTicket (
-    id_status_tic INTEGER PRIMARY KEY,
+    id_status_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
     libelle_status_tic VARCHAR(50) NOT NULL
 );
 
 -- Table Niveaux d'Urgence :
 CREATE TABLE NiveauUrgence (
-    id_nv_urgence INTEGER PRIMARY KEY,
+    id_nv_urgence INTEGER PRIMARY KEY AUTO_INCREMENT,
     libelle_nv_urgence VARCHAR(50) NOT NULL
 );
 
 -- Table l'Historique des Tickets :
 CREATE TABLE HistoriqueTickets (
-    id_histtic INTEGER PRIMARY KEY,
+    id_histtic INTEGER PRIMARY KEY AUTO_INCREMENT,
     archive_tic INTEGER NOT NULL CHECK (archive_tic IN (0, 1)),
     date_archivage DATE DEFAULT CURRENT_DATE NOT NULL
 );
 
--- Table AdressesIP :
-CREATE TABLE AdresseIP (
-    id_ip INTEGER PRIMARY KEY,
-    ip VARCHAR(15) NOT NULL
-);
 
 -- Table Tickets :
 CREATE TABLE Ticket (
-    id_tic INTEGER PRIMARY KEY,
+    id_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
     desc_pb_tic VARCHAR(255) NOT NULL,
     date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
     date_maj_tic DATE,
@@ -195,11 +193,7 @@ INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
 (2, 1),
 (3, 0);
 
--- Insérer des données fictives dans la table AdresseIP
-INSERT INTO AdresseIP (id_ip, ip) VALUES
-(1, '192.168.0.1'),
-(2, '192.168.0.2'),
-(3, '192.168.0.3');
+
 
 
 --ON AFFICHE LES TABLES:

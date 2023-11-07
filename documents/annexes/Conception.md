@@ -238,8 +238,53 @@ contenu HTML, permettant de créer des expériences utilisateur dynamiques et r�
 ***Note: Plus tard, si nous avons le temps, le(s) DOM(s) pourra(ont) être réalisé grâce au langage JavaScript***
 
 # Base de données
-## ***REMARQUE :*** *Pour le moment, la base de données contient uniquement une seule table utilisateurs avec l'administrateur web !*
 
+### Conception
+
+>La phase de conception de la base de données joue un rôle central dans la gestion des différents utilisateurs, 
+tickets et leurs status. Ainsi, plusieurs entités sont envisagées pour modéliser les données 
+clés. Parmi celles-ci, on retrouve typiquement les entités Utilisateur, Ticket et StatutTicket. 
+Ces entités sont inter-reliées pour assurer un suivi cohérent des informations.
+>
+> Cette phase de conception débute évidemment par la création d'un schéma entités/associations qui modélise la base de données. 
+>
+>![shemas_bd.png](images%2FCONCEPTION%2Fshemas_bd.png)
+
+### Développement
+
+>Le développement de la base de données se traduit par la création effective des tables et des 
+relations entre ces entités. Lé développement sera effectué grâce au langage de requêtes SQL 
+afin d'être effectif sur le serveur de bases de données MySQL. Ces requêtes permettent de 
+mettre en place la structure de la base de données en définissant les clés primaires, 
+les clés étrangères, ainsi que les différents attributs et types de données.
+
+### Exemples 
+
+> Dans cette section, vous pouvez visionner quelques exemples de requêtes qui pourront être utilisées 
+dans le cadre de l'application web.
+
+```SQL
+-- On insère des utilisateurs fictifs dans la table Utilisateur
+INSERT INTO Utilisateur (id_util, nom_util, prenom_util, email_util, mdp_util, type_util) VALUES
+(1, 'Doe', 'John', 'john.doe@example.com', 'motdepasse1', 'Utilisateur'),
+(2, 'Smith', 'Alice', 'alice.smith@example.com', 'motdepasse2', 'Utilisateur'),
+(3, 'Johnson', 'Bob', 'bob.johnson@example.com', 'motdepasse3', 'Utilisateur');
+
+-- On insère des faux tickets dans la table Ticket
+INSERT INTO Ticket (id_tic, desc_pb_tic, createur_tic, tech_charge_tic, status_tic, nv_urgence_tic, date_maj_tic)
+VALUES (1, 'Problème 1', 1, 1, 1, 3, CURRENT_DATE),
+       (2, 'Problème 2', 2, 2, 1, 2, CURRENT_DATE),
+       (3, 'Problème 3', 3, 1, 3, 1, CURRENT_DATE);
+```
+
+*** Ainsi, par exemple, si l'on souhaite sélectionner tous les tickets ouvets par l'utilisateur Smith Alice ; On exécutera la requête suivante :***
+
+```SQL
+SELECT T.id_tickets, T.desc_pb_tic
+FROM Ticket T
+JOIN Utilisateur U ON T.createur_ti = U.id_util
+WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
+```
 
 # Raspberry PI 4
 
