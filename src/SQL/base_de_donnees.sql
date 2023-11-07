@@ -7,9 +7,7 @@
 -- Catégorie de problème
 -- Statut du ticket
 -- Niveau d'urgence
--- Journal d'activité
 -- Historique des tickets
--- Adresse IP
 
 -- Relations entre les entités :
 
@@ -26,14 +24,9 @@
 
 -- Un Utilisateur peut avoir un Historique de tickets (1-N)
 
--- Un Journal d'activité est associé à un Utilisateur (N-1)
--- Un Journal d'activité est associé à un Ticket (N-1)
--- Un Journal d'activité est associé à une Adresse IP (N-1)
-
 -- Les Tickets fermés sont archivés dans l'Historique des tickets (1-N)
 
 -- Supprimer les tables si elles existent :
-DROP TABLE AdresseIP;
 DROP TABLE HistoriqueTickets;
 DROP TABLE NiveauUrgence;
 DROP TABLE StatutTicket;
@@ -107,12 +100,6 @@ CREATE TABLE HistoriqueTickets (
     date_archivage DATE DEFAULT CURRENT_DATE NOT NULL
 );
 
--- Table AdressesIP :
-CREATE TABLE AdresseIP (
-    id_ip INTEGER PRIMARY KEY,
-    ip VARCHAR(15) NOT NULL
-);
-
 -- Table Tickets :
 CREATE TABLE Ticket (
     id_tic INTEGER PRIMARY KEY,
@@ -173,18 +160,6 @@ VALUES (1, 'Problème 1', 1, 1, 1, 3, CURRENT_DATE),
        (2, 'Problème 2', 2, 2, 1, 2, CURRENT_DATE),
        (3, 'Problème 3', 3, 1, 3, 1, CURRENT_DATE);
 
--- Insérer des données fictives dans la table HistoriqueTickets
-INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
-(1, 1),
-(2, 1),
-(3, 0);
-
--- Insérer des données fictives dans la table AdresseIP
-INSERT INTO AdresseIP (id_ip, ip) VALUES
-(1, '192.168.0.1'),
-(2, '192.168.0.2'),
-(3, '192.168.0.3');
-
 
 --ON AFFICHE LES TABLES:
 
@@ -202,7 +177,7 @@ SELECT * FROM CategorieProbleme;
 SELECT * FROM StatutTicket;
 SELECT * FROM NiveauUrgence;
 SELECT * FROM HistoriqueTickets;
-SELECT * FROM AdresseIP;
+
 
 
 
