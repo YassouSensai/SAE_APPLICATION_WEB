@@ -599,6 +599,7 @@ h2 {
     color: #333;
 }
 
+select,
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -630,6 +631,14 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #ffb4a2;
 }
+
+
+select:focus {
+    outline: none;
+    border-color: #00bfff; /* Couleur du contour lorsque l'élément est en focus */
+}
+
+
 
 .form-group {
     margin: 10px 0;
