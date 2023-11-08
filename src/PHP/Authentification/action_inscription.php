@@ -28,11 +28,11 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])){
             // $query->execute(array('username' => $username, 'email' => $email, 'password' => $password));
 
             // Redirection vers la page de profil après inscription réussie (simulation)
-            header('Location: ../HTML/profil.html');
+            header('Location: ../../HTML/profil.html');
             exit; // Terminer le script après la redirection
         } else {
             // Redirection vers la page d'inscription avec une erreur
-            header('Location: ../PHP/inscription.php?err');
+            header('Location: inscription.php?err');
             exit; // Terminer le script après la redirection
         }
     }
