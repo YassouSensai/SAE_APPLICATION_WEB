@@ -6,23 +6,26 @@
    * Contexte
    * Analyse des besoins du client
    * Objectif
-2. [Architecture générale](#Architecture-générale)
+3. [Architecture générale](#Architecture-générale)
    * Figure 1 : Schémas de l'architecture générale 
    * Explications
-3. [Site web statique](#Site-web-statique)
+4. [Site web statique](#Site-web-statique)
    * But
    * Maquettes web
    * DOM page d'accueil
-4. [Base de données](#Base-de-données)
+5. [Base de données](#Base-de-données)
    * Conception
    * Développement
    * Explications avec exemples
-5. [Raspberry PI 4](#Raspberry-PI-4)
+6. [Raspberry PI 4](#Raspberry-PI-4)
    * Fonctionnement 
    * Carte SD 
    * UML compos
-6. [Site web dynamique](#Site-web-dynamique)
-7. [Annexes](#Annexes)
+7. [Site web dynamique](#Site-web-dynamique)
+   * Adaptation du site statique
+   * Authentification
+   * Profil & Tableau de bord 
+8. [Annexes](#Annexes)
    * Maquettes web
    
 
