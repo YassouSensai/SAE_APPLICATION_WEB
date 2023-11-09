@@ -39,7 +39,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
 
             if (mysqli_num_rows($resultat) > 0) {
                 $_SESSION['utilisateur'] = $username;
-                header('Location: ../../HTML/profil.html');
+                header('Location: ../PagesUtilisateur/utilisateur.php');
                 exit();
             } else {
                 header('Location: connexion.php?err');

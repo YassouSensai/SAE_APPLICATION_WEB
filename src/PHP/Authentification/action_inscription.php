@@ -40,7 +40,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
 
 
             if (mysqli_stmt_execute($prep)) {
-                header('Location: ../../HTML/profil.html');
+                header('Location: connexion.php?reussite');
                 exit;
             } else {
                 header('Location: inscription.php?err');

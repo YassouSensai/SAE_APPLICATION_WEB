@@ -74,6 +74,8 @@
 <?php
 if (isset($_GET['err'])){
     echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
+} elseif (isset($_GET['reussite'])) {
+    echo "<p id='success' style='color: green'>Inscription réalisée avec succès !</p>";
 }
 ?>
 <script>
@@ -82,6 +84,11 @@ if (isset($_GET['err'])){
         var errorMessage = document.getElementById('error-message');
         if (errorMessage) {
             errorMessage.style.display = 'none';
+        }
+
+        var successMessage = document.getElementById('success');
+        if (successMessage) {
+            successMessage.style.display = 'none';
         }
     }, 3000);
 </script>

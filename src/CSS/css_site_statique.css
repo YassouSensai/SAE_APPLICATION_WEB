@@ -644,7 +644,7 @@ select:focus {
     margin: 10px 0;
 }
 
-#error-message {
+#error-message, #success {
     color: #ad3333;
     position: absolute;
     bottom: 0;  /* Le message s'affiche en bas du conteneur */
