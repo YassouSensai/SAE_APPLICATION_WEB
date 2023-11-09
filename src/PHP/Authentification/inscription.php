@@ -55,6 +55,12 @@
                     <label for="confirm_password">Confirmer le mot de passe</label>
                     <input id="confirm_password" type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
 
+                    <label for="type_util">Type d'utilisateur</label>
+                    <select id="type_util" type="text" name="type_util" required>
+                        <option value="eleve">Eleve</option>
+                        <option value="prof">Professeur</option>
+                    </select>
+
                     <?php
                     session_start();
                     $nb1 = rand(1,10);
@@ -84,7 +90,7 @@ if (isset($_GET['err'])){
         if (errorMessage) {
             errorMessage.style.display = 'none';
         }
-    }, 5000);
+    }, 3000);
 </script>
 <?php
 include('../../HTML/pied.html');

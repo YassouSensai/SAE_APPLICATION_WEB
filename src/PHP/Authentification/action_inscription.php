@@ -1,44 +1,61 @@
 <?php
 session_start();
 
-if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])){
+if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     $nb1 = $_SESSION['nb1'];
     $nb2 = $_SESSION['nb2'];
-    $result = $nb1 * $nb2;
+    $result_captcha = $nb1 * $nb2;
 
-    if (isset($_POST['username']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['captcha'])){
-        $username = $_POST['username'];
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $confirm_password = $_POST['confirm_password'];
-        $captcha = $_POST['captcha'];
+    if (isset($_POST['username'], $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['password'], $_POST['confirm_password'], $_POST['type_util'], $_POST['captcha'])) {
+        // Récupération des données d'inscription
+        $username = htmlspecialchars($_POST['username']);
+        $nom = htmlspecialchars($_POST['nom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $confirm_password = htmlspecialchars($_POST['confirm_password']);
+        $type_util = htmlspecialchars($_POST['type_util']);
+        $captcha = htmlspecialchars($_POST['captcha']);
 
-        if (($result == $captcha) && ($password === $confirm_password)) {
-            // Validation réussie, enregistrer les données dans la base de données (simulé ici)
-            // Ici, vous devriez utiliser des méthodes de hachage pour stocker le mot de passe de manière sécurisée.
-            // C'est juste une démonstration, veuillez utiliser des méthodes de hachage sécurisées dans un vrai scénario.
+        if (($result_captcha == $captcha) && ($password === $confirm_password)) {
 
-            // Exemple de connexion à une base de données (simulation)
-            // $db = new PDO('mysql:host=adresse_serveur;dbname=nom_bdd', 'utilisateur', 'mot_de_passe');
+            // Informations de connexion à la base de données
+            $serveur = "localhost";
+            $utilisateur = "root";
+            $mot_de_passe = "";
+            $base_de_donnees = "sae_bd";
 
-            // Exemple d'insertion des données dans une table 'utilisateurs' (simulation)
-            // $query = $db->prepare("INSERT INTO utilisateurs (username, email, password) VALUES (:username, :email, :password)");
-            // $query->execute(array('username' => $username, 'email' => $email, 'password' => $password));
+            $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
 
-            // Redirection vers la page de profil après inscription réussie (simulation)
-            header('Location: ../../HTML/profil.html');
-            exit; // Terminer le script après la redirection
+            // Vérification de la connexion
+            if (!$connexion) {
+                die("La connexion a échoué : " . mysqli_connect_error());
+            }
+
+            // Utilisation de requête préparée pour sécuriser l'insertion
+            $query = "INSERT INTO Utilisateur (identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES (?, ?, ?, ?, ?, ?)";
+
+            $prep = mysqli_prepare($connexion, $query);
+            mysqli_stmt_bind_param($prep, "ssssss", $username, $nom, $prenom, $email, $password, $type_util);
+
+
+            if (mysqli_stmt_execute($prep)) {
+                header('Location: ../../HTML/profil.html');
+                exit;
+            } else {
+                header('Location: inscription.php?err');
+                exit;
+            }
+
+            mysqli_stmt_close($stmt);
+            mysqli_close($connexion);
         } else {
-            // Redirection vers la page d'inscription avec une erreur
             header('Location: inscription.php?err');
-            exit; // Terminer le script après la redirection
+            exit;
         }
+    } else {
+        header('Location: inscription.php?err');
+        exit;
     }
-} else {
-    // Redirection vers la page d'inscription avec une erreur
-    header('Location: ../PHP/inscription.php?err');
-    exit; // Terminer le script après la redirection
 }
 ?>

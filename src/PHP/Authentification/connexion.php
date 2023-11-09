@@ -83,7 +83,7 @@ if (isset($_GET['err'])){
         if (errorMessage) {
             errorMessage.style.display = 'none';
         }
-    }, 5000);
+    }, 3000);
 </script>
 <?php
 include('../../HTML/pied.html');

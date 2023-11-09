@@ -7,6 +7,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     $result_captcha = $nb1 * $nb2;
 
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['captcha']) && isset($_POST['user-type'])) {
+
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
@@ -14,6 +15,8 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         $table_user = htmlspecialchars($_POST['user-type']);
 
         if ($result_captcha == $captcha) {
+
+            // Informations de connexion à la base de données
             $serveur = "localhost";
             $utilisateur = "root";
             $mot_de_passe = "";
