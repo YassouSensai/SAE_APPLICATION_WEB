@@ -152,7 +152,7 @@ INSERT INTO AdminSysteme (id_adminsys, nom_adminsys, prenom_adminsys, identifian
 
 -- Insérer des données fictives dans la table AdminWeb
 INSERT INTO AdminWeb (id_adminw, nom_adminw, prenom_adminw, identifiant, mdp) VALUES
-    (1, 'AdminWeb1', 'AdminWeb1', 'adminweb1', 'motdepasseadminweb1');
+    (1, 'AdminWeb1', 'AdminWeb1', 'gestion', '#gestion#');
 
 -- Insérer des données fictives dans la table Technicien
 INSERT INTO Technicien (id_tech, nom_tech, prenom_tech, identifiant, mdp) VALUES

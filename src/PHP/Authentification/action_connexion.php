@@ -39,7 +39,17 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
 
             if (mysqli_num_rows($resultat) > 0) {
                 $_SESSION['utilisateur'] = $username;
-                header('Location: ../PagesUtilisateur/utilisateur.php');
+
+                if ($table_user == "Utilisateur") {
+                    header('Location: ../PagesUtilisateur/utilisateur.php');
+                } elseif ($table_user == "AdminSysteme") {
+                    header('Location: ../PagesAdminSys/admin_sys.php');
+                } elseif ($table_user == "AdminWeb") {
+                    header('Location: ../PagesAdminWeb/admin_web.php');
+                } else {
+                    header('Location: ../PagesTechnicien/technicien.php');
+                }
+
                 exit();
             } else {
                 header('Location: connexion.php?err');
