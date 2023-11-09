@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-include('../HTML/entete.html');
+include('../HTML/entete_general.html');
 ?>
 <section>
     <div class="Toute-la-page">
