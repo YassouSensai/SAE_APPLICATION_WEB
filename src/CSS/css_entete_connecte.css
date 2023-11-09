@@ -1,0 +1,75 @@
+/* Réinitialisation de la plupart des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* pour inclure les paddings et les bordures dans la largeur et la hauteur */
+}
+
+/* Définition des styles pour le HTML et le Body */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #21242f;
+    color: white;
+}
+
+/* Style du header */
+.header-page-générale {
+    min-height: 60vh;
+    width: 100%;
+    background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/femme-touriste-attendant-train.jpg) center/cover;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styles pour la barre de navigation */
+.nav-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lien-haut-centre {
+    margin: 0;
+}
+
+.logo-rond {
+    width: 200px;
+}
+
+.texte-header h1 {
+    margin: 20px 0;
+}
+
+/* Styles pour le message d'accueil */
+h1 {
+    font-size: 36px;
+}
+
+footer { /* zone du bas */
+    background-color: #21242f; /* fond */
+    border-top: 1px solid #ffb4a2; /* bordure en haut de 1px */
+    margin: 2em 0 0 0; /* marge du dessus */
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #6d6875;
+}
+
+footer p {
+    margin: 7px 0 0 0;
+}
