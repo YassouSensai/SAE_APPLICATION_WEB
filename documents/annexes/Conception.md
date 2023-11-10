@@ -334,7 +334,17 @@ Aujourd'hui, énormément de professionnels utilisent SQL pour créer et gérer 
 >**Pourquoi HTML ? :** HTML est le langage de balisage standard pour structurer et présenter le contenu sur le web.
 >
 >**Utilisation SAE :**
-HTML est souvent combiné avec d'autres langages tels que PHP pour créer des pages dynamiques. Dans notre projet, son association avec PHP permet de générer du contenu dynamique côté serveur. De plus, HTML est compatible avec CSS pour le stylage et JavaScript pour l'interactivité, offrant ainsi une expérience utilisateur plus riche.
+HTML est souvent combiné avec d'autres langages tels que PHP pour créer des pages dynamiques. Dans notre projet, son association avec PHP permet de générer du contenu dynamique côté serveur. De plus, HTML est compatible avec CSS pour le stylage et JavaScript pour l'interactivité, offrant ainsi une expérience utilisateur beaucoup plus riche.
+
+>#### CSS (Cascading Style Sheets) :
+>**Pourquoi CSS ? :** CSS est un langage de style utilisé pour définir la présentation d'un document HTML.
+>
+>**Utilisation SAE :**
+Les professionnels utilisent CSS pour créer des styles visuels et l'esthétique sur les pages web. Donc dans le contexte des besoins et de la SAE, le CSS est un élément indispenssable car permet : la gestion des couleurs, des polices, des tailles de texte et de la mise en page globale. Donc cela assure une présentation cohérente et attrayante sur divers appareils, et est essenciel pour l'expérience utilisateur.
+
+### Gestion des Sessions pour la SAE :
+
+
 
 ### Authentification
 
