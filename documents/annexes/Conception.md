@@ -370,6 +370,25 @@ Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP 
 >#### Pages admin_sys.php, admin_web.php et technicien.php :
 >Ces pages d'administration affichent des fonctionnalités spécifiques à chaque type d'utilisateur, telles que la gestion des libellés, des statuts, des niveaux d'urgence, etc.
 >Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens sont gérées via des pages actions (1 page action pour chacun).
+
+>#### Communication client / serveur :
+> 
+>La communication client/serveur dans notre application web se déroule à 
+travers le protocole HTTP. 
+> 
+>Lorsque l'utilisateur effectue des actions, 
+telles que se connecter ou modifier son profil, le navigateur envoie des 
+requêtes sur notre serveur. 
+> 
+>Ainsi du côté du serveur, des fichiers, souvent écrits en PHP, 
+reçoivent ces requêtes, interagissent avec la base de données s'il le faut, et génèrent 
+des réponses au format HTML. Ces réponses sont renvoyées au client, où le 
+navigateur les interprète pour afficher le contenu sur le site. 
+> 
+>Enfin quand on utilise le site de la SAE, les informations sont échangées de manière fluide entre le navigateur et notre serveur. Par exemple, lorsque quelqu'un modifie le profil, les changements sont effectués sans avoir à recharger toute la page. 
+
+***Note : HTTP (Hypertext Transfer Protocol), est l'ensemble des règles permettant de transférer des fichiers tels que du texte, des images, du son, de la vidéo et d'autres fichiers multimédias sur le Web notamment les sites internet.***
+
 ### Authentification
 
 ### Profil & Tableau de bord
