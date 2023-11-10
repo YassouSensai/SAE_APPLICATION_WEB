@@ -357,7 +357,19 @@ Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP 
 >1. **Succès** : une session est démarrée avec la création d'une variable de session contenant le nouveau pseudo créé, et l'utilisateur est redirigé vers son profil.
 >2. **Échec** : l'utilisateur est informé de l'erreur.
 
+>#### Page profil :
+>Le **profil utilisateur** est constitué de 4 fichiers : charte_graphique.php, index.php, logo1.php et logo2.php, qui sont consultables par tout le monde.
+>
+>**Résumé du contenu :** 
+>1. **charte_graphique.php) :** contient les informations de la charte graphique (travail dans le cadre de la communication).
+>2. **index.php :** contient l'explication de la plateforme et une vidéo du tutoriel d'utilisation.
+>3. **logo1.php et logo2.php :** contiennent des logos
+>
+> L'utilisateur contient aussi une page profil.html pour voir et modifer ses informations (photo,mdp,...).
 
+>#### Pages admin_sys.php, admin_web.php et technicien.php :
+>Ces pages d'administration affichent des fonctionnalités spécifiques à chaque type d'utilisateur, telles que la gestion des libellés, des statuts, des niveaux d'urgence, etc.
+>Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens sont gérées via des pages actions (1 page action pour chacun).
 ### Authentification
 
 ### Profil & Tableau de bord
