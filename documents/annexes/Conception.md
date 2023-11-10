@@ -389,7 +389,28 @@ navigateur les interprète pour afficher le contenu sur le site.
 
 ***Note : HTTP (Hypertext Transfer Protocol), est l'ensemble des règles permettant de transférer des fichiers tels que du texte, des images, du son, de la vidéo et d'autres fichiers multimédias sur le Web notamment les sites internet.***
 
-### Authentification
+## Authentification :
+
+#### Connexion (connexion.php) :
+
+>Lorsque les utilisateurs visitent la page de connexion, ils saisissent leurs identifiants (pseudo et mot de passe) et soumettent le formulaire. Le script PHP (`action_connexion.php`) vérifie ces informations dans la base de données.
+En cas de :
+>*  **Succès**: une session est démarrée, avec une variable de session, puis il est redirigé vers son profil.
+>*  **Echec**: l'utilisateur est renvoyé à la page de connexion avec une d'erreur.
+
+Formulaire de connexion :
+![Capture_page_connexion.png](images%2FCONCEPTION%2FCapture_page_connexion.png)
+
+#### Inscription (inscription.php) : 
+
+>Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP (`action_inscription.php`) vérifie la validité des données et les insère dans la base de données.
+>En cas de :
+>* **Succès** : une session est démarrée avec la création d'une variable de session, et l'utilisateur est redirigé vers son profil.
+>* **Echec** : l'utilisateur est informé de l'erreur.
+
+Formulaire d'inscription :
+![Capture_page_inscription.png](images%2FCONCEPTION%2FCapture_page_inscription.png)
+
 
 ### Profil & Tableau de bord
 
