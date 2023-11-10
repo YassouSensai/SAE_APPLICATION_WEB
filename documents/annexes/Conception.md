@@ -315,7 +315,9 @@ WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
 une évolution significative dans la manière dont le contenu est généré sur un site web,
 affiché, et interagi avec les utilisateurs qui l'utilisent.
 Ainsi, on peut donc proposer les éléments clés à prendre en compte dans ce passage(ou évolution) :
-
+>
+> Pour rendre notre site statique dynamique, nous allons effectuer plusieures actions cruciales. Tout d'abord les pages HTML vont être converties en fichiers PHP, permettant une gestion plus flexible du contenu. De plus, nous allons scinder les composants principaux tels que l'en-tête (entete.html), le profil (profil.html), et le pied de page(pied.html) du site statique en HTML. Ces composants vont être désormais inclus dynamiquement dans les pages PHP correspondantes.
+ 
 ### Langages de Programmation :
 
 >#### PHP (Hypertext Preprocessor)
@@ -391,25 +393,66 @@ navigateur les interprète pour afficher le contenu sur le site.
 
 ## Authentification :
 
+>Pour que les utilisateurs puissent intéragir avec la base de données dans notre site dynamique il faut que
+les pages connexion.php et inscription.php soient fonctionnelles et présentent sur notre site dynamique. Pour cela, 
+il faut que les utilisateurs puissent s'inscrire et se connecter. Ainsi nous allors créer 
+un formulaire d'inscription et un formulaire de connexion qui seront reliés à la base de données.
+
 #### Connexion (connexion.php) :
 
->Lorsque les utilisateurs visitent la page de connexion, ils saisissent leurs identifiants (pseudo et mot de passe) et soumettent le formulaire. Le script PHP (`action_connexion.php`) vérifie ces informations dans la base de données.
+>Lorsque les utilisateurs devront visiter la page de connexion, ils saisiront leurs identifiants (pseudo et mot de passe) et soumetteront le formulaire. Le script PHP (`action_connexion.php`) devrait être crée et vérifiera ces informations dans la base de données.
 En cas de :
 >*  **Succès**: une session est démarrée, avec une variable de session, puis il est redirigé vers son profil.
 >*  **Echec**: l'utilisateur est renvoyé à la page de connexion avec une d'erreur.
 
-Formulaire de connexion :
-![Capture_page_connexion.png](images%2FCONCEPTION%2FCapture_page_connexion.png)
+Exemple possible pour le formulaire de connexion :
+
+```HTML
+
+<form action="traitement_connexion.php" method="post">
+    <label for="username">Identifiant</label>
+    <input id="username" type="text" name="username" required>
+
+    <label for="password">Mot de passe</label>
+    <input id="password" type="password" name="password" required>
+
+    <label for="captcha">Captcha : [afficher le captcha ici]</label>
+    <input id="captcha" type="number" name="captcha" required>
+
+    <input type="submit" value="Se connecter">
+</form>
+```
+***Note : Il sera également nécessaire d'introduire dans le formulaire une section où l'on choisira l'utilisateur avec lequel on souhaite se connecter.***
 
 #### Inscription (inscription.php) : 
 
->Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP (`action_inscription.php`) vérifie la validité des données et les insère dans la base de données.
+>Lorsqu'un nouvel utilisateur remplira le formulaire d'inscription, le script PHP (`action_inscription.php`) va devoir vérifier la validité des données et les insèrer dans la base de données.
 >En cas de :
 >* **Succès** : une session est démarrée avec la création d'une variable de session, et l'utilisateur est redirigé vers son profil.
 >* **Echec** : l'utilisateur est informé de l'erreur.
 
-Formulaire d'inscription :
-![Capture_page_inscription.png](images%2FCONCEPTION%2FCapture_page_inscription.png)
+```HTML
+<form action="traitement_inscription.php" method="post">
+    <label for="username">Identifiant</label>
+    <input id="username" type="text" name="username" required>
+
+    <label for="password">Mot de passe</label>
+    <input id="password" type="password" name="password" required>
+
+    <label for="password_confirm">Confirmer le mot de passe</label>
+    <input id="password_confirm" type="password" name="password_confirm" required>
+
+    <label for="email">Adresse email</label>
+    <input id="email" type="email" name="email" required>
+
+    <label for="captcha">Captcha : [afficher le captcha ici]</label>
+    <input id="captcha" type="number" name="captcha" required>
+
+    <input type="submit" value="S'inscrire">
+</form>
+```
+
+***Note : Il sera également nécessaire d'introduire dans le formulaire une section où l'on choisira le type d'utilisateur que l'on souhaite créer.***
 
 #### Cryptage des Mots de Passe :
 
@@ -417,10 +460,10 @@ Formulaire d'inscription :
 > la sécurité des utilisateurs. Dans le contexte de la SAE cette pratique est mise 
 > en œuvre lors de l'enregistrement des nouveaux utilisateurs et 
 > lors de la vérification des identifiants pendant le processus de connexion. 
-> Le cryptage des mots de passe est effectué en utilisant la fonction `password_hash()` de PHP,
+> Le cryptage des mots de passe va être effectué en utilisant la fonction `password_hash()` de PHP,
 > qui permet de générer un hachage sécurisé à partir d'une chaîne de caractères.  
 
-***Voici un exemple simplifié de l'utilisation de Bcrypt en PHP pour hacher un mot de passe :***
+***Voici un exemple simplifié de l'utilisation de Bcrypt en PHP pour hacher un mot de passe qui vont être utilisés:***
 
 ```PHP
 $password = "motdepasse123";
@@ -429,11 +472,12 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 
 ***Note 1 : En effet le hashage du mot de passe appartient au cycle de vie n°3***
 
-***Note 2 : Le processus de cryptage est intégré dans les scripts de gestion des utilisateurs donc dans la page action_inscription.php. L'utilisation de la fonction password_hash garantit que le système évolue avec les normes de sécurité.***
+***Note 2 : Le processus de cryptage va être intégré dans les scripts de gestion des utilisateurs donc dans la page action_inscription.php. L'utilisation de la fonction password_hash garantit que le système évolue avec les normes de sécurité.***
 
 
-### Profil & Tableau de bord
+### Profil & Tableau de bord :
 
+>La conception du profil utilisateur et du tableau de bord constitue également une étape très importante dans le développement d'une application. Ces éléments sont donc très importants pour offrir une expérience utilisateur riche et personnalisée.
 
 # Annexes 
 
