@@ -344,6 +344,18 @@ Les professionnels utilisent CSS pour créer des styles visuels et l'esthétique
 
 ### Gestion des Sessions pour la SAE :
 
+>#### Pages connexion.php et inscription.php :
+>**Connexion (connexion.php) :**
+Lorsqu'un utilisateur saisit ses identifiants (pseudo et mot de passe) et soumet le formulaire, le script PHP (action_connexion.php) vérifie ces informations dans la base de données.
+>En cas de : 
+>1. **Succès** : une session est démarrée avec la création d'une variable de session 'utilisateur' contenant le pseudo de l'utilisateur et il est redirigé vers son profil.
+>2. **Echec** : l'utilisateur est redirigé vers la page de connexion avec un message d'erreur.
+>
+>**Inscription (inscription.php) :**
+Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP (action_inscription.php) vérifie la validité des données et les insère dans la base de données.
+>En cas de :
+>1. **Succès** : une session est démarrée avec la création d'une variable de session contenant le nouveau pseudo créé, et l'utilisateur est redirigé vers son profil.
+>2. **Échec** : l'utilisateur est informé de l'erreur.
 
 
 ### Authentification
