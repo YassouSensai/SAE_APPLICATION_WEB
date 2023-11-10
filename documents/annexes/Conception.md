@@ -411,6 +411,26 @@ Formulaire de connexion :
 Formulaire d'inscription :
 ![Capture_page_inscription.png](images%2FCONCEPTION%2FCapture_page_inscription.png)
 
+#### Cryptage des Mots de Passe :
+
+>Le cryptage des mots de passe est une étape cruciale pour assurer 
+> la sécurité des utilisateurs. Dans le contexte de la SAE cette pratique est mise 
+> en œuvre lors de l'enregistrement des nouveaux utilisateurs et 
+> lors de la vérification des identifiants pendant le processus de connexion. 
+> Le cryptage des mots de passe est effectué en utilisant la fonction `password_hash()` de PHP,
+> qui permet de générer un hachage sécurisé à partir d'une chaîne de caractères.  
+
+***Voici un exemple simplifié de l'utilisation de Bcrypt en PHP pour hacher un mot de passe :***
+
+```PHP
+$password = "motdepasse123";
+$hash = password_hash($password, PASSWORD_BCRYPT);
+```
+
+***Note 1 : En effet le hashage du mot de passe appartient au cycle de vie n°3***
+
+***Note 2 : Le processus de cryptage est intégré dans les scripts de gestion des utilisateurs donc dans la page action_inscription.php. L'utilisation de la fonction password_hash garantit que le système évolue avec les normes de sécurité.***
+
 
 ### Profil & Tableau de bord
 
