@@ -307,7 +307,40 @@ WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
 ***Note : La carte SD sera insérée dans un Raspberry PI 4 par M. Hoguin qui nous fournira l'adresse IP correspondante. ce qui nous permettra de se connecter grâce au tunnel ssh, et ainsi, mettre le code source de l'application à jour.***
 
 
-## ***A compléter !!!***
+# Site web dynamique 
+
+## Adaptation du site statique
+
+> Le passage d'un site statique à un site web dynamique peut être décrit comme 
+une évolution significative dans la manière dont le contenu est généré sur un site web,
+affiché, et interagi avec les utilisateurs qui l'utilisent.
+Ainsi, on peut donc proposer les éléments clés à prendre en compte dans ce passage(ou évolution) :
+
+### Langages de Programmation :
+
+>#### PHP (Hypertext Preprocessor)
+>**Pourquoi PHP ? :** PHP est un langage de script côté serveur conçu pour le développement web, notamment pour les sites statiques dans notre cas. Son utilisation principale est la génération de contenu dynamique, le traitement des formulaires, la gestion des sessions, ainsi que l'interaction avec les bases de données.
+> 
+>**Utilisation SAE :**
+Dans notre projet, PHP est souvent combiné avec le code HTML pour créer des pages web dynamiques. Les balises `<?php ... ?>` permettent d'exécuter du code côté serveur, contrairement à HTML qui ne le permet pas. Pour cette SAE, les bases de données les plus adaptées sont MySQLi ou PDO, car car c'est les seules qu'on a vu cette année en PHP.
+
+>#### SQL (Structured Query Language) :
+>**Pourquoi SQL ? :** SQL est un langage de requête utilisé pour interagir avec les bases de données relationnelles.
+>
+>**Utilisation SAE :**
+Aujourd'hui, énormément de professionnels utilisent SQL pour créer et gérer des bases de données en créant la base entièrement et en la chargeant de données ensuite. Ainsi pour notre SAE, on a définit entièrement la base en commençant par : la structure des tables, ensuite l'ajout des données, et par la suite les tests tels que des opérations de base dans le langages tels que SELECT, INSERT, UPDATE, et DELETE. Ces étapes sont donc cruciales pour le bon fonctionnement et la bonne vérification de la base de données.
+
+>#### HTML (Hypertext Markup Language) :
+>**Pourquoi HTML ? :** HTML est le langage de balisage standard pour structurer et présenter le contenu sur le web.
+>
+>**Utilisation SAE :**
+HTML est souvent combiné avec d'autres langages tels que PHP pour créer des pages dynamiques. Dans notre projet, son association avec PHP permet de générer du contenu dynamique côté serveur. De plus, HTML est compatible avec CSS pour le stylage et JavaScript pour l'interactivité, offrant ainsi une expérience utilisateur plus riche.
+
+### Authentification
+
+### Profil & Tableau de bord
+
+
 # Annexes 
 
 ![charte_de_communication.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fcharte_de_communication.jpeg)
