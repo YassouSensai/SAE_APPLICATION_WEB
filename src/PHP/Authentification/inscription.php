@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="stylesheet" href="../../CSS/css_site_statique.css">
     <title>Inscription</title>
+    <script src="../../JS/messages.js"></script>
     <meta charset="UTF-8">
     <meta name="description" content="La description du site">
     <meta name="keywords" content="mots-clés 1, mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
-    <link rel="stylesheet" href="../../CSS/css_site_statique.css">
 </head>
 <body>
 <section class="header-page-connexion">
@@ -82,17 +83,8 @@
 if (isset($_GET['err'])){
     echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
 }
-?>
-<script>
-    // Code JavaScript pour cacher le message d'erreur après quelques secondes
-    setTimeout(function() {
-        var errorMessage = document.getElementById('error-message');
-        if (errorMessage) {
-            errorMessage.style.display = 'none';
-        }
-    }, 3000);
-</script>
-<?php
+
+
 include('../../HTML/pied.html');
 ?>
 </body>
