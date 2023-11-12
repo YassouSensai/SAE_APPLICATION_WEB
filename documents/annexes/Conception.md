@@ -477,7 +477,34 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 
 ### Profil & Tableau de bord :
 
->La conception du profil utilisateur et du tableau de bord constitue également une étape très importante dans le développement d'une application. Ces éléments sont donc très importants pour offrir une expérience utilisateur riche et personnalisée.
+>La conception du profil utilisateur et du tableau de bord constitue également une étape très importante dans le développement d'une application,
+>car permettent de fournir aux utilisateurs un accès facile aux informations et aux fonctionnalités essentielles de la base de données et le site.
+>
+>Ces éléments sont donc très importants pour offrir une bonne expérience utilisateur.
+
+#### Profil :
+>Dans cette SAE notre profil utilisateur est constitué de 4 fichiers : charte_graphique.php, index.php, logo1.php et logo2.php, qui sont consultables par tout le monde.
+>En effet le profil est très important pour l'utilisateur car il contient des informations essentielles sur l'application et sur le fonctionnement de celle-ci.
+>
+>Ainsi, L'index.php contient l'explication de la plateforme et une vidéo du tutoriel d'utilisation. Il offre une vue d'ensemble des informations personnelles, de l'historique d'activité, des préférences et des statistiques de l'utilisateur et proposera des fonctionnalités pratiques telles que la modification du mot de passe et la gestion de la photo de profil.
+>
+>Les fichiers logo1.php et logo2.php contiennent des logos (dans le contexte de le communication).
+>
+>Le fichier charte_graphique.php contient les informations de la charte graphique (travail dans le cadre de la communication également).
+
+#### Tableau de bord :
+
+>Le tableau de bord est une interface très intéréssant dans le cadre de notre SAE, étant donné que notre site est un site de ticketing interne, il offre un aperçu synthétique des activités et des données importantes. Il peut inclure des widgets dynamiques, des graphiques et des résumés pour permettre à l'utilisateur de suivre rapidement les informations pertinentes.
+>
+>La conception du profil et du tableau de bord se constitue autour de principes d'utilisabilité, de facilité de navigation et de personnalisation, garantissant ainsi une expérience utilisateur fluide et intuitive.
+> 
+>Ainsi, le tableau de bord va inclure 3 fichiers : admin_sys.php, admin_web.php et technicien.php, qui sont consultables par les administrateurs systèmes, administrateurs web et techniciens (plus celui des utilisateurs).
+>
+>Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens seront gérées via des pages actions qui leur seront attribué(1 page action pour chacun).
+> 
+
+
+
 
 # Annexes 
 
