@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
@@ -15,9 +16,10 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         $table_user = htmlspecialchars($_POST['user-type']);
 
         if ($result_captcha == $captcha) {
+            $ip = trim(shell_exec("hostname -I"));
 
             // Informations de connexion à la base de données
-            $serveur = "localhost";
+            $serveur = $ip;
             $utilisateur = "root";
             $mot_de_passe = "";
             $base_de_donnees = "sae_bd";
