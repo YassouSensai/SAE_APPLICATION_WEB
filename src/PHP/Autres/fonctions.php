@@ -37,7 +37,8 @@ function tableau_profil($username, $table_user){
             
           </style>";
 
-    echo "<table>
+    if ($table_user == 'Utilisateur') {
+        echo "<table>
             <thead>
                 <tr>
                     <th>Identifiant</th>
@@ -49,6 +50,20 @@ function tableau_profil($username, $table_user){
                 </tr>
             </thead>
             <tbody>";
+    } else {
+        echo "<table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Identifiant</th>
+                    <th>Mot de passe</th>
+                </tr>
+            </thead>
+            <tbody>";
+    }
+
+
 
     // Informations de connexion à la base de données
     $serveur = "localhost";
