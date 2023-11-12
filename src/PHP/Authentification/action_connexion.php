@@ -42,15 +42,9 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
                 $_SESSION['utilisateur'] = $username;
                 $_SESSION['table_user'] = $table_user;
 
-                if ($table_user == "Utilisateur") {
-                    header('Location: ../PagesUtilisateur/utilisateur.php');
-                } elseif ($table_user == "AdminSysteme") {
-                    header('Location: ../PagesAdminSys/admin_sys.php');
-                } elseif ($table_user == "AdminWeb") {
-                    header('Location: ../PagesAdminWeb/admin_web.php');
-                } else {
-                    header('Location: ../PagesTechnicien/technicien.php');
-                }
+
+                header('Location: ../PagesUtilisateur/utilisateur.php');
+
 
                 exit();
             } else {

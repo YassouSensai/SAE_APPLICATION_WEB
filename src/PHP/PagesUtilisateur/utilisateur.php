@@ -5,14 +5,12 @@ include ("../Autres/fonctions.php")
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../../CSS/css_entete_connecte.css">
+    <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
     <title>Utilisateur</title>
     <meta charset="utf-8">
     <meta name="description" content="la description du site">
     <meta name="keywords" content="mots-clés 1 mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
-
-
 
 
 </head>
@@ -54,8 +52,10 @@ include ("../Autres/fonctions.php")
 
     <div class='action-button'>
         <?php
-        echo "<a href='ouverture_ticket.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Ouvrir un ticket</a>";
-        echo "<br>";
+        if ($table_user == 'Utilisateur') {
+            echo "<a href='ouverture_ticket.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Ouvrir un ticket</a>";
+            echo "<br>";
+        }
         echo "<a href='modifier_profil.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Modifier mon profil</a>";
         echo "<br>";
         echo "<a href='tableau_de_bord_utilisateur.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Accèder à mon tableau de bord</a>";
