@@ -501,10 +501,34 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 >Ainsi, le tableau de bord va inclure 3 fichiers : admin_sys.php, admin_web.php et technicien.php, qui sont consultables par les administrateurs systèmes, administrateurs web et techniciens (plus celui des utilisateurs).
 >
 >Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens seront gérées via des pages actions qui leur seront attribué(1 page action pour chacun).
-> 
+>
 
+#### Rappel :
+#### Utilisateurs :
+>Une fois inscrit, l'utilisateur connecté peut :
+>* Soumettre une demande de dépannage (ouvrir un ticket).
+>* Accéder à son tableau de bord pour voir la liste des tickets publiés et leur état.
+>* Accéder à son profil pour changer son mot de passe.
 
+#### Administrateurs Web :
+>Une fois connecté, l'administrateur web peut ou doit :
+>* Doit pouvoir gérer la liste des libellés attribués aux différents problèmes.
+>* Il pourra définir les statuts des tickets (ouvert, en cours de traitement, fermé).
+>* Il pourra définir les niveaux d'urgence attribués aux tickets.
+>* Il pourra créer les comptes des techniciens et affecter les tickets ouverts à un technicien.
 
+#### Administrateurs Systèmes :
+>Une fois connecté, l'administrateur système peut ou doit :
+>* Doit pouvoir acceder aux journaux d'activité de l'application web.
+>
+>Remarques : Chaque validation d'un ticket par un utilisateur est enregistrée dans un journal d'activité (contient : les infos des tickets). 
+
+#### Techniciens :
+>Une fois connecté, le technicien peut ou doit :
+> Les techniciens peuvent s'attribuer des tickets et changer leur état.
+> Ils peuvent également mettre à jour les tickets qui leur sont attribués.
+
+#### UML : 
 
 # Annexes 
 
