@@ -55,6 +55,7 @@
                     <input id="password" type="password" name="password" placeholder="Mot de passe" required>
 
                     <?php
+
                     session_start();
                     $nb1 = rand(1,10);
                     $nb2 = rand(1,20);
