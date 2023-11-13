@@ -326,11 +326,26 @@ Ainsi, on peut donc proposer les éléments clés à prendre en compte dans ce p
 supplémentaires pour protéger notre site contre les attaques par injection SQL par exemple, 
 donc en utilisant des requêtes préparées, nous allons favoriser une interaction sécurisée avec la base de données, 
 réduisant ainsi le risque d'injections malveillantes.
->
+
+
+***Voici un exemple de requête préparée en PHP :***
+```PHP
+// par exemple, pour une requête de sélection de l'identifiant et du mot de passe.
+$username = htmlspecialchars($_POST['username']);
+$password = htmlspecialchars($_POST['password']);
+```
+
 >De plus, l'intégration de captchas dans nos formulaires d'authentification (connexion.php et inscription.php) comme demandé par M.Hoguin, 
 va permettre de renforcer la sécurité en empêchant les tentatives d'accès automatisées par des programmes extérieurs. 
 Les captchas vont donc ajouter une 2ème couche de vérification, 
 assurant que les actions sont entreprises par des utilisateurs réels et pas des bots automatisés.
+
+***Voici un exemple de captcha :***
+
+```HTML
+// exemple d'intégration, mais on utilisera un captcha avec des opérations mathématiques.
+<label for="captcha">Captcha : [afficher le captcha ici]</label>
+```
 
 ### Langages de Programmation :
 
