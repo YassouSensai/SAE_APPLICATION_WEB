@@ -530,6 +530,15 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 
 #### UML : 
 
+>Le diagramme UML (Unified Modeling Language) est un outil visuel utilisé en développement logiciel pour représenter 
+graphiquement la structure et les interactions d'un système. 
+En effet, c'est un outil très intéressant et surtout très important car il facilite la compréhension, la conception, la documentation, 
+et la communication au sein du groupe et surtout nous permet de mieux comprendre et comment mieux réaliser notre site dynamique.
+>
+>Puisque c'est un outil de conception, le diagramme UML sera élaboré avant le développement du site web dynamique. 
+Il comprendra des éléments tels que les classes, les relations, les méthodes, et autres,
+pour représenter la structure et le fonctionnement du système.
+
 # Annexes 
 
 ![charte_de_communication.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fcharte_de_communication.jpeg)
