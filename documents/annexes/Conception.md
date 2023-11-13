@@ -318,6 +318,20 @@ Ainsi, on peut donc proposer les éléments clés à prendre en compte dans ce p
 >
 > Pour rendre notre site statique dynamique, nous allons effectuer plusieures actions cruciales. Tout d'abord les pages HTML vont être converties en fichiers PHP, permettant une gestion plus flexible du contenu. De plus, nous allons scinder les composants principaux tels que l'en-tête (entete.html), le profil (profil.html), et le pied de page(pied.html) du site statique en HTML. Ces composants vont être désormais inclus dynamiquement dans les pages PHP correspondantes.
  
+### Sécurité : 
+
+>La sécurité est un élément essentiel dans le développement d'une application web qui doit concerner tout les porjets.
+>
+>En plus de la gestion des sessions qui va être décrite plus tard, nous allons mettre en place des mesures de sécurité 
+supplémentaires pour protéger notre site contre les attaques par injection SQL par exemple, 
+donc en utilisant des requêtes préparées, nous allons favoriser une interaction sécurisée avec la base de données, 
+réduisant ainsi le risque d'injections malveillantes.
+>
+>De plus, l'intégration de captchas dans nos formulaires d'authentification (connexion.php et inscription.php) comme demandé par M.Hoguin, 
+va permettre de renforcer la sécurité en empêchant les tentatives d'accès automatisées par des programmes extérieurs. 
+Les captchas vont donc ajouter une 2ème couche de vérification, 
+assurant que les actions sont entreprises par des utilisateurs réels et pas des bots automatisés.
+
 ### Langages de Programmation :
 
 >#### PHP (Hypertext Preprocessor)
@@ -360,7 +374,7 @@ Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP 
 >2. **Échec** : l'utilisateur est informé de l'erreur.
 
 >#### Page profil :
->Le **profil utilisateur** est constitué de 4 fichiers : charte_graphique.php, index.php, logo1.php et logo2.php, qui sont consultables par tout le monde.
+>Le **profil utilisateur** sera constitué quant à lui de 4 fichiers : charte_graphique.php, index.php, logo1.php et logo2.php, qui sont consultables par tout le monde.
 >
 >**Résumé du contenu :** 
 >1. **charte_graphique.php) :** contient les informations de la charte graphique (travail dans le cadre de la communication).
@@ -370,24 +384,24 @@ Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP 
 > L'utilisateur contient aussi une page profil.html pour voir et modifer ses informations (photo,mdp,...).
 
 >#### Pages admin_sys.php, admin_web.php et technicien.php :
->Ces pages d'administration affichent des fonctionnalités spécifiques à chaque type d'utilisateur, telles que la gestion des libellés, des statuts, des niveaux d'urgence, etc.
->Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens sont gérées via des pages actions (1 page action pour chacun).
+>Ces pages d'administration afficheront des fonctionnalités spécifiques à chaque type d'utilisateur, telles que la gestion des libellés, des statuts, des niveaux d'urgence, etc.
+>Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens seront à leur tour gérées via des pages actions (1 page action pour chacun des 3).
 
 >#### Communication client / serveur :
 > 
->La communication client/serveur dans notre application web se déroule à 
-travers le protocole HTTP. 
+>La communication client/serveur dans notre application web se déroulera à 
+travers le protocole HTTP classique. 
 > 
 >Lorsque l'utilisateur effectue des actions, 
-telles que se connecter ou modifier son profil, le navigateur envoie des 
+telles que se connecter ou modifier son profil, le navigateur va envoyer des 
 requêtes sur notre serveur. 
 > 
 >Ainsi du côté du serveur, des fichiers, souvent écrits en PHP, 
-reçoivent ces requêtes, interagissent avec la base de données s'il le faut, et génèrent 
+reçevront ces requêtes, interagissent avec la base de données s'il le faut, et vont génèrer 
 des réponses au format HTML. Ces réponses sont renvoyées au client, où le 
 navigateur les interprète pour afficher le contenu sur le site. 
 > 
->Enfin quand on utilise le site de la SAE, les informations sont échangées de manière fluide entre le navigateur et notre serveur. Par exemple, lorsque quelqu'un modifie le profil, les changements sont effectués sans avoir à recharger toute la page. 
+>Enfin, de cette manière quand on utilisera le site de la SAE, les informations seront échangées de manière fluide entre le navigateur et notre serveur. Par exemple, lorsque quelqu'un modifiera le profil, les changements seront effectués sans avoir à recharger toute la page. 
 
 ***Note : HTTP (Hypertext Transfer Protocol), est l'ensemble des règles permettant de transférer des fichiers tels que du texte, des images, du son, de la vidéo et d'autres fichiers multimédias sur le Web notamment les sites internet.***
 
@@ -395,7 +409,7 @@ navigateur les interprète pour afficher le contenu sur le site.
 
 >Pour que les utilisateurs puissent intéragir avec la base de données dans notre site dynamique il faut que
 les pages connexion.php et inscription.php soient fonctionnelles et présentent sur notre site dynamique. Pour cela, 
-il faut que les utilisateurs puissent s'inscrire et se connecter. Ainsi nous allors créer 
+il faut que les utilisateurs puissent s'inscrire et se connecter. Ainsi nous allons créer 
 un formulaire d'inscription et un formulaire de connexion qui seront reliés à la base de données.
 
 #### Connexion (connexion.php) :
