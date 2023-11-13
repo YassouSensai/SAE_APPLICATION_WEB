@@ -347,6 +347,19 @@ assurant que les actions sont entreprises par des utilisateurs réels et pas des
 <label for="captcha">Captcha : [afficher le captcha ici]</label>
 ```
 
+### Gestion des erreurs :
+
+>Pour fournir une meilleure expérience utilisateur en terme de compréhension et utilisation, nous avons pensé à créer des messages d'erreur, dans le developpement de notre site nous allons gérer et afficher les erreurs tout en évitant la divulgation d'informations sensibles.
+>
+>En effet, en cas d'erreur que ce soit d'inscription ou connexion, nous allons créer des messages clairs et compréhensibles,
+> même pour les utilisateurs non techniques qui vont indiquer l'erreur 
+> et suggérer des actions correctives une fois insérés dans le code. Cependant on a également crée des messages qui indiquent 
+> si l'utilisateur a saisi des informations incorrectes, de mauvaise manière ou même s'il a réussi de s'inscrire par exemple.
+>
+>Pour plus de confidentialité, notre groupe a préféré des messages d'erreur  
+> génériques, et évitant tout détail sensible comme des noms de tables 
+> par exemple.
+
 ### Langages de Programmation :
 
 >#### PHP (Hypertext Preprocessor)
