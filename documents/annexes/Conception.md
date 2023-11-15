@@ -2,10 +2,8 @@
 
 # Sommaire
 1. [Introduction](#Introduction)
-2. 
    * Contexte
    * Analyse des besoins du client
-   * Objectif
 3. [Architecture générale](#Architecture-générale)
    * Figure 1 : Schémas de l'architecture générale 
    * Explications
@@ -20,11 +18,12 @@
 6. [Raspberry PI 4](#Raspberry-PI-4)
    * Fonctionnement 
    * Carte SD 
-   * UML compos
+   * UML composantes connecteurs
 7. [Site web dynamique](#Site-web-dynamique)
    * Adaptation du site statique
    * Authentification
    * Profil & Tableau de bord 
+   * UML composantes connecteurs
 8. [Annexes](#Annexes)
    * Maquettes web
    
@@ -280,7 +279,7 @@ VALUES (1, 'Problème 1', 1, 1, 1, 3, CURRENT_DATE),
        (3, 'Problème 3', 3, 1, 3, 1, CURRENT_DATE);
 ```
 
-*** Ainsi, par exemple, si l'on souhaite sélectionner tous les tickets ouvets par l'utilisateur Smith Alice ; On exécutera la requête suivante :***
+***Ainsi, par exemple, si l'on souhaite sélectionner tous les tickets ouvets par l'utilisateur Smith Alice ; On exécutera la requête suivante :***
 
 ```SQL
 SELECT T.id_tickets, T.desc_pb_tic
@@ -290,6 +289,8 @@ WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
 ```
 
 # Raspberry PI 4
+
+***Note : Vous pouvez consulter le rapport pour la configuration du Raspberry PI 4 [ici](..%2Ftravaux%2Frapport_RPI.md).***
 
 ### Fonctionnement
 
@@ -570,7 +571,7 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 > Les techniciens peuvent s'attribuer des tickets et changer leur état.
 > Ils peuvent également mettre à jour les tickets qui leur sont attribués.
 
-#### UML : 
+### UML composantes connecteurs 
 
 >Le diagramme UML (Unified Modeling Language) est un outil visuel utilisé en développement logiciel pour représenter 
 graphiquement la structure et les interactions d'un système. 
