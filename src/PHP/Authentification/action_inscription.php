@@ -36,11 +36,8 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
             // Utilisation de requête préparée pour sécuriser l'insertion
             $query = "INSERT INTO Utilisateur (identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES (?, ?, ?, ?, ?, ?)";
 
-            // Hachage du mdp
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
             $prep = mysqli_prepare($connexion, $query);
-            mysqli_stmt_bind_param($prep, "ssssss", $username, $nom, $prenom, $email, $hashed_password, $type_util);
+            mysqli_stmt_bind_param($prep, "ssssss", $username, $nom, $prenom, $email, $password, $type_util);
 
             if (mysqli_stmt_execute($prep)) {
                 header('Location: connexion.php?reussite');

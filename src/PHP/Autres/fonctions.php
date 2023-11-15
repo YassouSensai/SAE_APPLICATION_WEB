@@ -67,8 +67,8 @@ function tableau_profil($username, $table_user){
 
     // Informations de connexion à la base de données
     $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_de_passe = "";
+    $utilisateur = "user_sae";
+    $mot_de_passe = "azerty";
     $base_de_donnees = "sae_bd";
 
     $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
