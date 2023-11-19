@@ -21,8 +21,12 @@
    * UML composantes connecteurs
 7. [Site web dynamique](#Site-web-dynamique)
    * Adaptation du site statique
-   * Authentification
+   * Langages de programmation
+   * Sécurité
+   * Gestion des erreurs
+   * Gestion des sessions
    * Profil & Tableau de bord 
+   * Rappel sur les cas d'utilisation
    * UML composantes connecteurs
 8. [Annexes](#Annexes)
    * Maquettes web
@@ -237,7 +241,7 @@ contenu HTML, permettant de créer des expériences utilisateur dynamiques et r�
 >Voici le DOM de la page d'accueil : 
 ![arbre_DOM_page_acceuil.png](images%2FCONCEPTION%2FMaquettes_WEB%2Farbre_DOM_page_acceuil.png)
 
-***Note: Plus tard, si nous avons le temps, le(s) DOM(s) pourra(ont) être réalisé grâce au langage JavaScript***
+***Note : Plus tard, si nous avons le temps, le(s) DOM(s) pourra(ont) être réalisé grâce au langage JavaScript***
 
 # Base de données
 
@@ -310,15 +314,58 @@ WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
 
 # Site web dynamique 
 
-## Adaptation du site statique
+### Adaptation du site statique
 
 > Le passage d'un site statique à un site web dynamique peut être décrit comme 
 une évolution significative dans la manière dont le contenu est généré sur un site web,
 affiché, et interagi avec les utilisateurs qui l'utilisent.
-Ainsi, on peut donc proposer les éléments clés à prendre en compte dans ce passage(ou évolution) :
+Ainsi, on peut donc proposer les éléments clés à prendre en compte dans ce passage (ou évolution) :
 >
 > Pour rendre notre site statique dynamique, nous allons effectuer plusieures actions cruciales. Tout d'abord les pages HTML vont être converties en fichiers PHP, permettant une gestion plus flexible du contenu. De plus, nous allons scinder les composants principaux tels que l'en-tête (entete.html), le profil (profil.html), et le pied de page(pied.html) du site statique en HTML. Ces composants vont être désormais inclus dynamiquement dans les pages PHP correspondantes.
- 
+
+
+### Langages de Programmation :
+
+>#### PHP (Hypertext Preprocessor) :
+> PHP est un langage de script côté serveur conçu pour le développement web,
+notamment pour les sites statiques dans notre cas. Son utilisation principale est la
+génération de contenu dynamique, le traitement des formulaires, la gestion des sessions,
+ainsi que l'interaction avec les bases de données.
+>
+>**Utilisation SAE :**
+Dans notre projet, PHP est souvent combiné avec le code HTML pour créer des pages web dynamiques. Les balises `<?php ... ?>` permettent d'exécuter du code côté serveur, contrairement à HTML qui ne le permet pas. Pour cette SAE, les bases de données les plus adaptées sont MySQLi ou PDO, car car c'est les seules qu'on a vu cette année en PHP.
+
+>#### SQL (Structured Query Language) :
+>SQL est un langage de requête utilisé pour interagir avec les bases de données relationnelles.
+>
+>**Utilisation SAE :**
+Aujourd'hui, énormément de professionnels utilisent SQL pour créer et gérer des bases de
+données en créant la base entièrement et en la chargeant de données ensuite. Ainsi pour
+notre SAE, on a défini complètement la base en commençant par : la structure des tables,
+ensuite l'ajout des données, et par la suite les tests tels que des opérations de base dans
+les langages tels que SELECT, INSERT, UPDATE, et DELETE. Ces étapes sont donc cruciales pour
+le bon fonctionnement et la bonne vérification de la base de données.
+
+>#### HTML (Hypertext Markup Language) :
+>HTML est le langage de balisage standard pour structurer et présenter le contenu sur le web.
+>
+>**Utilisation SAE :**
+HTML est souvent combiné avec d'autres langages tels que PHP pour créer des pages
+dynamiques. Dans notre projet, son association avec PHP permet de générer du contenu
+dynamique côté serveur. De plus, HTML est compatible avec CSS pour le style et JavaScript
+pour l'interactivité, offrant ainsi une expérience utilisateur beaucoup plus riche.
+
+>#### CSS (Cascading Style Sheets) :
+>CSS est un langage de style utilisé pour définir la présentation d'un document HTML.
+>
+>**Utilisation SAE :**
+Les professionnels utilisent CSS pour créer des styles visuels et l'esthétique sur les pages
+web. Donc dans le contexte des besoins et de la SAE, le CSS est un élément indispensable,
+car il permet : la gestion des couleurs, des polices, des tailles de texte et de la mise en
+page globale. Ainsi cela assure une présentation cohérente et attrayante sur divers appareils,
+et est essentiel pour l'expérience utilisateur.
+
+
 ### Sécurité : 
 
 >La sécurité est un élément essentiel dans le développement d'une application web qui doit concerner tout les porjets.
@@ -334,60 +381,35 @@ réduisant ainsi le risque d'injections malveillantes.
 // par exemple, pour une requête de sélection de l'identifiant et du mot de passe.
 $username = htmlspecialchars($_POST['username']);
 $password = htmlspecialchars($_POST['password']);
+
+$query = "SELECT * FROM ".$table_user." WHERE identifiant = ? AND mdp = ?";
+
+$prep = mysqli_prepare($connexion, $query);
+mysqli_stmt_bind_param($prep, 'ss', $username, $password);
+mysqli_stmt_execute($prep);
+
+$resultat = mysqli_stmt_get_result($prep);
 ```
 
 >De plus, l'intégration de captchas dans nos formulaires d'authentification (connexion.php et inscription.php) comme demandé par M.Hoguin, 
 va permettre de renforcer la sécurité en empêchant les tentatives d'accès automatisées par des programmes extérieurs. 
-Les captchas vont donc ajouter une 2ème couche de vérification, 
-assurant que les actions sont entreprises par des utilisateurs réels et pas des bots automatisés.
+Les captchas vont donc ajouter une deuxième couche de vérification, 
+assurant que les actions sont entreprises par des utilisateurs réels et pas des robots automatisés.
 
-***Voici un exemple de captcha :***
 
-```HTML
-// exemple d'intégration, mais on utilisera un captcha avec des opérations mathématiques.
-<label for="captcha">Captcha : [afficher le captcha ici]</label>
-```
+### Gestion des erreurs
 
-### Gestion des erreurs :
-
->Pour fournir une meilleure expérience utilisateur en terme de compréhension et utilisation, nous avons pensé à créer des messages d'erreur, dans le developpement de notre site nous allons gérer et afficher les erreurs tout en évitant la divulgation d'informations sensibles.
+>Pour fournir une meilleure expérience utilisateur en termes de compréhension et utilisation, nous avons pensé à créer des messages d'erreur, 
+afin de gérer et afficher les erreurs en utilisant le langage JavaScript.
 >
->En effet, en cas d'erreur que ce soit d'inscription ou connexion, nous allons créer des messages clairs et compréhensibles,
-> même pour les utilisateurs non techniques qui vont indiquer l'erreur 
-> et suggérer des actions correctives une fois insérés dans le code. Cependant on a également crée des messages qui indiquent 
-> si l'utilisateur a saisi des informations incorrectes, de mauvaise manière ou même s'il a réussi de s'inscrire par exemple.
+>En effet, en cas d'erreur que ce soit d'inscription ou de connexion, des messages clairs et compréhensibles s'afficheront. 
+Cependant, nous créerons également des messages qui indiquent si l'utilisateur a saisi des 
+informations incorrectes, de mauvaise manière ou même s'il a réussi de s'inscrire par exemple.
 >
->Pour plus de confidentialité, notre groupe a préféré des messages d'erreur  
-> génériques, et évitant tout détail sensible comme des noms de tables 
-> par exemple.
+>Pour plus de confidentialité, ces messages d'erreur seront génériques, ce qui évitera de divulguer tout détail sensible comme des noms de tables.
 
-### Langages de Programmation :
 
->#### PHP (Hypertext Preprocessor)
->**Pourquoi PHP ? :** PHP est un langage de script côté serveur conçu pour le développement web, notamment pour les sites statiques dans notre cas. Son utilisation principale est la génération de contenu dynamique, le traitement des formulaires, la gestion des sessions, ainsi que l'interaction avec les bases de données.
-> 
->**Utilisation SAE :**
-Dans notre projet, PHP est souvent combiné avec le code HTML pour créer des pages web dynamiques. Les balises `<?php ... ?>` permettent d'exécuter du code côté serveur, contrairement à HTML qui ne le permet pas. Pour cette SAE, les bases de données les plus adaptées sont MySQLi ou PDO, car car c'est les seules qu'on a vu cette année en PHP.
-
->#### SQL (Structured Query Language) :
->**Pourquoi SQL ? :** SQL est un langage de requête utilisé pour interagir avec les bases de données relationnelles.
->
->**Utilisation SAE :**
-Aujourd'hui, énormément de professionnels utilisent SQL pour créer et gérer des bases de données en créant la base entièrement et en la chargeant de données ensuite. Ainsi pour notre SAE, on a définit entièrement la base en commençant par : la structure des tables, ensuite l'ajout des données, et par la suite les tests tels que des opérations de base dans le langages tels que SELECT, INSERT, UPDATE, et DELETE. Ces étapes sont donc cruciales pour le bon fonctionnement et la bonne vérification de la base de données.
-
->#### HTML (Hypertext Markup Language) :
->**Pourquoi HTML ? :** HTML est le langage de balisage standard pour structurer et présenter le contenu sur le web.
->
->**Utilisation SAE :**
-HTML est souvent combiné avec d'autres langages tels que PHP pour créer des pages dynamiques. Dans notre projet, son association avec PHP permet de générer du contenu dynamique côté serveur. De plus, HTML est compatible avec CSS pour le stylage et JavaScript pour l'interactivité, offrant ainsi une expérience utilisateur beaucoup plus riche.
-
->#### CSS (Cascading Style Sheets) :
->**Pourquoi CSS ? :** CSS est un langage de style utilisé pour définir la présentation d'un document HTML.
->
->**Utilisation SAE :**
-Les professionnels utilisent CSS pour créer des styles visuels et l'esthétique sur les pages web. Donc dans le contexte des besoins et de la SAE, le CSS est un élément indispenssable car permet : la gestion des couleurs, des polices, des tailles de texte et de la mise en page globale. Donc cela assure une présentation cohérente et attrayante sur divers appareils, et est essenciel pour l'expérience utilisateur.
-
-### Gestion des Sessions pour la SAE :
+### Gestion des sessions
 
 >#### Pages connexion.php et inscription.php :
 >**Connexion (connexion.php) :**
@@ -402,19 +424,11 @@ Lorsqu'un nouvel utilisateur remplit le formulaire d'inscription, le script PHP 
 >1. **Succès** : une session est démarrée avec la création d'une variable de session contenant le nouveau pseudo créé, et l'utilisateur est redirigé vers son profil.
 >2. **Échec** : l'utilisateur est informé de l'erreur.
 
->#### Page profil :
->Le **profil utilisateur** sera constitué quant à lui de 4 fichiers : charte_graphique.php, index.php, logo1.php et logo2.php, qui sont consultables par tout le monde.
+>#### Page utilisateur.php :
+>Cette page sera la page d'arrivée des utilisateurs qui se connectent et sera utilisé comme page de profil, 
+qu'ils soient administrateurs, techiniciens ou même simple utilisateur.
 >
->**Résumé du contenu :** 
->1. **charte_graphique.php) :** contient les informations de la charte graphique (travail dans le cadre de la communication).
->2. **index.php :** contient l'explication de la plateforme et une vidéo du tutoriel d'utilisation.
->3. **logo1.php et logo2.php :** contiennent des logos
->
-> L'utilisateur contient aussi une page profil.html pour voir et modifer ses informations (photo,mdp,...).
-
->#### Pages admin_sys.php, admin_web.php et technicien.php :
->Ces pages d'administration afficheront des fonctionnalités spécifiques à chaque type d'utilisateur, telles que la gestion des libellés, des statuts, des niveaux d'urgence, etc.
->Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens seront à leur tour gérées via des pages actions (1 page action pour chacun des 3).
+>En fonction du type d'utilisateur, des liens d'accès différents seront présents sur cette page. 
 
 >#### Communication client / serveur :
 > 
@@ -426,7 +440,7 @@ telles que se connecter ou modifier son profil, le navigateur va envoyer des
 requêtes sur notre serveur. 
 > 
 >Ainsi du côté du serveur, des fichiers, souvent écrits en PHP, 
-reçevront ces requêtes, interagissent avec la base de données s'il le faut, et vont génèrer 
+recevront ces requêtes, interagissent avec la base de données s'il le faut, et vont générer 
 des réponses au format HTML. Ces réponses sont renvoyées au client, où le 
 navigateur les interprète pour afficher le contenu sur le site. 
 > 
@@ -434,119 +448,37 @@ navigateur les interprète pour afficher le contenu sur le site.
 
 ***Note : HTTP (Hypertext Transfer Protocol), est l'ensemble des règles permettant de transférer des fichiers tels que du texte, des images, du son, de la vidéo et d'autres fichiers multimédias sur le Web notamment les sites internet.***
 
-## Authentification :
-
->Pour que les utilisateurs puissent intéragir avec la base de données dans notre site dynamique il faut que
-les pages connexion.php et inscription.php soient fonctionnelles et présentent sur notre site dynamique. Pour cela, 
-il faut que les utilisateurs puissent s'inscrire et se connecter. Ainsi nous allons créer 
-un formulaire d'inscription et un formulaire de connexion qui seront reliés à la base de données.
-
-#### Connexion (connexion.php) :
-
->Lorsque les utilisateurs devront visiter la page de connexion, ils saisiront leurs identifiants (pseudo et mot de passe) et soumetteront le formulaire. Le script PHP (`action_connexion.php`) devrait être crée et vérifiera ces informations dans la base de données.
-En cas de :
->*  **Succès**: une session est démarrée, avec une variable de session, puis il est redirigé vers son profil.
->*  **Echec**: l'utilisateur est renvoyé à la page de connexion avec une d'erreur.
-
-Exemple possible pour le formulaire de connexion :
-
-```HTML
-
-<form action="traitement_connexion.php" method="post">
-    <label for="username">Identifiant</label>
-    <input id="username" type="text" name="username" required>
-
-    <label for="password">Mot de passe</label>
-    <input id="password" type="password" name="password" required>
-
-    <label for="captcha">Captcha : [afficher le captcha ici]</label>
-    <input id="captcha" type="number" name="captcha" required>
-
-    <input type="submit" value="Se connecter">
-</form>
-```
-***Note : Il sera également nécessaire d'introduire dans le formulaire une section où l'on choisira l'utilisateur avec lequel on souhaite se connecter.***
-
-#### Inscription (inscription.php) : 
-
->Lorsqu'un nouvel utilisateur remplira le formulaire d'inscription, le script PHP (`action_inscription.php`) va devoir vérifier la validité des données et les insèrer dans la base de données.
->En cas de :
->* **Succès** : une session est démarrée avec la création d'une variable de session, et l'utilisateur est redirigé vers son profil.
->* **Echec** : l'utilisateur est informé de l'erreur.
-
-```HTML
-<form action="traitement_inscription.php" method="post">
-    <label for="username">Identifiant</label>
-    <input id="username" type="text" name="username" required>
-
-    <label for="password">Mot de passe</label>
-    <input id="password" type="password" name="password" required>
-
-    <label for="password_confirm">Confirmer le mot de passe</label>
-    <input id="password_confirm" type="password" name="password_confirm" required>
-
-    <label for="email">Adresse email</label>
-    <input id="email" type="email" name="email" required>
-
-    <label for="captcha">Captcha : [afficher le captcha ici]</label>
-    <input id="captcha" type="number" name="captcha" required>
-
-    <input type="submit" value="S'inscrire">
-</form>
-```
-
-***Note : Il sera également nécessaire d'introduire dans le formulaire une section où l'on choisira le type d'utilisateur que l'on souhaite créer.***
-
-#### Cryptage des Mots de Passe :
-
->Le cryptage des mots de passe est une étape cruciale pour assurer 
-> la sécurité des utilisateurs. Dans le contexte de la SAE cette pratique est mise 
-> en œuvre lors de l'enregistrement des nouveaux utilisateurs et 
-> lors de la vérification des identifiants pendant le processus de connexion. 
-> Le cryptage des mots de passe va être effectué en utilisant la fonction `password_hash()` de PHP,
-> qui permet de générer un hachage sécurisé à partir d'une chaîne de caractères.  
-
-***Voici un exemple simplifié de l'utilisation de Bcrypt en PHP pour hacher un mot de passe qui vont être utilisés:***
-
-```PHP
-$password = "motdepasse123";
-$hash = password_hash($password, PASSWORD_BCRYPT);
-```
-
-***Note 1 : En effet le hashage du mot de passe appartient au cycle de vie n°3***
-
-***Note 2 : Le processus de cryptage va être intégré dans les scripts de gestion des utilisateurs donc dans la page action_inscription.php. L'utilisation de la fonction password_hash garantit que le système évolue avec les normes de sécurité.***
-
 
 ### Profil & Tableau de bord :
 
 >La conception du profil utilisateur et du tableau de bord constitue également une étape très importante dans le développement d'une application,
->car permettent de fournir aux utilisateurs un accès facile aux informations et aux fonctionnalités essentielles de la base de données et le site.
+>car cela permet de fournir aux utilisateurs un accès facile aux informations et aux fonctionnalités essentielles de la base de données et le site.
 >
 >Ces éléments sont donc très importants pour offrir une bonne expérience utilisateur.
 
-#### Profil :
->Dans cette SAE notre profil utilisateur est constitué de 4 fichiers : charte_graphique.php, index.php, logo1.php et logo2.php, qui sont consultables par tout le monde.
->En effet le profil est très important pour l'utilisateur car il contient des informations essentielles sur l'application et sur le fonctionnement de celle-ci.
->
->Ainsi, L'index.php contient l'explication de la plateforme et une vidéo du tutoriel d'utilisation. Il offre une vue d'ensemble des informations personnelles, de l'historique d'activité, des préférences et des statistiques de l'utilisateur et proposera des fonctionnalités pratiques telles que la modification du mot de passe et la gestion de la photo de profil.
->
->Les fichiers logo1.php et logo2.php contiennent des logos (dans le contexte de le communication).
->
->Le fichier charte_graphique.php contient les informations de la charte graphique (travail dans le cadre de la communication également).
-
 #### Tableau de bord :
 
->Le tableau de bord est une interface très intéréssant dans le cadre de notre SAE, étant donné que notre site est un site de ticketing interne, il offre un aperçu synthétique des activités et des données importantes. Il peut inclure des widgets dynamiques, des graphiques et des résumés pour permettre à l'utilisateur de suivre rapidement les informations pertinentes.
+>Le tableau de bord est une interface très intéressante dans le cadre de notre SAE, étant 
+donné que notre site est un site de ticketing interne, il offre un aperçu synthétique des 
+activités et des données importantes. Il peut inclure des widgets dynamiques, 
+des graphiques et des résumés pour permettre à l'utilisateur de suivre rapidement les 
+informations pertinentes.
 >
->La conception du profil et du tableau de bord se constitue autour de principes d'utilisabilité, de facilité de navigation et de personnalisation, garantissant ainsi une expérience utilisateur fluide et intuitive.
+>La conception du profil et du tableau de bord se constitue autour de principes d'utilisabilité,
+de facilité de navigation et de personnalisation, garantissant ainsi une expérience 
+utilisateur fluide et intuitive.
 > 
->Ainsi, le tableau de bord va inclure 3 fichiers : admin_sys.php, admin_web.php et technicien.php, qui sont consultables par les administrateurs systèmes, administrateurs web et techniciens (plus celui des utilisateurs).
+>Ainsi, le tableau de bord va inclure 3 fichiers : admin_sys.php, admin_web.php et 
+technicien.php, qui sont consultables par les administrateurs systèmes, administrateurs 
+web et techniciens (plus celui des utilisateurs).
 >
->Les actions effectuées par les administrateurs systèmes, administrateurs web et techniciens seront gérées via des pages actions qui leur seront attribué(1 page action pour chacun).
->
+>Les actions effectuées par les administrateurs systèmes, administrateurs web et 
+techniciens seront gérées via des pages actions qui leur seront attribué (1 page action 
+pour chacun).
 
-#### Rappel :
+
+### Rappel sur les cas d'utilisation :
+
 #### Utilisateurs :
 >Une fois inscrit, l'utilisateur connecté peut :
 >* Soumettre une demande de dépannage (ouvrir un ticket).
@@ -575,7 +507,7 @@ $hash = password_hash($password, PASSWORD_BCRYPT);
 
 >Le diagramme UML (Unified Modeling Language) est un outil visuel utilisé en développement logiciel pour représenter 
 graphiquement la structure et les interactions d'un système. 
-En effet, c'est un outil très intéressant et surtout très important car il facilite la compréhension, la conception, la documentation, 
+En effet, c'est un outil très intéressant et surtout très important, car il facilite la compréhension, la conception, la documentation, 
 et la communication au sein du groupe et surtout nous permet de mieux comprendre et comment mieux réaliser notre site dynamique.
 >
 >Puisque c'est un outil de conception, le diagramme UML sera élaboré avant le développement du site web dynamique. 
