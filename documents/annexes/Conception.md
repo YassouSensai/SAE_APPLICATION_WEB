@@ -296,6 +296,29 @@ WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
 
 ***Note : Vous pouvez consulter le rapport pour la configuration du Raspberry PI 4 [ici](..%2Ftravaux%2Frapport_RPI.md).***
 
+### Description 
+
+>Le Raspberry Pi 4 est un micro-ordinateur monocarte de 
+> la fondation Raspberry Pi. Dans notre SAE, il joue un rôle central, 
+> car il offre une plateforme matérielle compacte et polyvalente pour 
+> héberger notre application web et donc notre site. Mais pourquoi e Raspberry Pi 4? 
+> En effet cela constitue une solution puissante pour des applications diverses,
+> ainsi il fonctionne comme un serveur dédié, exécutant le système 
+> d'exploitation Raspberry Pi OS, un serveur web Apache, 
+> et le système de gestion de bases de données MariaDB. 
+> 
+> Sa configuration spécifique, notamment le système d'exploitation, 
+> le serveur web, la base de données, et le code source de 
+> l'application, est chargé sur une carte SD fournie par nos professeurs. 
+> Cette carte SD, insérée dans le Raspberry Pi 4, 
+> permet à notre équipe d'accéder de manière sécurisée à l'appareil 
+> via un tunnel SSH, ce qui simplifie les mises à jour et 
+> les maintenances de l'application. 
+> C'est donc un outil économe 
+> en énergie et le taille, offrant une solution
+> efficace et économique pour le déploiement d'applications web, 
+> tout en facilitant la gestion à distance de notre système.
+
 ### Fonctionnement
 
 >Nous fournirons une carte SD préparée pour être insérée dans le Raspberry Pi 4. Une fois la carte SD installée, notre équipe aura un accès sécurisé via un tunnel SSH (Secure Shell) pour effectuer des mises à jour du code source directement depuis les machines de l'IUT. Cette configuration permet une gestion aisée de l'application et garantit que les dernières mises à jour et améliorations peuvent être appliquées en toute simplicité. Notre objectif est de simplifier le processus d'installation et de maintenance de l'application, offrant ainsi une expérience agréable à notre client.
