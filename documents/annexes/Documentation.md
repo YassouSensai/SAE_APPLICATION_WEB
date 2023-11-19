@@ -43,9 +43,11 @@ utilisateur optimale.
 
 **git clone https://github.com/YassouSensai/SAE_APPLICATION_WEB.git**
 
-2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache (**Vous pouvez très bien utiliser le logiciel XAMPP). Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
+2. **Configuration de l'Environnement :** Assurez-vous que vous disposez de l'environnement nécessaire, y compris PHP, MySQL et un serveur web tel qu'Apache (**Vous pouvez très bien utiliser le logiciel XAMPP**). Suivez les instructions de configuration spécifiques à votre système. ***(Au besoin, un manuel sera mis à votre disposition)***
 
-3. **Création d'un accès à l'application :** Pour simplifier l'accès à l'application, créez un Alias nommé "start" pour démarrer le serveur Apache et accéder directement à l'application depuis votre navigateur. Pour cela, modifiez le fichier de configuration d'Apache ("httpd.conf" situé dans le dossier de configuration de XAMPP XAMPP/apache/conf) et ajoutez l'Alias suivant :
+3. **Chargement de la base de données :** Il faut également charger la base de données si ce n'est pas encore fait. Pour XAMPP, accédez à phpMyAdmin et exécutez ce [script](..%2F..%2Fsrc%2FSQL%2Fbase_de_donnees.sql). 
+
+4. **Création d'un accès à l'application :** Pour simplifier l'accès à l'application, créez un Alias nommé "start" pour démarrer le serveur Apache et accéder directement à l'application depuis votre navigateur. Pour cela, modifiez le fichier de configuration d'Apache ("httpd.conf" situé dans le dossier de configuration de XAMPP XAMPP/apache/conf) et ajoutez l'Alias suivant :
 
 ```apache
 Alias /start "chemin_vers_le_dossier_de_votre_application"
@@ -76,14 +78,16 @@ systemctl status apache2;
 systemctl status mysql;
 ```
 
-3. **Lancement de l'application :** Sur le Raspberry PI 4, l'accès à l'applicationa déjà été configuré.
+3. **Chargement de la base de données :** Il faut également charger la base de données si ce n'est pas encore fait. Entrez dans la ligne de commande MySQL (```mysql -u root```), puis exécutez ce [script](..%2F..%2Fsrc%2FSQL%2Fbase_de_donnees.sql).
+
+4. **Lancement de l'application :** Sur le Raspberry PI 4, l'accès à l'applicationa déjà été configuré.
 
    - **Directement sur firefox via interface graphique :** Dans la barre de recherche, entrez : *localhost/start*
    - **Depuis une machine de l'IUT :**
-        * Connectez vous au RPI *ssh admin@adresse_IP*, un mot de passe vous sera demandé (*#SAEadmin#*)
-        * Dans lla barre de recherche du navigateur de la machine de l'IUT, entrez : adresse_IP/start
+        * Connectez-vous au RPI : ```ssh admin@adresse_IP```, un mot de passe vous sera demandé (*!pisae!*)
+        * Dans lla barre de recherche du navigateur de la machine de l'IUT, entrez : http://raspb07/start
 
-4. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
+5. **Navigation sur le Site :** Explorez les fonctionnalités du site statique en cliquant sur tous les liens et/ou logos.
 
 
 >Pour des instructions plus détaillées sur chaque étape, consultez les sections pertinentes de cette documentation. Que vous soyez un utilisateur, un administrateur ou un membre de l'équipe de développement, cette documentation vous guidera tout au long du processus.
@@ -94,7 +98,7 @@ Elle sera donc mis à jour à chaque fin de cycle.
 
 ### Explications
 >Afin de mieux connaître les spécifications pour le site web statique, consultez le dossier de spécification ([Specifications.md](Specifications.md))
-dans la partie # Premier cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie # Site web statique.
+dans la partie #Premier cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie #Site web statique.
 >Vous pourrez aussi visionner le DOM de la page d'accueil.
 
 ### Structure du site
@@ -129,3 +133,67 @@ La page de connexion permet aux utilisateurs de se connecter à leur compte. Ell
 Cette documentation fournit un aperçu complet du site web statique, y compris sa structure, sa conception, et les technologies utilisées. Elle peut servir de référence pour la maintenance et les futures mises à jour du site.
 
 # Deuxième version
+
+### Explications 
+
+>Afin de mieux connaître les spécifications pour la deuxième version, consultez le dossier de spécification ([Specifications.md](Specifications.md))
+dans la partie #Deuxième cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans les parties #Base de données, #Raspberry PI 4
+et #Site web dynamique
+
+### Dynamisation du site web statique
+La dynamisation du site web statique est passée par plusieurs étapes. 
+
+* **Etape 1 :**
+
+La première étape était de mettre en évidence des parties communes à toutes les pages web. Ainsi, nous avons mis en évidence :
+   * [entete_general.html](..%2F..%2Fsrc%2FHTML%2Fentete_general.html) : L'entête commun à toutes les pages HTML du site statique
+   * [pied.html](..%2F..%2Fsrc%2FHTML%2Fpied.html) : Le pied de page commun à toutes les pages HTML du site statique, mais également à toutes les pages web PHP.
+
+* **Etape 2 :**
+
+La deuxième étape était de transformer les pages html du site statique en pages php. Maintenant, nous avons :
+
+   * [index.php](..%2F..%2Fsrc%2FPHP%2Findex.php) : Page d'accueil du site.
+   * [logo1.php](..%2F..%2Fsrc%2FPHP%2Flogo1.php) : Page dédiée à la présentation du logo 1.
+   * [logo2.php](..%2F..%2Fsrc%2FPHP%2Flogo2.php) : Page dédiée à la présentation du logo 2.
+   * [chartegraphique.php](..%2F..%2Fsrc%2FPHP%2Fchartegraphique.php) : Page expliquant la charte graphique du site.
+   * [connexion.php](..%2F..%2Fsrc%2FPHP%2FAuthentification%2Fconnexion.php) : Page de connexion pour les utilisateurs.
+
+***Note : Toutes ces pages sont relié à l'entête et au pied de page.***
+
+* **Etape 3 :**
+
+La dernière étape était de concevoir et de développer les autres pages nécessaires à la deuxième version de l'application (voir [Specifications.md](Specifications.md) et section suivante)
+
+### Implémentations
+
+Cette deuxième version est celle qui a nécessité le plus de création de pages web. Elle a également nécessité la création de la base de données ainsi que la configuration du Raspberry PI 4.  
+
+* **[Authentification](..%2F..%2Fsrc%2FPHP%2FAuthentification) : (*pages reliée au pied de page*)**
+   * [inscription.php](..%2F..%2Fsrc%2FPHP%2FAuthentification%2Finscription.php) : La page qui permet aux futurs utilisateurs de l'application de s'inscrire.
+   * [deconnexion.php](..%2F..%2Fsrc%2FPHP%2FAuthentification%2Fdeconnexion.php) : Le script PHP qui est relié à chaque profil d'utilisateur et qui permet de fermer une session.
+   * [action_connexion.php](..%2F..%2Fsrc%2FPHP%2FAuthentification%2Faction_connexion.php) : Le script PHP qui est relié à la page de connexion et qui permet à un utilisateur de se connecter et d'arriver sur son profil.
+   * [action_inscription.php](..%2F..%2Fsrc%2FPHP%2FAuthentification%2Faction_inscription.php) : Le script PHP qui est relié à la page d'inscription et qui permet de créer un compte dans la base de données.
+
+* **[PagesUtilisateur](..%2F..%2Fsrc%2FPHP%2FPagesUtilisateur) : (*pages reliée au pied de page*)**
+   * [utilisateur.php](..%2F..%2Fsrc%2FPHP%2FPagesUtilisateur%2Futilisateur.php) : La page d'arrivée de tous les utilisateurs qui se connectent
+
+* **[Autres](..%2F..%2Fsrc%2FPHP%2FAutres) :**
+   * [fonctions.php](..%2F..%2Fsrc%2FPHP%2FAutres%2Ffonctions.php) : Script PHP qui regroupe les fonctions utiles au site dynamique. Il y a également la fonction ```tableau_profil($username, $table_user)``` qui gère l'affichage du profil en fonction du type d'utilisateur qui se connecte.
+
+* **[JavaScript](..%2F..%2Fsrc%2FJS) :**
+   * [messages.js](..%2F..%2Fsrc%2FJS%2Fmessages.js) : Le script JavaScript qui est reliée à la page de connexion et d'inscription et qui permet d'afficher les messages d'erreur ou de succès.
+
+* **[SQL](..%2F..%2Fsrc%2FSQL) :**
+   * [base_de_donnees.sql](..%2F..%2Fsrc%2FSQL%2Fbase_de_donnees.sql) : Le script SQL qui une fois exécuté, permet d'utiliser convenablement l'application avec les cas d'utilisations déjà implémentées.
+
+* **[CSS](..%2F..%2Fsrc%2FCSS) :**
+   * [css_site_dynamique.css](..%2F..%2Fsrc%2FCSS%2Fcss_site_dynamique.css) : Il s'agit de la feuille de style raccordée à toutes les nouvelles pages PHP à partir de cette deuxième version.
+
+### Bilan
+
+La deuxième version de l'application représente une évolution significative par rapport à la première, passant d'un site web statique à un site web dynamique avec une base de données sous-jacente.
+Cette version est une base solide à améliorer et sur laquelle nous implémenterons les cas d'utilisations restants.
+
+
+
