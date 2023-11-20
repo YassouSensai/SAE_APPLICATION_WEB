@@ -16,6 +16,7 @@
    * Développement
    * Explications avec exemples
 6. [Raspberry PI 4](#Raspberry-PI-4)
+   * Description
    * Fonctionnement 
    * Carte SD 
    * UML composantes connecteurs
@@ -27,6 +28,7 @@
    * Gestion des sessions
    * Profil & Tableau de bord 
    * Rappel sur les cas d'utilisation
+   * Maquettes web
    * UML composantes connecteurs
 8. [Annexes](#Annexes)
    * Maquettes web
@@ -225,8 +227,7 @@ page d'accueil vise à :
 En effet, celle-ci permettra aux utilisateurs d'accéder à leur profil et ils ne devront rencontrer aucun problème !
 ![connexion.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fconnexion.jpeg)  
 
-***Note : Afin de consulter les maquettes des pages web pour la communication, veuillez consulter les annexes de ce dossier***  
-***Note : Les autres maquettes seront faites et proposées au client ultérieurement***
+***Note : Afin de consulter les maquettes des pages web pour la communication, veuillez consulter ce [fichier](images%2FCONCEPTION%2FMaquettes_WEB%2Ffichier_maquettes_web.pdf) qui comporte toutes les maquettes au fur et à mesures qu'elles seront réalisées.***  
 
 ### DOM page d'accueil
 >Le Document Object Model (DOM) d'une page HTML joue un rôle essentiel en permettant d'interagir de manière 
@@ -334,6 +335,9 @@ WHERE nom_util = 'Smith' AND prenom_util = 'Alice';
 
 ***Note : La carte SD sera insérée dans un Raspberry PI 4 par M. Hoguin qui nous fournira l'adresse IP correspondante. ce qui nous permettra de se connecter grâce au tunnel ssh, et ainsi, mettre le code source de l'application à jour.***
 
+### UML composantes connecteur
+
+![uml_pi.mdj.png](images%2FCONCEPTION%2FUML%2Fuml_pi.mdj.png)
 
 # Site web dynamique 
 
@@ -526,6 +530,22 @@ pour chacun).
 > Les techniciens peuvent s'attribuer des tickets et changer leur état.
 > Ils peuvent également mettre à jour les tickets qui leur sont attribués.
 
+### Maquettes web
+
+>Avant de développer les pages web en PHP, des maquettes supplémentaires ont été réalisées. Notamment la plus importante,
+la maquette de la page utilisateur.php (profil utilisateur) : 
+>
+>![utilisateur.png](images%2FCONCEPTION%2FMaquettes_WEB%2Futilisateur.png)
+
+
+***Note : Les autres maquettes seront faites et proposées au client ultérieurement***
+
+***Note : Vous pouvez consulter les autres maquettes web sur ce [fichier](images%2FCONCEPTION%2FMaquettes_WEB%2Ffichier_maquettes_web.pdf).***
+
+***Note : Vous pouvez consulter les tests d'acceptation dans le dossier de test ([Tests.md](Tests.md))***
+
+
+
 ### UML composantes connecteurs 
 
 >Le diagramme UML (Unified Modeling Language) est un outil visuel utilisé en développement logiciel pour représenter 
@@ -541,6 +561,3 @@ L'UML pour concevoir notre site :
 ![UML_site_dynamique.png](images%2FCONCEPTION%2FUML%2FUML_site_dynamique.png)
 # Annexes 
 
-![charte_de_communication.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fcharte_de_communication.jpeg)
-![logo_1.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Flogo_1.jpeg)
-![logo_2.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Flogo_2.jpeg)
