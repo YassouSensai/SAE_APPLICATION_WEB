@@ -4,12 +4,18 @@
 1. [Introduction](#Introduction)
     * Contexte
     * Objectif
-2. [Site web statique](#Site-web-statique)
+2. [Site web statique : Première version](#Site-web-statique-:-Première-version)
     * Tests d'acceptation
     * Page d'accueil
     * Page de connexion
     * Autres pages (devoir de communication)
     * Bilan
+3. [Site web dynamique : Deuxième version](#Site-web-dynamique-:-Deuxième-version)
+    * Format de test
+    * Inscription d'un utilisateur
+    * Connexion d'un utilisateur
+    * Bilan
+   
 
 
 # Introduction
@@ -29,7 +35,7 @@ conformité aux spécifications, évalue les performances et renforce la sécuri
 liés aux erreurs en production, garantissant ainsi la fiabilité du logiciel.
 
 
-# Site web statique
+# Site web statique : Première version
 ### Tests d'acceptation
 
 >Les tests d'acceptation pour un site web statique ont pour objectif de confirmer que le site 
@@ -42,11 +48,9 @@ la maquette et que les liens entre les pages sont corrects, contribuant ainsi à
 de la qualité du site web statique.
 
 
+***Pour chaque test, vous pourrez consulter la maquette de la page web en consultant ce [fichier](images%2FCONCEPTION%2FMaquettes_WEB%2Ffichier_maquettes_web.pdf).***
+
 ### Page d'accueil 
-
-***Maquette prévue :***
-
-![page_accueil.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fpage_accueil.jpeg)  
 
 ***Captures d'écran :***  
 
@@ -56,11 +60,7 @@ de la qualité du site web statique.
 
 ### Page de connexion
 
-***Note: Le lien de redirection vers le formulaire d'inscription n'est pas présent, car cette page n'a pas encore été réalisée.***
-
-***Maquette prévue :***  
-
-![connexion.jpeg](images%2FCONCEPTION%2FMaquettes_WEB%2Fconnexion.jpeg)
+***Note : Le lien de redirection vers le formulaire d'inscription n'est pas présent, car cette page n'a pas encore été réalisée.***
 
 ***Captures d'écran :***  
 
@@ -90,3 +90,43 @@ site suit fidèlement le modèle de la maquette, avec des liens entre les pages 
 fonctionnels. Ce bilan positif garantit que le site web statique est prêt à être déployé, 
 offrant ainsi une expérience utilisateur conforme aux attentes et visuellement cohérente 
 avec le design prévu.
+
+
+# Site web dynamique : Deuxième version 
+
+### Format de test
+
+>Les tests du site web dynamique visent à évaluer la fonctionnalité et l'interaction des différents composants du site.
+Ils couvrent les aspects tels que l'inscription et la connexion des utilisateurs, la manipulation des données en temps réel,
+et l'assurance de la réactivité du site. Ces tests contribuent à garantir que la plateforme de ticketing répond de manière adéquate 
+aux besoins de l'utilisateur, offrant une expérience fluide et fiable.
+
+
+***Pour chaque test, vous pourrez consulter la maquette de la page web en consultant ce [fichier](images%2FCONCEPTION%2FMaquettes_WEB%2Ffichier_maquettes_web.pdf).***
+
+### Inscription
+
+>Lorsqu'un utilisateur s'inscrit, ses données sont récupérée dans la base de données, lui permettant ainsi de se connecter.
+
+***Capture utilisateur en train de s'inscrire :***  
+
+![inscription_d'utilisateur.png](images%2FTESTS%2FSITE_DYNAMIQUE%2Finscription_d%27utilisateur.png)
+
+***Capture utilisateur qui valide son formulaire :***  
+
+![utilisateur_inscrit.png](images%2FTESTS%2FSITE_DYNAMIQUE%2Futilisateur_inscrit.png)
+
+### Connexion
+
+***Capture de la page utilisateur.php lorsque l'utilisateur entre ses identifiants :***  
+
+![connexion_utilisateur.png](images%2FTESTS%2FSITE_DYNAMIQUE%2Fconnexion_utilisateur.png)  
+
+### Bilan
+
+>En résumé, les tests du site web dynamique ont permis de valider la fonctionnalité des étapes cruciales telles 
+que l'inscription et la connexion des utilisateurs. Les captures d'écran démontrent que le site réagit correctement 
+aux actions de l'utilisateur, assurant une expérience fluide et sécurisée. Ces résultats positifs renforcent la 
+confiance dans la qualité globale de la base de donnée et surtout, de la plateforme de ticketing en développement. Le prochain stade du processus de 
+test impliquera une évaluation approfondie des fonctionnalités interactives et en temps réel pour assurer une 
+performance optimale.
