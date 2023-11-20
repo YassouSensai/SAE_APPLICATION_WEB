@@ -45,7 +45,6 @@ function tableau_profil($username, $table_user){
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Email</th>
-                    <th>Mot de passe</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -57,7 +56,6 @@ function tableau_profil($username, $table_user){
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Identifiant</th>
-                    <th>Mot de passe</th>
                 </tr>
             </thead>
             <tbody>";
@@ -86,14 +84,14 @@ function tableau_profil($username, $table_user){
     $resultat = mysqli_stmt_get_result($prep);
 
     if (mysqli_num_rows($resultat) > 0) {
-        // Affiche les résultats sous forme de tableau
+        // Fetch the results as an associative array
         $row = mysqli_fetch_assoc($resultat);
 
         // Supprime le premier élément (Numéro utilisateur)
         array_shift($row);
 
-        // Hache le mot de passe avant de l'afficher
-        $row['mdp'] = password_hash($row['mdp'], PASSWORD_DEFAULT);
+        // Don't display the password, remove it from the array
+        unset($row['mdp']);
 
         echo "<tr>";
         foreach ($row as $attribut) {
