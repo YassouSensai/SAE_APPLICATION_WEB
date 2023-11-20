@@ -64,7 +64,7 @@ de la qualité du site web statique.
 
 ***Captures d'écran :***  
 
-![Page de Connexion - Groupe Ostap, Yassine, Aaron - Google Chrome 24_10_2023 22_02_33.png](images%2FTESTS%2FSITE_STATIQUE%2FPage%20de%20Connexion%20-%20Groupe%20Ostap%2C%20Yassine%2C%20Aaron%20-%20Google%20Chrome%2024_10_2023%2022_02_33.png)
+![Page_de_connexion_Ostap_Aaron_Yassine.png](images%2FTESTS%2FSITE_STATIQUE%2FPage_de_connexion_Ostap_Aaron_Yassine.png)
 
 ### Autres pages (devoir de communication)
 
