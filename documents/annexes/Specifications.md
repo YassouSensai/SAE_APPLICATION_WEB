@@ -71,7 +71,8 @@ Durant ce premier cycle de vie, les principaux impératifs sont les suivants :
 ***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
 
 ### Cas d'Utilisation :
-Ce cycle de vie s'est principalement caractérisé par le cas d'utilisation suivant :
+Ce cycle de vie est principalement caractérisé par le cas d'utilisation suivant :
+
 #### Cas 1 : Visionnage du site
 *(Il s'agit du cas 7 dans le recueil des besoins)*
 
@@ -103,8 +104,8 @@ Il s'agit de la première itération de l'application web, qui sera développée
 
 ***Nom :*** Livraison de la deuxième version de l'application.  
 ***Début :*** 23 octobre 2023  
-***Fin :*** 12 novembre 2023  
-***Livraison :*** 13 novembre 2023
+***Fin :*** 12 novembre 2023 (+1 semaine de retard)
+***Livraison :*** 13 novembre 2023 (20/11/2023)
 
 >Ce deuxième cycle nous permettra de démarrer le développement de l'application en implémentant certains cas d'utilisations.
 > Il nous permettra également de préparer le seul livrable matériel nécessaire pour notre client.
@@ -119,7 +120,7 @@ Durant ce deuxième cycle de vie, les principales exigences sont les suivantes :
 ***Remarque : Afin d'avoir plus d'informations sur la conception, consultez le dossier de conception [ici](#Conception.md).***
 
 ### Cas d'Utilisation :
-Ce cycle de vie s'est caractérisé par les scénarios d'utilisation suivants :
+Ce cycle de vie est caractérisé par les scénarios d'utilisation suivants :
 
 #### Cas 1 : Authentification à l'application
 *(Il s'agit du cas 4 du recueil des besoins)*
@@ -155,17 +156,22 @@ Le livrable sera la carte SD qui contiendra :
 Ainsi que la version 2 de l'application avec les cas d'utilisation implémentés.
 
 ### Bilan :
+Malgré le retard accumulé, ce cycle de vie nous a permis de proposer une deuxième version de l'application web, complète, 
+avec toutes les composantes de l'application. La première version de la base de données permet aux utilisateurs de se connecter et de s'inscrire 
+via les formulaires présents sur le site (sans sécurisation pour le moment). Les utilisateurs peuvent maintenant visionner leurs informations personnelles
+sur leur profil.
 
-## ***A compléter !!!***
+Cette version de l'application (maintenant hébergée sur le Raspberry PI 4) est une base solide qui permettra d'implémenter les derniers cas d'utilisations durant le troisième cycle de vie.
+
 
 # Troisième Cycle
 
 ### Détails
 
 ***Nom :*** Livraison de la troisième version de l'application.  
-***Début :*** 13 octobre 2023  
-***Fin :*** 11 décembre 2023  
-***Livraison :*** 12 décembre 2023
+***Début :*** 20 novembre 2023
+***Fin :*** 21 décembre 2023  
+***Livraison :*** 22 décembre 2023
 
 >L'objectif de ce troisième cycle de vie est de parachever les cas d'utilisations manquants afin de livrer 
 >une troisième version de l'application web. En effet, nous commencerons le développement des cas d'utilisations manquants
@@ -174,10 +180,63 @@ Ainsi que la version 2 de l'application avec les cas d'utilisation implémentés
 ### Exigences
 
 Durant ce troisième cycle de vie, les principales exigences sont les suivantes :
+- Terminer la conception de l'application.
 - Terminer le développement de la base de données.
-- Commencer à sécuriser l'application
 - Développer les pages php pour l'implémentation des cas d'utilisations.
 
+### Cas d'utilisations
+Ce cycle de vie se caractérise par les scénarios d'utilisations suivants :  
+*(Pour plus d'informations, consultez le recueil des besoins [ici](Cahier_Des_Charges_et_Receuil_Des_Besoins.md))*
 
+#### Cas 1 : Visualisation des tickets ouverts
+*(Il s'agit du cas 3 du recueil des besoins)*
+
+**Portée :** Administrateur web  
+**Niveau :** Objectif sous-fonction  
+**Acteur :** Administrateur web  
+**Scénario :** Une fois connecté, l'administrateur web peut visualiser toutes les informations concernant les tickets.
+
+#### Cas 2 : Visualisation des tickets ouverts
+*(Il s'agit du cas 2 du recueil des besoins)*
+
+**Portée :** Administrateur web  
+**Niveau :** Objectif stratégique 
+**Acteur :** Administrateur web  
+**Scénario :** Une fois connecté, l'administrateur web peut créer un nouveau technicien.
+
+#### Cas 3 : Gestion des tickets
+*(Il s'agit du cas 1 du recueil des besoins)*
+
+**Portée :** Techniciens, Administrateur web  
+**Niveau :** Objectif stratégique  
+**Acteur :** Techniciens, Administrateur web  
+**Scénario :** 
+* Une fois connecté, l'administrateur web peut attribuer un ticket à un technicien.
+* Une fois connecté, les techniciens peuvent prendre en charge les tickets, résoudre les problèmes et mettre à jour le statut des tickets.
+
+#### Cas 4 : Création de tickets
+*(Il s'agit du cas 5 du recueil des besoins)*
+
+**Portée :** Client  
+**Niveau :** Objectif sous-fonction
+**Acteur :** Client 
+**Scénario :** Une fois connecté, un client peut ouvrir un ticket pour signaler un problème.
+
+#### Cas 5 : Visionnage des journaux d'activités 
+*(Il s'agit du cas 8 du recueil des besoins)*
+
+**Portée :** Administrateur système  
+**Niveau :** Objectif sous-fonction
+**Acteur :** Administrateur système  
+**Scénario :** Une fois connecté, l'administrateur système peut visionner les connexions/inscriptions sur l'application, les créations de tickets, mais aussi les résolutions des problèmes et les prises en charges des tickets. 
+
+
+### Livrable : 22 décembre 2023
+Le livrable à la fin du cycle de vie sera la troisième version de l'application
+qui contiendra les cas d'utilisations implémentés. 
+
+### Bilan :
+
+## ***A compléter !!!***
 
 

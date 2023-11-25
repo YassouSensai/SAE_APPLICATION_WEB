@@ -19,8 +19,7 @@
 8. [Conclusion](#Conclusion)
 9. [Annexes](#Annexes)
     * Annexe 1 : diagrammes des cas d'utilisation
-    * Annexe 2 : diagramme de PERT
-    * Annexe 3 : Liste des actions (Analyse des besoins du client)
+    * Annexe 2 : Liste des actions (Analyse des besoins du client)
 
 
 # Introduction
@@ -338,7 +337,7 @@ est essentielle pour la compréhension.
     <td>Administrateur système</td>
     <td>Visionnage des journaux d’activités</td>
     <td>L’administrateur système peut accéder aux journaux d’activité de l’application web.</td>
-    <td>Objectif utilisateur</td>
+    <td>Objectif sous-fonction</td>
     <td>Administrateur système</td>
   </tr>
 </table>
@@ -432,7 +431,7 @@ est essentielle pour la compréhension.
 >***Nom :*** Lancement du projet et livraison d'une version minimaliste.  
 >***Durée :*** 4 semaines
 >  
->Voici la matrice des antécédents des tâches qui seront faites lors de ce premier cycle : 
+>Voici la liste des tâches qui seront faites lors de ce premier cycle : 
 
 ***Note : Les matrices des antécédents sont un outil de gestion de projet qui permet de représenterles relations et dépendances entre les tâches d'un projet***  
 
@@ -443,40 +442,28 @@ est essentielle pour la compréhension.
     <tr>
       <th style="width: 20%;">Tâches</th>
       <th style="width: 15%;">Durée (jours)</th>
-      <th style="width: 10%;">Niveau</th>
-      <th style="width: 55%;">Antécédents</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>t1. Lancement du projet</td>
       <td>1</td>
-      <td>1</td>
-      <td>-</td>
     </tr>
     <tr>
       <td>t2. Analyse des besoins du client</td>
       <td>10</td>
-      <td>2</td>
-      <td>(début 1 jour après t1)</td>
     </tr>
     <tr>
       <td>t3. Réécriture du cahier des charges</td>
       <td>10</td>
-      <td>3</td>
-      <td>(début 1 jour après t2)</td>
     </tr>
     <tr>
       <td>t4. Création + Argumentaire du logo du groupe</td>
       <td>7</td>
-      <td>4</td>
-      <td>(début 1 jour après t3)</td>
     </tr>
     <tr>
       <td>t5. Création du site HTML statique</td>
       <td>7</td>
-      <td>4</td>
-      <td>(début 1 jour après t3)</td>
     </tr>
   </tbody>
 </table>
@@ -486,47 +473,80 @@ est essentielle pour la compréhension.
 >***Nom :*** Livraison de la deuxième version de l'application.  
 >***Durée :*** 3 semaines
 >
->Voici la matrice des antécédents des tâches qui seront faites lors de ce deuxième cycle :
+>Voici la liste des tâches qui seront faites lors de ce deuxième cycle :
 
 <table style="width: 100%;">
   <thead>
     <tr>
       <th style="width: 20%;">Tâches</th>
       <th style="width: 15%;">Durée (jours)</th>
-      <th style="width: 10%;">Niveau</th>
-      <th style="width: 55%;">Antécédents</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>t7. Préparation et livraison de la carte SD</td>
       <td>7</td>
-      <td>6</td>
-      <td>t6</td>
     </tr>
     <tr>
       <td>t8. Conception + Commencer la création de la base de données</td>
       <td>10</td>
-      <td>6</td>
-      <td>(début 1 jour après t6)</td>
     </tr>
     <tr>
       <td>t9. Premier point intermédiaire</td>
       <td>3</td>
-      <td>7</td>
-      <td>t7 (début 5 jours après le début de t8)</td>
     </tr>
     <tr>
       <td>t10. Conception et création des premières pages PHP</td>
-      <td>21</td>
-      <td>8</td>
-      <td>t9 et t8 (début 1 jour après t9)</td>
+      <td>10</td>
     </tr>
 </tbody>
 </table>
 
 #### Troisième cycle de vie :
-## ***A compléter !!!***
+>***Nom :*** Livraison de la troisième version de l'application.  
+>***Durée :*** 5 semaines
+>
+>Voici la liste des tâches qui seront faites lors de ce premier cycle :
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th style="width: 20%;">Tâches</th>
+      <th style="width: 15%;">Durée (jours)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>t11. Finaliser la conception de l'application</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>t12. Finaliser le développement de la base de données</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>t13. Continuer le développement des pages PHP</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>t14. Conception et création des premières pages PHP</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>t15. Présentation en anglais</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>t16. Travail sur la RGPD (droit)</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>t17. Travail en proba-stats</td>
+      <td>7</td>
+    </tr>
+</tbody>
+</table>
+
 
 #### Matrice des antécédents
 ## ***A compléter !!!***
@@ -542,25 +562,7 @@ est essentielle pour la compréhension.
   </thead>
   <tbody>
     <tr>
-      <td>t11. Présentation en anglais</td>
-      <td>5</td>
-      <td>8</td>
-      <td>t9 (début 6 jours après le début de t10)</td>
-    </tr>
-    <tr>
-      <td>t12. Travail en proba-stats</td>
-      <td>5</td>
-      <td>8</td>
-      <td>t9 (début 6 jours après le début de t10)</td>
-    </tr>
-    <tr>
       <td>t13. Travail en sécurité</td>
-      <td>5</td>
-      <td>8</td>
-      <td>t9 (début 6 jours après le début de t10)</td>
-    </tr>
-    <tr>
-      <td>t14. Travail sur la RGPD (droit)</td>
       <td>5</td>
       <td>8</td>
       <td>t9 (début 6 jours après le début de t10)</td>
@@ -667,11 +669,8 @@ est essentielle pour la compréhension.
 
 ![diagramme_utilisation_VISITEURS_SYSTEME.png](images%2FCAHIER_DES_CHARGES%2Fdiagramme_utilisation_VISITEURS_SYSTEME.png)
 
-### Annexe 2 : diagramme de PERT
 
-![diagramme_PERT.jpg](images%2FCAHIER_DES_CHARGES%2Fdiagramme_PERT.jpg)
-
-### Annexe 3 : Liste des actions (Analyse des besoins du client) 
+### Annexe 2 : Liste des actions (Analyse des besoins du client) 
 
 - Développer une application de ticketing interne en PHP & MySQL
 - Créer une page d'accueil expliquant le but de la plateforme

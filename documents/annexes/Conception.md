@@ -4,32 +4,36 @@
 1. [Introduction](#Introduction)
    * Contexte
    * Analyse des besoins du client
-3. [Architecture générale](#Architecture-générale)
+2. [Architecture générale](#Architecture-générale)
    * Figure 1 : Schémas de l'architecture générale 
    * Explications
-4. [Site web statique](#Site-web-statique)
+3. [Site web statique](#Site-web-statique)
    * But
    * Maquettes web
    * DOM page d'accueil
-5. [Base de données](#Base-de-données)
+4. [Base de données](#Base-de-données)
    * Conception
    * Développement
    * Explications avec exemples
-6. [Raspberry PI 4](#Raspberry-PI-4)
+5. [Raspberry PI 4](#Raspberry-PI-4)
    * Description
    * Fonctionnement 
    * Carte SD 
    * UML composantes connecteurs
-7. [Site web dynamique](#Site-web-dynamique)
+6. [Site web dynamique](#Site-web-dynamique)
    * Adaptation du site statique
    * Langages de programmation
    * Sécurité
    * Gestion des erreurs
    * Gestion des sessions
    * Profil & Tableau de bord 
+   * Journal d'activité
    * Rappel sur les cas d'utilisation
    * Maquettes web
    * UML composantes connecteurs
+7. [Déploiement serveur](#Déploiement-serveur)
+   * Explications
+   * Diagramme UML
 8. [Annexes](#Annexes)
    * Maquettes web
    
@@ -504,6 +508,10 @@ techniciens seront gérées via des pages actions qui leur seront attribué (1 p
 pour chacun).
 
 
+### Journal d'activité
+
+## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+
 ### Rappel sur les cas d'utilisation :
 
 #### Utilisateurs :
@@ -559,5 +567,13 @@ pour représenter la structure et le fonctionnement du système.
 L'UML pour concevoir notre site :
 
 ![UML_site_dynamique.png](images%2FCONCEPTION%2FUML%2FUML_site_dynamique.png)
-# Annexes 
 
+
+# Déploiement serveur
+
+### Explications
+## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+### Diagramme UML
+## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+# Annexes 
+## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
