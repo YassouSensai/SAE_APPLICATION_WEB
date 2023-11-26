@@ -1,41 +1,17 @@
 <?php
 
+// Informations de connexion à la base de données
+$serveur = "localhost";
+$utilisateur = "user_sae";
+$mot_de_passe = "azerty";
+$base_de_donnees = "sae_bd";
+
+
+
 function tableau_profil($username, $table_user){
 
-    echo "<style>
-            table {
-                width: auto;
-                margin: 20px auto;
-                border-collapse: collapse;
-            }
-            
-            th, td {
-                border: 3px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-                width: auto;
-                max-width: 200px; /* Ajustez la largeur maximale selon vos besoins */
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            
-            th {
-                text-align: center;
-            }
-
-            td:hover {
-                background-color: #f5f5f5;
-            }
-
-            caption {
-                font-size: 1.2em;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-
-            
-          </style>";
+    global $connexion, $serveur, $utilisateur, $mot_de_passe, $base_de_donnees;
+    echo "<link rel='stylesheet' href='../../CSS/css_tableaux.css'>";
 
     if ($table_user == 'Utilisateur') {
         echo "<table>
@@ -60,14 +36,6 @@ function tableau_profil($username, $table_user){
             </thead>
             <tbody>";
     }
-
-
-
-    // Informations de connexion à la base de données
-    $serveur = "localhost";
-    $utilisateur = "user_sae";
-    $mot_de_passe = "azerty";
-    $base_de_donnees = "sae_bd";
 
     $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
 
@@ -105,7 +73,10 @@ function tableau_profil($username, $table_user){
     echo "</tbody>
         </table>";
 
-
     mysqli_close($connexion);
 }
+
 ?>
+
+
+
