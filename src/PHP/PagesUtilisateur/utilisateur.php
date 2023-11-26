@@ -52,6 +52,9 @@ include ("../Autres/fonctions.php")
 
     <div class='action-button'>
         <?php
+        $_SESSION['utilisateur'] = $username;
+        $_SESSION['table_user'] = $table_user;
+
         if ($table_user == 'Utilisateur') {
             echo "<a href='ouverture_ticket.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Ouvrir un ticket</a>";
             echo "<br>";
