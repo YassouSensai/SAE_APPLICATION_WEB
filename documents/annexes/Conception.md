@@ -510,7 +510,35 @@ pour chacun).
 
 ### Journal d'activité
 
-## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+>Le journal d'activité est un composant clé dans le suivi des actions effectuées 
+au sein de la plateforme de ticketing interne. Il enregistre différentes activités, 
+offrant ainsi une trace chronologique des événements sur le site WEB. 
+Le journal vise à garantir la traçabilité de différents données (status,quantité etc..) et actions,
+des opérations effectuées par les différents utilisateurs de notre site.
+
+#### Données récoltées :
+
+>Les données que contient notre journal sont les suivantes : 
+>
+>1. **Date :** La date à laquelle l'activité a été enregistrée dans le journal.
+>
+>2. **Adresse IP :** L'adresse IP associée à l'utilisateur.
+>
+>(à virer peut etre)
+>
+>3. **Utilisateur :** Identifiant de l'utilisateur qui a initié l'activité.
+>
+>4. **Nature de l'Activité :** Description détaillée de l'action réalisée, que ce soit la création d'un ticket, la modification d'un profil, l'attribution d'un ticket à un technicien, etc.
+>
+>5. **Niveau d'Urgence (pour les tickets) :** Lorsqu'un ticket est créé ou modifié, le niveau d'urgence associé à ce ticket est enregistré.
+
+#### Objectif du journal :
+
+>En effet, sur un site Web, un tel journal d'activité permet d'améliorer : 
+>- **La Traçabilité :** donc suivre chaque action effectuée dans l'application.
+>- **L'Audit :** donc la vérification et l'audit des activités pour des raisons de sécurité et de conformité.
+>- **La Détection d'Anomalies :** donc repérer des schémas inhabituels ou des activités suspectes sur le site.
+>- **Les Statistiques :** donc des données pour des analyses statistiques (par ex : les connexions réussies et infructueuses).
 
 ### Rappel sur les cas d'utilisation :
 
