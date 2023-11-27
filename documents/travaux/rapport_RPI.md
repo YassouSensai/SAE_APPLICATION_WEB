@@ -6,6 +6,7 @@
     * Raspberry PI OS
     * SSH
 3. [Autres installations](#Autres-installations)
+    * Fail2ban
     * Apache
     * MariaDB
     * PHP
@@ -75,6 +76,74 @@ liste des paquets disponibles.**
 ```shell
 sudo apt-get update
 ```
+
+### Fail2ban
+
+Fail2ban est un logiciel open-source qui permet de sécuriser un serveur en le protégeant contre des attaques
+d'intrusion par exemple. En d'autres termes, Fail2ban permet de surveiller les journaux système en les analysant, 
+détecter les tentatives de connexion répétée et infructueuse, bloquer automatiquement certaines adresses IP suspectées malveillantes.
+
+Fail2ban est souvent utilisé sur des serveurs Linux en complément de l'utilisation d'SSH.
+
+**Procédure :**
+   * Installation :
+
+```shell
+sudo apt install fail2ban
+```
+
+   * Activation : 
+
+```shell
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+```  
+
+Normalement, l'installation de fail2ban s'arrête là, ce qui devrait nous permettre de directement utiliser le logiciel.
+Hors, lorsque nous vérifions l'activation de fail2ban avec la commande ```sudo systemctl status fail2ban```, une erreur se produit avec le message suivant :
+
+```shell
+
+root@raspb07:~# systemctl status fail2ban.service 
+x fail2ban.service - Fail2Ban Service
+     Loaded: loaded (/lib/systemd/system/fail2ban.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Sun 2023-11-26 20:02:51 CET; 1s ago
+   Duration: 350ms
+       Docs: man:fail2ban(1)
+    Process: 12916 ExecStart=/usr/bin/fail2ban-server -xf start (code=exited, status=255/EXCEPTION)
+   Main PID: 12916 (code=exited, status=255/EXCEPTION)
+        CPU: 342ms
+
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr systemd[1]: Started fail2ban.service - Fail2Ban Servic>
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr fail2ban-server[12916]: 2023-11-26 20:02:51,457 fail2b>
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr fail2ban-server[12916]: 2023-11-26 20:02:51,494 fail2b>
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr fail2ban-server[12916]: 2023-11-26 20:02:51,503 fail2b>
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr systemd[1]: fail2ban.service: Main process exited, cod>
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr systemd[1]: fail2ban.service: Failed with result 'exit>
+```
+
+Et en lançant la commande ```journalctl -u fail2ban```, nous avons plus de détails sur la source du problème : 
+
+```shell
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr systemd[1]: Started fail2ban.service - Fail2Ban Service.
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr fail2ban-server[12916]: 2023-11-26 20:02:51,457 fail2ban.configreader   [12916]: WARNING 'allowipv6' not defined in 'Definition'. Using default one: 'auto'
+nov. 26 20:02:51 raspb07.dinfo.iut-velizy.uvsq.fr fail2ban-server[12916]: 2023-11-26 20:02:51,494 fail2ban                [12916]: ERROR   Failed during configuration: Have not found any log file for sshd jail
+```
+
+Le principal problème viendrait donc du fait que fail2ban n'arrive pas à trouver le bon journal lié à la cellule de surveillance (jail) lié à sshd.
+Ainsi, deux solutions de modification du fichier ```/etc/fail2ban/jail.conf``` se sont offerte à nous :
+
+   * Soit, il fallait mettre en commentaire la ligne qui cherchait le journal :
+
+```shell
+[sshd]
+port = ssh
+#logpath = %(sshd_log)s
+```
+
+   * Mieux : En cherchant un peu plus, il fallait faire la recherche du journal automatiquement en mettant la variable backend = systemd :
+
+![regler_probleme_fail2ban.png](IMAGES%2Fregler_probleme_fail2ban.png)
 
 ### Apache
 
