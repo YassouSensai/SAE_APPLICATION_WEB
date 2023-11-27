@@ -599,6 +599,33 @@ L'UML pour concevoir notre site :
 
 # Déploiement serveur
 
+>Le processus de déploiement du serveur pour notre SAE joue un rôle important pour garantir la disponibilité et la performance de l'application. Les étapes ci-dessous détaillent le déploiement sur un Raspberry Pi 4 (RPi4).
+
+### Etapes définies pour le déploiement :
+#### Configuration du Serveur
+
+>1. **Préparation de la carte SD :**
+>  - Premièrement installation du système d'exploitation sur la carte SD du RPi4.
+>  - Configuration des services nécessaires, y compris Apache pour le serveur web et MySQL pour la base de données.
+>
+>2. **Configuration Réseau :**
+>  - Configuration du réseau pour permettre l'accès à distance au serveur.
+>  - Configuration du pare-feu pour autoriser les connexions entrantes et sortantes.
+>  - Configuration du serveur pour permettre l'accès à distance via un tunnel SSH.
+
+#### Installation des Services
+
+>1. **Base de Données :**
+>  - création de la base de données sur le serveur en utilisant le script SQL fourni.
+>  - Accord des privilèges appropriés.
+>
+>2. **Serveur Web :**
+>  - Configurez Apache pour héberger l'application web.
+>  - S'assurer de la bonne configuration du serveur pour PHP.
+>
+>3. **Services Additionnels :**
+>  - Installation des autres services requis, tels que des bibliothèques ou des dépendances spécifiques à l'application.
+
 ### Explications
 ## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
 ### Diagramme UML
