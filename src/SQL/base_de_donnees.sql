@@ -52,6 +52,7 @@ DROP TABLE IF EXISTS Technicien;
 DROP TABLE IF EXISTS AdminWeb;
 DROP TABLE IF EXISTS AdminSysteme;
 DROP TABLE IF EXISTS Utilisateur;
+DROP TABLE IF EXISTS JournalActivite;
 
 -- Création des tables
 
@@ -131,6 +132,15 @@ CREATE TABLE Ticket (
                         nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
 );
 
+-- Table Journal d'activité :
+CREATE TABLE JournalActivite (
+    id_activite INTEGER PRIMARY KEY AUTO_INCREMENT,
+    date_activite DATETIME NOT NULL,
+    id_utilisateur INTEGER NOT NULL REFERENCES Utilisateur(id_util),
+    id_tic INTEGER NOT NULL REFERENCES Ticket(id_tic),
+    adresse_ip VARCHAR(15) NOT NULL
+);
+
 -- TRIGGER :
 DELIMITER //
 CREATE TRIGGER trig_check_urgence
@@ -196,6 +206,13 @@ INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
                                                             (2, 1),
                                                             (3, 0);
 
+-- Insérer des données fictives dans la table Journal d'activité
+INSERT INTO JournalActivite (id_activite, date_activite, id_utilisateur, id_tic, adresse_ip) VALUES
+                                                                                                 (1, '2023-12-07 12:00:00', 1, 1, '192.168.0.1'),
+                                                                                                 (2, '2023-12-07 13:30:00', 2, 2, '192.168.0.2'),
+                                                                                                 (3, '2023-12-07 14:45:00', 3, 3, '192.168.0.3');
+
+
 -- AFFICHER LES TABLES :
 SELECT * FROM Utilisateur;
 SELECT * FROM AdminSysteme;
@@ -206,7 +223,7 @@ SELECT * FROM CategorieProbleme;
 SELECT * FROM StatutTicket;
 SELECT * FROM NiveauUrgence;
 SELECT * FROM HistoriqueTickets;
-
+SELECT * FROM JournalActivite;
 
 
 
