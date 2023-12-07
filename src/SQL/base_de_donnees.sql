@@ -156,6 +156,8 @@ DELIMITER ;
 
 
 
+
+
 -- Insérer des données fictives dans la table Utilisateur
 INSERT INTO Utilisateur (id_util, identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES
 (1,'util1', 'Doe', 'John', 'john.doe@example.com', 'motdepasse1', 'Utilisateur'),
