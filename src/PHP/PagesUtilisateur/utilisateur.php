@@ -1,9 +1,10 @@
 <?php
-include ("../Autres/fonctions.php")
+include("../Autres/fonctions.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
     <title>Utilisateur</title>
@@ -14,6 +15,7 @@ include ("../Autres/fonctions.php")
 
 
 </head>
+
 <body>
 
 <section class="header-page-générale">
@@ -32,46 +34,81 @@ include ("../Autres/fonctions.php")
         <?php
         session_start();
         $username = "";
-        if (isset($_SESSION['utilisateur'])) {
+        if (isset($_SESSION['utilisateur'], $_SESSION['table_user'])) {
             $username = $_SESSION['utilisateur'];
+            $table_user = $_SESSION['table_user'];
             echo "<h1>Bienvenue sur votre profil $username </h1>";
         }
         ?>
     </div>
 </section>
 
-<section>
-    <div>
-        <?php
-        if (isset($_SESSION['table_user'])){
-            $table_user = $_SESSION['table_user'];
-            tableau_profil($username, $table_user);
-        }
-        ?>
-    </div>
+<br>
+<br>
+<br>
 
-    <div class='action-button'>
+
+
+<div class='action-button'>
+    <ul class='button-list'>
         <?php
         $_SESSION['utilisateur'] = $username;
         $_SESSION['table_user'] = $table_user;
 
         if ($table_user == 'Utilisateur') {
-            echo "<a href='ouverture_ticket.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Ouvrir un ticket</a>";
-            echo "<br>";
+            echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifier'\">Modifier mon profil</button></li>";
+            echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=ticket'\">Ouvrir un ticket</button></li>";
         }
-        echo "<a href='modifier_profil.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Modifier mon profil</a>";
-        echo "<br>";
-        echo "<a href='tableau_de_bord_utilisateur.php?utilisateur=$username&table_util=$table_user' class='modifier-button'>Accèder à mon tableau de bord</a>";
-        echo "<br>";
-        echo "<br>";
-        echo "<a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php'\">Tableau de bord</button></li>";
+        ?>
+    </ul>
+</div>
+
+<br>
+<br>
+
+
+<section class="corps-de-la-page">
+    <div id="profil">
+        <?php
+        tableau_profil($username, $table_user);
         ?>
     </div>
+
+    <?php
+
+    if ($table_user == 'Utilisateur') {
+        echo "<div id='formulaires'>";
+
+        if (isset($_GET['formulaire'])) {
+            $param_formulaire = $_GET['formulaire'];
+            if ($param_formulaire == 'modifier') {
+                afficherFormulaireModifierProfil($username, $table_user);
+            } elseif ($param_formulaire == 'ticket') {
+                afficherFormulaireOuvertureTicket();
+            }
+        }
+        echo "</div>";
+    }
+    ?>
+
 </section>
+
+
+<div class="action-button">
+    <?php
+    echo "<br>";
+    echo "<br>";
+    echo "<a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>";
+    ?>
+</div>
+
+
+
 </body>
 
 <?php
-include ("../../HTML/pied.html");
+include("../../HTML/pied.html");
 ?>
-</html>
 
+</html>
