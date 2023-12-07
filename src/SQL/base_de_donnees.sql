@@ -134,13 +134,13 @@ CREATE TABLE Ticket (
 
 -- Table Journal d'activité :
 CREATE TABLE JournalActivite (
-    id_activite INTEGER PRIMARY KEY AUTO_INCREMENT,
-    date_activite DATETIME NOT NULL,
-    id_utilisateur INTEGER NOT NULL REFERENCES Utilisateur(id_util),
-    id_tic INTEGER NOT NULL REFERENCES Ticket(id_tic),
-    adresse_ip VARCHAR(15) NOT NULL
+        id_journal INTEGER PRIMARY KEY AUTO_INCREMENT,
+        date_activite DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        adresse_ip VARCHAR(15) NOT NULL,
+        id_utilisateur INTEGER REFERENCES Utilisateur(id_util),
+        nature_activite TEXT NOT NULL,
+        niveau_urgence_ticket INTEGER REFERENCES NiveauUrgence(id_nv_urgence)
 );
-
 -- TRIGGER :
 DELIMITER //
 CREATE TRIGGER trig_check_urgence
@@ -207,11 +207,10 @@ INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
                                                             (3, 0);
 
 -- Insérer des données fictives dans la table Journal d'activité
-INSERT INTO JournalActivite (id_activite, date_activite, id_utilisateur, id_tic, adresse_ip) VALUES
-                                                                                                 (1, '2023-12-07 12:00:00', 1, 1, '192.168.0.1'),
-                                                                                                 (2, '2023-12-07 13:30:00', 2, 2, '192.168.0.2'),
-                                                                                                 (3, '2023-12-07 14:45:00', 3, 3, '192.168.0.3');
-
+INSERT INTO JournalActivite (id_journal, date_activite, adresse_ip, id_utilisateur, nature_activite, niveau_urgence_ticket) VALUES
+(1, '2021-01-01 00:00:00', '192.168.0.1', 1, 'Création du ticket 1', 3),
+(2, '2021-01-01 00:00:00', '192.168.0.2', 2, 'Création du ticket 2', 2),
+(3, '2021-01-01 00:00:00', '192.168.0.3', 1, 'Création du ticket 3', 1);
 
 -- AFFICHER LES TABLES :
 SELECT * FROM Utilisateur;

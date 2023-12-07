@@ -532,6 +532,8 @@ des opérations effectuées par les différents utilisateurs de notre site.
 >
 >5. **Niveau d'Urgence (pour les tickets) :** Lorsqu'un ticket est créé ou modifié, le niveau d'urgence associé à ce ticket est enregistré.
 
+***Note : Les données récoltées seront stockées dans une table probablement JournalActivite de notre base de données.***
+
 #### Objectif du journal :
 
 >En effet, sur un site Web, un tel journal d'activité permet d'améliorer : 
@@ -626,6 +628,39 @@ L'UML pour concevoir notre site :
 >3. **Services Additionnels :**
 >  - Installation des autres services requis, tels que des bibliothèques ou des dépendances spécifiques à l'application.
 
+#### Spécifications du Serveur 
+
+>1. **Spécifications Matérielles :**
+> - Processeur : Broadcom BCM2711, Quad-core Cortex-A72 (ARM v8) 64-bit SoC.
+> - Mémoire RAM : 4 Go DDR4.
+> - Stockage : Carte microSD de 32 Go.
+> - Connectivité :
+Ethernet Gigabit (RJ-45).
+Wi-Fi 802.11ac.
+Bluetooth 5.0.
+> - Ports :
+2 × Port USB 3.0.
+2 × Port USB 2.0.
+HDMI (pour la sortie vidéo).
+GPIO Pins pour l'extension et les périphériques.
+Alimentation : USB-C 5V/3A.
+
+>2. **Spécifications Logicielles :**
+> - Système d'Exploitation : [Indiquez le système d'exploitation utilisé, par exemple, Raspbian OS.]
+> - Serveur Web : Apache [Version] pour héberger l'application.
+> - Base de Données : MySQL [Version] pour stocker et gérer les données de l'application.
+> - Langage de Programmation : PHP [Version] pour le développement d'applications web dynamiques.
+> - Langages de Scripting : [Indiquez tous les langages de script utilisés, par exemple, Python, Bash.]
+> - Services Additionnels :
+[Listez tous les services requis par l'application, tels que des bibliothèques spécifiques ou des dépendances.]
+
+>3. **Sécurité et Authentification :**
+Accès à Distance :
+Utilisation d'un tunnel SSH pour un accès distant sécurisé.
+Configuration du pare-feu pour limiter l'accès aux seules connexions nécessaires.
+Authentification :
+Mise en place de méthodes d'authentification sécurisées, telles que l'utilisation de clés SSH.
+Gestion des droits d'accès et des privilèges pour assurer une sécurité appropriée.
 ### Explications
 ## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
 ### Diagramme UML
