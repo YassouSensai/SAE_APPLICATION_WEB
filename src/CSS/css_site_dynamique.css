@@ -75,30 +75,60 @@ footer p {
 }
 
 
-/* bouton modifier */
+/* ######################################   CSS pour la partie (classe) : action-button   ###################################### */
 
 
-.action-button {
-    margin-top: 20px;
-    text-align: center; /* Ajout de la propriété pour centrer le contenu */
+.button-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.modifier-button {
+.button-list button {
     background-color: #245228;
     color: white;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border: none;
     border-radius: 5px;
-    margin-top: 10px; /* Ajout d'une marge en haut pour l'espacement */
+    width: 180px;
+    display: inline-block;
 }
 
-.modifier-button:hover {
+.button-list li a {
+    text-decoration: none;
+}
+
+.button-list button:hover {
     background-color: #8fbc8f;
 }
+
+/* ######################################   CSS pour la partie (classe) : corps de la page   ###################################### */
+
+.corps-de-la-page {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#profil {
+    width: 50%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+#formulaires {
+    width: 40%; /* Ajustez la largeur selon vos besoins */
+    box-sizing: border-box;
+    margin: auto;
+}
+
+
+
 
 
 
