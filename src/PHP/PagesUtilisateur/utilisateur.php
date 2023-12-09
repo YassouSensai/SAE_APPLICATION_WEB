@@ -8,6 +8,7 @@ include("../Autres/fonctions.php");
 <head>
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
     <title>Utilisateur</title>
+    <script src="../../JS/messages.js"></script>
     <meta charset="utf-8">
     <meta name="description" content="la description du site">
     <meta name="keywords" content="mots-clés 1 mots-clés 2">
@@ -56,7 +57,8 @@ include("../Autres/fonctions.php");
         $_SESSION['table_user'] = $table_user;
 
         if ($table_user == 'Utilisateur') {
-            echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifier'\">Modifier mon profil</button></li>";
+            echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifierProfil'\">Modifier mon profil</button></li>";
+            echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifierMdp'\">Modifier mon mot de passe</button></li>";
             echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=ticket'\">Ouvrir un ticket</button></li>";
         }
         echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php'\">Tableau de bord</button></li>";
@@ -75,6 +77,7 @@ include("../Autres/fonctions.php");
         ?>
     </div>
 
+    <div id="formulaires">
     <?php
 
     if ($table_user == 'Utilisateur') {
@@ -82,16 +85,18 @@ include("../Autres/fonctions.php");
 
         if (isset($_GET['formulaire'])) {
             $param_formulaire = $_GET['formulaire'];
-            if ($param_formulaire == 'modifier') {
+            if ($param_formulaire == 'modifierProfil') {
                 afficherFormulaireModifierProfil($username, $table_user);
             } elseif ($param_formulaire == 'ticket') {
                 afficherFormulaireOuvertureTicket();
+            } elseif ($param_formulaire == 'modifierMdp') {
+                afficherModifierMotDePasse($username, $table_user);
             }
         }
         echo "</div>";
     }
     ?>
-
+    </div>
 </section>
 
 
@@ -103,7 +108,33 @@ include("../Autres/fonctions.php");
     ?>
 </div>
 
+<?php
+if (isset($_GET['modif_profil'])) {
+    $code_modif = $_GET['modif_profil'];
 
+    if ($code_modif == 'succes') {
+        echo "<p id='success' style='color: green'>Votre profil a été modifié avec succès !</p>";
+    } elseif ($code_modif == 'echec') {
+        echo "<p id='error-message' style='color: red'>Votre profil n'a pas pu être modifié !</p>";
+    } elseif ($code_modif == 'echec_mdp') {
+        echo "<p id='error-message' style='color: red'>Votre mot de passe est incorrect. Veuillez réessayer !</p>";
+    } elseif ($code_modif == 'else') {
+        echo "<p id='error-message' style='color: red'>Veuillez réessayer ultérieurement !</p>";
+    }
+} elseif (isset($_GET['modif_mdp'])) {
+    $code_modif = $_GET['modif_mdp'];
+    if ($code_modif == 'succes') {
+        echo "<p id='success' style='color: green'>Votre mot de passe a été modifié avec succès !</p>";
+    } elseif ($code_modif == 'echec') {
+        echo "<p id='error-message' style='color: red'>Votre mot de passe n'a pas pu être modifié !</p>";
+    } elseif ($code_modif == 'echec_mdp_captcha') {
+        echo "<p id='error-message' style='color: red'>Votre capctha est incorrect ou vos mots de passes ne correspondent pas. Veuillez réessayer !</p>";
+    } elseif ($code_modif == 'else') {
+        echo "<p id='error-message' style='color: red'>Veuillez réessayer ultérieurement !</p>";
+    }
+}
+
+?>
 
 </body>
 

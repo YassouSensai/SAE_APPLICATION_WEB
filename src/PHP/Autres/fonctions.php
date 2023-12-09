@@ -7,6 +7,39 @@ $mot_de_passe = "azerty";
 $base_de_donnees = "sae_bd";
 
 
+
+function connectDB() {
+    $serveur = "localhost";
+    $utilisateur = "user_sae";
+    $mot_de_passe = "azerty";
+    $base_de_donnees = "sae_bd";
+
+    $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
+
+    if (!$connexion) {
+        die("La connexion a échoué : " . mysqli_connect_error());
+    }
+
+    return $connexion;
+}
+
+function prepareAndExecute($connexion, $query, $params = null) {
+    $prep = mysqli_prepare($connexion, $query);
+
+    if (!$prep) {
+        die("La préparation de la requête a échoué : " . mysqli_error($connexion));
+    }
+
+    if ($params) {
+        mysqli_stmt_bind_param($prep, ...$params);
+    }
+
+    mysqli_stmt_execute($prep);
+
+    return mysqli_stmt_get_result($prep);
+}
+
+
 // ####################################################################################################################
 // ####################################################################################################################
 // ####################################################################################################################
@@ -108,9 +141,9 @@ function afficherFormulaireModifierProfil($username, $table_user) {
     if (mysqli_num_rows($resultat) > 0) {
         $profilActuel = mysqli_fetch_assoc($resultat);
 
-        echo "<form id='formulaireModificationProfil' action='traitement_modifier_profil.php' method='post'>";
+        echo "<form id='formulaireModificationProfil' action='traitement_modifier_infos.php?typeModif=profil' method='post'>";
 
-        // Afficher les champs du formulaire avec les valeurs actuelles
+
         echo "<label for='nouveau_nom'>Nouveau nom:</label>";
         echo "<input type='text' id='nouveau_nom' name='nouveau_nom' value='" . htmlspecialchars($profilActuel['nom_util']) . "' required><br>";
 
@@ -120,16 +153,11 @@ function afficherFormulaireModifierProfil($username, $table_user) {
         echo "<label for='nouvel_email'>Nouvel email:</label>";
         echo "<input type='email' id='nouvel_email' name='nouvel_email' value='" . htmlspecialchars($profilActuel['email_util']) . "' required><br>";
 
-        echo "<label for='ancien_mot_de_passe'>Ancien mot-de-passe:</label>";
-        echo "<input type='password' id='ancien_mot_de_passe' name='ancien_mot_de_passe' placeholder='ancien mot-de-passe' required><br>";
+        echo "<label for='mot_de_passe'>Votre mot-de-passe:</label>";
+        echo "<input type='password' id='mot_de_passe' name='mot_de_passe' placeholder='mot-de-passe' required><br>";
 
-        echo "<label for='nouveau_mot_de_passe'>Nouveau mot-de-passe:</label>";
-        echo "<input type='password' id='nouveau_mot_de_passe' name='nouveau_mot_de_passe' placeholder='nouveau mot-de-passe' required><br>";
 
-        echo "<label for='nouveau_mot_de_passe_valider'>Validez votre nouveau mot-de-passe:</label>";
-        echo "<input type='password' id='nouveau_mot_de_passe_valider' name='nouveau_mot_de_passe_valider' placeholder='Validez votre nouveau mot de passe' required><br>";
-
-        echo "<input type='submit' value='Valider'>";
+        echo "<input type='submit' value='Modifier'>";
         echo "</form>";
     } else {
         echo "Utilisateur non trouvé.";
@@ -138,6 +166,48 @@ function afficherFormulaireModifierProfil($username, $table_user) {
     // Fermer la requête et la connexion
     mysqli_close($connexion);
 }
+
+// ####################################################################################################################
+// ####################################################################################################################
+// ####################################################################################################################
+
+/* Cette fonction permet d'afficher le formulaire de modification de mot de passe */
+function afficherModifierMotDePasse($username, $table_user) {
+    echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
+
+
+    echo "<form action='traitement_modifier_infos.php?typeModif=mdp' method='post'>";
+
+
+    echo "<label for='ancien_mdp'>Votre ancien mot-de-passe :</label>";
+    echo "<input type='password' id='ancien_mdp' name='ancien_mdp' placeholder='Ancien mot-de-passe' required><br>";
+
+    echo "<label for='nouveau_mdp'>Votre nouveau mot-de-passe :</label>";
+    echo "<input type='password' id='nouveau_mdp' name='nouveau_mdp' placeholder='Nouveau mot-de-passe' required><br>";
+
+    echo "<label for='nouveau_mdp2'>Validez votre mot-de-passe :</label>";
+    echo "<input type='password' id='nouveau_mdp2' name='nouveau_mdp2' placeholder='Nouveau mot-de-passe' required><br>";
+
+    $nb1 = rand(1, 10);
+    $nb2 = rand(1, 20);
+
+    $_POST['nb1'] = $nb1;
+    $_POST['nb2'] = $nb2;
+
+    echo "<label for='captcha'>Captcha : " . $nb1 . " x " . $nb2 . " = ? (requis)</label>";
+    echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
+
+
+    echo "<input type='submit' value='Modifier'>";
+    echo "</form>";
+}
+
+
+// ####################################################################################################################
+// ####################################################################################################################
+// ####################################################################################################################
+
+
 
 /* Cette fonction permet d'afficher le formulaire d'ouverture de ticket */
 function afficherFormulaireOuvertureTicket() {

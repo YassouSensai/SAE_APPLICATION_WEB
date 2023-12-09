@@ -1,4 +1,6 @@
-/* Réinitialisation de la plupart des marges et des paddings */
+/* ######################################   CSS général pour les pages "dynamiques"   ###################################### */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -95,7 +97,7 @@ footer p {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    width: 180px;
+    width: 300px;
     display: inline-block;
 }
 
@@ -112,23 +114,32 @@ footer p {
 .corps-de-la-page {
     display: flex;
     justify-content: space-between;
-    margin: auto;
+    padding: 0 20px;
 }
 
-#profil {
-    width: 50%;
-    box-sizing: border-box;
-    margin: auto;
-}
-
+#profil,
 #formulaires {
-    width: 40%; /* Ajustez la largeur selon vos besoins */
+    width: 45%;
     box-sizing: border-box;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
+/* ######################################   CSS pour la partie messages en JavaScript   ###################################### */
 
+#error-message, #success {
+    color: #ad3333;
+    position: absolute;
+    bottom: 0;  /* Le message s'affiche en bas du conteneur */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;  /* Ajoutez du padding pour l'espacement du message */
+    margin: 0;  /* Supprimez la marge par défaut */
+    background-color: #fff;  /* Ajoutez un arrière-plan pour améliorer la lisibilité */
+    border-radius: 5px;  /* Arrondi les coins du message */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Ajoute une ombre pour la mise en évidence */
+}
 
 
 
