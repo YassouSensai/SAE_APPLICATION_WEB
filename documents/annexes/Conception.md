@@ -641,19 +641,19 @@ Bluetooth 5.0.
 > - Ports :
 2 × Port USB 3.0.
 2 × Port USB 2.0.
-HDMI (pour la sortie vidéo).
+mini HDMI (pour la sortie vidéo).
 GPIO Pins pour l'extension et les périphériques.
 Alimentation : USB-C 5V/3A.
 
 >2. **Spécifications Logicielles :**
-> - Système d'Exploitation : [Indiquez le système d'exploitation utilisé, par exemple, Raspbian OS.]
-> - Serveur Web : Apache [Version] pour héberger l'application.
-> - Base de Données : MySQL [Version] pour stocker et gérer les données de l'application.
-> - Langage de Programmation : PHP [Version] pour le développement d'applications web dynamiques.
-> - Langages de Scripting : [Indiquez tous les langages de script utilisés, par exemple, Python, Bash.]
+> - Système d'Exploitation : Raspberry Pi OS
+> - Serveur Web : Apache pour héberger l'application.
+> - Base de Données : MariaDB pour stocker et gérer les données de l'application.
+> - Langage de Programmation : PHP pour le développement d'applications web dynamiques.
 > - Services Additionnels :
-[Listez tous les services requis par l'application, tels que des bibliothèques spécifiques ou des dépendances.]
+Fail2Ban pour la protection contre les attaques par force brute.
 
+***Note : fail2ban est expliqué dans la partie exmplications.***
 >3. **Sécurité et Authentification :**
 Accès à Distance :
 Utilisation d'un tunnel SSH pour un accès distant sécurisé.
@@ -661,9 +661,49 @@ Configuration du pare-feu pour limiter l'accès aux seules connexions nécessair
 Authentification :
 Mise en place de méthodes d'authentification sécurisées, telles que l'utilisation de clés SSH.
 Gestion des droits d'accès et des privilèges pour assurer une sécurité appropriée.
+
+#### Les mises à jour
+
+>Dans le cadre de notre SAE, les mise à jour de notre plateforme en lien avec le serveur Raspberry PI 4 c'est important également, pour assurer la validité,la sécurité et la performance continues de votre serveur. Les mises à jour peuvent être déclenchées par des améliorations significatives apportées au dépôt Git du projet comme par des amélioration du système.
+
+>Mises à Jour du Système :
+>
+>Les mises à jour du système sont effectué que dans le besoin urgents
+,notamment celles système d'exploitation en utilisant les commandes système appropriées, telles que "sudo apt" update et "sudo apt upgrade".
+>
+>Services Applicatifs (Apache, MariaDB, PHP) :
+>
+>De la même manière que pour le système, on procede au suivi régulier des versions des services utilisés dans le déploiement.
+>
+>Fail2Ban :
+>
+>On doit également surveiller des mises à jour de Fail2Ban et application des nouvelles versions de manière proactive. De plus on doit proceder aux
+révisions régulières de la configuration de Fail2Ban pour s'assurer qu'elle reste adaptée aux dernières menaces de sécurité.
+>
+>Dépôt Git :
+>
+>Toute amélioration significative du projet est d'abord effectuée dans le dépôt Git.
+Utilisation de branches pour le développement de fonctionnalités et de correctifs.
+Fusion régulière des branches de développement dans la branche principale (habituellement main ou master).
+Ensuite le projet est mis à jour sur le rasberry.
+
+
+
 ### Explications
-## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+
+>Fail2Ban est un service open source conçu pour renforcer la sécurité d'un serveur en protégeant contre les attaques de force brute dans un système. Il vise principalement à protéger des services tels que SSH, FTP, et d'autres protocoles qui peuvent être victimes des attaques.
+>
+>Généralement le service Fail2Ban fonctionne de manière suivante:
+>
+>1. Il surveille des journaux d'activité : Fail2Ban surveille les logs files, qui enregistrent tout ce qui concerne les connexions (tentatives, tentatives infructueses, et d'autres événements liés à la sécurité).
+>
+>2. Il Détecte de motifs suspects : Il recherche de motifs spécifiques indiquant des tentatives d'authentification infructueuses ou d'autres activités suspectes.
+>
+>3. Il bloque les adresses IP : En effet,  Fail2Ban prend des mesures automatiques pour bloquer l'adresse IP qui sont à l'origine de l'activité malveillante (pare-feu).
+>
+>4. Il dure le blocage : En effet, Fail2Ban propose généralement un mécanisme temporaire pour le blocage, donc cela signifie que l'adresse IP n'est pas bloquée indéfiniment, mais seulement pour une période temporaire (décourage les attaques tout en minimisant les risques de blocage accidentel des IP innocentes).
+
 ### Diagramme UML
-## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+
 # Annexes 
 ## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
