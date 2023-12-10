@@ -662,7 +662,30 @@ Authentification :
 Mise en place de méthodes d'authentification sécurisées, telles que l'utilisation de clés SSH.
 Gestion des droits d'accès et des privilèges pour assurer une sécurité appropriée.
 
-#### Les mise à jours
+#### Les mises à jour
+
+>Dans le cadre de notre SAE, les mise à jour de notre plateforme en lien avec le serveur Raspberry PI 4 c'est important également, pour assurer la validité,la sécurité et la performance continues de votre serveur. Les mises à jour peuvent être déclenchées par des améliorations significatives apportées au dépôt Git du projet comme par des amélioration du système.
+
+>Mises à Jour du Système :
+>
+>Les mises à jour du système sont effectué que dans le besoin urgents
+,notamment celles système d'exploitation en utilisant les commandes système appropriées, telles que "sudo apt" update et "sudo apt upgrade".
+>
+>Services Applicatifs (Apache, MariaDB, PHP) :
+>
+>De la même manière que pour le système, on procede au suivi régulier des versions des services utilisés dans le déploiement.
+>
+>Fail2Ban :
+>
+>On doit également surveiller des mises à jour de Fail2Ban et application des nouvelles versions de manière proactive. De plus on doit proceder aux
+révisions régulières de la configuration de Fail2Ban pour s'assurer qu'elle reste adaptée aux dernières menaces de sécurité.
+>
+>Dépôt Git :
+>
+>Toute amélioration significative du projet est d'abord effectuée dans le dépôt Git.
+Utilisation de branches pour le développement de fonctionnalités et de correctifs.
+Fusion régulière des branches de développement dans la branche principale (habituellement main ou master).
+Ensuite le projet est mis à jour sur le rasberry.
 
 
 
