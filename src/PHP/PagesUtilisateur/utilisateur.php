@@ -121,17 +121,6 @@ if (isset($_GET['modif_profil'])) {
     } elseif ($code_modif == 'else') {
         echo "<p id='error-message' style='color: red'>Veuillez réessayer ultérieurement !</p>";
     }
-} elseif (isset($_GET['modif_mdp'])) {
-    $code_modif = $_GET['modif_mdp'];
-    if ($code_modif == 'succes') {
-        echo "<p id='success' style='color: green'>Votre mot de passe a été modifié avec succès !</p>";
-    } elseif ($code_modif == 'echec') {
-        echo "<p id='error-message' style='color: red'>Votre mot de passe n'a pas pu être modifié !</p>";
-    } elseif ($code_modif == 'echec_mdp_captcha') {
-        echo "<p id='error-message' style='color: red'>Votre capctha est incorrect ou vos mots de passes ne correspondent pas. Veuillez réessayer !</p>";
-    } elseif ($code_modif == 'else') {
-        echo "<p id='error-message' style='color: red'>Veuillez réessayer ultérieurement !</p>";
-    }
 }
 
 ?>

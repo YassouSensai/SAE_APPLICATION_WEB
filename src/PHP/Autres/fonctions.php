@@ -141,7 +141,7 @@ function afficherFormulaireModifierProfil($username, $table_user) {
     if (mysqli_num_rows($resultat) > 0) {
         $profilActuel = mysqli_fetch_assoc($resultat);
 
-        echo "<form id='formulaireModificationProfil' action='traitement_modifier_infos.php?typeModif=profil' method='post'>";
+        echo "<form id='formulaireModificationProfil' action='../PagesUtilisateur/traitement_modifier_profil.php' method='post'>";
 
 
         echo "<label for='nouveau_nom'>Nouveau nom:</label>";
@@ -172,11 +172,11 @@ function afficherFormulaireModifierProfil($username, $table_user) {
 // ####################################################################################################################
 
 /* Cette fonction permet d'afficher le formulaire de modification de mot de passe */
-function afficherModifierMotDePasse($username, $table_user) {
+function afficherModifierMotDePasse() {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
 
 
-    echo "<form action='traitement_modifier_infos.php?typeModif=mdp' method='post'>";
+    echo "<form action='../PagesUtilisateur/traitement_modifier_mdp.php' method='post'>";
 
 
     echo "<label for='ancien_mdp'>Votre ancien mot-de-passe :</label>";
@@ -191,8 +191,8 @@ function afficherModifierMotDePasse($username, $table_user) {
     $nb1 = rand(1, 10);
     $nb2 = rand(1, 20);
 
-    $_POST['nb1'] = $nb1;
-    $_POST['nb2'] = $nb2;
+    $_SESSION['nb1'] = $nb1;
+    $_SESSION['nb2'] = $nb2;
 
     echo "<label for='captcha'>Captcha : " . $nb1 . " x " . $nb2 . " = ? (requis)</label>";
     echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
