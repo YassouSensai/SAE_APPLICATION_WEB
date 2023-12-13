@@ -22,7 +22,7 @@ html, body {
     height: 100%;
     width: 100%;
     font-family: 'Roboto', sans-serif; /* on définit une police */
-    font-size: 1em; /*on définit la taille confortable pour l'utilisateur avec "em" */
+    font-size: 1em; /*on définit la taille confortzable pour l'utilisateur avec "em" */
     background-color: #21242f;
 }
 
@@ -36,6 +36,7 @@ html, body {
     width: 200px; /*on définit une largeur d'image*/
 }
 
+/*#############################################"Barre de navigation###############################*/
 .nav-liens {
     text-align: right;
 }
@@ -72,6 +73,32 @@ html, body {
     width: 100%; /* on étent la ligne à 100% en 0,5s*/
 }
 
+.nav-liens .connexion{
+    background-color: transparent;
+    witdh: 130px;
+    height: 40px;
+    border: 2px solid #ffcdb2;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: #ffcdb2;
+    transition: 1s ;
+    backdrop-filter: blur(2px);
+}
+
+.nav-liens .connexion:hover{
+    background-color: #ffcdb2;
+    color: #21242f;
+    border-color: #ffcdb2;
+
+}
+
+/*#################################################################################*/
 .nav-logos {
     text-align: left;
 }
