@@ -28,9 +28,15 @@
                 <li><a href="../PHP/chartegraphique.php">CHARTE GRAPHIQUE</a></li>
                 <li><a href="../PHP/logo1.php">LOGO 1</a></li>
                 <li><a href="../PHP/logo2.php">LOGO 2</a></li>
-                <li><a href="../PHP/Authentification/connexion.php">CONNEXION</a></li>
+                <button class="connexion" id="boutton-connexion"> CONNEXION </button>
             </ul>
         </div>
+        <script>
+            var bouton = document.getElementById('boutton-connexion');
+            bouton.addEventListener('click', function() {
+                window.location.href = '../PHP/Authentification/connexion.php';
+            });
+        </script>
     </nav>
     <div class="texte-header">
         <h1> Nom groupe : votre source de billets pour les équipements de l'IUT</h1>

@@ -29,10 +29,17 @@
                 <li><a href="../chartegraphique.php">CHARTE GRAPHIQUE</a></li>
                 <li><a href="../logo1.php">LOGO 1</a></li>
                 <li><a href="../logo2.php">LOGO 2</a></li>
-                <li><a href="connexion.php">CONNEXION</a></li>
+                <button class="connexion" id="boutton-connexion"> CONNEXION </button>
             </ul>
         </div>
+        <script>
+            var bouton = document.getElementById('boutton-connexion');
+            bouton.addEventListener('click', function() {
+                window.location.href = 'connexion.php';
+            });
+        </script>
     </nav>
+
     <div class="background-container">
         <div class="container">
             <h2>Inscription</h2>
