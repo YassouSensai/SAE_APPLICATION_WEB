@@ -179,14 +179,14 @@ function afficherModifierMotDePasse() {
     echo "<form action='../PagesUtilisateur/traitement_modifier_mdp.php' method='post'>";
 
 
-    echo "<label for='ancien_mdp'>Votre ancien mot-de-passe :</label>";
-    echo "<input type='password' id='ancien_mdp' name='ancien_mdp' placeholder='Ancien mot-de-passe' required><br>";
+    echo "<label for='ancien_mdp'>Votre ancien mot de passe :</label>";
+    echo "<input type='password' id='ancien_mdp' name='ancien_mdp' placeholder='Ancien mot de passe' required><br>";
 
-    echo "<label for='nouveau_mdp'>Votre nouveau mot-de-passe :</label>";
-    echo "<input type='password' id='nouveau_mdp' name='nouveau_mdp' placeholder='Nouveau mot-de-passe' required><br>";
+    echo "<label for='nouveau_mdp'>Votre nouveau mot de passe :</label>";
+    echo "<input type='password' id='nouveau_mdp' name='nouveau_mdp' placeholder='Nouveau mot de passe' required><br>";
 
-    echo "<label for='nouveau_mdp2'>Validez votre mot-de-passe :</label>";
-    echo "<input type='password' id='nouveau_mdp2' name='nouveau_mdp2' placeholder='Nouveau mot-de-passe' required><br>";
+    echo "<label for='nouveau_mdp2'>Validez votre mot de passe :</label>";
+    echo "<input type='password' id='nouveau_mdp2' name='nouveau_mdp2' placeholder='Nouveau mot de passe' required><br>";
 
     $nb1 = rand(1, 10);
     $nb2 = rand(1, 20);
@@ -217,14 +217,22 @@ function afficherFormulaireOuvertureTicket() {
     echo "<form action='traitement_ouverture_ticket.php' method='post'>";
 
     echo "<label for='sujet_ticket'>Sujet du ticket :</label>";
-    echo "<input type='text' id='sujet_ticket' name='sujet_ticket' required><br>";
+    echo "<input type='text' id='sujet_ticket' name='sujet_ticket' placeholder='sujet ...' required><br>";
+
 
     echo "<label for='niveau_urgence'>Sur une échelle de 1 à 4, quel est le niveau d'urgence :</label>";
-    echo "<input type='number' id='niveau_urgence' name='niveau_urgence' required><br>";
+    echo "<select id='niveau_urgence' type='number' name='niveau_urgence' required>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              </select>";
 
     echo "<label for='description_ticket'>Description du problème :</label>";
-    echo "<textarea id='description_ticket' name='description_ticket' required></textarea><br>";
+    echo "<textarea id='description_ticket' name='description_ticket'  placeholder='Description ...' required></textarea><br>";
 
+    echo "<label for='mdp'>Entrez votre mot de passe</label>";
+    echo "<input type='password' id='mdp' name='mdp' placeholder='Votre mot de passe' required><br>";
 
 
     echo "<input type='submit' value='Ouvrir le ticket'>";
