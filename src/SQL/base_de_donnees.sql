@@ -37,6 +37,7 @@ USE sae_bd;
 -- Les Tickets fermés sont archivés dans l'Historique des tickets (1-N)
 
 -- Supprimer les tables si elles existent :
+DROP TABLE IF EXISTS JournalActivite;
 DROP TABLE IF EXISTS HistoriqueTickets;
 DROP TABLE IF EXISTS NiveauUrgence;
 DROP TABLE IF EXISTS StatutTicket;
@@ -45,6 +46,7 @@ DROP TABLE IF EXISTS Technicien;
 DROP TABLE IF EXISTS AdminWeb;
 DROP TABLE IF EXISTS AdminSysteme;
 DROP TABLE IF EXISTS Utilisateur;
+
 
 -- Création des tables
 
@@ -105,8 +107,6 @@ CREATE TABLE HistoriqueTickets (
     date_archivage DATE DEFAULT CURRENT_DATE NOT NULL
 );
 
-
-
 -- Table Tickets :
 CREATE TABLE Ticket (
                         id_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -121,6 +121,15 @@ CREATE TABLE Ticket (
                         status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
                         nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
 );
+
+CREATE TABLE JournalActivite(
+            id_adminsys INTEGER PRIMARY KEY AUTO_INCREMENT,
+            date_activite DATETIME NOT NULL,
+            adresse_ip VARCHAR(15) NOT NULL,
+            id_utilisateur INTEGER NOT NULL REFERENCES Utilisateur(id_util),
+            nature_activite TEXT NOT NULL
+);
+
 
 -- TRIGGER :
 DELIMITER //
@@ -190,7 +199,7 @@ SELECT * FROM Ticket;
 SELECT * FROM StatutTicket;
 SELECT * FROM NiveauUrgence;
 SELECT * FROM HistoriqueTickets;
-
+SELECT * FROM JournalActivite;
 
 
 
