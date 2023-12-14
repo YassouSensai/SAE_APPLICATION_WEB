@@ -40,7 +40,6 @@ USE sae_bd;
 DROP TABLE IF EXISTS HistoriqueTickets;
 DROP TABLE IF EXISTS NiveauUrgence;
 DROP TABLE IF EXISTS StatutTicket;
-DROP TABLE IF EXISTS CategorieProbleme;
 DROP TABLE IF EXISTS Ticket;
 DROP TABLE IF EXISTS Technicien;
 DROP TABLE IF EXISTS AdminWeb;
@@ -86,11 +85,6 @@ CREATE TABLE Technicien (
     identifiant_tech VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
--- Table Catégories de Problème :
-CREATE TABLE CategorieProbleme (
-    id_cat_pb INTEGER PRIMARY KEY AUTO_INCREMENT,
-    libelle_cat_pb VARCHAR(50) NOT NULL
-);
 
 -- Table Statuts de Ticket :
 CREATE TABLE StatutTicket (
@@ -116,11 +110,14 @@ CREATE TABLE HistoriqueTickets (
 -- Table Tickets :
 CREATE TABLE Ticket (
                         id_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
-                        desc_pb_tic VARCHAR(255) NOT NULL,
+                        objet VARCHAR(50) NOT NULL,
+                        desc_pb_tic VARCHAR(255),
                         date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
                         date_maj_tic DATE,
+                        adresse_ip VARCHAR(15) NOT NULL,
+                        salle VARCHAR(5) NOT NULL CHECK (salle IN(6),
                         createur_tic INTEGER NOT NULL REFERENCES Utilisateur(id_util),
-                        tech_charge_tic INTEGER NOT NULL REFERENCES Technicien(id_tech),
+                        tech_charge_tic INTEGER REFERENCES Technicien(id_tech),
                         status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
                         nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
 );
@@ -159,12 +156,6 @@ INSERT INTO Technicien (id_tech, nom_tech, prenom_tech, identifiant, mdp) VALUES
                                                                                         (1, 'Tech1', 'Tech1', 'tech1', 'motdepassetech1'),
                                                                                         (2, 'Tech2', 'Tech2', 'tech2', 'motdepassetech2');
 
--- Insérer des données fictives dans la table CatégorieProbleme
-INSERT INTO CategorieProbleme (id_cat_pb, libelle_cat_pb) VALUES
-                                                              (1, 'Catégorie 1'),
-                                                              (2, 'Catégorie 2'),
-                                                              (3, 'Catégorie 3');
-
 -- Insérer des données fictives dans la table StatutTicket
 INSERT INTO StatutTicket (id_status_tic, libelle_status_tic) VALUES
                                                                  (1, 'Ouvert'),
@@ -196,7 +187,6 @@ SELECT * FROM AdminSysteme;
 SELECT * FROM AdminWeb;
 SELECT * FROM Technicien;
 SELECT * FROM Ticket;
-SELECT * FROM CategorieProbleme;
 SELECT * FROM StatutTicket;
 SELECT * FROM NiveauUrgence;
 SELECT * FROM HistoriqueTickets;
