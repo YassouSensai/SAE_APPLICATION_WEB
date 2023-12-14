@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS Utilisateur;
 -- Table Utilisateurs :
 CREATE TABLE Utilisateur (
     id_util INTEGER PRIMARY KEY AUTO_INCREMENT,
-    identifiant VARCHAR(20) NOT NULL,
+    identifiant VARCHAR(20) NOT NULL UNIQUE,
     nom_util VARCHAR(50) NOT NULL,
     prenom_util VARCHAR(50) NOT NULL,
     email_util VARCHAR(100) NOT NULL UNIQUE,
@@ -65,7 +65,7 @@ CREATE TABLE AdminSysteme (
     id_adminsys INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_adminsys VARCHAR(50) NOT NULL,
     prenom_adminsys VARCHAR(50) NOT NULL,
-    identifiant_adminsys VARCHAR(30) NOT NULL,
+    identifiant_adminsys VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
 
@@ -74,7 +74,7 @@ CREATE TABLE AdminWeb (
     id_adminw INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_adminw VARCHAR(50) NOT NULL,
     prenom_adminw VARCHAR(50) NOT NULL,
-    identifiant_adminw VARCHAR(30) NOT NULL,
+    identifiant_adminw VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
 
@@ -83,7 +83,7 @@ CREATE TABLE Technicien (
     id_tech INTEGER PRIMARY KEY AUTO_INCREMENT,
     nom_tech VARCHAR(50) NOT NULL,
     prenom_tech VARCHAR(50) NOT NULL,
-    identifiant_tech VARCHAR(30) NOT NULL,
+    identifiant_tech VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
 -- Table Catégories de Problème :
