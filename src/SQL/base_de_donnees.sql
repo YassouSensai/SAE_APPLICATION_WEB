@@ -170,10 +170,10 @@ INSERT INTO NiveauUrgence (id_nv_urgence, libelle_nv_urgence) VALUES
                                                                   (4, 'Urgence critique');
 
 -- Insérer des données fictives dans la table Ticket
-INSERT INTO Ticket (id_tic, desc_pb_tic, createur_tic, tech_charge_tic, status_tic, nv_urgence_tic, date_maj_tic)
-VALUES (1, 'Problème 1', 1, 1, 1, 3, CURRENT_DATE),
-       (2, 'Problème 2', 2, 2, 1, 2, CURRENT_DATE),
-       (3, 'Problème 3', 3, 1, 3, 1, CURRENT_DATE);
+INSERT INTO Ticket (id_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic)
+VALUES (1,'Problème urgent', 'Problème technique urgent', "127.0.0.1", "4", 1, 1, 3),
+       (2,'Problème sérieux', 'Problème sérieux à résoudre dans les plus bref délais', "127.0.92.1", "3", 1, 2, 3)
+       (3,'Petit problème ', 'Problème pas très important', "127.92.0.1", "7", 1, 3, 3)
 
 -- Insérer des données fictives dans la table HistoriqueTickets
 INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
