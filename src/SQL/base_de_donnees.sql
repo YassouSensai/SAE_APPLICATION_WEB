@@ -115,15 +115,15 @@ CREATE TABLE Ticket (
                         date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
                         date_maj_tic DATE,
                         adresse_ip VARCHAR(15) NOT NULL,
-                        salle VARCHAR(5) NOT NULL CHECK (salle IN(6),
+                        salle VARCHAR(5) NOT NULL CHECK (salle IN(1,6)),
                         createur_tic INTEGER NOT NULL REFERENCES Utilisateur(id_util),
                         tech_charge_tic INTEGER REFERENCES Technicien(id_tech),
                         status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
                         nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
 );
 
-CREATE TABLE JournalActivite(
-            id_adminsys INTEGER PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE JournalActivite (
+            id_journal INTEGER PRIMARY KEY AUTO_INCREMENT,
             date_activite DATETIME NOT NULL,
             adresse_ip VARCHAR(15) NOT NULL,
             id_utilisateur INTEGER NOT NULL REFERENCES Utilisateur(id_util),
@@ -139,6 +139,18 @@ CREATE TRIGGER trig_check_urgence
 BEGIN
     IF NOT NEW.nv_urgence_tic IN (1, 2, 3, 4) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La valeur de nv_urgence_tic doit être entre 1 et 4';
+END IF;
+END;
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER trig_check_salle_ticket
+    BEFORE INSERT ON Ticket
+    FOR EACH ROW
+BEGIN
+    IF NOT NEW.salle IN (1, 2, 3, 4) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'le numéro de la salle est compris entre 1 et 4';
 END IF;
 END;
 //
