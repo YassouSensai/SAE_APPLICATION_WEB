@@ -115,7 +115,7 @@ CREATE TABLE Ticket (
                         date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
                         date_maj_tic DATE,
                         adresse_ip VARCHAR(15) NOT NULL,
-                        salle VARCHAR(5) NOT NULL CHECK (salle IN(1,6)),
+                        salle INTEGER NOT NULL CHECK (salle IN(1,6)),
                         createur_tic INTEGER NOT NULL REFERENCES Utilisateur(id_util),
                         tech_charge_tic INTEGER REFERENCES Technicien(id_tech),
                         status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
@@ -192,9 +192,9 @@ INSERT INTO NiveauUrgence (id_nv_urgence, libelle_nv_urgence) VALUES
 
 -- Insérer des données fictives dans la table Ticket
 INSERT INTO Ticket (id_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic)
-VALUES (1,'Problème urgent', 'Problème technique urgent', "127.0.0.1", "4", 1, 1, 3),
-       (2,'Problème sérieux', 'Problème sérieux à résoudre dans les plus bref délais', "127.0.92.1", "3", 1, 2, 3)
-       (3,'Petit problème ', 'Problème pas très important', "127.92.0.1", "7", 1, 3, 3)
+VALUES (1,'Problème urgent', 'Problème technique urgent', "127.0.0.1", 4, 1, 1, 3),
+       (2,'Problème sérieux', 'Problème sérieux à résoudre dans les plus bref délais', "127.0.92.1", 3, 1, 2, 3)
+       (3,'Petit problème ', 'Problème pas très important', "127.92.0.1", 7, 1, 3, 3)
 
 -- Insérer des données fictives dans la table HistoriqueTickets
 INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
