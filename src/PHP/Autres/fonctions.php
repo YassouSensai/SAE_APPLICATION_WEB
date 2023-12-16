@@ -66,9 +66,9 @@ function tableau_profil($username, $table_user){
         echo "<table>
             <thead>
                 <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
                     <th>Identifiant</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
                 </tr>
             </thead>
             <tbody>";
@@ -90,9 +90,6 @@ function tableau_profil($username, $table_user){
 
     if (mysqli_num_rows($resultat) > 0) {
         $row = mysqli_fetch_assoc($resultat);
-
-        // Supprime le premier élément (Numéro utilisateur)
-        array_shift($row);
 
         // Don't display the password, remove it from the array
         unset($row['mdp']);
