@@ -52,52 +52,62 @@ DROP TABLE IF EXISTS Utilisateur;
 
 -- Table Utilisateurs :
 CREATE TABLE Utilisateur (
-    id_util INTEGER PRIMARY KEY AUTO_INCREMENT,
-    identifiant VARCHAR(20) NOT NULL UNIQUE,
+    identifiant VARCHAR(20) PRIMARY KEY,
     nom_util VARCHAR(50) NOT NULL,
     prenom_util VARCHAR(50) NOT NULL,
-    email_util VARCHAR(100) NOT NULL UNIQUE,
+    email_util VARCHAR(50) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL,
     type_util VARCHAR(30) NOT NULL
 );
 
 -- Table Administrateurs_Système :
 CREATE TABLE AdminSysteme (
-    id_adminsys INTEGER PRIMARY KEY AUTO_INCREMENT,
+    identifiant_adminsys VARCHAR(30) PRIMARY KEY,
     nom_adminsys VARCHAR(50) NOT NULL,
     prenom_adminsys VARCHAR(50) NOT NULL,
-    identifiant_adminsys VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
 
 -- Table Administrateurs_Web :
 CREATE TABLE AdminWeb (
-    id_adminw INTEGER PRIMARY KEY AUTO_INCREMENT,
+    identifiant_adminw VARCHAR(30) PRIMARY KEY,
     nom_adminw VARCHAR(50) NOT NULL,
     prenom_adminw VARCHAR(50) NOT NULL,
-    identifiant_adminw VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
 
 -- Table Techniciens :
 CREATE TABLE Technicien (
-    id_tech INTEGER PRIMARY KEY AUTO_INCREMENT,
+    identifiant_tech VARCHAR(30) PRIMARY KEY,
     nom_tech VARCHAR(50) NOT NULL,
     prenom_tech VARCHAR(50) NOT NULL,
-    identifiant_tech VARCHAR(30) NOT NULL UNIQUE,
     mdp VARCHAR(20) NOT NULL
 );
 
 -- Table Statuts de Ticket :
 CREATE TABLE StatutTicket (
-    id_status_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
-    libelle_status_tic VARCHAR(50) NOT NULL
+    id_statut_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
+    libelle_statut_tic VARCHAR(50) NOT NULL
 );
 
 -- Table Niveaux d'Urgence :
 CREATE TABLE NiveauUrgence (
     id_nv_urgence INTEGER PRIMARY KEY AUTO_INCREMENT,
     libelle_nv_urgence VARCHAR(50) NOT NULL
+);
+
+-- Table Tickets :
+CREATE TABLE Ticket (
+                        id_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
+                        objet VARCHAR(50) NOT NULL,
+                        desc_pb_tic VARCHAR(255),
+                        date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
+                        adresse_ip VARCHAR(15) NOT NULL,
+                        salle VARCHAR(5) NOT NULL,
+                        createur_tic INTEGER NOT NULL REFERENCES Utilisateur(id_util),
+                        tech_charge_tic INTEGER REFERENCES Technicien(id_tech),
+                        status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
+                        nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
 );
 
 -- Table l'Historique des Tickets :
@@ -107,27 +117,15 @@ CREATE TABLE HistoriqueTickets (
     date_archivage DATE DEFAULT CURRENT_DATE NOT NULL
 );
 
--- Table Tickets :
-CREATE TABLE Ticket (
-                        id_tic INTEGER PRIMARY KEY AUTO_INCREMENT,
-                        objet VARCHAR(50) NOT NULL,
-                        desc_pb_tic VARCHAR(255),
-                        date_crea_tic DATE DEFAULT CURRENT_DATE NOT NULL,
-                        date_maj_tic DATE,
-                        adresse_ip VARCHAR(15) NOT NULL,
-                        salle INTEGER NOT NULL CHECK (salle IN(1,6)),
-                        createur_tic INTEGER NOT NULL REFERENCES Utilisateur(id_util),
-                        tech_charge_tic INTEGER REFERENCES Technicien(id_tech),
-                        status_tic INTEGER NOT NULL REFERENCES StatutTicket(id_status_tic),
-                        nv_urgence_tic INTEGER NOT NULL REFERENCES NiveauUrgence(id_nv_urgence)
-);
 
 CREATE TABLE JournalActivite (
             id_journal INTEGER PRIMARY KEY AUTO_INCREMENT,
             date_activite DATETIME NOT NULL,
             adresse_ip VARCHAR(15) NOT NULL,
             id_utilisateur INTEGER NOT NULL REFERENCES Utilisateur(id_util),
-            nature_activite TEXT NOT NULL
+            --il existe que 2 type_activite : Connexion représenté par 1, Création représenté par 0
+            type_activite INTEGER NOT NULL CHECK (type_activite IN(0,1)),
+            description_activite TEXT NOT NULL
 );
 
 
@@ -145,6 +143,19 @@ END;
 DELIMITER ;
 
 DELIMITER //
+CREATE TRIGGER trig_check_activite
+    BEFORE INSERT ON JournalActivite
+    FOR EACH ROW
+BEGIN
+    IF NOT NEW.type_activite IN (0,1) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La valeur de type_activite doit être entre 0 et 1';
+END IF;
+END;
+//
+DELIMITER ;
+
+
+DELIMITER //
 CREATE TRIGGER trig_check_salle_ticket
     BEFORE INSERT ON Ticket
     FOR EACH ROW
@@ -159,42 +170,42 @@ DELIMITER ;
 
 
 -- Insérer des données fictives dans la table Utilisateur
-INSERT INTO Utilisateur (id_util, identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES
-(1,'util1', 'Doe', 'John', 'john.doe@example.com', 'motdepasse1', 'Utilisateur'),
-(2,'util2', 'Smith', 'Alice', 'alice.smith@example.com', 'motdepasse2', 'Utilisateur'),
-(3,'util3', 'Johnson', 'Bob', 'bob.johnson@example.com', 'motdepasse3', 'Utilisateur');
+INSERT INTO Utilisateur (identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES
+('util1', 'Doe', 'John', 'john.doe@example.com', 'motdepasse1', 'Utilisateur'),
+('util2', 'Smith', 'Alice', 'alice.smith@example.com', 'motdepasse2', 'Utilisateur'),
+('util3', 'Johnson', 'Bob', 'bob.johnson@example.com', 'motdepasse3', 'Utilisateur');
 
 -- Insérer des données fictives dans la table AdminSysteme
-INSERT INTO AdminSysteme (id_adminsys, nom_adminsys, prenom_adminsys, identifiant, mdp) VALUES
-    (1, 'AdminSys1', 'AdminSys1', 'adminsys1', 'motdepasseadmin1');
+INSERT INTO AdminSysteme (identifiant_adminsys ,nom_adminsys, prenom_adminsys, mdp) VALUES
+    ('AdminSys1', 'AdminSys1', 'adminsys1', 'motdepasseadmin1');
 
 -- Insérer des données fictives dans la table AdminWeb
-INSERT INTO AdminWeb (id_adminw, nom_adminw, prenom_adminw, identifiant, mdp) VALUES
-    (1, 'AdminWeb1', 'AdminWeb1', 'gestion', '#gestion#');
+INSERT INTO AdminWeb (identifiant_adminw, nom_adminw, prenom_adminw, mdp) VALUES
+    ('AdminWeb1', 'AdminWeb1', 'gestion', '#gestion#');
 
 -- Insérer des données fictives dans la table Technicien
-INSERT INTO Technicien (id_tech, nom_tech, prenom_tech, identifiant, mdp) VALUES
-                                                                                        (1, 'Tech1', 'Tech1', 'tech1', 'motdepassetech1'),
-                                                                                        (2, 'Tech2', 'Tech2', 'tech2', 'motdepassetech2');
+INSERT INTO Technicien (identifiant_tech, nom_tech, prenom_tech, mdp) VALUES
+    ('Tech1', 'Tech1', 'tech1', 'motdepassetech1'),
+    ('Tech2', 'Tech2', 'tech2', 'motdepassetech2');
 
 -- Insérer des données fictives dans la table StatutTicket
 INSERT INTO StatutTicket (id_status_tic, libelle_status_tic) VALUES
-                                                                 (1, 'Ouvert'),
-                                                                 (2, 'Fermé'),
-                                                                 (3, 'En attente');
+      (1, 'Ouvert'),
+      (2, 'Fermé'),
+      (3, 'En attente');
 
 -- Insérer des données fictives dans la table NiveauUrgence
 INSERT INTO NiveauUrgence (id_nv_urgence, libelle_nv_urgence) VALUES
-                                                                  (1, 'Urgence faible'),
-                                                                  (2, 'Urgence modérée'),
-                                                                  (3, 'Urgence élevée'),
-                                                                  (4, 'Urgence critique');
+      (1, 'Urgence faible'),
+      (2, 'Urgence modérée'),
+      (3, 'Urgence élevée'),
+      (4, 'Urgence critique');
 
 -- Insérer des données fictives dans la table Ticket
-INSERT INTO Ticket (id_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic)
-VALUES (1,'Problème urgent', 'Problème technique urgent', "127.0.0.1", 4, 1, 1, 3),
-       (2,'Problème sérieux', 'Problème sérieux à résoudre dans les plus bref délais', "127.0.92.1", 3, 1, 2, 3)
-       (3,'Petit problème ', 'Problème pas très important', "127.92.0.1", 7, 1, 3, 3)
+INSERT INTO Ticket (id_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic) VALUES
+        (1,'Problème urgent', 'Problème technique urgent', "127.0.0.1", 4, 1, 1, 3),
+        (2,'Problème sérieux', 'Problème sérieux à résoudre dans les plus bref délais', "127.0.92.1", 3, 1, 2, 3)
+        (3,'Petit problème ', 'Problème pas très important', "127.92.0.1", 7, 1, 3, 3)
 
 -- Insérer des données fictives dans la table HistoriqueTickets
 INSERT INTO HistoriqueTickets (id_histtic, archive_tic) VALUES
