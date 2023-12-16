@@ -156,16 +156,19 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE TRIGGER trig_check_salle_ticket
-    BEFORE INSERT ON Ticket
-    FOR EACH ROW
+
+CREATE TRIGGER before_insert_ticket
+BEFORE INSERT ON Ticket
+FOR EACH ROW
 BEGIN
-    IF NOT NEW.salle IN (1, 2, 3, 4) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'le numéro de la salle est compris entre 1 et 4';
-END IF;
-END;
-//
+    IF NEW.salle NOT IN ('G22','G23', 'G24', 'G25', 'G26', 'I21') THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'La valeur du champ salle n est pas autorisée';
+    END IF;
+END //
+
 DELIMITER ;
+
 
 
 
