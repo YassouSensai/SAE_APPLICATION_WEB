@@ -1,12 +1,5 @@
 <?php
 
-// Informations de connexion à la base de données
-$serveur = "localhost";
-$utilisateur = "user_sae";
-$mot_de_passe = "azerty";
-$base_de_donnees = "sae_bd";
-
-
 
 function connectDB() {
     $serveur = "localhost";
@@ -45,9 +38,9 @@ function prepareAndExecute($connexion, $query, $params = null) {
 // ####################################################################################################################
 
 /* Cette fonction permet d'afficher le profil de l'utilisateur qui se connecte. */
-function tableau_profil($username, $table_user){
+function tableau_profil($username, $table_user) {
 
-    global $connexion, $serveur, $utilisateur, $mot_de_passe, $base_de_donnees;
+    $connexion = connectDB();
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
 
     if ($table_user == 'Utilisateur') {
@@ -73,8 +66,6 @@ function tableau_profil($username, $table_user){
             </thead>
             <tbody>";
     }
-
-    $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
 
     // Vérification de la connexion
     if (!$connexion) {
@@ -119,9 +110,7 @@ function tableau_profil($username, $table_user){
 function afficherFormulaireModifierProfil($username, $table_user) {
 
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
-
-    global $connexion, $serveur, $utilisateur, $mot_de_passe, $base_de_donnees;
-    $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
+    $connexion = connectDB();
 
     // Vérification de la connexion
     if (!$connexion) {
@@ -139,7 +128,6 @@ function afficherFormulaireModifierProfil($username, $table_user) {
         $profilActuel = mysqli_fetch_assoc($resultat);
 
         echo "<form id='formulaireModificationProfil' action='../PagesUtilisateur/traitement_modifier_profil.php' method='post'>";
-
 
         echo "<label for='nouveau_nom'>Nouveau nom:</label>";
         echo "<input type='text' id='nouveau_nom' name='nouveau_nom' value='" . htmlspecialchars($profilActuel['nom_util']) . "' required><br>";
@@ -172,9 +160,7 @@ function afficherFormulaireModifierProfil($username, $table_user) {
 function afficherModifierMotDePasse() {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
 
-
     echo "<form action='../PagesUtilisateur/traitement_modifier_mdp.php' method='post'>";
-
 
     echo "<label for='ancien_mdp'>Votre ancien mot de passe :</label>";
     echo "<input type='password' id='ancien_mdp' name='ancien_mdp' placeholder='Ancien mot de passe' required><br>";
@@ -238,7 +224,35 @@ function afficherFormulaireOuvertureTicket() {
 
 
 
+
+// ####################################################################################################################
+// ####################################################################################################################
+// ####################################################################################################################
+
+function afficherTicketsUtilisateurs($username, $table_user) {
+
+    echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
+    $connexion = connectDB();
+
+    // Vérification de la connexion
+    if (!$connexion) {
+        die("La connexion a échoué : ".mysqli_connect_error());
+    }
+
+    echo "<table id='table-mes-tickets'>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Objet</th>
+                    <th>Description</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>";
+
+
+}
+
+
+
 ?>
-
-
-

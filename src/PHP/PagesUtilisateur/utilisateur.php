@@ -39,6 +39,9 @@ include("../Autres/fonctions.php");
             $username = $_SESSION['utilisateur'];
             $table_user = $_SESSION['table_user'];
             echo "<h1>Bienvenue sur votre profil $username </h1>";
+
+            $_SESSION['utilisateur'] = $username;
+            $_SESSION['table_user'] = $table_user;
         }
         ?>
     </div>
@@ -53,9 +56,6 @@ include("../Autres/fonctions.php");
 <div class='action-button'>
     <ul class='button-list'>
         <?php
-        $_SESSION['utilisateur'] = $username;
-        $_SESSION['table_user'] = $table_user;
-
         if ($table_user == 'Utilisateur') {
             echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifierProfil'\">Modifier mon profil</button></li>";
             echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifierMdp'\">Modifier mon mot de passe</button></li>";
@@ -120,6 +120,10 @@ if (isset($_GET['modif_profil'])) {
         echo "<p id='error-message' style='color: red'>Votre mot de passe est incorrect. Veuillez réessayer !</p>";
     } elseif ($code_modif == 'else') {
         echo "<p id='error-message' style='color: red'>Veuillez réessayer ultérieurement !</p>";
+    } if ($code_modif == 'succes_mdp') {
+        echo "<p id='success' style='color: green'>Votre mot de passe a été modifié avec succès !</p>";
+    } elseif ($code_modif == 'echec_mdp') {
+        echo "<p id='error-message' style='color: red'>Votre mot de passe n'a pas pu être modifié !</p>";
     }
 }
 

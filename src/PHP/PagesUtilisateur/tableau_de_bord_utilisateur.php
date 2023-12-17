@@ -32,25 +32,28 @@ include ("../Autres/fonctions.php")
         <?php
         session_start();
         $username = "";
-        if (isset($_SESSION['utilisateur'])) {
+        $table_user = "";
+        if (isset($_SESSION['utilisateur'], $_SESSION['table_user'])) {
             $username = $_SESSION['utilisateur'];
+            $table_user = $_SESSION['table_user'];
             echo "<h1>Bienvenue sur votre tableau de bord $username </h1>";
         }
         ?>
     </div>
 </section>
 
-<section class="afficher-tickets">
+<section class="corps-de-la-page">
+    <div class="afficher-tickets">
+        <?php
+        if ($table_user == 'Utilisateur'){
+            afficherTicketsUtilisateurs($username, $table_user);
+        }
 
-
+        ?>
+    </div>
 </section>
 
-<section class="afficher-utilisateurs">
-    /* tableau des utilisateurs (tous les utilisateurs inscrit, puis les techniciens, ensuite l'administrateur système*/
 
-
-    /* Bouton pour inscrire un nouveau technicien*/
-</section>
 
 <a href="utilisateur.php">Revenir à mon profil</a>
 </body>
