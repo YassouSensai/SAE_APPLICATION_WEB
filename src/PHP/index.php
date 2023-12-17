@@ -7,6 +7,7 @@
     <meta name="description" content="la description du site">
     <meta name="keywords" content="mots-clés 1 mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
+
 </head>
 <body>
 <?php

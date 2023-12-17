@@ -21,7 +21,7 @@ include('../HTML/entete_general.html');
         </div>
         <div class="milieu-droite">
             <div class="block1">
-                <h2 style="color: #FFFFFF">Présentation du logo numéro 1 : </h2>
+                <h3 style="color: #FFFFFF">Présentation du logo numéro 1 : </h3>
                 <p><strong>Outil utilisé : Canva</strong><br>
                     <br>
                     Dans ce logo on peut voir en son centre la moitié d’un engrenage à gauche et à droite
@@ -37,13 +37,14 @@ include('../HTML/entete_general.html');
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
-            <div class="description-explication">
+            <div class="block2-transparent">
                 <h2 style="color: #FFFFFF">Couleurs du logo :</h2>
                 <p>L'engrenage est généralement représenté en une couleur qui peut être associée à des nuances de métal, comme l'argent ou le gris, évoquant la notion de mécanique et de collaboration solide.</p>
                 <p>Les symboles de connexions et de ports peuvent être représentés dans une couleur qui contraste avec l'engrenage pour les mettre en évidence. Cette couleur peut varier en fonction des préférences de conception, mais elle est souvent choisie pour sa visibilité.</p>
                 <p>Les étoiles et leur fond rayonné peuvent être illustrées dans une couleur qui évoque la brillance et l'éclat, comme le jaune doré ou le blanc, pour mettre en valeur leur importance et symboliser la réussite et l'excellence.</p>
                 <p>L'ensemble du logo est conçu de manière à équilibrer visuellement ces éléments pour créer une image dynamique et significative. Les formes et les couleurs sont soigneusement choisies pour transmettre le message de collaboration, d'efficacité, de qualité et d'excellence, ce qui renforce l'identité de votre groupe ou entreprise.</p>
             </div>
+            <br><br><br><br>
             <div class="description-explication">
                 <h2 style="color: #FFFFFF">Explication du logo :</h2>
                 <p><strong>Les étoiles</strong> jouent un rôle clé dans notre logo, symbolisant les 5 qualités fondamentales de notre groupe, à savoir la <em>motivation</em>, la <em>cohésion</em>, la <em>compétence</em>, la <em>confiance</em> et le <em>respect mutuel</em>, qui sont cruciales pour la réussite de notre projet, et c'est pourquoi cet élément apparaît dans notre logo, mais aussi pour ne pas oublier d’apporter ces cinq qualités dans le travail que nous fournirons. Ils représentent également les liens indestructibles qui unissent nos membres, comme les cinq doigts de la main qui sont utilisés instinctivement et harmonieusement. C’est pourquoi nous mettons l’accent sur ces valeurs car elles sont au cœur de la façon dont nous fournirons un travail de qualité qui répond aux attentes de notre client.</p>

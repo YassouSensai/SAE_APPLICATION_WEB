@@ -7,6 +7,48 @@
     <meta name="description" content="Description de la charte graphique de la plateforme de ticketing de l'IUT Vélizy.">
     <meta name="keywords" content="charte graphique, palette de couleurs, typographie, formes, accessibilité">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
+    <style>
+        .logo-trans {
+            position: relative;
+        }
+
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: transform 0.8s ease-in-out, visibility 0s 0.3s;
+        }
+
+        .logo-trans:hover .logo-overlay {
+            transform: translateX(0);
+            visibility: visible;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .logo-trans img {
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .logo-trans img.move-right {
+            transform: translateX(10px);
+        }
+    </style>
+    <script>
+        function moveRightOnHover(element) {
+            const logoOverlay = element.nextElementSibling;
+            logoOverlay.classList.add("move-right");
+            logoOverlay.style.visibility = "visible";
+        }
+
+        function resetPosition(element) {
+            const logoOverlay = element.nextElementSibling;
+            logoOverlay.classList.remove("move-right");
+            logoOverlay.style.visibility = "visible";
+            logoOverlay.style.transform = "translateX(0)";
+        }
+    </script>
 </head>
 <body>
 <?php
@@ -16,7 +58,7 @@ include('../HTML/entete_general.html');
     <div class="Toute-la-page">
         <div class="bas-page">
             <div class="block2-transparent">
-                <h2 style="color: #FFFFFF">Présentation de la charte graphique</h2>
+                <h3 style="color: #FFFFFF">Présentation de la charte graphique</h3>
                 <p>Une charte graphique est un ensemble de directives visuelles et stylistiques essentielles pour guider la conception visuelle d'un projet, en l'occurrence, la plateforme de ticketing interne développée pour notre IUT (IUT Vélizy). Cette charte a pour but de définir l'identité visuelle de la plateforme en déterminant les couleurs, les polices de caractères, la mise en page, les éléments de navigation, et bien d'autres aspects visuels. Elle assure la cohérence et l'harmonie de l'ensemble, garantissant ainsi une expérience utilisateur unifiée.</p>
             </div>
         </div>
@@ -31,20 +73,30 @@ include('../HTML/entete_general.html');
             <p>Le symbole visuel principal qui représente notre plateforme de ticketing interne est le logo. Afin de garantir une uniformité visuelle, il est essentiel d'utiliser le logo de manière cohérente dans toutes les applications et sur tous les supports. Toutefois, il peut être requis de produire différentes versions du logo pour s'adapter à divers contextes. Ci-dessous, vous trouverez les principales variations du logo :</p>
 
             <p><strong>Logo principal (voir argumentaire partie 2. Logo 2) :</strong></p>
-            <img src="../images/logonontrans.png" alt="Logo principal de la plateforme">
+            <br><br>
+            <div class="logo-trans">
+                <img src="../images/logonontrans.png" alt="Logo principal de la plateforme"
+                     onmouseover="moveRightOnHover(this)"
+                     onmouseout="resetPosition(this)">
+                <!-- Nouvelle image à droite -->
+                <img class="logo-overlay" src="../images/logotrans.png" alt="Nouvelle image du logo transparent ">
+            </div>
+            <br><br>
             <p>La version principale du logo est le symbole visuel de notre plateforme. Il doit être utilisé dans des cas d'utilisation standard sur des fonds clairs et uniformes. La couleur prédominante du logo est le corail (#ffcdb2), avec des nuances de rose et de brun.</p>
 
             <p><strong>Dans le but de développer notre marque (™ : trade-mark) :</strong></p>
-            <img src="../images/logonontransTM.png" alt="Logo avec symbole TM (marque de commerce)">
-            <p>Incorporer le symbole ™ (marque de commerce) dans un logo est une pratique fréquente pour signifier que le logo est protégé en tant que marque commerciale. Cela indique que le logo est la propriété exclusive de l'entreprise et ne peut pas être utilisé par d'autres sans autorisation. En ajoutant le symbole ™, l'entreprise affirme sa revendication légale sur le logo, ce qui peut dissuader les contrefacteurs et renforcer la protection de sa marque. Il est important de noter que l'ajout du symbole ™ ne confère pas le même niveau de protection juridique qu'une marque déposée (®), mais cela reste une étape essentielle dans la préservation de l'identité visuelle de l'entreprise.</p>
-            <p><strong>Logos transparents :</strong></p>
+            <br><br>
             <div class="logo-trans">
-                <p><strong>Logo principal : </strong></p>
-                <img src="../images/logotrans.png" alt="Logo principal transparent de la plateforme">
-                <p><strong>Logo avec ™ : </strong></p>
-                <img src="../images/logotransTM.png" alt="Logo avec symbole TM transparent de la plateforme">
-
+                <img src="../images/logonontransTM.png" alt="Logo principal de la plateforme"
+                     onmouseover="moveRightOnHover(this)"
+                     onmouseout="resetPosition(this)">
+                <!-- Nouvelle image à droite -->
+                <img class="logo-overlay" src="../images/logotransTM.png" alt="Nouvelle image du logo transparent avec marquage TM">
             </div>
+            <br><br>
+            <p>Incorporer le symbole ™ (marque de commerce) dans un logo est une pratique fréquente pour signifier que le logo est protégé en tant que marque commerciale. Cela indique que le logo est la propriété exclusive de l'entreprise et ne peut pas être utilisé par d'autres sans autorisation. En ajoutant le symbole ™, l'entreprise affirme sa revendication légale sur le logo, ce qui peut dissuader les contrefacteurs et renforcer la protection de sa marque. Il est important de noter que l'ajout du symbole ™ ne confère pas le même niveau de protection juridique qu'une marque déposée (®), mais cela reste une étape essentielle dans la préservation de l'identité visuelle de l'entreprise.</p>
+            <p><strong>Pourquoi les logos transparents ?</strong></p>
+
             <p>Lorsque le logo doit être superposé à des images ou des arrière-plans variés, utilisez la version du logo avec un fond transparent pour qu'il se fonde harmonieusement dans l'environnement visuel.</p>
         </div>
         <div class="milieu-droite">
