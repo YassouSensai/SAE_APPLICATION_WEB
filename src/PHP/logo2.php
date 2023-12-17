@@ -7,6 +7,7 @@
     <meta name="description" content="la description du site ">
     <meta name="keywords" content="mots-clés 1  mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
+
 </head>
 <body>
 <?php
@@ -21,7 +22,7 @@ include('../HTML/entete_general.html');
         </div>
         <div class="milieu-droite">
             <div class="block1">
-                <h2>Présentation du logo numéro 2 : </h2>
+                <h3>Présentation du logo numéro 2 : </h3>
                 <p><strong>Outil utilisé : Canva</strong><br>
                     <br>
                     Canva est une plateforme de conception visuelle en ligne qui offre aux utilisateurs la possibilité de créer aisément des graphiques, des designs, des présentations et divers contenus visuels, en mettant l'accent sur la personnalisation et l'accessibilité.
@@ -35,7 +36,7 @@ include('../HTML/entete_general.html');
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
-            <div class="description-explication">
+            <div class="block2-transparent">
                 <h2 style="color: #FFFFFF">Couleurs du logo :</h2>
                 <p>Dans ce logo, nous avons opté pour des couleurs symboliques et significatives :</p>
                 <p><strong>Bleu :</strong> Le bleu est la couleur principale de l'emblème au centre du logo. Cette couleur évoque la confiance, la fiabilité et la sérénité. Elle est souvent associée à la technologie et à la confiance dans le domaine de l'informatique. Elle représente également l'origine française de notre équipe, tout en symbolisant un horizon prometteur.</p>
@@ -43,6 +44,7 @@ include('../HTML/entete_general.html');
                 <p><strong>Rouge :</strong> Le rouge est la couleur des cinq étoiles qui entourent l'emblème. Cette couleur évoque la passion, l'énergie et l'excitation. Elle représente les 5 qualités fondamentales de notre groupe, à savoir la motivation, la cohésion, la compétence, la confiance et le respect mutuel, qui sont essentielles pour la réussite du projet.</p>
                 <p><strong>Ruban :</strong> Le ruban qui affiche les initiales de notre nom d'équipe, "Code4Success," est généralement dans une couleur sombre pour créer un contraste visuel avec le reste de l'emblème. Cette couleur sombre renforce la lisibilité du texte et met en valeur notre engagement envers la réussite de notre projet.</p>
             </div>
+            <br><br><br><br>
             <div class="description-explication">
                 <h2 style="color: #FFFFFF">Explications du logo :</h2>
                 <p>Nous avons choisi la forme de l'emblème car c’est une représentation d'une figure à valeur symbolique particulière généralement accompagnée d'une légende ou d’une histoire. Or dans notre cas présent la l’histoire qui accompagnera notre emblème sera, on l’espère, la réussite de ce projet. Par ailleurs l’emblème est un signe généralement utilisé pour renforcer la perception de l’autorité et du prestige. Il peut indiquer pour une entreprise ou organisation, qui a pour logo un emblème, qu’elle est digne de confiance. Les couleurs de l'emblème sont évidemment une référence aux couleurs du drapeau français signifiant ici que notre travail sera originaire de la France. C’est pour ces nombreuses raisons que nous avons choisi l’emblème comme forme pour notre logo.</p>

@@ -21,7 +21,7 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Roboto', sans-serif; /* on définit une police */
+    font-family: 'Lato', sans-serif; /* on définit une police */
     font-size: 1em; /*on définit la taille confortzable pour l'utilisateur avec "em" */
     background: linear-gradient(to right, #141e30, #3a4050);
 }
@@ -58,7 +58,7 @@ h2, h3 {
     text-align: left;
     color: #fcfcfc;
     font-size: 30px;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     border-left: 2px solid #ffcdb2; /*on dessine une ligne de 2px de largeur avec une couleur à gauche de chaque tire de niveau H2 et H3 */
 }
 
@@ -66,7 +66,7 @@ h5 {
     text-align: center;
     margin: 10px 0 30px;
     font-size: 15px;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Salsa', cursive;
     color: #ffcdb2; /*une autre manière de definir une couleur dans la quelle on peut définir aussi son degré */
     padding-left: 15px;
     text-decoration: none;
@@ -78,6 +78,7 @@ p {
     color: white;
     font-size: 15px;
     padding-left: 20px; /*marge intérieure gauche que peut aussi etre "top","bottom","right" */
+    font-family: 'Padauk', sans-serif;
 }
 
 ul {
@@ -167,9 +168,12 @@ ul {
     margin: 20px;
     padding: 20px;
     background-color: transparent;
-    border: 1px solid #ffcdb2;
+    border: 3px solid #ffcdb2;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-image: linear-gradient(to right, #dbe6f6, #c5796d);
+    border-image-slice: 1;
+    transition: 0.5s;
 }
 
 /* Styles for the headings (h3) */
@@ -209,9 +213,9 @@ ul {
     text-align: left;
     margin: 0;
     color: #fcfcfc;
-    font-size: 30px;
+    font-size: 50px;
     border-left: 2px solid #21242f;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Padauk', sans-serif;
     padding-left: 15px;
 }
 
@@ -230,7 +234,7 @@ ul {
 .block1 {
     background: #6d6875;
     margin-bottom: 20%; /*marge de bas */
-    padding: 20px 20px;
+    padding: 20px ;
     border-radius: 20px;
     box-sizing: border-box; /*box-sizing indique que l’on souhaite inclure les marges internes et les bordures dans le calcul de la taille d’un élément.(s'applique la boite contenant le contenu + le padding + les bordures)*/
     transition: 0.5s;
@@ -399,6 +403,7 @@ ul {
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
+    font-family: 'Padauk', sans-serif;
 }
 
 .bas-page {
@@ -540,7 +545,7 @@ ul {
     height: auto;
     margin-left: 30px;
     margin-right: 30px;
-    /* Ajoutez une marge autour de la div */
+
     margin-bottom: 100px;
 }
 
@@ -550,7 +555,7 @@ ul {
     color: #fcfcfc;
     font-size: 30px;
     border-left: 2px solid #21242f;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Padauk', sans-serif;
     padding-left: 15px;
 }
 
@@ -559,6 +564,7 @@ ul {
     color: white;
     font-size: 15px;
     margin-top: 20px;
+    font-family: 'Padauk', sans-serif;
 }
 
 .description-explication:hover {
