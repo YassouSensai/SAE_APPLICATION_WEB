@@ -7,6 +7,40 @@
     <meta name="description" content="la description du site">
     <meta name="keywords" content="mots-clés 1 mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
+    <style>
+        .header-page-générale {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.8s ease-in-out;
+            z-index: 1000;
+        }
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+        body {
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var header = document.querySelector(".header-page-générale");
+            var lastScroll = 0;
+
+            window.addEventListener("scroll", function () {
+                var currentScroll = window.scrollY;
+
+                if (currentScroll > lastScroll && currentScroll > 60) {
+                    header.classList.add("header-hidden");
+                } else {
+                    header.classList.remove("header-hidden");
+                }
+                lastScroll = currentScroll;
+            });
+        });
+    </script>
 </head>
 <body>
 <section class="header-page-générale">
