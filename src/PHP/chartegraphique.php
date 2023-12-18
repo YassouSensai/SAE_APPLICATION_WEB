@@ -273,10 +273,5 @@ include('../HTML/entete_general.html');
 <?php
 include('../HTML/pied.html');
 ?>
-
-<section class="footer">
-    <p>Mentions Légales | Contact</p>
-</section>
-
 </body>
 </html>

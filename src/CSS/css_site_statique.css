@@ -1,4 +1,30 @@
 /*##################################### CSS Général Commun A TOUTES LES PAGES #########################################*/
+.Toute-la-page {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.milieu-gauche, .milieu-droite, .bas-page {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.block1, .block2-transparent, .description-explication {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s;
+}
+
 .nav-header {
     display: inline-list-item;
     align-items: center; /*on aligne tout ce que contient le nav-header*/
@@ -11,7 +37,7 @@
 }
 
 header {
-    /* couleur fond  */
+    background-color: #21242f; /* couleur fond  */
     padding: 0 0 0.3em 0; /* marge intérieure: haut, droite, bas, gauche */
     margin: 0 0 1em 0; /*marge extérieure: haut, droite, bas, gauche */
 }
@@ -21,74 +47,22 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-family: 'Lato', sans-serif; /* on définit une police */
+    font-family: 'Roboto', sans-serif; /* on définit une police */
     font-size: 1em; /*on définit la taille confortzable pour l'utilisateur avec "em" */
-    background: linear-gradient(to right, #141e30, #3a4050);
-}
-section {
-    background: linear-gradient(to right, #141e30, #3a4050);
-    display: flex;
-    flex-direction: column; /*organisation en colonnes*/
-    margin: 0;
-    padding: 0;
-    min-height: 50px; /*on définit une hauteur minimale */
-
+    background-color: #21242f;
 }
 
-footer { /* zone du bas */
-    background: linear-gradient(to right, #141e30, #3a4050); /* fond */
-    border-top: 1px solid #ffb4a2; /* bordure en haut de 1px */
-    margin: 2em 0 0 0; /* marge du dessus */
-    text-align: center;
-    padding: 20px 0;
+.nav-header {
+    display: flex; /*on définit une boîte flexible qu'on peut modifier facilement*/
+    padding: 2% 6%; /*marge intérieure : vertical,horizontal  en % par rapport au nav-header*/
+    justify-content: space-between; /*en met de l'espace entre éléments dans la flex-box */
 }
 
-footer a {
-    color: #6d6875;
+.nav-header img {
+    width: 200px; /*on définit une largeur d'image*/
 }
 
-footer p {
-    margin: 7px 0 0 0;
-}
-
-h2, h3 {
-    margin: 0;
-    padding-left: 15px; /*marge intérieure gauche*/
-    text-decoration: none;
-    text-align: left;
-    color: #fcfcfc;
-    font-size: 30px;
-    font-family: 'Libre Franklin', sans-serif;
-    border-left: 2px solid #ffcdb2; /*on dessine une ligne de 2px de largeur avec une couleur à gauche de chaque tire de niveau H2 et H3 */
-}
-
-h5 {
-    text-align: center;
-    margin: 10px 0 30px;
-    font-size: 15px;
-    font-family: 'Salsa', cursive;
-    color: #ffcdb2; /*une autre manière de definir une couleur dans la quelle on peut définir aussi son degré */
-    padding-left: 15px;
-    text-decoration: none;
-
-}
-
-p {
-    line-height: 2em; /*hauteur de l'espace entre les lignes du texte */
-    color: white;
-    font-size: 15px;
-    padding-left: 20px; /*marge intérieure gauche que peut aussi etre "top","bottom","right" */
-    font-family: 'Padauk', sans-serif;
-}
-
-ul {
-    line-height: 2em;
-    color: white;
-    font-size: 15px;
-    padding-left: 20px;
-}
-
-/*############################################# Barre de navigation ############################################*/
+/*#############################################"Barre de navigation###############################*/
 .nav-liens {
     text-align: right;
 }
@@ -127,7 +101,7 @@ ul {
 
 .nav-liens .connexion{
     background-color: transparent;
-    witdh: 130px;
+    width: 130px;
     height: 40px;
     border: 2px solid #ffcdb2;
     color: white;
@@ -138,7 +112,6 @@ ul {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    border-color: #ffcdb2;
     transition: 1s ;
     backdrop-filter: blur(2px);
 }
@@ -150,91 +123,109 @@ ul {
 
 }
 
-.nav-header {
-    display: flex; /*on définit une boîte flexible qu'on peut modifier facilement*/
-    padding: 2% 6%; /*marge intérieure : vertical,horizontal  en % par rapport au nav-header*/
-    justify-content: space-between; /*en met de l'espace entre éléments dans la flex-box */
-}
-
-.nav-header img {
-    width: 200px; /*on définit une largeur d'image*/
-}
-/*#####################################################################################################################################################################*/
-
-/*########################################################### Les Blocks communs à toutes les pages ###################################################################*/
-
-/* Styles for the "block2" section */
-.block2-transparent {
-    margin: 20px;
-    padding: 20px;
-    background-color: transparent;
-    border: 3px solid #ffcdb2;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-image: linear-gradient(to right, #dbe6f6, #c5796d);
-    border-image-slice: 1;
-    transition: 0.5s;
-}
-
-/* Styles for the headings (h3) */
-.block2-transparent h3 { /* Couleur du texte des titres */
-    font-size: 24px; /* Taille de la police pour les titres */
-    margin-bottom: 10px; /* Espacement en bas des titres */
-}
-
-/* Styles for strong (texte fort) */
-.block2-transparent strong {
-    font-weight: bold; /* Texte fort en gras */
-}
-
-/* Style for the paragraph inside "block2" */
-.block2-transparent p {
-    /* Couleur du texte du paragraphe */
-    font-size: 16px; /* Taille de la police pour les paragraphes */
-    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
-}
-
-
-.block2 {
-    background: #6d6875;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    transition: 0.5s;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    margin: 20px; /* Ajoutez une marge autour de la div */
-}
-
-.block2 h5 {
+/*#################################################################################*/
+.nav-logos {
     text-align: left;
+}
+
+.nav-logos ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
-    color: #fcfcfc;
-    font-size: 50px;
-    border-left: 2px solid #21242f;
-    font-family: 'Padauk', sans-serif;
-    padding-left: 15px;
 }
 
-.block2 p {
+.nav-logos ul li {
+    list-style: none; /*on enleve le style de la liste */
+    display: inline-block; /*on met les "li" en ligne */
+    padding: 0;
+}
+
+
+section {
+    background-color: #21242f;
+    display: flex;
+    flex-direction: column; /*organisation en colonnes*/
+    margin: 0;
+    padding: 0;
+    min-height: 50px; /*on définit une hauteur minimale */
+}
+
+.texte-header {
+    width: 100%;
+    color: white;
+    position: absolute; /*L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page.*/
+    top: 50%; /*  <---|                                       */
+    left: 50%; /*  <---|---- on centre le titre de chaque page */
+    transform: translate(-50%, -50%); /*  <---|                                       */
+    text-align: center;
+}
+
+.texte-header h1 {
+    font-size: 35px;
+}
+
+.texte-header p {
+    margin: 10px 0 40px;
+    font-size: 15px;
+    color: white; /* on définit la couleur du texte */
+}
+
+h2, h3 {
+    margin: 0;
+    padding-left: 15px; /*marge intérieure gauche*/
+    text-decoration: none;
     text-align: left;
+    color: #fcfcfc;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+    border-left: 2px solid #ffcdb2; /*on dessine une ligne de 2px de largeur avec une couleur à gauche de chaque tire de niveau H2 et H3 */
+}
+
+h5 {
+    text-align: center;
+    margin: 10px 0 30px;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #ffcdb2; /*une autre manière de definir une couleur dans la quelle on peut définir aussi son degré */
+    padding-left: 15px;
+    text-decoration: none;
+
+}
+
+p {
+    line-height: 2em; /*hauteur de l'espace entre les lignes du texte */
     color: white;
     font-size: 15px;
-    margin-top: 20px;
+    padding-left: 20px; /*marge intérieure gauche que peut aussi etre "top","bottom","right" */
 }
 
-.block2:hover {
-    box-shadow: 0 0 20px 0 #ffb4a2;
+ul {
+    line-height: 2em;
+    color: white;
+    font-size: 15px;
+    padding-left: 20px;
 }
 
+footer { /* zone du bas */
+    background-color: #21242f; /* fond */
+    border-top: 1px solid #ffb4a2; /* bordure en haut de 1px */
+    margin: 2em 0 0 0; /* marge du dessus */
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #6d6875;
+}
+
+footer p {
+    margin: 7px 0 0 0;
+}
 
 .block1 {
     background: #6d6875;
     margin-bottom: 20%; /*marge de bas */
-    padding: 20px ;
+    padding: 20px 20px;
     border-radius: 20px;
     box-sizing: border-box; /*box-sizing indique que l’on souhaite inclure les marges internes et les bordures dans le calcul de la taille d’un élément.(s'applique la boite contenant le contenu + le padding + les bordures)*/
     transition: 0.5s;
@@ -259,42 +250,6 @@ ul {
         flex-direction: column;
     }
 }
-/*#####################################################################################################################################################################*/
-.nav-logos {
-    text-align: left;
-}
-
-.nav-logos ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-logos ul li {
-    list-style: none; /*on enleve le style de la liste */
-    display: inline-block; /*on met les "li" en ligne */
-    padding: 0;
-}
-
-.texte-header {
-    width: 100%;
-    color: white;
-    position: absolute; /*L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page.*/
-    top: 50%; /*  <---|                                       */
-    left: 50%; /*  <---|---- on centre le titre de chaque page */
-    transform: translate(-50%, -50%); /*  <---|                                       */
-    text-align: center;
-}
-
-.texte-header h1 {
-    font-size: 35px;
-}
-
-.texte-header p {
-    margin: 10px 0 40px;
-    font-size: 15px;
-    color: white; /* on définit la couleur du texte */
-}
 
 /* ####################################################################################################################*/
 
@@ -312,7 +267,7 @@ ul {
     float: left; /*la position de la div est désormais à gauche */
     width: 60%;
     margin: 1.5em 0 1.5em 0;
-
+    background: #21242f;
 }
 
 .milieu-gauche {
@@ -391,6 +346,7 @@ ul {
     float: right; /* la position de la div est désormais à droite(droite de millieu position) */
     width: 35%;
     margin: 1.5em 0 1.5em 0;
+    background: #21242f;
 }
 
 .milieu-droite {
@@ -403,11 +359,45 @@ ul {
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    font-family: 'Padauk', sans-serif;
 }
 
 .bas-page {
     display: inline-block; /* on met les éléments en ligne-block au sein de la div */
+}
+
+.block2 {
+    background: #6d6875;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    transition: 0.5s;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 20px; /* Ajoutez une marge autour de la div */
+}
+
+.block2 h5 {
+    text-align: left;
+    margin: 0;
+    color: #fcfcfc;
+    font-size: 30px;
+    border-left: 2px solid #21242f;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding-left: 15px;
+}
+
+.block2 p {
+    text-align: left;
+    color: white;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.block2:hover {
+    box-shadow: 0 0 20px 0 #ffb4a2;
 }
 
 @media (max-width: 700px) {
@@ -545,7 +535,7 @@ ul {
     height: auto;
     margin-left: 30px;
     margin-right: 30px;
-
+    /* Ajoutez une marge autour de la div */
     margin-bottom: 100px;
 }
 
@@ -555,7 +545,7 @@ ul {
     color: #fcfcfc;
     font-size: 30px;
     border-left: 2px solid #21242f;
-    font-family: 'Padauk', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     padding-left: 15px;
 }
 
@@ -564,7 +554,6 @@ ul {
     color: white;
     font-size: 15px;
     margin-top: 20px;
-    font-family: 'Padauk', sans-serif;
 }
 
 .description-explication:hover {
@@ -599,6 +588,23 @@ ul {
     }
 }
 
+
+/* Styles for the "block2" section */
+.block2-transparent {
+    margin: 20px;
+    padding: 20px;
+    background-color: transparent;
+    border: 1px solid #ffcdb2;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the headings (h3) */
+.block2-transparent h3 { /* Couleur du texte des titres */
+    font-size: 24px; /* Taille de la police pour les titres */
+    margin-bottom: 10px; /* Espacement en bas des titres */
+}
+
 /* Styles for the unordered list (ul) */
 .styled-list {
     list-style-type: disc; /* Style de la puce de la liste */
@@ -611,14 +617,25 @@ ul {
     line-height: 1.4; /* Hauteur de ligne pour une meilleure lisibilité */
 }
 
+/* Styles for strong (texte fort) */
+.block2-transparent strong {
+    font-weight: bold; /* Texte fort en gras */
+}
+
+/* Style for the paragraph inside "block2" */
+.block2-transparent p {
+    /* Couleur du texte du paragraphe */
+    font-size: 16px; /* Taille de la police pour les paragraphes */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+}
+
 
 /*############################################### CSS page générale (connexion.php) et (inscription.php)###################################################*/
 
 /* Pour centrer le formulaire */
 .container {
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgb(130, 183, 196);
+    box-shadow: 0 0 10px rgb(130, 183, 196);
     padding: 20px;
     width: 300px;
     border-radius: 15px;
@@ -691,6 +708,9 @@ select:focus {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Ajoute une ombre pour la mise en évidence */
 }
 
+
+
+
 /* Nouveau style pour la page de connexion */
 .header-page-connexion {
     min-height: calc(100vh - 100px); /* Ajustez la valeur selon vos besoins */
@@ -701,7 +721,11 @@ select:focus {
     position: relative;
 }
 
+
 .header-page-connexion .texte-header {
     padding: 10% 0; /* Marge intérieure pour centrer le contenu */
 }
+
+
+
 
