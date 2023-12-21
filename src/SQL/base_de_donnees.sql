@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS sae_bd;
+CREATE DATABASE sae_bd;
+
+DROP USER 'user_sae'@'localhost';
+CREATE USER 'user_sae'@'localhost' IDENTIFIED BY 'azerty';
+GRANT ALL PRIVILEGES ON sae_bd.* TO 'user_sae'@'localhost';
 
 USE sae_bd;
 
