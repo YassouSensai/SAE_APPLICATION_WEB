@@ -88,7 +88,14 @@
 </section>
 <?php
 if (isset($_GET['err'])){
-    echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
+    $err = $_GET['err'];
+    if ($err = "err_inscription") {
+        echo "<p id='error-message' style='color: red'>Impossible de vous inscrire. Veuillez réessayer !</p>";
+    } elseif ($err = "err_inscription_idenifiant") {
+        echo "<p id='error-message' style='color: red'>Cet identifiant est déjà uilisé, veuillez en choisir un autre !</p>";
+    } else {
+        echo "<p id='error-message' style='color: red'>Veuillez réessayer !</p>";
+    }
 }
 
 

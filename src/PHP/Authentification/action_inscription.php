@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include("../Autres/fonctions.php");
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     $nb1 = $_SESSION['nb1'];
@@ -19,42 +20,34 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         $captcha = htmlspecialchars($_POST['captcha']);
 
         if (($result_captcha == $captcha) && ($password === $confirm_password)) {
+            $connexion = connectDB();
 
-            // Informations de connexion à la base de données
-            $serveur = "localhost";
-            $utilisateur = "user_sae";
-            $mot_de_passe = "azerty";
-            $base_de_donnees = "sae_bd";
+            $paramsVerif = ['s', $username];
+            $queryVerif = "SELECT * FROM Utilisateur WHERE identifiant = ?";
+            $resultatVerif = prepareAndExecute($connexion, $queryVerif, $paramsVerif);
 
-            $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
-
-            // Vérification de la connexion
-            if (!$connexion) {
-                die("La connexion a échoué : " . mysqli_connect_error());
-            }
-
-            // Utilisation de requête préparée pour sécuriser l'insertion
-            $query = "INSERT INTO Utilisateur (identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES (?, ?, ?, ?, ?, ?)";
-
-            $prep = mysqli_prepare($connexion, $query);
-            mysqli_stmt_bind_param($prep, "ssssss", $username, $nom, $prenom, $email, $password, $type_util);
-
-            if (mysqli_stmt_execute($prep)) {
-                header('Location: connexion.php?reussite');
-                exit;
+            if (mysqli_num_rows($resultatVerif) > 0) {
+                header('Location: inscription.php?err=err_inscription_identifiant');
             } else {
-                header('Location: inscription.php?err');
-                exit;
-            }
+                $query = "INSERT INTO Utilisateur (identifiant, nom_util, prenom_util, email_util, mdp, type_util) VALUES (?, ?, ?, ?, ?, ?)";
+                $params = ['ssssss', $username, $nom, $prenom, $email, $password, $type_util];
+                $resultat = prepareAndExecute($connexion, $query, $params);
 
-            mysqli_stmt_close($stmt);
+                if (!$resultat) {
+                    header('Location: connexion.php?reussite');
+                    exit;
+                } else {
+                    header('Location: inscription.php?err=err_inscription');
+                    exit;
+                }
+            }
             mysqli_close($connexion);
         } else {
-            header('Location: inscription.php?err');
+            header('Location: inscription.php?err=err_inscription');
             exit;
         }
     } else {
-        header('Location: inscription.php?err');
+        header('Location: inscription.php?err=err_inscription');
         exit;
     }
 }
