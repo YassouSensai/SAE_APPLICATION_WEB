@@ -1,7 +1,5 @@
 <?php
 # Génération de la suite chiffrante de RC4 ou Pseudo Random Generator Algorithm PRGA
-$message = 'Hello World';
-$cle = 'test';
 $message = 'Hello';
 $cle = 'abc';
 
@@ -23,30 +21,31 @@ function initialize($cle) {
 function RC4($cle, $message)
 {
     $sequence_cle = initialize($cle);
-    //$sequence_cle = range(0, 3);
-    echo print_r($sequence_cle);
-    echo '<br>';
     $message_crypte = '';
 
     $i = 0;
     $j = 0;
 
-    //boucle pour parcourir le message à crypter
+    // boucle pour parcourir le message à crypter
     for ($k = 0; $k < strlen($message); $k++) {
         $i = ($i + 1) % 256;
         $j = ($j + $sequence_cle[$i]) % 256;
 
-        //echange de place des valeurs $sequence_cle[$i] et $sequence_cle[$j]
-        $temp = $sequence_cle[$i]; //valeur copié
+        // échange de place des valeurs $sequence_cle[$i] et $sequence_cle[$j]
+        $temp = $sequence_cle[$i];
         $sequence_cle[$i] = $sequence_cle[$j];
         $sequence_cle[$j] = $temp;
 
+        $tempKey = $sequence_cle[($sequence_cle[$i] + $sequence_cle[$j]) % 256];
 
-        $tempKey = $sequence_cle[($sequence_cle[$i] + $sequence_cle[$j]) % 256]; // valeur que l'on va concaténer dans le message crypté
-        $message_crypte = $message_crypte.($message[$k].$tempKey);
+        // Chiffrement en utilisant l'opération XOR et conversion en hexadécimal
+        $caractere_crypte = ord($message[$k]) ^ $tempKey;
+        $message_crypte .= sprintf("%02X", $caractere_crypte);
     }
-    return ($message_crypte);
+
+    return $message_crypte;
 }
+
 
 function RC4_decrypt($cle, $message_crypte)
 {
@@ -81,6 +80,7 @@ function RC4_decrypt($cle, $message_crypte)
     return $message_decrypte;
 }
 
+//  echo (RC4($cle, $message));
 
 echo '<br>';
 echo $cle;
@@ -90,7 +90,4 @@ echo '<br>';
 echo RC4($cle,$message);
 echo '<br>';
 echo RC4_decrypt($cle,RC4($cle,$message));
-
-
-
 ?>
