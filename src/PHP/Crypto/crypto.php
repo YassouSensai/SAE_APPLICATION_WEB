@@ -3,6 +3,7 @@
 $message = 'Hello';
 $cle = 'abc';
 
+#crée une séquence à partir de la clé de crytpage
 function initialize($cle) {
     $longueur_cle = strlen($cle);
     $sequence_cle = range(0, 255);
@@ -11,7 +12,7 @@ function initialize($cle) {
     for ($i = 0; $i < 256; $i++) {
         $j = ($j + $sequence_cle[$i] + ord($cle[$i % $longueur_cle])) % 256;
 
-        // Swap
+        // échange des valeurs
         $temp = $sequence_cle[$i];
         $sequence_cle[$i] = $sequence_cle[$j];
         $sequence_cle[$j] = $temp;
@@ -20,6 +21,7 @@ function initialize($cle) {
 }
 function RC4($cle, $message)
 {
+
     $sequence_cle = initialize($cle);
     $message_crypte = '';
 
@@ -81,7 +83,7 @@ function RC4_decrypt($cle, $message_crypte)
 }
 
 //  echo (RC4($cle, $message));
-
+// fonctions tests pour les fonctions ci-dessus
 echo '<br>';
 echo $cle;
 echo '<br>';
