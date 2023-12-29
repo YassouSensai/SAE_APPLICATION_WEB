@@ -272,6 +272,7 @@ include('../HTML/entete_general.html');
 
 <?php
 include('../HTML/pied.html');
+include('../HTML/pied_lien.html');
 ?>
 </body>
 </html>
