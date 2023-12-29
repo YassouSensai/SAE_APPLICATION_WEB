@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+include("../Autres/fonctions.php");
+include("../Crypto/crypto.php");
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     $nb1 = $_SESSION['nb1'];
@@ -11,32 +13,17 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
 
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
-        $password = htmlspecialchars($_POST['password']);
+        $password = RC4("password",htmlspecialchars($_POST['password']));
         $captcha = htmlspecialchars($_POST['captcha']);
         $table_user = htmlspecialchars($_POST['user-type']);
 
         if ($result_captcha == $captcha) {
 
-            // Informations de connexion à la base de données
-            $serveur = "localhost";
-            $utilisateur = "user_sae";
-            $mot_de_passe = "azerty";
-            $base_de_donnees = "sae_bd";
+            $connexion = connectDB();
 
-            $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
-
-            // Vérification de la connexion
-            if (!$connexion) {
-                die("La connexion a échoué : ".mysqli_connect_error());
-            }
-
-            // Utilisation directe du nom de table
             $query = "SELECT * FROM ".$table_user." WHERE identifiant = ? AND mdp = ?";
-
-            $prep = mysqli_prepare($connexion, $query);
-            mysqli_stmt_bind_param($prep, 'ss', $username, $password);
-            mysqli_stmt_execute($prep);
-            $resultat = mysqli_stmt_get_result($prep);
+            $params = ["ss", $username, $password];
+            $resultat = prepareAndExecute($connexion, $query, $params);
 
             if (mysqli_num_rows($resultat) > 0) {
                 $_SESSION['utilisateur'] = $username;

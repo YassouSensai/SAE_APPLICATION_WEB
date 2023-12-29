@@ -2,6 +2,7 @@
 
 session_start();
 include("../Autres/fonctions.php");
+include("../Crypto/crypto.php");
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     $nb1 = $_SESSION['nb1'];
@@ -14,8 +15,8 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
         $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['password']);
-        $confirm_password = htmlspecialchars($_POST['confirm_password']);
+        $password = RC4("password",htmlspecialchars($_POST['password']));
+        $confirm_password = RC4("password",htmlspecialchars($_POST['confirm_password']));
         $type_util = htmlspecialchars($_POST['type_util']);
         $captcha = htmlspecialchars($_POST['captcha']);
 

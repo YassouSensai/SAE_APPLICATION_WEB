@@ -1,6 +1,6 @@
 <?php
 # Génération de la suite chiffrante de RC4 ou Pseudo Random Generator Algorithm PRGA
-$message = 'Hello';
+$message = 'test';
 $cle = 'abc';
 
 #crée une séquence à partir de la clé de crytpage
