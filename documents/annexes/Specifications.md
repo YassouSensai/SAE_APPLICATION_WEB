@@ -7,8 +7,8 @@
     * Contenu du dossier de spécifications
 2. [Premier Cycle : Lancement et maquettes](#Premier-Cycle-:-Lancement-et-maquettes)
 3. [Deuxième Cycle : Livraison d'une version minimaliste](#Deuxième-Cycle-:-Livraison-d'une-version-minimaliste)
-4. [Troisième Cycle](#Troisième-Cycle)
-5. [Quatrième Cycle](#Quatrième-Cycle)
+4. [Troisième Cycle : Terminons la conception](#Troisième-Cycle-:-Terminons-la-conception)
+5. [Quatrième Cycle : Version finale](#Quatrième-Cycle-:-Version-finale)
 
 # Introduction
 
@@ -164,14 +164,14 @@ sur leur profil.
 Cette version de l'application (maintenant hébergée sur le Raspberry PI 4) est une base solide qui permettra d'implémenter les derniers cas d'utilisations durant le troisième cycle de vie.
 
 
-# Troisième Cycle
+# Troisième Cycle : Terminons la conception 
 
 ### Détails
 
 ***Nom :*** Livraison de la troisième version de l'application.  
 ***Début :*** 20 novembre 2023
 ***Fin :*** 21 décembre 2023  
-***Livraison :*** 22 décembre 2023
+***Livraison :*** Pas de livrable
 
 >L'objectif de ce troisième cycle de vie est de parachever les cas d'utilisations manquants afin de livrer 
 >une troisième version de l'application web. En effet, nous commencerons le développement des cas d'utilisations manquants
@@ -185,6 +185,38 @@ Durant ce troisième cycle de vie, les principales exigences sont les suivantes 
 - Développer les pages php pour l'implémentation des cas d'utilisations.
 
 ### Cas d'utilisations
+
+Ce cycle de vie ne se caractérise par aucun cas d'utilisation. Plus précisément, il vient poser
+les bases de développement des cas d'utilisations qui seront développé dans le quatrième et dernier cycle de vie.
+
+
+### Bilan :
+Durant ce cycle de vie, nous avons respecté les exigences déterminées au début du cycle. La base de données est développée et les pages php sont débutées 
+ce qui nous permet d'implémenter les derniers cas d'utilisation. Les utilisateurs peuvent même modifier leur profil ainsi que leur mot de passe.
+
+Egalement, la conception de l'application est terminée, il ne manque plus qu'à rajouter le diagramme de déploiement serveur dans le dossier de conception. 
+Ce cycle de vie nous a permis d'avancer dans le développement de l'application et finir la conception de celle-ci.
+
+
+
+
+# Quatrième Cycle : Version finale
+
+### Détails
+
+***Nom :*** Version finale de l'application.  
+***Début :*** 30 décembre 2023
+***Fin :*** 16 janvier 2024 
+***Livraison :*** 17 janvier 2024
+
+
+### Exigences :
+Durant ce quatrième et dernier cycle de vie, les principales exigences sont les suivantes :
+- Implémenter les derniers cas d'utilisations.
+- Préparer la soutenance du mercredi 17 janvier 2024
+
+
+### Cas d'utilisations
 Ce cycle de vie se caractérise par les scénarios d'utilisations suivants :  
 *(Pour plus d'informations, consultez le recueil des besoins [ici](Cahier_Des_Charges_et_Receuil_Des_Besoins.md))*
 
@@ -196,7 +228,7 @@ Ce cycle de vie se caractérise par les scénarios d'utilisations suivants :
 **Acteur :** Administrateur web  
 **Scénario :** Une fois connecté, l'administrateur web peut visualiser toutes les informations concernant les tickets.
 
-#### Cas 2 : Visualisation des tickets ouverts
+#### Cas 2 : Création de techniciens
 *(Il s'agit du cas 2 du recueil des besoins)*
 
 **Portée :** Administrateur web  
@@ -231,11 +263,11 @@ Ce cycle de vie se caractérise par les scénarios d'utilisations suivants :
 **Scénario :** Une fois connecté, l'administrateur système peut visionner les connexions/inscriptions sur l'application, les créations de tickets, mais aussi les résolutions des problèmes et les prises en charges des tickets. 
 
 
-### Livrable : 22 décembre 2023
+### Livrable : 16 janvier 2024
 Le livrable à la fin du cycle de vie sera la troisième version de l'application
-qui contiendra les cas d'utilisations implémentés. 
+qui contiendra les cas d'utilisations implémentés. Il s'agira de la version "finale" de l'application. 
 
-### Bilan :
+# Bilan :
 
 ## ***A compléter !!!***
 
