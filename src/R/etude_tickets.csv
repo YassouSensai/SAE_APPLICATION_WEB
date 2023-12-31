@@ -1,0 +1,31 @@
+id_tic,objet,desc_pb_tic,date_crea_tic,adresse_ip,salle,createur_tic,tech_charge_tic,status_tic,nv_urgence_tic
+1,Problème urgent,Problème technique urgent,2023-01-01,127.0.0.1,I21,utilisateur1,tech1,1,3
+2,Problème sérieux,Problème sérieux à résoudre dans les plus brefs délais,2023-01-02,127.0.92.1,G25,utilisateur1,tech1,2,3
+3,Petit problème,Problème pas très important,2023-01-03,127.92.0.1,G23,utilisateur1,tech2,3,3
+4,Problème majeur,Problème majeur nécessitant une attention immédiate,2023-01-04,127.0.0.1,I21,utilisateur4,tech2,1,4
+5,Problème mineur,Problème mineur à résoudre,2023-01-05,127.0.92.1,G25,utilisateur5,tech2,2,2
+6,Panne de système,Panne critique du système,2023-01-06,127.92.0.1,G23,utilisateur6,tech2,3,4
+7,Problème réseau,Problème de connectivité réseau,2023-01-07,127.0.0.1,I21,utilisateur7,tech2,1,2
+8,Problème logiciel,Problème avec le logiciel,2023-01-08,127.0.92.1,G25,utilisateur8,tech2,2,3
+9,Panne d'électricité,Panne d'électricité dans la salle,2023-01-09,127.92.0.1,G23,utilisateur9,tech2,3,4
+10,Panne d'imprimante,Panne d'imprimante nécessitant une assistance,2023-01-10,127.0.0.1,I21,utilisateur10,tech2,1,3
+11,Problème de sécurité,Problème de sécurité informatique,2023-01-11,127.0.92.1,G25,utilisateur11,tech2,2,4
+12,Problème matériel,Problème avec le matériel informatique,2023-01-12,127.92.0.1,G23,utilisateur12,tech2,3,3
+13,Problème de messagerie,Problème de messagerie électronique,2023-01-13,127.0.0.1,I21,utilisateur13,tech2,1,2
+14,Perte de données,Perte de données critique,2023-01-14,127.0.92.1,G25,utilisateur14,tech2,2,3
+15,Problème d'accès,Problème d'accès au système,2023-01-15,127.92.0.1,G23,utilisateur15,tech2,3,4
+16,Panne de serveur,Panne de serveur nécessitant une intervention,2023-01-16,127.0.0.1,I21,utilisateur16,tech2,1,4
+17,Problème de logiciel,Problème avec un logiciel spécifique,2023-01-17,127.0.92.1,G25,utilisateur17,tech2,2,3
+18,Panne de réseau,Panne de réseau critique,2023-01-18,127.92.0.1,G23,utilisateur18,tech2,3,4
+19,Problème d'impression,Problème d'impression à résoudre,2023-01-19,127.0.0.1,I21,utilisateur19,tech2,1,2
+20,Problème de connexion,Problème de connexion à Internet,2023-01-20,127.0.92.1,G25,utilisateur20,tech2,2,3
+21,Panne électrique,Panne électrique générale,2023-01-21,127.92.0.1,G23,utilisateur21,tech2,3,4
+22,Panne de système,Problème critique du système informatique,2023-01-22,127.0.0.1,I21,utilisateur22,tech2,1,4
+23,Problème de sécurité,Problème de sécurité des données,2023-01-23,127.0.92.1,G25,utilisateur23,tech2,2,4
+24,Problème matériel,Problème matériel urgent,2023-01-24,127.92.0.1,G23,utilisateur24,tech2,3,3
+25,Problème de messagerie,Problème de messagerie professionnel,2023-01-25,127.0.0.1,I21,utilisateur25,tech2,1,2
+26,Perte de données,Perte de données importante,2023-01-26,127.0.92.1,G25,utilisateur26,tech2,2,3
+27,Problème d'accès,Problème d'accès aux fichiers,2023-01-27,127.92.0.1,G23,utilisateur27,tech2,3,4
+28,Panne de serveur,Panne de serveur critique,2023-01-28,127.0.0.1,I21,utilisateur28,tech1,1,4
+29,Problème de logiciel,Problème avec le logiciel de gestion,2023-01-29,127.0.92.1,G25,utilisateur29,tech2,2,3
+30,Panne de réseau,Panne de réseau général,2023-01-30,127.92.0.1,G23,utilisateur30,tech1,3,4
