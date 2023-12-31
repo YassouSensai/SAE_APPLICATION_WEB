@@ -211,6 +211,16 @@ function afficherFormulaireOuvertureTicket() {
               <option value='4'>4</option>
               </select>";
 
+    echo "<label for='salle'>Dans quelle salle le problème se situe ?</label>";
+    echo "<select id='salle' type='text' name='salle' required>
+              <option value='I21'>I21</option>
+              <option value='G21'>G21</option>
+              <option value='G22'>G22</option>
+              <option value='G23'>G23</option>
+              <option value='G24'>G24</option>
+              <option value='G25'>G25</option>
+              </select>";
+
     echo "<label for='description_ticket'>Description du problème :</label>";
     echo "<textarea id='description_ticket' name='description_ticket'  placeholder='Description ...' required></textarea><br>";
 
@@ -249,8 +259,6 @@ function afficherTicketsUtilisateurs($username, $table_user) {
                 </tr>
             </thead>
             <tbody>";
-
-
 }
 
 
