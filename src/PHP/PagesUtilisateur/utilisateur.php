@@ -72,6 +72,10 @@ include("../Autres/fonctions.php");
 
 <section class="corps-de-la-page">
     <div id="profil">
+        <br>
+        <h2 style="text-align: center">Mon profil</h2>
+        <br>
+        <br>
         <?php
         tableau_profil($username, $table_user);
         ?>
@@ -86,10 +90,22 @@ include("../Autres/fonctions.php");
         if (isset($_GET['formulaire'])) {
             $param_formulaire = $_GET['formulaire'];
             if ($param_formulaire == 'modifierProfil') {
+                echo "<br>";
+                echo "<h2 style='text-align: center'>Modifier mon profil</h2>";
+                echo "<br>";
+                echo "<br>";
                 afficherFormulaireModifierProfil($username, $table_user);
             } elseif ($param_formulaire == 'ticket') {
+                echo "<br>";
+                echo "<h2 style='text-align: center'>Ouvrir un ticket</h2>";
+                echo "<br>";
+                echo "<br>";
                 afficherFormulaireOuvertureTicket();
             } elseif ($param_formulaire == 'modifierMdp') {
+                echo "<br>";
+                echo "<h2 style='text-align: center'>Modifier mon mot de passe</h2>";
+                echo "<br>";
+                echo "<br>";
                 afficherModifierMotDePasse($username, $table_user);
             }
         }

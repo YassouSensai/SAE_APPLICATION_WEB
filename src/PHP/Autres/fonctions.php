@@ -40,8 +40,8 @@ function prepareAndExecute($connexion, $query, $params = null) {
 /* Cette fonction permet d'afficher le profil de l'utilisateur qui se connecte. */
 function tableau_profil($username, $table_user) {
 
-    $connexion = connectDB();
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
+    $connexion = connectDB();
 
     if ($table_user == 'Utilisateur') {
         echo "<table id='table-utilisateur'>
@@ -67,17 +67,10 @@ function tableau_profil($username, $table_user) {
             <tbody>";
     }
 
-    // Vérification de la connexion
-    if (!$connexion) {
-        die("La connexion a échoué : ".mysqli_connect_error());
-    }
 
     $query = "SELECT * FROM ".$table_user." WHERE identifiant = ?;";
-
-    $prep = mysqli_prepare($connexion, $query);
-    mysqli_stmt_bind_param($prep, 's', $username);
-    mysqli_stmt_execute($prep);
-    $resultat = mysqli_stmt_get_result($prep);
+    $params = ["s", $username];
+    $resultat = prepareAndExecute($connexion, $query, $params);
 
     if (mysqli_num_rows($resultat) > 0) {
         $row = mysqli_fetch_assoc($resultat);
@@ -112,17 +105,10 @@ function afficherFormulaireModifierProfil($username, $table_user) {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
-    // Vérification de la connexion
-    if (!$connexion) {
-        die("La connexion a échoué : ".mysqli_connect_error());
-    }
-
     $query = "SELECT * FROM ".$table_user." WHERE identifiant = ?;";
+    $params = ["s", $username];
+    $resultat = prepareAndExecute($connexion, $query, $params);
 
-    $prep = mysqli_prepare($connexion, $query);
-    mysqli_stmt_bind_param($prep, 's', $username);
-    mysqli_stmt_execute($prep);
-    $resultat = mysqli_stmt_get_result($prep);
 
     if (mysqli_num_rows($resultat) > 0) {
         $profilActuel = mysqli_fetch_assoc($resultat);
@@ -244,22 +230,52 @@ function afficherTicketsUtilisateurs($username, $table_user) {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
-    // Vérification de la connexion
-    if (!$connexion) {
-        die("La connexion a échoué : ".mysqli_connect_error());
-    }
+    $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
+              FROM Ticket t
+              JOIN StatutTicket s ON t.status_tic = s.id_statut_tic
+              JOIN NiveauUrgence u ON t.nv_urgence_tic = u.id_nv_urgence
+              WHERE t.createur_tic = ?
+              ORDER BY t.date_crea_tic DESC";
+    $params = ["s", $username];
+    $resultat = prepareAndExecute($connexion, $query, $params);
 
     echo "<table id='table-mes-tickets'>
             <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Ticket</th>
+                    <th>Date de création</th>
                     <th>Objet</th>
                     <th>Description</th>
+                    <th>Adresse IP</th>
+                    <th>Salle</th>
                     <th>Statut</th>
+                    <th>Niveau d'urgence</th>
                 </tr>
             </thead>
             <tbody>";
+
+    $num = 0;
+    while ($row = mysqli_fetch_assoc($resultat)) {
+        $num = $num + 1;
+        echo "<tr>";
+        echo "<td>" . $num . "</td>";
+        echo "<td>" . htmlspecialchars($row['date_crea_tic']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['objet']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['desc_pb_tic']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['adresse_ip']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['salle']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['statut']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['urgence']) . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</tbody>
+        </table>";
+
+    mysqli_close($connexion);
 }
+
+
 
 
 

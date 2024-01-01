@@ -41,19 +41,30 @@ include ("../Autres/fonctions.php")
         ?>
     </div>
 </section>
+<br>
+<br>
+<a href="utilisateur.php">Revenir à mon profil</a>
+<br>
 
-<section class="corps-de-la-page">
-    <div class="afficher-tickets">
-        <?php
-        if ($table_user == 'Utilisateur'){
-            afficherTicketsUtilisateurs($username, $table_user);
-        }
+<section class="corps-de-la-page-2">
 
-        ?>
-    </div>
+
+    <?php
+    if ($table_user == 'Utilisateur'){
+
+        echo "<div id='vos-tickets'>";
+        echo "<h2>Vos tickets :</h2>";
+        echo "<br>";
+        echo "<br>";
+        afficherTicketsUtilisateurs($username, $table_user);
+        echo "</div>";
+    }
+
+    ?>
+
 </section>
 
-
-
-<a href="utilisateur.php">Revenir à mon profil</a>
+<?php
+include("../../HTML/pied.html");
+?>
 </body>

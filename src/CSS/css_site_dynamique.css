@@ -109,7 +109,7 @@ footer p {
     background-color: #8fbc8f;
 }
 
-/* ######################################   CSS pour la partie (classe) : corps de la page   ###################################### */
+/* ######################################   CSS pour la partie (classe) : corps de la page (utilisateur.php)  ###################################### */
 
 .corps-de-la-page {
     display: flex;
@@ -123,6 +123,13 @@ footer p {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* ######################################   CSS pour la partie (classe) : corps de la page (tableau_de_bord_utilisateur.php)  ###################################### */
+
+.corps-de-la-page-2 {
+    text-align: center;
+    padding: 100px;
 }
 
 
