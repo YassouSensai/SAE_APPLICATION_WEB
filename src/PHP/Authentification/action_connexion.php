@@ -13,9 +13,15 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
 
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
-        $password = RC4("password",htmlspecialchars($_POST['password']));
         $captcha = htmlspecialchars($_POST['captcha']);
         $table_user = htmlspecialchars($_POST['user-type']);
+        $password = "";
+
+        if ($table_user == 'Utilisateur') {
+            $password = RC4("password",htmlspecialchars($_POST['password']));
+        } else {
+            $password = htmlspecialchars($_POST['password']);
+        }
 
         if ($result_captcha == $captcha) {
 
