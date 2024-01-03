@@ -7,6 +7,7 @@ include ("../Autres/fonctions.php")
 <head>
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
     <title>Tableau de bord</title>
+    <script src="../../JS/messages.js"></script>
     <meta charset="utf-8">
     <meta name="description" content="Cette page permet aux personnes connecté de visionner leur tableau de bord">
     <meta name="keywords" content="tableau">
@@ -93,6 +94,26 @@ include ("../Autres/fonctions.php")
 
     ?>
 
+</section>
+
+<section>
+   <?php
+   if (isset($_GET['modif_statut'])) {
+       $modif_statut = $_GET['modif_statut'];
+       if ($modif_statut == 'echec') {
+           echo "<p id='error-message' style='color: red'>Le statut du ticket n'a pas pu être modifié !</p>";
+       } elseif ($modif_statut == 'succes') {
+           echo "<p id='success' style='color: green'>Le statut du ticket a été modifié avec succès !</p>";
+       }
+   } elseif (isset($_GET['attribution_ticket'])) {
+       $attribution_ticket = $_GET['attribution_ticket'];
+       if ($attribution_ticket == 'echec') {
+           echo "<p id='error-message' style='color: red'>Ce ticket n'a pas pu vous être attribué !</p>";
+       } elseif ($attribution_ticket == 'succes') {
+           echo "<p id='success' style='color: green'>Ce ticket vous a été attribué avec succès !</p>";
+       }
+   }
+   ?>
 </section>
 
 <?php
