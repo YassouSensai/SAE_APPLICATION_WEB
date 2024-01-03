@@ -114,15 +114,22 @@ footer p {
 .corps-de-la-page {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
 }
 
-#profil,
-#formulaires {
-    width: 45%;
-    box-sizing: border-box;
+#profil-general {
     margin-left: auto;
     margin-right: auto;
+    width: 75%;
+}
+
+#profil-utilisateur {
+    width: 50%;
+    padding-left: 150px;
+
+}
+#formulaires {
+    width: 50%;
+    padding-left: 300px;
 }
 
 /* ######################################   CSS pour la partie (classe) : corps de la page (tableau_de_bord_utilisateur.php)  ###################################### */
@@ -131,6 +138,10 @@ footer p {
     display: flex;
     text-align: center;
     padding: 100px;
+}
+
+#vos-tickets-utilisateurs {
+    width: 100% ;
 }
 
 #vos-tickets-techniciens,

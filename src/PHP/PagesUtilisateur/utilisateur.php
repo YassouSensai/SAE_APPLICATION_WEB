@@ -71,22 +71,18 @@ include("../Autres/fonctions.php");
 
 
 <section class="corps-de-la-page">
-    <div id="profil">
-        <br>
-        <h2 style="text-align: center">Mon profil</h2>
-        <br>
-        <br>
-        <?php
-        tableau_profil($username, $table_user);
-        ?>
-    </div>
 
-    <div id="formulaires">
     <?php
-
     if ($table_user == 'Utilisateur') {
-        echo "<div id='formulaires'>";
+        echo "<div id='profil-utilisateur'>";
+        echo "<br>";
+        echo "<h2 style='text-align: center'>Mon profil</h2>";
+        echo "<br>";
+        echo "<br>";
+        tableau_profil($username, $table_user);
+        echo "</div>";
 
+        echo "<div id='formulaires'>";
         if (isset($_GET['formulaire'])) {
             $param_formulaire = $_GET['formulaire'];
             if ($param_formulaire == 'modifierProfil') {
@@ -110,9 +106,19 @@ include("../Autres/fonctions.php");
             }
         }
         echo "</div>";
+    } else {
+        echo "<div id='profil-general'>";
+        echo "<br>";
+        echo "<h2 style='text-align: center'>Mon profil</h2>";
+        echo "<br>";
+        echo "<br>";
+        tableau_profil($username, $table_user);
+        echo "</div>";
     }
+
     ?>
-    </div>
+
+
 </section>
 
 
