@@ -35,12 +35,13 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
                 $_SESSION['utilisateur'] = $username;
                 $_SESSION['table_user'] = $table_user;
 
-
+                logActivity($username, 1, "L'utilisateur $username s'est connecté avec succès !");
                 header('Location: ../PagesUtilisateur/utilisateur.php');
 
 
                 exit();
             } else {
+                logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
                 header('Location: connexion.php?err');
                 exit;
             }
@@ -50,6 +51,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
             // Fermeture de la connexion
             mysqli_close($connexion);
         } else {
+            logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
             header('Location: connexion.php?err');
             exit;
         }

@@ -29,12 +29,15 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
             $insert_result = prepareAndExecute($connexion, $insert_query, $insert_params);
 
             if ($insert_result) {
+                logActivity($username, 0, "L'utilisateur $username a créé un ticket pour la salle $salle.");
                 echo header('Location: utilisateur.php?ouvrir_ticket=ok');
             } else {
+                logActivity($username, 0, "L'utilisateur $username n'a pas réussit a créé un ticket pour la salle $salle.");
                 header('Location: utilisateur.php?ouvrir_ticket=else');
             }
         }
     } else {
+        logActivity($username, 0, "L'utilisateur $username s'est trompé de mot de passe pour créé un ticket.");
         header('Location: utilisateur.php?ouvrir_ticket=echec_mdp');
     }
 

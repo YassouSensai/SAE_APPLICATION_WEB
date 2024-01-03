@@ -1,6 +1,4 @@
 <?php
-
-
 function connectDB() {
     $serveur = "localhost";
     $utilisateur = "user_sae";
@@ -31,6 +29,17 @@ function prepareAndExecute($connexion, $query, $params = null) {
 
     return mysqli_stmt_get_result($prep);
 }
+
+function logActivity($username, $type, $description) {
+    $connexion = connectDB();
+
+    $query = "INSERT INTO JournalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
+    $params = ["ssis", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
+    prepareAndExecute($connexion, $query, $params);
+
+    mysqli_close($connexion);
+}
+
 
 
 // ####################################################################################################################
