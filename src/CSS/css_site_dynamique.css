@@ -128,8 +128,14 @@ footer p {
 /* ######################################   CSS pour la partie (classe) : corps de la page (tableau_de_bord_utilisateur.php)  ###################################### */
 
 .corps-de-la-page-2 {
+    display: flex;
     text-align: center;
     padding: 100px;
+}
+
+#vos-tickets-techniciens,
+#formulaires-tickets {
+    width: 50%;
 }
 
 

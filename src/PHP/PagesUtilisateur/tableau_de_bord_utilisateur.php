@@ -52,11 +52,42 @@ include ("../Autres/fonctions.php")
     <?php
     if ($table_user == 'Utilisateur'){
 
-        echo "<div id='vos-tickets'>";
+        echo "<div id='vos-tickets-utilisateurs'>";
         echo "<h2>Vos tickets :</h2>";
         echo "<br>";
         echo "<br>";
         afficherTicketsUtilisateurs($username, $table_user);
+        echo "</div>";
+    }
+
+    if ($table_user == 'Technicien') {
+        echo "<div id='vos-tickets-techniciens'>";
+        echo "<h2>Vos tickets pris en charge :</h2>";
+        echo "<br>";
+        echo "<br>";
+        afficherTicketsUtilisateurs($username, $table_user);
+        echo "</div>";
+
+        echo "<div id='formulaires-tickets'>";
+        echo "<ul class='button-list'>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?formulaire=modifierTicket'\">Modifier un ticket</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?formulaire=nouveauTicket'\">Prendre un ticket disponible</button></li>";
+        echo "</ul>";
+
+        echo "<br>";
+        echo "<br>";
+
+        if (isset($_GET['formulaire'])) {
+            $formulaire = $_GET['formulaire'];
+            echo "<br>";
+            echo "<br>";
+            if ($formulaire == 'modifierTicket') {
+                afficherFormModifierStatutTicket($username);
+            } elseif ($formulaire == 'nouveauTicket') {
+                afficherFormChoixTicketsNonAttribues();
+            }
+        }
+
         echo "</div>";
     }
 
