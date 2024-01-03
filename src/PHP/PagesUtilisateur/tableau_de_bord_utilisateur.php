@@ -92,6 +92,38 @@ include ("../Autres/fonctions.php")
         echo "</div>";
     }
 
+    if ($table_user == "AdminSysteme") {
+        echo "<div id='journal'>";
+
+        echo "<ul class='button-list'>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=connexion'\">Journal des connexions</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=tickets'\">Journal des tickets</button></li>";
+        echo "</ul>";
+
+        echo "<br>";
+        echo "<br>";
+
+        if (isset($_GET['journal'])) {
+            $journal = $_GET['journal'];
+
+            if ($journal == 'connexion') {
+                echo "<h2>Journal des connexions :</h2>";
+                echo "<br>";
+                echo "<br>";
+                afficherActivitesParType(1);
+            } elseif ($journal == 'tickets') {
+                echo "<h2>Journal des tickets :</h2>";
+                echo "<br>";
+                echo "<br>";
+                afficherActivitesParType(0);
+            }
+
+        }
+
+        echo "</div>";
+
+    }
+
     ?>
 
 </section>

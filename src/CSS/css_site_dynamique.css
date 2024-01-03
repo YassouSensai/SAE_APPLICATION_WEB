@@ -141,12 +141,18 @@ footer p {
 }
 
 #vos-tickets-utilisateurs {
+    margin-left: auto;
+    margin-right: auto;
     width: 100% ;
 }
 
 #vos-tickets-techniciens,
 #formulaires-tickets {
     width: 50%;
+}
+
+#journal {
+    width: 100% ;
 }
 
 
