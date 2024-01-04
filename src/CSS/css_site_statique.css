@@ -142,6 +142,7 @@ html, body {
 
 
 section {
+    /*  background: linear-gradient(to right, #21242f, #2b2e3b);*/
     background-color: #21242f;
     display: flex;
     flex-direction: column; /*organisation en colonnes*/
