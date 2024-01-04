@@ -208,7 +208,6 @@ ul {
 }
 
 footer { /* zone du bas */
-    background-color: #21242f; /* fond */
     border-top: 1px solid #ffb4a2; /* bordure en haut de 1px */
     margin: 2em 0 0 0; /* marge du dessus */
     text-align: center;
@@ -268,7 +267,6 @@ footer p {
     float: left; /*la position de la div est désormais à gauche */
     width: 60%;
     margin: 1.5em 0 1.5em 0;
-    background: #21242f;
 }
 
 .milieu-gauche {
@@ -347,7 +345,6 @@ footer p {
     float: right; /* la position de la div est désormais à droite(droite de millieu position) */
     width: 35%;
     margin: 1.5em 0 1.5em 0;
-    background: #21242f;
 }
 
 .milieu-droite {

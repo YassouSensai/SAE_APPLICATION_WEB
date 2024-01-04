@@ -7,6 +7,7 @@
     <meta name="description" content="la description du site">
     <meta name="keywords" content="mots-clés 1 mots-clés 2">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
+    <script src="../JS/script-entete-generale-animation.js"></script>
     <style>
         .header-page-générale {
             position: fixed;
@@ -14,13 +15,13 @@
             width: 100%;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.8s ease-in-out;
+            transition: transform 1.5s ease-in-out, opacity 0.5s ease-in-out;
             z-index: 1000;
+            opacity: 1;
         }
         .header-hidden {
             opacity: 0;
             transform: translateY(-100%);
-            transition: opacity 3s ease-in-out, transform 0.8s ease-in-out;
         }
         body {
             margin-top: 0;
@@ -37,41 +38,6 @@
             background-size: cover;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var header = document.querySelector(".header-page-générale");
-            var lastScroll = 0;
-
-            window.addEventListener("scroll", function() {
-                var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-                if (currentScroll > lastScroll && currentScroll > 60) {
-                    header.classList.add("header-hidden");
-                } else {
-                    header.classList.remove("header-hidden");
-                }
-                lastScroll = currentScroll;
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            var header = $(".header-page-générale");
-            var lastScroll = 0;
-
-            $(window).scroll(function () {
-                var currentScroll = $(window).scrollTop();
-
-                if (currentScroll > lastScroll && currentScroll > 60) {
-                    header.addClass("header-hidden");
-                } else {
-                    header.removeClass("header-hidden");
-                }
-                lastScroll = currentScroll;
-            });
-        });
-    </script>
-
 </head>
 <body>
 <section class="header-image">
