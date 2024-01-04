@@ -170,27 +170,20 @@ include('../HTML/entete_general.html');
     </div>
     <div class="clear"></div>
 </section>
-
+<br>
 <section>
     <div class="Toute-la-page">
-        <div class="milieu-gauche">
-            <h3>IMAGES ASSOCIES AU PROJET</h3>
-            <p>pas encore d'images apparaitront plus tard
+        <div class="block-contenu-en-ligne">
+            <h3>Description vidéo et photo</h3>
+            <p>
+                Bien que notre site contienne principalement un tutoriel vidéo explicatif, les images et les photographies, telles que les palettes de couleurs ou les illustrations, ont également un rôle essentiel dans l'enrichissement visuel de la plateforme.
             </p>
-        </div>
-        <div class="milieu-droite">
-            <div class="block1">
-                <h3>Description vidéo et photo</h3>
-                <p>
-                    Bien que notre site contienne principalement un tutoriel vidéo explicatif, les images et les photographies, telles que les palettes de couleurs ou les illustrations, ont également un rôle essentiel dans l'enrichissement visuel de la plateforme.
-                </p>
-                <p>
-                    Les images, les palettes de couleurs et les illustrations, sont des éléments visuels cruciaux pour améliorer la convivialité de notre site. Leur utilisation doit respecter les points suivants : cohérence de style, signification, et surtout la qualité graphique (haute résolution).
-                </p>
-                <p>
-                    Cependant, notre vidéo, qui sert de tutoriel expliquant le fonctionnement de la plateforme, est un élément central de notre site, elle doit donc respecter les mêmes points que les images, mais aussi les points tels que le contenu explicatif.
-                </p>
-            </div>
+            <p>
+                Les images, les palettes de couleurs et les illustrations, sont des éléments visuels cruciaux pour améliorer la convivialité de notre site. Leur utilisation doit respecter les points suivants : cohérence de style, signification, et surtout la qualité graphique (haute résolution).
+            </p>
+            <p>
+                Cependant, notre vidéo, qui sert de tutoriel expliquant le fonctionnement de la plateforme, est un élément central de notre site, elle doit donc respecter les mêmes points que les images, mais aussi les points tels que le contenu explicatif.
+            </p>
         </div>
     </div>
     <div class="clear"></div>
@@ -215,7 +208,7 @@ include('../HTML/entete_general.html');
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">
-            <div class="block2">
+            <div class="block2-transparent">
                 <h2 style="color: #FFFFFF">Respect de l'accessibilité</h2>
                 <p>
                     Dans le cadre de la SAE et pas que, l’accessibilité est vraiment un élément à ne pas négliger. Nous nous engageons donc à rendre notre site web utilisable par un large éventail d'individus, y compris ceux ayant des besoins spécifiques ou des limitations physiques. Voici donc les points qu’on a respectés pour notre site web :
