@@ -234,7 +234,7 @@ Ce cycle de vie se caractérise par les scénarios d'utilisations suivants :
 **Portée :** Administrateur web  
 **Niveau :** Objectif stratégique 
 **Acteur :** Administrateur web  
-**Scénario :** Une fois connecté, l'administrateur web peut créer un nouveau technicien.
+**Scénario :** Une fois connecté, l'administrateur web peut gérer la liste des libellés et des statuts des tickets, ainsi que créer et attribuer des comptes de techniciens.
 
 #### Cas 3 : Gestion des tickets
 *(Il s'agit du cas 1 du recueil des besoins)*
@@ -269,6 +269,30 @@ qui contiendra les cas d'utilisations implémentés. Il s'agira de la version "f
 
 # Bilan :
 
-## ***A compléter !!!***
+Le quatrième cycle, contenant la version finale de l'application, 
+implique la réalisation des dernières fonctionnalités pour les utilisateurs et en général et la préparation de la soutenance. 
+Les travaux à effectuer incluent :
 
+**Implémentation des derniers cas d'utilisations :**
+
+En effet, les fonctionnalités telles que la visualisation des tickets ouverts, la création de techniciens, la création de tickets, la gestion des tickets et le visionnage des journaux d'activités seront finalisées.
+Les interactions entre les différents acteurs (administrateur web, techniciens et client) seront optimisées pour assurer une bonne interaction entre les acteurs.
+
+**Préparation de la soutenance :**
+
+On va procéder à la création d'une présentation détaillée expliquant les choix de conception, les challenges rencontrés, et les solutions apportées.
+Ensuite, nous ferons une démonstration en direct de l'application web, montrant ses fonctionnalités.
+Enfin, on va brièvement présenter la documentation complète du code source et des procédures d'installation.
+
+**Respect des consignes :**
+
+On a plusieurs consignes comme : 
+- Installation de l'application sur un serveur Raspberry Pi 4 avec les services nécessaires facultatives ou pas.
+- Création d'un projet GitHub avec tous les membres dedans, pour partager la documentation, le code source, et toute information pertinente concernant le projet.
+- Communication régulière par e-mail avec les professeurs (nos clients) pour assurer une collaboration efficace et rendre les versions à temps.
+
+**Finalisation des fonctionnalités spécifiques :**
+
+Mise en place du système de journal d'activités, enregistrement des données pertinentes pour les statistiques, y compris les tentatives de connexion infructueuses.
+Préparation de la gestion des tickets fermés stockés dans un historique.
 
