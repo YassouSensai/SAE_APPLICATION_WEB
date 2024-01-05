@@ -124,6 +124,51 @@ include ("../Autres/fonctions.php")
 
     }
 
+    if ($table_user == 'AdminWeb') {
+
+        echo "<div id='liste-tickets/utilisateurs'>";
+
+        echo "<ul class='button-list'>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=tickets'\">Tous les tickets</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=utilisateurs'\">Tous les utilisateurs</button></li>";
+        echo "</ul>";
+
+        echo "<br>";
+        echo "<br>";
+
+        if (isset($_GET['liste'])) {
+            $liste = $_GET['liste'];
+            if ($liste == 'tickets') {
+                echo "<h2>Liste de tous les tickets :</h2>";
+                echo "<br>";
+                echo "<br>";
+            } elseif ($liste == 'utilisateurs') {
+                echo "<h2>Liste de tous les utilisateurs :</h2>";
+                echo "<br>";
+                echo "<br>";
+            }
+        }
+        echo "</div>";
+
+        echo "<div id='actions-admin-web'>";
+
+        echo "<ul class='button-list'>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=inscrire_tech'\">Inscrire un technicien</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=ticket_tech'\">Attribuer un ticket à un technicien</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=ticket_suppr'\">Supprimer un ticket</button></li>";
+        echo "</ul>";
+
+        echo "<br>";
+        echo "<br>";
+
+        if (isset($_GET['action'])) {
+            $action = $_GET['action'];
+        }
+
+        echo "</div>";
+
+    }
+
     ?>
 
 </section>

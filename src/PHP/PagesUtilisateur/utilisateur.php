@@ -63,6 +63,8 @@ include("../Autres/fonctions.php");
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php'\">Tableau de bord</button></li>";
         } elseif ($table_user == "AdminSysteme") {
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=connexion'\">Tableau de bord</button></li>";
+        } elseif ($table_user == "AdminWeb") {
+            echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=tickets'\">Tableau de bord</button></li>";
         } else {
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php'\">Tableau de bord</button></li>";
         }
