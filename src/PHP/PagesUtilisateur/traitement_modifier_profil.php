@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../Autres/fonctions.php");
+include("../Crypto/crypto.php");
 
 
 
@@ -8,7 +9,7 @@ if (isset($_SESSION['utilisateur'], $_POST['mot_de_passe'])) {
     $connexion = connectDB();
 
     $username = $_SESSION['utilisateur'];
-    $password = $_POST['mot_de_passe']; // Pas besoin d'utiliser htmlspecialchars ici
+    $password = RC4("password", htmlspecialchars($_POST['mot_de_passe']));
 
     $query = "SELECT * FROM Utilisateur WHERE identifiant = ? AND mdp = ?";
     $params = ['ss', $username, $password];

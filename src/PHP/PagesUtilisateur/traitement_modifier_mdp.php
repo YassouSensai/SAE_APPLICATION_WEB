@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("../Autres/fonctions.php");
+include("../Crypto/crypto.php");
+
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2']) && isset($_SESSION['utilisateur'])) {
     $nb1 = $_SESSION['nb1'];
@@ -9,9 +11,9 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2']) && isset($_SESSION['utili
     $result_captcha = $nb1 * $nb2;
 
     if (isset($_POST['ancien_mdp'], $_POST['nouveau_mdp'], $_POST['nouveau_mdp2'], $_POST['captcha'])) {
-        $ancien_mdp = htmlspecialchars($_POST['ancien_mdp']);
-        $nouveau_mdp = htmlspecialchars($_POST['nouveau_mdp']);
-        $nouveau_mdp2 = htmlspecialchars($_POST['nouveau_mdp2']);
+        $ancien_mdp = RC4("password",htmlspecialchars($_POST['ancien_mdp']));
+        $nouveau_mdp = RC4("password",htmlspecialchars($_POST['nouveau_mdp']));
+        $nouveau_mdp2 = RC4("password", htmlspecialchars($_POST['nouveau_mdp2']));
         $captcha = htmlspecialchars($_POST['captcha']);
 
         if (($result_captcha == $captcha) && ($nouveau_mdp == $nouveau_mdp2)) {

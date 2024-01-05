@@ -5,7 +5,7 @@ include("../Crypto/crypto.php");
 
 if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
     $username = $_SESSION['utilisateur'];
-    $mdp = RC4('password',$_POST['mdp']);
+    $mdp = RC4('password',htmlspecialchars($_POST['mdp']));
 
     $connexion = connectDB();
 
@@ -23,12 +23,12 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
             $adresse_ip = $_SERVER['REMOTE_ADDR'];
 
             // Insertion du ticket dans la base de données
-            $insert_query = "INSERT INTO Ticket (objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $insert_query = "INSERT INTO Ticket (date_crea_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic) VALUES (NOW(),?, ?, ?, ?, ?, ?, ?)";
             $insert_params = ['sssssss', $sujet_ticket, $description_ticket, $adresse_ip, $salle, $username, 1, $niveau_urgence];
 
             $insert_result = prepareAndExecute($connexion, $insert_query, $insert_params);
 
-            if ($insert_result) {
+            if (!$insert_result) {
                 logActivity($username, 0, "L'utilisateur $username a créé un ticket pour la salle $salle.");
                 echo header('Location: utilisateur.php?ouvrir_ticket=ok');
             } else {

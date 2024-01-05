@@ -151,6 +151,16 @@ if (isset($_GET['modif_profil'])) {
     } elseif ($code_modif == 'echec_mdp') {
         echo "<p id='error-message' style='color: red'>Votre mot de passe n'a pas pu être modifié !</p>";
     }
+} elseif (isset($_GET['ouvrir_ticket'])) {
+    $code_ticket = $_GET['ouvrir_ticket'];
+
+    if ($code_ticket == 'ok') {
+        echo "<p id='success' style='color: green'>Votre ticket a été ouvert avec success. Veuillez attendre qu'un technicien l'inspecte !</p>";
+    } elseif ($code_ticket == 'echec_mdp') {
+        echo "<p id='error-message' style='color: red'>Votre mot de passe est incorrect. Veuillez réessayer !</p>";
+    } elseif ($code_ticket == 'else') {
+        echo "<p id='error-message' style='color: red'>Votre ticket n'a pas pu être ouvert. Veuillez réessayer ultérieurement !</p>";
+    }
 }
 
 ?>
