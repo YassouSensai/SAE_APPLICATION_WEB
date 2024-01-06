@@ -126,7 +126,7 @@ include ("../Autres/fonctions.php")
 
     if ($table_user == 'AdminWeb') {
 
-        echo "<div id='liste-tickets/utilisateurs'>";
+        echo "<div id='liste-tickets-utilisateurs'>";
 
         echo "<ul class='button-list'>";
         echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=tickets'\">Tous les tickets</button></li>";
@@ -142,13 +142,18 @@ include ("../Autres/fonctions.php")
                 echo "<h2>Liste de tous les tickets :</h2>";
                 echo "<br>";
                 echo "<br>";
+                afficherTicketsAvecDetails();
             } elseif ($liste == 'utilisateurs') {
                 echo "<h2>Liste de tous les utilisateurs :</h2>";
                 echo "<br>";
                 echo "<br>";
+                afficherUtilisateurs();
             }
         }
         echo "</div>";
+
+        echo "<br>";
+        echo "<br>";
 
         echo "<div id='actions-admin-web'>";
 
@@ -163,6 +168,14 @@ include ("../Autres/fonctions.php")
 
         if (isset($_GET['action'])) {
             $action = $_GET['action'];
+
+            if($action == 'inscrire_tech') {
+                afficherFormulaireInscriptionTechnicien();
+            } elseif ($action == "ticket_tech") {
+                afficherFormulaireAttributionTicket();
+            } elseif ($action == "ticket_suppr") {
+                afficherFormulaireSuppressionTicket();
+            }
         }
 
         echo "</div>";

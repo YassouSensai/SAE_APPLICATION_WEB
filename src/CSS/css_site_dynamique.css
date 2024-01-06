@@ -155,6 +155,18 @@ footer p {
     width: 100% ;
 }
 
+#liste-tickets-utilisateurs {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#actions-admin-web {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
 
 /* ######################################   CSS pour la partie messages en JavaScript   ###################################### */
 
