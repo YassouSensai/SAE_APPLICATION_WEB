@@ -52,17 +52,18 @@ include ("../Autres/fonctions.php")
 
     <?php
     if ($table_user == 'Utilisateur'){
-
         echo "<div id='vos-tickets-utilisateurs'>";
+
         echo "<h2>Vos tickets :</h2>";
         echo "<br>";
         echo "<br>";
         afficherTicketsUtilisateurs($username, $table_user);
-        echo "</div>";
-    }
 
-    if ($table_user == 'Technicien') {
+        echo "</div>";
+
+    } elseif ($table_user == 'Technicien') {
         echo "<div id='vos-tickets-techniciens'>";
+
         echo "<h2>Vos tickets pris en charge :</h2>";
         echo "<br>";
         echo "<br>";
@@ -90,9 +91,8 @@ include ("../Autres/fonctions.php")
         }
 
         echo "</div>";
-    }
 
-    if ($table_user == "AdminSysteme") {
+    } elseif ($table_user == "AdminSysteme") {
         echo "<div id='journal'>";
 
         echo "<ul class='button-list'>";
@@ -122,15 +122,31 @@ include ("../Autres/fonctions.php")
 
         echo "</div>";
 
-    }
+    } elseif ($table_user == 'AdminWeb') {
 
-    if ($table_user == 'AdminWeb') {
+        if (isset($_GET['liste'])) {
+            $_SESSION['liste'] = $_GET['liste'];
+        }
+
+        if (isset($_GET['action'])) {
+            $_SESSION['action'] = $_GET['action'];
+        }
+
+        $liste = '';
+        if (isset($_SESSION['liste'])) {
+            $liste = $_SESSION['liste'];
+        }
+
+        $action = '';
+        if (isset($_SESSION['action'])) {
+            $action = $_SESSION['action'];
+        }
 
         echo "<div id='liste-tickets-utilisateurs'>";
 
         echo "<ul class='button-list'>";
-        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=tickets'\">Tous les tickets</button></li>";
-        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=utilisateurs'\">Tous les utilisateurs</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=tickets&action=$action'\">Tous les tickets</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=utilisateurs&action=$action'\">Tous les utilisateurs</button></li>";
         echo "</ul>";
 
         echo "<br>";
@@ -150,6 +166,7 @@ include ("../Autres/fonctions.php")
                 afficherUtilisateurs();
             }
         }
+
         echo "</div>";
 
         echo "<br>";
@@ -158,11 +175,13 @@ include ("../Autres/fonctions.php")
         echo "<div id='actions-admin-web'>";
 
         echo "<ul class='button-list'>";
-        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=inscrire_tech'\">Inscrire un technicien</button></li>";
-        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=ticket_tech'\">Attribuer un ticket à un technicien</button></li>";
-        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=ticket_suppr'\">Supprimer un ticket</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=inscrire_tech&liste=$liste'\">Inscrire un technicien</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=ticket_tech&liste=$liste'\">Attribuer un ticket à un technicien</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?action=ticket_suppr&liste=$liste'\">Supprimer un ticket</button></li>";
         echo "</ul>";
 
+        echo "<br>";
+        echo "<br>";
         echo "<br>";
         echo "<br>";
 
