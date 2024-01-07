@@ -11,6 +11,7 @@
     * Autres pages (devoir de communication)
     * Bilan
 3. [Site web dynamique : Deuxième version](#Site-web-dynamique-:-Deuxième-version)
+    * Données de tests
     * Format de test
     * Inscription d'un utilisateur
     * Connexion d'un utilisateur
@@ -93,6 +94,14 @@ avec le design prévu.
 
 
 # Site web dynamique : Deuxième version 
+
+### Données de tests
+
+**Administrateur WEB** (*login :* gestion, *mdp :* #gestion#)  
+**Administrateur Système** (*login :* admin, *mdp :* #admin#)  
+**Techniciens** (*login :* tech1, *mdp :* #tech1#), (*login :* tech2, *mdp :* #tech2#)
+
+
 
 ### Format de test
 
