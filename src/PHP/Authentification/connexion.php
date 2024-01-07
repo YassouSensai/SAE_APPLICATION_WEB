@@ -62,16 +62,9 @@
                     <input id="password" type="password" name="password" placeholder="Mot de passe" required>
 
                     <?php
-
                     session_start();
-                    $nb1 = rand(1,10);
-                    $nb2 = rand(1,20);
-
-                    $_SESSION['nb1'] = $nb1;
-                    $_SESSION['nb2'] = $nb2;
-
-                    echo "<label for='captcha'>Captcha : ".$nb1." x ".$nb2." = ? (requis)</label>";
-                    echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
+                    include("../Autres/fonctions.php");
+                    captchaForm();
                     ?>
                     <input style="color: #303030" type="submit" value="Se connecter">
                 </div>

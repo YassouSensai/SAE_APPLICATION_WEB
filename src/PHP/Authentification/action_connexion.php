@@ -5,25 +5,15 @@ include("../Autres/fonctions.php");
 include("../Crypto/crypto.php");
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
-    $nb1 = $_SESSION['nb1'];
-    $nb2 = $_SESSION['nb2'];
-    $result_captcha = $nb1 * $nb2;
-
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['captcha']) && isset($_POST['user-type'])) {
 
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
         $captcha = htmlspecialchars($_POST['captcha']);
         $table_user = htmlspecialchars($_POST['user-type']);
-        $password = "";
+        $password = RC4("password",htmlspecialchars($_POST['password']));
 
-        if ($table_user == 'Utilisateur') {
-            $password = RC4("password",htmlspecialchars($_POST['password']));
-        } else {
-            $password = htmlspecialchars($_POST['password']);
-        }
-
-        if ($result_captcha == $captcha) {
+        if (verifCaptcha($captcha)) {
 
             $connexion = connectDB();
 

@@ -40,6 +40,30 @@ function logActivity($username, $type, $description) {
     mysqli_close($connexion);
 }
 
+function captchaForm() {
+    $nb1 = rand(1,10);
+    $nb2 = rand(1,20);
+
+    $_SESSION['nb1'] = $nb1;
+    $_SESSION['nb2'] = $nb2;
+
+    echo "<label for='captcha'>Captcha : ".$nb1." x ".$nb2." = ? (requis)</label>";
+    echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
+}
+
+function verifCaptcha($result_captcha) {
+    $nb1 = $_SESSION['nb1'];
+    $nb2 = $_SESSION['nb2'];
+    $result = $nb1 * $nb2;
+
+    if ($result == $result_captcha) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
 
 
 // ####################################################################################################################
@@ -166,15 +190,7 @@ function afficherModifierMotDePasse() {
     echo "<label for='nouveau_mdp2'>Validez votre mot de passe :</label>";
     echo "<input type='password' id='nouveau_mdp2' name='nouveau_mdp2' placeholder='Nouveau mot de passe' required><br>";
 
-    $nb1 = rand(1, 10);
-    $nb2 = rand(1, 20);
-
-    $_SESSION['nb1'] = $nb1;
-    $_SESSION['nb2'] = $nb2;
-
-    echo "<label for='captcha'>Captcha : " . $nb1 . " x " . $nb2 . " = ? (requis)</label>";
-    echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
-
+    captchaForm();
 
     echo "<input type='submit' value='Modifier'>";
     echo "</form>";
