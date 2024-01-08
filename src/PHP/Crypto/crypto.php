@@ -16,6 +16,8 @@ function initialize($cle) {
     }
     return $sequence_cle;
 }
+
+
 function RC4($cle, $message)
 {
 

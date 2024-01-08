@@ -6,18 +6,18 @@ include("../Crypto/crypto.php");
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['captcha']) && isset($_POST['user-type'])) {
-
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
         $captcha = htmlspecialchars($_POST['captcha']);
         $table_user = htmlspecialchars($_POST['user-type']);
+
+        // Vous pouvez utiliser RC4 ici pour déchiffrer le mot de passe si nécessaire
         $password = RC4("password",htmlspecialchars($_POST['password']));
 
         if (verifCaptcha($captcha)) {
-
             $connexion = connectDB();
 
-            $query = "SELECT * FROM ".$table_user." WHERE identifiant = ? AND mdp = ?";
+            $query = "SELECT * FROM $table_user WHERE identifiant = ? AND mdp = ?";
             $params = ["ss", $username, $password];
             $resultat = prepareAndExecute($connexion, $query, $params);
 
@@ -25,23 +25,25 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
                 $_SESSION['utilisateur'] = $username;
                 $_SESSION['table_user'] = $table_user;
 
+                // Ajouter une entrée au journal d'activité pour la connexion réussie
                 logActivity($username, 1, "L'utilisateur $username s'est connecté avec succès !");
+
                 header('Location: ../PagesUtilisateur/utilisateur.php');
-
-
                 exit();
             } else {
+                // Ajouter une entrée au journal d'activité pour l'échec de connexion
                 logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
+
                 header('Location: connexion.php?err');
-                exit;
+                exit();
             }
 
-            // Fermeture de la requête préparée
-            mysqli_stmt_close($prep);
             // Fermeture de la connexion
             mysqli_close($connexion);
         } else {
+            // Ajouter une entrée au journal d'activité pour l'échec de connexion
             logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
+
             header('Location: connexion.php?err');
             exit;
         }
@@ -49,5 +51,8 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         header('Location: connexion.php?err');
         exit;
     }
+} else {
+    header('Location: connexion.php?err');
+    exit;
 }
 ?>
