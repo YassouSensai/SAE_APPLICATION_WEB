@@ -1,7 +1,4 @@
 <?php
-# Génération de la suite chiffrante de RC4 ou Pseudo Random Generator Algorithm PRGA
-$message = 'test';
-$cle = 'abc';
 
 #crée une séquence à partir de la clé de crytpage
 function initialize($cle) {
@@ -82,14 +79,4 @@ function RC4_decrypt($cle, $message_crypte)
     return $message_decrypte;
 }
 
-//  echo (RC4($cle, $message));
-// fonctions tests pour les fonctions ci-dessus
-echo '<br>';
-echo $cle;
-echo '<br>';
-echo $message;
-echo '<br>';
-echo RC4($cle,$message);
-echo '<br>';
-echo RC4_decrypt($cle,RC4($cle,$message));
 ?>
