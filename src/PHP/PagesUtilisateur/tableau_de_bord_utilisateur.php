@@ -221,6 +221,29 @@ include ("../Autres/fonctions.php")
        } elseif ($attribution_ticket == 'succes') {
            echo "<p id='success' style='color: green'>Ce ticket vous a été attribué avec succès !</p>";
        }
+   } elseif (isset($_GET['suppr'])) {
+       $suppr = $_GET['suppr'];
+       if ($suppr == 'ok') {
+           echo "<p id='success' style='color: green'>Ce ticket a bien été supprimé !</p>";
+       } elseif ($suppr == 'echec' || $suppr == 'else') {
+           echo "<p id='error-message' style='color: red'>Ce ticket n'a pas pu être supprimé !</p>";
+       }
+   } elseif (isset($_GET['attr'])) {
+       $attr = $_GET['attr'];
+       if ($attr == 'ok') {
+           echo "<p id='success' style='color: green'>Ce ticket a bien été attribué au technicien !</p>";
+       } elseif ($attr == 'echec') {
+           echo "<p id='error-message' style='color: red'>Ce ticket n'a pas pu être attribué au technicien !</p>";
+       }
+   } elseif (isset($_GET['inscr'])) {
+       $inscr = $_GET['inscr'];
+       if ($inscr == 'ok') {
+           echo "<p id='success' style='color: green'>Le technicien a bien été créé !</p>";
+       } elseif ($inscr == 'echec') {
+           echo "<p id='error-message' style='color: red'>Ce technicien n'a pas pu être créé !</p>";
+       } elseif ($inscr == 'echec_id') {
+           echo "<p id='error-message' style='color: red'>Ce technicien existe déjà ! Veuillez mettre un autre identifiant.</p>";
+       }
    }
    ?>
 </section>

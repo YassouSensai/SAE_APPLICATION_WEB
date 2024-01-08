@@ -32,11 +32,15 @@ function prepareAndExecute($connexion, $query, $params = null) {
 
 function logActivity($username, $type, $description) {
     $connexion = connectDB();
+    $query = "INSERT INTO JournalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
+
 
     if (isset($_SESSION['table_user'])) {
         if ($_SESSION['table_user'] == 'Utilisateur') {
-            $query = "INSERT INTO JournalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
             $params = ["ssis", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
+            prepareAndExecute($connexion, $query, $params);
+        } else {
+            $params = ["ssis", $_SERVER['REMOTE_ADDR'], 'NULL', $type, $description];
             prepareAndExecute($connexion, $query, $params);
         }
     }
@@ -567,8 +571,11 @@ function afficherFormulaireInscriptionTechnicien() {
     echo "<label for='mdp'>Mot de passe :</label>";
     echo "<input type='password' id='mdp' name='mdp' placeholder='Mot de passe du technicien' required>";
 
-    echo "<label for='Technicien'>Type d'utilisateur :</label>";
-    echo "<input type='text' id='Technicien' name='Technicien' value='Technicien' readonly>";
+    echo "<label for='nom_tech'>Nom du technicien :</label>";
+    echo "<input type='text' id='nom_tech' name='nom_tech' placeholder='Nom du technicien' required>";
+
+    echo "<label for='prenom_tech'>Prenom du technicien :</label>";
+    echo "<input type='text' id='prenom_tech' name='prenom_tech' placeholder='Prenom du technicien' required>";
 
     echo "<input type='submit' value='Inscrire le technicien'>";
     echo "</form>";
@@ -597,8 +604,9 @@ function afficherFormulaireAttributionTicket() {
                          GROUP BY t.identifiant";
     $resultatTechniciens = prepareAndExecute($connexion, $queryTechniciens);
 
-    echo "<form action='traitement_attribution_ticket.php' method='post'>";
-
+    echo "<form action='traitement_attribution_ticket_admin_to_tech.php' method='post'>";
+    echo "<h3>Attribuer un ticket à un technicien</h3>";
+    echo "<br>";
     echo "<label for='ticket_libre'>Choisir un ticket libre :</label>";
     echo "<select id='ticket_libre' name='ticket_libre' required>";
 
@@ -644,6 +652,8 @@ function afficherFormulaireSuppressionTicket() {
     $resultatTickets = prepareAndExecute($connexion, $queryTickets);
 
     echo "<form action='traitement_suppression_ticket.php' method='post'>";
+    echo "<h3>Supprimer un ticket</h3>";
+    echo "<br>";
     echo "<label for='ticket_supprimer'>Choisir un ticket à supprimer :</label>";
     echo "<select id='ticket_supprimer' name='ticket_supprimer' required>";
 
