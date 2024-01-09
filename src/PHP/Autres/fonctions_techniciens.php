@@ -1,4 +1,9 @@
 <?php
+/* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations des techniciens dont :
+ * - La fonction afficherFormChoixTicketsNonAttribues() qui permet aux techniciens de s'attribuer un ticket
+ * - La fonction afficherFormModifierStatutTicket() qui permet aux techniciens de modifier le status d'un ticket
+ * */
+
 
 // ####################################################################################################################
 // ####################################################################################################################

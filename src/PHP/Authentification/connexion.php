@@ -55,17 +55,17 @@
                         <option value="Technicien">Technicien</option>
                     </select>
 
+
                     <label for="username">Identifiant</label>
                     <input id="username" type="text" name="username" placeholder="Identifiant" required>
 
-                    <label for="password">Mot de passe</label>
-                    <input id="password" type="password" name="password" placeholder="Mot de passe" required>
-
                     <?php
-                    session_start();
                     include("../Autres/fonctions_generales.php");
+                    oeilMdp("password", "password", "Mot de passe");
+                    session_start();
                     captchaForm();
                     ?>
+
                     <input style="color: #303030" type="submit" value="Se connecter">
                 </div>
             </form>

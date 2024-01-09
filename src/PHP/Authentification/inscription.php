@@ -57,11 +57,11 @@
                     <label for="mail">Adresse e-mail</label>
                     <input id="mail" type="email" name="email" placeholder="Adresse e-mail" required>
 
-                    <label for="password">Mot de passe</label>
-                    <input id="password" type="password" name="password" placeholder="Mot de passe" required>
-
-                    <label for="confirm_password">Confirmer le mot de passe</label>
-                    <input id="confirm_password" type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
+                    <?php
+                    include("../Autres/fonctions_generales.php");
+                    oeilMdp("password", "password", "Mot de passe");
+                    oeilMdp("confirm_password", "confirm_password", "Confirmer le mot de passe");
+                    ?>
 
                     <label for="type_util">Type d'utilisateur</label>
                     <select id="type_util" type="text" name="type_util" required>
@@ -70,7 +70,6 @@
                     </select>
 
                     <?php
-                    include("../Autres/fonctions_generales.php");
                     session_start();
                     captchaForm()
                     ?>

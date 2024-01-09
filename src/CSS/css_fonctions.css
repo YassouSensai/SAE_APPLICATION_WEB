@@ -52,6 +52,43 @@ form {
     margin: auto;
 }
 
+
+.password-container {
+    position: relative;
+}
+
+.password-container > input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #52637a;
+    border-radius: 4px;
+    background-color: #39445a;
+    color: #ffffff;
+}
+
+.password-container > .password-icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+    transition: all 0.2s;
+}
+
+.password-container > .password-icon:hover {
+    cursor: pointer;
+    color: #ff4754;
+}
+
+.password-container .password-icon .feather-eye-off {
+    display: none;
+}
+
+
 label {
     display: block;
     margin-bottom: 8px;

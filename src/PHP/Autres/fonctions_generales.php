@@ -1,4 +1,14 @@
 <?php
+/* Cette page php regroupe les fonctions générales nécessaires pour le fonctionnement de l'application dont :
+ * - La fonction connectDB() qui permet de se connecter à la base de données de l'application
+ * - La fonction preprareAndExecute() qui permet d'exécuter une requête SQL sur la base de données de l'application
+ * - La fonction logActivity() qui permet d'inscrire une nouvelle activité dans la table journalActivite de la base de données
+ * - La fonction captchaForm() qui généré un captcha pour la plupart des formulaires de l'application
+ * - La fonction verifCaptcha() qui permet de verifier si le captcha entré par l'utilisateur est correct.
+ * - La fonction scriptMdp() qui contient les scripts à adopter pour afficher un œil pour voir ou non le mot de passe
+ * - La fonction oeilMdp() qui permet d'afficher l'input des mots de passes avec l'œil
+ * */
+
 function connectDB() {
     $serveur = "localhost";
     $utilisateur = "user_sae";
@@ -70,6 +80,27 @@ function verifCaptcha($result_captcha) {
         return false;
     }
 
+}
+
+function scriptsMdp() {
+    echo "<script src='https://unpkg.com/feather-icons'></script>
+              <script>
+                    feather.replace();
+              </script>
+              <script src='../../JS/script_oeil_mdp.js'></script>";
+}
+
+function oeilMdp($id, $name, $placeholder, $required = true) {
+    echo "<label for='$id'>Votre mot de passe:</label>";
+    echo "<label class='password-container'>";
+    echo "<input type='password' id='$id' name='$name' placeholder='$placeholder' " . ($required ? 'required' : '') . "><br>";
+    echo "<div class='password-icon'>";
+    echo "<i data-feather='eye'></i>";
+    echo "<i data-feather='eye-off'></i>";
+    echo "</div>";
+    echo "</label>";
+
+    scriptsMdp();
 }
 
 
