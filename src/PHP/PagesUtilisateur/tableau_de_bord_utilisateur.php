@@ -1,5 +1,9 @@
 <?php
-include ("../Autres/fonctions.php")
+include("../Autres/fonctions_generales.php");
+include("../Autres/fonctions_utilisateurs_inscrits.php");
+include("../Autres/fonctions_techniciens.php");
+include("../Autres/fonctions_administrateur_web.php");
+include("../Autres/fonctions_administrateur_systeme.php");
 ?>
 
 <!DOCTYPE html>

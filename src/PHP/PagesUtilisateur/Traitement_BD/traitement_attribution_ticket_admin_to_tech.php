@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("../Autres/fonctions.php");
+include("../../Autres/fonctions_generales.php");
 
 
 $action = '';
@@ -54,8 +54,8 @@ if (isset($_POST['ticket_libre']) && isset($_POST['technicien_attribue'])) {
 
     mysqli_close($connexion);
 
-    header("Location: tableau_de_bord_utilisateur.php?attr=ok&action=".$action."&liste=".$liste);
+    header("Location: ../tableau_de_bord_utilisateur.php?attr=ok&action=".$action."&liste=".$liste);
 } else {
-    header("Location: tableau_de_bord_utilisateur.php?attr=echec&action=".$action."&liste=".$liste);
+    header("Location: ../tableau_de_bord_utilisateur.php?attr=echec&action=".$action."&liste=".$liste);
 }
 ?>

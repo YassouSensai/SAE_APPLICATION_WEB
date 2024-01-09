@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../Autres/fonctions.php");
+include("../../Autres/fonctions_generales.php");
 
 if (isset($_SESSION['utilisateur'], $_POST['ticket_non_attribue'])) {
     $username = $_SESSION['utilisateur'];
@@ -25,11 +25,11 @@ if (isset($_SESSION['utilisateur'], $_POST['ticket_non_attribue'])) {
     mysqli_close($connexion);
 
     if (!$resultatUpdate) {
-        header('Location: tableau_de_bord_utilisateur.php?attribution_ticket=succes');
+        header('Location: ../tableau_de_bord_utilisateur.php?attribution_ticket=succes');
     } else {
-        header('Location: tableau_de_bord_utilisateur.php?attribution_ticket=echec');
+        header('Location: ../tableau_de_bord_utilisateur.php?attribution_ticket=echec');
     }
 } else {
-    header('Location: tableau_de_bord_utilisateur.php?attribution_ticket=else');
+    header('Location: ../tableau_de_bord_utilisateur.php?attribution_ticket=else');
 }
 ?>

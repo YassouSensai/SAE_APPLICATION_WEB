@@ -70,7 +70,7 @@
                     </select>
 
                     <?php
-                    include("../Autres/fonctions.php");
+                    include("../Autres/fonctions_generales.php");
                     session_start();
                     captchaForm()
                     ?>

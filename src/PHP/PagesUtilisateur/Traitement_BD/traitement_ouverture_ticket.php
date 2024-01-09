@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../Autres/fonctions.php");
-include("../Crypto/crypto.php");
+include("../../Autres/fonctions_generales.php");
+include("../../Crypto/crypto.php");
 
 if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
     $username = $_SESSION['utilisateur'];
@@ -30,19 +30,19 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
 
             if (!$insert_result) {
                 logActivity($username, 0, "L'utilisateur $username a créé un ticket pour la salle $salle.");
-                echo header('Location: utilisateur.php?ouvrir_ticket=ok');
+                echo header('Location: ../utilisateur.php?ouvrir_ticket=ok');
             } else {
                 logActivity($username, 0, "L'utilisateur $username n'a pas réussit a créé un ticket pour la salle $salle.");
-                header('Location: utilisateur.php?ouvrir_ticket=else');
+                header('Location: ../utilisateur.php?ouvrir_ticket=else');
             }
         }
     } else {
         logActivity($username, 0, "L'utilisateur $username s'est trompé de mot de passe pour créé un ticket.");
-        header('Location: utilisateur.php?ouvrir_ticket=echec_mdp');
+        header('Location: ../utilisateur.php?ouvrir_ticket=echec_mdp');
     }
 
     mysqli_close($connexion);
 } else {
-    header('Location: utilisateur.php?ouvrir_ticket=else');
+    header('Location: ../utilisateur.php?ouvrir_ticket=else');
 }
 ?>

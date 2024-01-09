@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../Autres/fonctions.php");
-include("../Crypto/crypto.php");
+include("../../Autres/fonctions_generales.php");
+include("../../Crypto/crypto.php");
 
 
 
@@ -30,21 +30,21 @@ if (isset($_SESSION['utilisateur'], $_POST['mot_de_passe'])) {
             mysqli_close($connexion);
 
             if (!$resultat_maj) {
-                header('Location: utilisateur.php?modif_profil=succes');
+                header('Location: ../utilisateur.php?modif_profil=succes');
             } else {
-                header('Location: utilisateur.php?modif_profil=echec');
+                header('Location: ../utilisateur.php?modif_profil=echec');
             }
 
         } else {
             mysqli_close($connexion);
-            header('Location: utilisateur.php?modif_profil=else');
+            header('Location: ../utilisateur.php?modif_profil=else');
         }
     } else {
         mysqli_close($connexion);
-        header('Location: utilisateur.php?modif_profil=echec_mdp');
+        header('Location: ../utilisateur.php?modif_profil=echec_mdp');
     }
 } else {
-    header('Location: utilisateur.php?modif_profil=else');
+    header('Location: ../utilisateur.php?modif_profil=else');
 }
 
 

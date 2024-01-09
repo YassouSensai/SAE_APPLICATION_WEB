@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../Autres/fonctions.php");
+include("../../Autres/fonctions_generales.php");
 
 if (isset($_SESSION['utilisateur']) && isset($_POST['ticket_attribue'], $_POST['nouveau_statut'])) {
     $username = $_SESSION['utilisateur'];
@@ -16,12 +16,12 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['ticket_attribue'], $_POST['
     mysqli_close($connexion);
 
     if (!$resultat) {
-        header('Location: tableau_de_bord_utilisateur.php?modif_statut=succes');
+        header('Location: ../tableau_de_bord_utilisateur.php?modif_statut=succes');
     } else {
-        header('Location: tableau_de_bord_utilisateur.php?modif_statut=echec');
+        header('Location: ../tableau_de_bord_utilisateur.php?modif_statut=echec');
     }
 } else {
     // Rediriger l'utilisateur vers une page d'erreur
-    header('Location: tableau_de_bord_utilisateur.php?modif_statut=erreur');
+    header('Location: ../tableau_de_bord_utilisateur.php?modif_statut=erreur');
 }
 ?>

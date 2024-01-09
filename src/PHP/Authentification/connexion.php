@@ -63,7 +63,7 @@
 
                     <?php
                     session_start();
-                    include("../Autres/fonctions.php");
+                    include("../Autres/fonctions_generales.php");
                     captchaForm();
                     ?>
                     <input style="color: #303030" type="submit" value="Se connecter">

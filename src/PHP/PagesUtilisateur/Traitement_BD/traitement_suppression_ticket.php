@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("../Autres/fonctions.php");
+include("../../Autres/fonctions_generales.php");
 
 $action = '';
 $liste = '';
@@ -33,14 +33,14 @@ if (isset($_POST['ticket_supprimer'])) {
         // Ajouter une entrée au journal d'activité pour la suppression du ticket
         $username = $_SESSION['utilisateur'];
         logActivity($username, 0, "L'administrateur web a supprimé le ticket avec l'ID $ticketId.");
-        header("Location: tableau_de_bord_utilisateur.php?suppr=ok&action=".$action."&liste=".$liste);
+        header("Location: ../tableau_de_bord_utilisateur.php?suppr=ok&action=".$action."&liste=".$liste);
 
     } else {
-        header("Location: tableau_de_bord_utilisateur.php?suppr=echec&action=".$action."&liste=".$liste);
+        header("Location: ../tableau_de_bord_utilisateur.php?suppr=echec&action=".$action."&liste=".$liste);
     }
 
     mysqli_close($connexion);
 } else {
-    header("Location: tableau_de_bord_utilisateur.php?suppr=else&action=".$action."&liste=".$liste);
+    header("Location: ../tableau_de_bord_utilisateur.php?suppr=else&action=".$action."&liste=".$liste);
 }
 ?>

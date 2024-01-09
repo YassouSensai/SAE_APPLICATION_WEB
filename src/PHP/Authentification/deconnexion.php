@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../Autres/fonctions.php");
+include("../Autres/fonctions_generales.php");
 
 if (isset($_SESSION['utilisateur'])) {
     $username = $_SESSION['utilisateur'];
