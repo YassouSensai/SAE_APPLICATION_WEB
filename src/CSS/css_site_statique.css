@@ -674,6 +674,40 @@ h2 {
     color: #333;
 }
 
+.password-container {
+    position: relative;
+}
+
+.password-container > input {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.password-container > .password-icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+    transition: all 0.2s;
+}
+
+.password-container > .password-icon:hover {
+    cursor: pointer;
+    color: #ff4754;
+}
+
+.password-container .password-icon .feather-eye-off {
+    display: none;
+}
+
 select,
 input[type="text"],
 input[type="password"],

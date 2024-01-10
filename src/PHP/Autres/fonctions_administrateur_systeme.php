@@ -1,4 +1,7 @@
 <?php
+/* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations de l'administrateur système dont :
+ * - La fonction afficherActivitesParType() qui affiche un journal d'activité différent en fonction de celui voulu par l'administrateur
+ * */
 
 // ####################################################################################################################
 // ####################################################################################################################

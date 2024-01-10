@@ -1,4 +1,14 @@
 <?php
+include("fonctions_generales.php");
+/* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations des utilisateurs inscrits dont :
+ * - La fonction tableau_profil() qui permet d'afficher le profil des utilisateurs
+ * - La fonction afficherFormulaireModifierProfil() qui affiche un formulaire afin de modifier son profil
+ * - La fonction afficherModifierMotDePasse() qui affiche un formulaire pour modifier son mot de passe
+ * - La fonction afficherFormulaireOuvertureTicket() qui affiche un formulaire pour ouvrir un ticket
+ * - La fonction afficherTicketsUtilisateurs() qui affiche la liste des tickets de l'utilisateur
+ *  */
+
+
 // ####################################################################################################################
 // ####################################################################################################################
 // ####################################################################################################################
@@ -90,8 +100,7 @@ function afficherFormulaireModifierProfil($username, $table_user) {
         echo "<label for='nouvel_email'>Nouvel email:</label>";
         echo "<input type='email' id='nouvel_email' name='nouvel_email' value='" . htmlspecialchars($profilActuel['email_util']) . "' required><br>";
 
-        echo "<label for='mot_de_passe'>Votre mot-de-passe:</label>";
-        echo "<input type='password' id='mot_de_passe' name='mot_de_passe' placeholder='mot-de-passe' required><br>";
+        oeilMdp("mot_de_passe", "mot_de_passe", "mot de passe");
 
 
         echo "<input type='submit' value='Modifier'>";
@@ -114,14 +123,10 @@ function afficherModifierMotDePasse() {
 
     echo "<form action='../PagesUtilisateur/Traitement_BD/traitement_modifier_mdp.php' method='post'>";
 
-    echo "<label for='ancien_mdp'>Votre ancien mot de passe :</label>";
-    echo "<input type='password' id='ancien_mdp' name='ancien_mdp' placeholder='Ancien mot de passe' required><br>";
+    oeilMdp("nouveau_mdp", "nouveau_mdp", "Ancien mot de passe");
+    oeilMdp("ancien_mdp", "ancien_mdp", "Nouveau mot de passe");
+    oeilMdp("nouveau_mdp2", "nouveau_mdp2", "Nouveau mot de passe");
 
-    echo "<label for='nouveau_mdp'>Votre nouveau mot de passe :</label>";
-    echo "<input type='password' id='nouveau_mdp' name='nouveau_mdp' placeholder='Nouveau mot de passe' required><br>";
-
-    echo "<label for='nouveau_mdp2'>Validez votre mot de passe :</label>";
-    echo "<input type='password' id='nouveau_mdp2' name='nouveau_mdp2' placeholder='Nouveau mot de passe' required><br>";
 
     captchaForm();
 

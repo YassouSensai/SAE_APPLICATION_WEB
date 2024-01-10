@@ -1,5 +1,12 @@
 <?php
 
+/* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations de l'administrateur web dont :
+ * - La fonction afficherTicketsAvecDetails() qui affiche tous les tickets avec les details nécessaires
+ * - La fonction afficherUtilisateurs() qui affiche tous les utilisateurs dont le staff
+ * - La fonction afficherFormulaireInscriptionTechnicien() qui affiche un formulaire afin d'inscrire un nouveau technicien
+ * - La fonction afficherFormulaireAttributionTicket() qui affiche un formulaire pour attribuer un ticket à un technicien
+ * - La fonction afficherFormulaireSuppressionTicket() qui affiche un formulaire pour supprimer un ticket
+ * */
 
 
 // ####################################################################################################################
@@ -121,8 +128,8 @@ function afficherFormulaireInscriptionTechnicien() {
     echo "<label for='identifiant'>Identifiant :</label>";
     echo "<input type='text' id='identifiant' name='identifiant' placeholder='Identifiant du technicien' required>";
 
-    echo "<label for='mdp'>Mot de passe :</label>";
-    echo "<input type='password' id='mdp' name='mdp' placeholder='Mot de passe du technicien' required>";
+
+    oeilMdp('mdp', 'mdp', 'Mot de passe du technicien');
 
     echo "<label for='nom_tech'>Nom du technicien :</label>";
     echo "<input type='text' id='nom_tech' name='nom_tech' placeholder='Nom du technicien' required>";
