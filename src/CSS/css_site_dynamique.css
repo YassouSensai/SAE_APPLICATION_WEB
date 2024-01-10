@@ -156,20 +156,19 @@ th {
 
 /* ######################################   CSS pour la partie messages en JavaScript   ###################################### */
 
-/* Style des messages de succès et d'erreur */
-#success, #error-message {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 20px;
+#error-message, #success {
+    color: #ad3333;
+    position: absolute;
+    top: 50px;  /* Le message s'affiche en haut du conteneur */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;  /* Ajoutez du padding pour l'espacement du message */
+    margin: 0;  /* Supprimez la marge par défaut */
+    background-color: #fff;  /* Ajoutez un arrière-plan pour améliorer la lisibilité */
+    border-radius: 5px;  /* Arrondi les coins du message */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Ajoute une ombre pour la mise en évidence */
 }
 
-#success {
-    color: green;
-}
-
-#error-message {
-    color: red;
-}
 
 /* Style du pied de page */
 footer { /* zone du bas */
