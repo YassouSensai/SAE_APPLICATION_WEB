@@ -48,8 +48,11 @@ include("../Autres/fonctions_administrateur_systeme.php");
 </section>
 <br>
 <br>
-<a href="utilisateur.php">Revenir à mon profil</a>
-<br>
+<div class="action-button-profil">
+    <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
+    <br>
+</div>
+
 
 <section class="corps-de-la-page-2">
 

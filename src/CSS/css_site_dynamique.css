@@ -1,6 +1,4 @@
-/* ######################################   CSS général pour les pages "dynamiques"   ###################################### */
-
-
+/* Réinitialisation des styles par défaut du navigateur */
 * {
     margin: 0;
     padding: 0;
@@ -17,17 +15,34 @@ html, body {
     color: white;
 }
 
-/* Style du header */
+body, h1, h2, h3, p, ul, li, a {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* Styles pour le message d'accueil */
+h1 {
+    font-size: 30px;
+}
+/* Style général de la page */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Style de la section d'en-tête */
 .header-page-générale {
-    min-height: 60vh;
+    min-height: 30vh;
     width: 100%;
     background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/femme-touriste-attendant-train.jpg) center/cover;
-    position: relative;
+    color: white;
+    padding: 15px 0;
     text-align: center;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 /* Styles pour la barre de navigation */
@@ -37,10 +52,8 @@ html, body {
     align-items: center;
 }
 
-ul li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.nav-logos {
+    list-style-type: none;
 }
 
 .lien-haut-centre {
@@ -48,18 +61,117 @@ ul li {
 }
 
 .logo-rond {
-    width: 200px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }
 
-.texte-header h1 {
+.texte-header {
     margin: 20px 0;
 }
 
-/* Styles pour le message d'accueil */
-h1 {
-    font-size: 36px;
+/* Style des boutons d'action */
+.action-button {
+    text-align: center;
+    margin-top: 20px;
+}
+.action-button-profil{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
+.button-list {
+    list-style-type: none;
+}
+
+.button-list li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #ffcdb2;
+    color: #21242f;
+    border-color: #ffcdb2;
+    padding: 10px 15px;
+    margin: 4px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 300px;
+    display: inline-block;
+    transition: 1s;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.button-list li a {
+    text-decoration: none;
+}
+
+.button-list button:hover {
+    background-color: transparent;
+    border: 2px solid #ffcdb2;
+    backdrop-filter: blur(2px);
+    color: white;
+}
+
+/* ######################################   CSS pour la partie (classe) : corps de la page (utilisateur.php)  ###################################### */
+
+
+/* Style de la section principale */
+.corps-de-la-page {
+    margin: 20px 0;
+
+}
+
+/* Style des formulaires et des tableaux */
+#profil-utilisateur, #profil-general {
+    background-color: #2d3142;
+    box-shadow: 0 2px 4px rgb(126, 79, 70);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background: linear-gradient(to right, #485563, #29323c);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* ######################################   CSS pour la partie messages en JavaScript   ###################################### */
+
+/* Style des messages de succès et d'erreur */
+#success, #error-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#success {
+    color: green;
+}
+
+#error-message {
+    color: red;
+}
+
+/* Style du pied de page */
 footer { /* zone du bas */
     background-color: #21242f; /* fond */
     border-top: 1px solid #ffb4a2; /* bordure en haut de 1px */
@@ -74,62 +186,6 @@ footer a {
 
 footer p {
     margin: 7px 0 0 0;
-}
-
-
-/* ######################################   CSS pour la partie (classe) : action-button   ###################################### */
-
-
-.button-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.button-list button {
-    background-color: #245228;
-    color: white;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    width: 300px;
-    display: inline-block;
-}
-
-.button-list li a {
-    text-decoration: none;
-}
-
-.button-list button:hover {
-    background-color: #8fbc8f;
-}
-
-/* ######################################   CSS pour la partie (classe) : corps de la page (utilisateur.php)  ###################################### */
-
-.corps-de-la-page {
-    display: flex;
-    justify-content: space-between;
-}
-
-#profil-general {
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-}
-
-#profil-utilisateur {
-    width: 50%;
-    padding-left: 150px;
-
-}
-#formulaires {
-    width: 50%;
-    padding-left: 300px;
 }
 
 /* ######################################   CSS pour la partie (classe) : corps de la page (tableau_de_bord_utilisateur.php)  ###################################### */
@@ -154,35 +210,3 @@ footer p {
 #journal {
     width: 100% ;
 }
-
-#liste-tickets-utilisateurs {
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
-
-#actions-admin-web {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-}
-
-
-/* ######################################   CSS pour la partie messages en JavaScript   ###################################### */
-
-#error-message, #success {
-    color: #ad3333;
-    position: absolute;
-    bottom: 0;  /* Le message s'affiche en bas du conteneur */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px;  /* Ajoutez du padding pour l'espacement du message */
-    margin: 0;  /* Supprimez la marge par défaut */
-    background-color: #fff;  /* Ajoutez un arrière-plan pour améliorer la lisibilité */
-    border-radius: 5px;  /* Arrondi les coins du message */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* Ajoute une ombre pour la mise en évidence */
-}
-
-
-
-
