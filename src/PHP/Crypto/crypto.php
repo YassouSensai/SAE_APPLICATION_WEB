@@ -1,6 +1,6 @@
 <?php
 
-#crée une séquence à partir de la clé de crytpage
+#crée une séquence à partir de la clé de crytpage recu en parametre
 function initialize($cle) {
     $longueur_cle = strlen($cle);
     $sequence_cle = range(0, 255);
@@ -20,7 +20,7 @@ function initialize($cle) {
 
 function RC4($cle, $message)
 {
-
+    //initialisation de la séquence de cle
     $sequence_cle = initialize($cle);
     $message_crypte = '';
 
@@ -40,7 +40,8 @@ function RC4($cle, $message)
         $tempKey = $sequence_cle[($sequence_cle[$i] + $sequence_cle[$j]) % 256];
 
         // Chiffrement en utilisant l'opération XOR et conversion en hexadécimal
-        $caractere_crypte = ord($message[$k]) ^ $tempKey;
+        $caractere_crypte = ord($message[$k]) ^ $tempKey; //la fonction ord permet d obtenir le code en hexadecimal du caractere code dans la table ASCII
+
         $message_crypte .= sprintf("%02X", $caractere_crypte);
     }
 
