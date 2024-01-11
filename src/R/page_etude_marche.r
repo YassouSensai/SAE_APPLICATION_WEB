@@ -1,4 +1,4 @@
-# server.R
+# Chargement des bibliothèques
 library(shiny)
 library(shinydashboard)
 library(plotly)
@@ -7,8 +7,48 @@ library(plotly)
 utilisateurs <- read.csv("donnees/etude_utilisateurs.csv")
 tickets <- read.csv("donnees/etude_tickets.csv")
 
+# Récupération des données statistiques
+nombre_profs <- nrow(subset(utilisateurs, type_util == "Professeur"))
+nombre_eleves <- nrow(subset(utilisateurs, type_util == "Utilisateur"))
+
+# Calculer la répartition entre élèves et professeurs
+repartition_utilisateurs <- data.frame(Type = c("Professeurs", "Élèves"),
+                                       Nombre = c(nombre_profs, nombre_eleves))
+
+# Créer le diagramme camembert
+repartition_camembert <- plot_ly(repartition_utilisateurs, labels = ~Type, values = ~Nombre,
+                                 type = "pie", marker = list(colors = c("blue", "orange")),
+                                 text = ~paste("Type: ", Type))
+
+
+nuage_points_ages <- plot_ly(utilisateurs, x = ~age, type = "scatter", mode = "markers",
+                             marker = list(color = 'rgba(255, 100, 102, 0.7)', size = 10),
+                             text = ~paste("Utilisateur: ", type_util))
+
+repartition_ville <- plot_ly(utilisateurs, labels = ~ville, type = "pie",
+                             marker = list(colors = rainbow(length(unique(utilisateurs$ville)))),
+                             text = ~paste("Ville: ", ville))
+
+
+# Définir l'interface utilisateur
+ui <- fluidPage(
+  titlePanel("Études de marché"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("vue", "Choisir une vue", choices = c("Données brutes", "Statistiques")),
+      conditionalPanel(
+        condition = "input.vue == 'Données brutes'",
+        selectInput("etude", "Choisir une étude", choices = c("Utilisateurs", "Tickets"))
+      )
+    ),
+    mainPanel(
+      uiOutput("contenu")
+    )
+  )
+)
+
 # Définir le serveur
-server <- function(input, output, session) {
+server <- function(input, output) {
 
   output$contenu <- renderUI({
     if (input$vue == "Données brutes") {
@@ -59,3 +99,5 @@ server <- function(input, output, session) {
   })
 }
 
+# Lancer l'application Shiny
+shinyApp(ui, server)
