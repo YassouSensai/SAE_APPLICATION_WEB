@@ -4,8 +4,8 @@ library(shinydashboard)
 library(plotly)
 
 # Chargement des données des fichiers csv pour l'étude de marché (données fictives)
-utilisateurs <- read.csv("etude_utilisateurs.csv")
-tickets <- read.csv("etude_tickets.csv")
+utilisateurs <- read.csv("donnees/etude_utilisateurs.csv")
+tickets <- read.csv("donnees/etude_tickets.csv")
 
 # Récupération des données statistiques 
 nombre_profs <- nrow(subset(utilisateurs, type_util == "Professeur"))
