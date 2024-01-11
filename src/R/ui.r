@@ -1,4 +1,4 @@
-# ui.r
+# ui.R
 library(shiny)
 library(shinydashboard)
 library(plotly)
