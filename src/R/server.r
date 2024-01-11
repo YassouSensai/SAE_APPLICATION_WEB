@@ -1,8 +1,11 @@
-# server.r
+# server.R
 library(shiny)
 library(shinydashboard)
 library(plotly)
-source("global.r")
+
+# Chargement des données des fichiers csv pour l'étude de marché (données fictives)
+utilisateurs <- read.csv("donnees/etude_utilisateurs.csv")
+tickets <- read.csv("donnees/etude_tickets.csv")
 
 # Définir le serveur
 server <- function(input, output, session) {
