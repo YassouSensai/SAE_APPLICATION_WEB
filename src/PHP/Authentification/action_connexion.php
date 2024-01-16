@@ -16,7 +16,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         if (verifCaptcha($captcha)) {
             $connexion = connectDB();
 
-            $query = "SELECT * FROM $table_user WHERE identifiant = ? AND mdp = ?";
+            $query = "SELECT * FROM ".$table_user." WHERE identifiant = ? AND mdp = ?";
             $params = ["ss", $username, $password];
             $resultat = prepareAndExecute($connexion, $query, $params);
 
