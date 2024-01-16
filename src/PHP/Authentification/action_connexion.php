@@ -11,7 +11,6 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         $captcha = htmlspecialchars($_POST['captcha']);
         $table_user = htmlspecialchars($_POST['user-type']);
 
-        // Vous pouvez utiliser RC4 ici pour déchiffrer le mot de passe si nécessaire
         $password = RC4("password",htmlspecialchars($_POST['password']));
 
         if (verifCaptcha($captcha)) {
@@ -56,3 +55,4 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     exit;
 }
 ?>
+
