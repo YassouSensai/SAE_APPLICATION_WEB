@@ -26,9 +26,9 @@ if (!function_exists('connectDB')) {
     }
 }
 
+
 if (!function_exists('prepareAndExecute')) {
-    function prepareAndExecute($connexion, $query, $params = null)
-    {
+    function prepareAndExecute($connexion, $query, $params = null) {
         $prep = mysqli_prepare($connexion, $query);
 
         if (!$prep) {
@@ -44,6 +44,8 @@ if (!function_exists('prepareAndExecute')) {
         return mysqli_stmt_get_result($prep);
     }
 }
+
+
 
 
 if (!function_exists('logActivity')) {
