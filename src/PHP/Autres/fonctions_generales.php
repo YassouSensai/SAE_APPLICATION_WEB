@@ -12,8 +12,8 @@
 if (!function_exists('connectDB')) {
     function connectDB() {
         $serveur = "localhost";
-        $utilisateur = "user_sae";
-        $mot_de_passe = "azerty";
+        $utilisateur = "root";
+        $mot_de_passe = "";
         $base_de_donnees = "sae_bd";
 
         $connexion = mysqli_connect($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
@@ -57,10 +57,10 @@ if (!function_exists('logActivity')) {
 
         if (isset($_SESSION['table_user'])) {
             if ($_SESSION['table_user'] == 'Utilisateur') {
-                $params = ["ssis", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
+                $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
                 prepareAndExecute($connexion, $query, $params);
             } else {
-                $params = ["ssis", $_SERVER['REMOTE_ADDR'], 'NULL', $type, $description];
+                $params = ["ssss", $_SERVER['REMOTE_ADDR'], 'NULL', $type, $description];
                 prepareAndExecute($connexion, $query, $params);
             }
         }

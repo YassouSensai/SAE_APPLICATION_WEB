@@ -46,6 +46,8 @@ CREATE TABLE `adminsysteme` (
 -- Déchargement des données de la table `adminsysteme`
 --
 
+
+
 INSERT INTO `adminsysteme` (`identifiant`, `nom_adminsys`, `prenom_adminsys`, `mdp`) VALUES
     ('admin', 'AdminSys1', 'adminsys1', 'DC945C63255097');
 
