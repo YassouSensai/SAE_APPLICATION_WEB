@@ -43,9 +43,9 @@ et à l'évolution du projet dans son ensemble.
 2. **Exigences :** Les exigences fonctionnelles et non fonctionnelles pour ce cycle de vie.
 3. **Cas d'utilisations :** Les cas d'utilisations qui doivent être implémenté pour la version définitive et qui seront implémenté durant ce cycle de vie
 4. **Livrable :** Contenu et forme du livrable pour le cycle de vie.
-5. **Bilan :** Une conclusion sur le travail fournit lors de la réalisation de ce cycle de vie.
+5. **Bilan :** Une conclusion sur le travail fournit lors de la réalisation de ce cycle de vie. (Ce bilan est réalisé à la fin de chaque cycle de vie)
 
-***Remarque : Pour plus d'informations concernant les exigences et les cas d'utilisations, consultez les cahier des charges et le recueil des besoins [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins.md)***
+***Remarque : Pour plus d'informations concernant les exigences et les cas d'utilisations, consultez le cahier des charges et le recueil des besoins [ici](#Cahier_Des_Charges_et_Recueil_Des_Besoins.md)***
 
 # Premier Cycle : Lancement du projet et version minimaliste
 

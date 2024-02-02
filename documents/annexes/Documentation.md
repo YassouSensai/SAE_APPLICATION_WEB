@@ -16,6 +16,7 @@
     * Dynamisation du site web statique
     * Implémentations
     * Bilan
+4. [Version finale](#Version-finale)
 
 
 ## 1. Introduction
@@ -137,7 +138,7 @@ Cette documentation fournit un aperçu complet du site web statique, y compris s
 ### Explications 
 
 >Afin de mieux connaître les spécifications pour la deuxième version, consultez le dossier de spécification ([Specifications.md](Specifications.md))
-dans la partie #Deuxième cycle. Consultez également le dossier de conception ([Conception.md](Conception.md)) dans les parties #Base de données, #Raspberry PI 4
+dans la partie (#Deuxième Cycle : Livraison d'une version minimaliste). Consultez également le dossier de conception ([Conception.md](Conception.md)) dans les parties #Base de données, #Raspberry PI 4
 et #Site web dynamique
 
 ### Dynamisation du site web statique
@@ -179,7 +180,7 @@ Cette deuxième version est celle qui a nécessité le plus de création de page
    * [utilisateur.php](..%2F..%2Fsrc%2FPHP%2FPagesUtilisateur%2Futilisateur.php) : La page d'arrivée de tous les utilisateurs qui se connectent
 
 * **[Autres](..%2F..%2Fsrc%2FPHP%2FAutres) :**
-   * [fonctions.php](..%2F..%2Fsrc%2FPHP%2FAutres%2Ffonctions.php) : Script PHP qui regroupe les fonctions utiles au site dynamique. Il y a également la fonction ```tableau_profil($username, $table_user)``` qui gère l'affichage du profil en fonction du type d'utilisateur qui se connecte.
+   * [fonctions_generales.php](..%2F..%2Fsrc%2FPHP%2FAutres%2Ffonctions_generales.php) : Script PHP qui regroupe les fonctions utiles au site dynamique. Il y a également la fonction ```tableau_profil($username, $table_user)``` qui gère l'affichage du profil en fonction du type d'utilisateur qui se connecte.
 
 * **[JavaScript](..%2F..%2Fsrc%2FJS) :**
    * [messages.js](..%2F..%2Fsrc%2FJS%2Fmessages.js) : Le script JavaScript qui est reliée à la page de connexion et d'inscription et qui permet d'afficher les messages d'erreur ou de succès.
@@ -196,4 +197,27 @@ La deuxième version de l'application représente une évolution significative p
 Cette version est une base solide à améliorer et sur laquelle nous implémenterons les cas d'utilisations restants.
 
 
+# Version finale
 
+### Explications
+
+>Afin de mieux connaître les spécifications pour la version définitive, consultez le dossier de spécification ([Specifications.md](Specifications.md))
+dans la partie (#Quatrième Cycle : Version finale). Consultez également le dossier de conception ([Conception.md](Conception.md)) dans la partie #Site web dynamique.
+
+### Implémentation des derniers cas d'utilisation
+
+Afin d'implémenter les derniers cas d'utilisation tels qu'ils sont énoncés dans le document de spécifications, nous avons créé plusieurs fichiers supplémentaires dont :
+
+
+* **[Authentification](..%2F..%2Fsrc%2FPHP%2FAuthentification) : (*pages reliée au pied de page*)**
+   *[deconnexion.php](..%2F..%2Fsrc%2FPHP%2FAuthentification%2Fdeconnexion.php) :* Le script php qui permet aux utilisateurs connectés de se déconnecter.
+
+* **[PagesUtilisateur](..%2F..%2Fsrc%2FPHP%2FPagesUtilisateur) : (*pages reliée au pied de page*)**
+   * [Traitement_BD](..%2F..%2Fsrc%2FPHP%2FPagesUtilisateur%2FTraitement_BD) : Le dossier de fichiers php qui regroupe tous les traitements back-end pour les actions des utilisateurs 
+   * [tableau_de_bord_utilisateur.php](..%2F..%2Fsrc%2FPHP%2FPagesUtilisateur%2Ftableau_de_bord_utilisateur.php) : La page php qui affiche de manière dynamique le tableau de bord des utilisateurs
+
+* *[Crypto](..%2F..%2Fsrc%2FPHP%2FCrypto) :*
+  * [crypto.php](..%2F..%2Fsrc%2FPHP%2FCrypto%2Fcrypto.php) : Le fichier contenant les algorithmes de cryptographie des mots de passe
+
+* *[R](..%2F..%2Fsrc%2FR) :*
+  * [page_etude_marche.r](..%2F..%2Fsrc%2FR%2Fpage_etude_marche.r) : Notre étude de marché réalisée avec shiny et R

@@ -484,19 +484,19 @@ est essentielle pour la compréhension.
   </thead>
   <tbody>
     <tr>
-      <td>t7. Préparation et livraison de la carte SD</td>
+      <td>t6. Préparation et livraison de la carte SD</td>
       <td>7</td>
     </tr>
     <tr>
-      <td>t8. Conception + Commencer la création de la base de données</td>
+      <td>t7. Conception + Commencer la création de la base de données</td>
       <td>10</td>
     </tr>
     <tr>
-      <td>t9. Premier point intermédiaire</td>
+      <td>t8. Premier point intermédiaire</td>
       <td>3</td>
     </tr>
     <tr>
-      <td>t10. Conception et création des premières pages PHP</td>
+      <td>t9. Conception et création des premières pages PHP</td>
       <td>10</td>
     </tr>
 </tbody>
@@ -517,31 +517,31 @@ est essentielle pour la compréhension.
   </thead>
   <tbody>
     <tr>
-      <td>t11. Finaliser la conception de l'application</td>
+      <td>t10. Finaliser la conception de l'application</td>
       <td>5</td>
     </tr>
     <tr>
-      <td>t12. Finaliser le développement de la base de données</td>
+      <td>t11. Finaliser le développement de la base de données</td>
       <td>5</td>
     </tr>
     <tr>
-      <td>t13. Continuer le développement des pages PHP</td>
+      <td>t12. Continuer le développement des pages PHP</td>
       <td>20</td>
     </tr>
     <tr>
-      <td>t14. Conception et création des premières pages PHP</td>
+      <td>t13. Conception et création des premières pages PHP</td>
       <td>21</td>
     </tr>
     <tr>
-      <td>t15. Présentation en anglais</td>
+      <td>t14. Présentation en anglais</td>
       <td>7</td>
     </tr>
     <tr>
-      <td>t16. Travail sur la RGPD (droit)</td>
+      <td>t15. Travail sur la RGPD (droit)</td>
       <td>7</td>
     </tr>
     <tr>
-      <td>t17. Travail en proba-stats</td>
+      <td>t16. Travail sur la gestion des risques</td>
       <td>7</td>
     </tr>
 </tbody>
@@ -556,53 +556,38 @@ est essentielle pour la compréhension.
     <tr>
       <th style="width: 20%;">Tâches</th>
       <th style="width: 15%;">Durée (jours)</th>
-      <th style="width: 10%;">Niveau</th>
-      <th style="width: 55%;">Antécédents</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>t13. Travail en sécurité</td>
+      <td>t17. Travail en cryptographie</td>
       <td>5</td>
-      <td>8</td>
-      <td>t9 (début 6 jours après le début de t10)</td>
     </tr>
     <tr>
-      <td>t15. Travail sur la gestion des risques</td>
+      <td>t18. Travail en proba-stats</td>
       <td>5</td>
-      <td>8</td>
-      <td>t9 (début 6 jours après le début de t9)</td>
     </tr>
     <tr>
-      <td>t16. Deuxième point intermédiaire</td>
+      <td>t19. Deuxième point intermédiaire</td>
       <td>3</td>
-      <td>9</td>
-      <td>t10,t11,t12,t13,t14 et t15</td>
     </tr>
     <tr>
-      <td>t17. Finalisation du projet</td>
+      <td>t20. Finalisation du projet</td>
       <td>7</td>
-      <td>10</td>
-      <td>t16 (début 1 jour après t16)</td>
     </tr>
     <tr>
-      <td>t18. Préparation de la documentation</td>
-      <td>(tout au long du projet)</td>
-      <td>2</td>
-      <td>t1</td>
+      <td>t21. Préparation de la documentation</td>
+      <td>(tout au long du projet, mais optimisation à ce moment)</td>
     </tr>
     <tr>
-      <td>t19. Présentation finale</td>
+      <td>t22. Présentation finale</td>
       <td>5</td>
-      <td>11</td>
-      <td>t17 (début 1 jour après t17)</td>
     </tr>
   </tbody>
 </table>
 
 >Cette matrice des antécédents nous a permis de réaliser un diagramme de PERT (voir annexes). Ce diagramme est un outil de gestion de projet
->qui nous a permis de mettre en évidence les dépendances entre les tâches et d'identifier les tâches critiques (ici : t1,t18,t8,t10,t16,t17 et t19).
->Ce diagramme nous a également permis d'estimer une durrée pour le projet qui est de 83 jours.
+>qui nous a permis de mettre en évidence les dépendances entre les tâches et d'identifier les tâches les plus importantes.
 
 ### Rôles et Responsabilités
 
@@ -612,21 +597,21 @@ est essentielle pour la compréhension.
 >
 >>Yassine sera :
 >>* Chef de projet (Yassine devra planifier, coordonner et superviser la réalisation du projet)
->>* Développeur back-end (Yassine devra concevoir et développer la logique et la base de donénes de l'application web)
+>>* Développeur back-end (Yassine devra concevoir et développer la logique et la base de données de l'application web)
 >>* Administrateur système et déploiement (C'est principalement Yassine qui s'occupera de la configuration du serveur et du système)
 >
 >>Ostap sera :
->>* Développeur front-end (Ostap mettra en oeuvre une interface utilisateur conviviale et attrayante)
->>* Responsable de la base de données (Ostap devra gérer, sécuriser et optimiser la base données que nous allons concevoir pour cette application web)
+>>* Développeur front-end (Ostap mettra en œuvre une interface utilisateur conviviale et attrayante)
+>>* Responsable de la base de données (Ostap devra gérer, sécuriser et optimiser la base de données que nous allons concevoir pour cette application web)
 >
->>Aarron sera :
+>>Aaron sera :
 >>* Responsable de la sécurité de l'application (C'est principalement Aarron qui devra identifier et évaluer les failles de sécurités afin de garantir la protection des données)
 >>* Testeur (Aarron devra s'assurer que les fonctionnalités exigées par le client sont opérationnelles)
 >>* Responsable de la qualité (Aarron devra également s'assurrer que les normes de qualités sont respectée tout au long de la réalisation du projet)
 >
->>Les autres rôles tel que responable de la documentation, intégrateur git, ... auraient été réalisé par les trois membres du groupe
+>>Les autres rôles tels que responable de la documentation, intégrateur git, ... seront été réalisé par les trois membres du groupe
 >
->***Important : Dans le cas de ce projet, il faut bien prendre en compte que tout les rôles seront sous la responsabilité de tout les membres !***
+>***Important : Dans le cas de ce projet, il faut bien prendre en compte que tous les rôles seront sous la responsabilité de tous les membres !***
 
 ### Planification dans le temps
 
