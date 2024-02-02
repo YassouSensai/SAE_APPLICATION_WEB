@@ -596,6 +596,8 @@ pour représenter la structure et le fonctionnement du système.
 
 L'UML pour concevoir notre site :
 
+![UML_détaille_app_web.png](images%2FCONCEPTION%2FUML%2FUML_d%E9taille_app_web.png)
+
 ***Note : Vous pouvez consulter le UML sur ce [fichier](images%2FCONCEPTION%2FUML%2FUML_fonc_siteWEB.mdj) qu'il faut ouvrir avec starUML***
 
 
