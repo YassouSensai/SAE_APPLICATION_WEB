@@ -630,22 +630,7 @@ L'UML pour concevoir notre site :
 
 #### Spécifications du Serveur 
 
->1. **Spécifications Matérielles :**
-> - Processeur : Broadcom BCM2711, Quad-core Cortex-A72 (ARM v8) 64-bit SoC.
-> - Mémoire RAM : 4 Go DDR4.
-> - Stockage : Carte microSD de 32 Go.
-> - Connectivité :
-Ethernet Gigabit (RJ-45).
-Wi-Fi 802.11ac.
-Bluetooth 5.0.
-> - Ports :
-2 × Port USB 3.0.
-2 × Port USB 2.0.
-mini HDMI (pour la sortie vidéo).
-GPIO Pins pour l'extension et les périphériques.
-Alimentation : USB-C 5V/3A.
-
->2. **Spécifications Logicielles :**
+>1. **Spécifications Logicielles :**
 > - Système d'Exploitation : Raspberry Pi OS
 > - Serveur Web : Apache pour héberger l'application.
 > - Base de Données : MariaDB pour stocker et gérer les données de l'application.
@@ -653,7 +638,7 @@ Alimentation : USB-C 5V/3A.
 > - Services Additionnels :
 Fail2Ban pour la protection contre les attaques par force brute.
 
-***Note : fail2ban est expliqué dans la partie exmplications.***
+***Note : fail2ban est expliqué dans la partie explications.***
 >3. **Sécurité et Authentification :**
 Accès à Distance :
 Utilisation d'un tunnel SSH pour un accès distant sécurisé.
@@ -705,5 +690,19 @@ Ensuite le projet est mis à jour sur le rasberry.
 
 ### Diagramme UML
 
-# Annexes 
-## **A compléter !!!!!!!!!!!!!!!!!!!!!!!!**
+L'UML pour le déploiement de notre serveur :
+![uml_deploiment.png](images%2FCONCEPTION%2FUML%2FUML_deploiment_serveur.png)
+
+***Note : Vous pouvez également consulter le UML en .mdj sur ce [fichier](images%2FCONCEPTION%2FUML%2FUML_deploiment_serveur.mdj) ***
+
+# Conclusion
+
+>En conclusion, le déploiement du serveur pour notre SAE sur un Raspberry Pi 4 (RPi4) constitue une étape cruciale dans la réalisation d'une plateforme robuste et performante pour notre projet. Les différentes phases, de la configuration initiale à la maintenance continue, seront soigneusement élaborées pour garantir la stabilité, la sécurité et la disponibilité de notre application.
+>
+>La configuration du serveur, depuis la préparation de la carte SD jusqu'à la mise en place des services essentiels tels qu'Apache et MySQL, fait objet d'un minutieux détaillage pour assurer un environnement propice au bon fonctionnement de notre SAE. Les spécifications logicielles du Raspberry Pi 4 offre un cadre solide pour notre application, exploitant pleinement ses capacités tout en garantissant une connectivité fiable.
+>
+>Ensuite, la sécurité occupe une place centrale dans cette partie, avec des mesures telles que l'utilisation d'un tunnel SSH, la configuration du pare-feu et la mise en place de méthodes d'authentification robustes. L'intégration de Fail2Ban renforce davantage cette sécurité en protégeant contre les attaques de force brute, contribuant ainsi à la préservation de l'intégrité du serveur.
+>
+>En effet, le serveur subi des mises à jour régulières du système, des services applicatifs, et de Fail2Ban. L'utilisation d'un dépôt Git facilite le suivi des améliorations du projet, assurant une gestion efficace des versions et la mise à jour cohérente du Raspberry Pi 4.
+>
+>Enfin, le diagramme UML offre une représentation visuelle de l'ensemble du processus de déploiement. 
