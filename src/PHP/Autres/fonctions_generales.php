@@ -21,7 +21,7 @@ if (!function_exists('connectDB')) {
         if (!$connexion) {
             die("La connexion a échoué : " . mysqli_connect_error());
         }
-
+        echo "<br><br>connexion réussie !!<br><br>";
         return $connexion;
     }
 }
