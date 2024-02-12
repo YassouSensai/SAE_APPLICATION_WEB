@@ -16,7 +16,7 @@ echo "<br><br><h1>Liste des Tickets</h1>";
 echo "<br><br><strong>Etape Connexion</strong>";
 $connexion = connectDB();
 
-$query = "SELECT objet FROM Ticket ORDER BY date_crea_tic DESC";
+$query = "SELECT objet FROM ticket ORDER BY date_crea_tic DESC";
 $resultat = mysqli_query($connexion, $query);
 
 if ($resultat) {
