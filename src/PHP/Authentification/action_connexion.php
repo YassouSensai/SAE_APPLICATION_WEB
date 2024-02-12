@@ -8,7 +8,6 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['user-type'])) {
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
-        $captcha = htmlspecialchars($_POST['captcha']);
         $table_user = htmlspecialchars($_POST['user-type']);
 
         $password = RC4("password",htmlspecialchars($_POST['password']));
