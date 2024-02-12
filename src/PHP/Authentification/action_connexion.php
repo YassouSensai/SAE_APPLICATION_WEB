@@ -5,7 +5,7 @@ include("../Autres/fonctions_generales.php");
 include("../Crypto/crypto.php");
 
 if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
-    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['captcha']) && isset($_POST['user-type'])) {
+    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['user-type'])) {
         // Récupération des données de connexion utilisateur
         $username = htmlspecialchars($_POST['username']);
         $captcha = htmlspecialchars($_POST['captcha']);
@@ -13,40 +13,33 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
 
         $password = RC4("password",htmlspecialchars($_POST['password']));
 
-        if (verifCaptcha($captcha)) {
-            $connexion = connectDB();
 
-            $query = "SELECT * FROM ".$table_user." WHERE identifiant = ? AND mdp = ?";
-            $params = ["ss", $username, $password];
+        $connexion = connectDB();
 
-            $resultat = prepareAndExecute($connexion, $query, $params);
+        $query = "SELECT * FROM ".$table_user." WHERE identifiant = ? AND mdp = ?";
+        $params = ["ss", $username, $password];
 
-            if (mysqli_num_rows($resultat) > 0) {
-                $_SESSION['utilisateur'] = $username;
-                $_SESSION['table_user'] = $table_user;
+        $resultat = prepareAndExecute($connexion, $query, $params);
 
-                // Ajouter une entrée au journal d'activité pour la connexion réussie
-                logActivity($username, 1, "L'utilisateur $username s'est connecté avec succès !");
+        if (mysqli_num_rows($resultat) > 0) {
+            $_SESSION['utilisateur'] = $username;
+            $_SESSION['table_user'] = $table_user;
 
-                header('Location: ../PagesUtilisateur/utilisateur.php');
-                exit();
-            } else {
-                // Ajouter une entrée au journal d'activité pour l'échec de connexion
-                logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
+            // Ajouter une entrée au journal d'activité pour la connexion réussie
+            logActivity($username, 1, "L'utilisateur $username s'est connecté avec succès !");
 
-                header('Location: connexion.php?err');
-                exit();
-            }
-
-            // Fermeture de la connexion
-            mysqli_close($connexion);
+            header('Location: ../PagesUtilisateur/utilisateur.php');
+            exit();
         } else {
             // Ajouter une entrée au journal d'activité pour l'échec de connexion
             logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
 
             header('Location: connexion.php?err');
-            exit;
+            exit();
         }
+
+        // Fermeture de la connexion
+        mysqli_close($connexion);
     } else {
         header('Location: connexion.php?err');
         exit;

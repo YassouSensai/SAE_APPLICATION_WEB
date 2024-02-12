@@ -63,7 +63,6 @@
                     include("../Autres/fonctions_generales.php");
                     oeilMdp("password", "password", "Mot de passe");
                     session_start();
-                    captchaForm();
                     ?>
 
                     <input style="color: #303030" type="submit" value="Se connecter">
