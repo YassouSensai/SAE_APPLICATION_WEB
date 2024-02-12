@@ -49,10 +49,10 @@
 
                     <label for="user-type">Type d'utilisateur</label>
                     <select id="user-type" type="text" name="user-type" required>
-                        <option value="Utilisateur">Utilisateur</option>
-                        <option value="AdminSysteme">Administrateur système</option>
-                        <option value="AdminWeb">Administrateur WEB</option>
-                        <option value="Technicien">Technicien</option>
+                        <option value="utilisateur">Utilisateur</option>
+                        <option value="adminsysteme">Administrateur système</option>
+                        <option value="adminweb">Administrateur WEB</option>
+                        <option value="technicien">Technicien</option>
                     </select>
 
 
