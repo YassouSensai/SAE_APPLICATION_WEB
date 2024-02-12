@@ -10,19 +10,17 @@
 <?php
 include("Autres/fonctions_generales.php");
 
-echo "<h1>Liste des Tickets</h1>";
+echo "<br><br><h1>Liste des Tickets</h1>";
 
 // Etape Connexion
-echo "<strong>Etape Connexion</strong>";
+echo "<br><br><strong>Etape Connexion</strong>";
 $connexion = connectDB();
 
 $query = "SELECT objet FROM Ticket ORDER BY date_crea_tic DESC";
+$resultat = mysqli_query($connexion, $query);
 
-// Etape execution de la requete
-echo "<strong>Etape execution de la requete</strong>";
-$resultat = prepareAndExecute($connexion, $query);
-
-echo "<table border='1'>
+if ($resultat) {
+    echo "<table border='1'>
                 <thead>
                     <tr>
                         <th>Nom du ticket</th>
@@ -30,15 +28,19 @@ echo "<table border='1'>
                 </thead>
                 <tbody>";
 
-while ($row = mysqli_fetch_assoc($resultat)) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row['objet']) . "</td>";
-    echo "</tr>";
+    while ($row = mysqli_fetch_assoc($resultat)) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['objet']) . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</tbody></table>";
+
+    echo "<br><br><p><strong>Etape execution de la requete réussie !!!</strong></p>";
+} else {
+    echo "<br><br><p>Erreur lors de l'exécution de la requête.</p>";
 }
 
-echo "</tbody></table>";
-
-echo "<p><strong>Etape execution de la requete réussie !!!</strong></p>";
 mysqli_close($connexion);
 ?>
 </body>
