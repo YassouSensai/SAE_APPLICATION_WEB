@@ -58,7 +58,7 @@ if (!function_exists('logActivity')) {
             if ($_SESSION['table_user'] === 'utilisateur') {
                 $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
             } else {
-                $params = ["ssss", $_SERVER['REMOTE_ADDR'], NULL, $type, $description];
+                $params = ["ssss", $_SERVER['REMOTE_ADDR'], 'NULL', $type, $description];
             }
             prepareAndExecute($connexion, $query, $params);
         }
