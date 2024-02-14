@@ -60,14 +60,14 @@ include("../Autres/fonctions_administrateur_systeme.php");
 <div class='action-button'>
     <ul class='button-list'>
         <?php
-        if ($table_user == 'Utilisateur') {
+        if ($table_user == 'utilisateur') {
             echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifierProfil'\">Modifier mon profil</button></li>";
             echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=modifierMdp'\">Modifier mon mot de passe</button></li>";
             echo "<li><button type='button' onclick=\"window.location.href='./utilisateur.php?formulaire=ticket'\">Ouvrir un ticket</button></li>";
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php'\">Tableau de bord</button></li>";
-        } elseif ($table_user == "AdminSysteme") {
+        } elseif ($table_user == "adminsysteme") {
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=connexion'\">Tableau de bord</button></li>";
-        } elseif ($table_user == "AdminWeb") {
+        } elseif ($table_user == "adminweb") {
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?liste=tickets'\">Tableau de bord</button></li>";
         } else {
             echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php'\">Tableau de bord</button></li>";
@@ -83,7 +83,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 <section class="corps-de-la-page">
 
     <?php
-    if ($table_user == 'Utilisateur') {
+    if ($table_user == 'utilisateur') {
         echo "<div id='profil-utilisateur'>";
         echo "<br>";
         echo "<h2 style='text-align: center'>Mon profil</h2>";

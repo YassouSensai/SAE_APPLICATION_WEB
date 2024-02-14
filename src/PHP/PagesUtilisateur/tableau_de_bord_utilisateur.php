@@ -58,7 +58,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
 
     <?php
-    if ($table_user == 'Utilisateur'){
+    if ($table_user == 'utilisateur'){
         echo "<div id='vos-tickets-utilisateurs'>";
 
         echo "<h2>Vos tickets :</h2>";
@@ -68,7 +68,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == 'Technicien') {
+    } elseif ($table_user == 'technicien') {
         echo "<div id='vos-tickets-techniciens'>";
 
         echo "<h2>Vos tickets pris en charge :</h2>";
@@ -99,7 +99,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == "AdminSysteme") {
+    } elseif ($table_user == "adminsysteme") {
         echo "<div id='journal'>";
 
         echo "<ul class='button-list'>";
@@ -129,7 +129,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == 'AdminWeb') {
+    } elseif ($table_user == 'adminweb') {
 
         if (isset($_GET['liste'])) {
             $_SESSION['liste'] = $_GET['liste'];
