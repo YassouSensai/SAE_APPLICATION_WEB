@@ -9,7 +9,7 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['ticket_attribue'], $_POST['
 
     $connexion = connectDB();
 
-    $query = "UPDATE Ticket SET status_tic = ? WHERE id_tic = ?";
+    $query = "UPDATE ticket SET status_tic = ? WHERE id_tic = ?";
     $params = ['ii', $nouveauStatut, $ticketId];
     $resultat = prepareAndExecute($connexion, $query, $params);
 

@@ -20,13 +20,13 @@ if (isset($_POST['ticket_supprimer'])) {
     $connexion = connectDB();
 
     // Vérifier si le ticket existe avant de le supprimer
-    $checkQuery = "SELECT * FROM Ticket WHERE id_tic = ?";
+    $checkQuery = "SELECT * FROM ticket WHERE id_tic = ?";
     $checkParams = ["i", $ticketId];
     $checkResult = prepareAndExecute($connexion, $checkQuery, $checkParams);
 
     if (mysqli_num_rows($checkResult) > 0) {
         // Supprimer le ticket
-        $deleteQuery = "DELETE FROM Ticket WHERE id_tic = ?";
+        $deleteQuery = "DELETE FROM ticket WHERE id_tic = ?";
         $deleteParams = ["i", $ticketId];
         prepareAndExecute($connexion, $deleteQuery, $deleteParams);
 

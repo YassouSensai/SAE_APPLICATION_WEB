@@ -11,7 +11,7 @@ if (isset($_SESSION['utilisateur'], $_POST['mot_de_passe'])) {
     $username = $_SESSION['utilisateur'];
     $password = RC4("password", htmlspecialchars($_POST['mot_de_passe']));
 
-    $query = "SELECT * FROM Utilisateur WHERE identifiant = ? AND mdp = ?";
+    $query = "SELECT * FROM utilisateur WHERE identifiant = ? AND mdp = ?";
     $params = ['ss', $username, $password];
 
     $resultat = prepareAndExecute($connexion, $query, $params);
@@ -22,7 +22,7 @@ if (isset($_SESSION['utilisateur'], $_POST['mot_de_passe'])) {
             $nouveau_prenom = $_POST['nouveau_prenom'];
             $nouvel_email = $_POST['nouvel_email'];
 
-            $query_maj = "UPDATE Utilisateur SET nom_util = ?, prenom_util = ?, email_util = ? WHERE identifiant = ?";
+            $query_maj = "UPDATE utilisateur SET nom_util = ?, prenom_util = ?, email_util = ? WHERE identifiant = ?";
             $params_maj = ['ssss', $nouveau_nom, $nouveau_prenom, $nouvel_email, $username];
 
             $resultat_maj = prepareAndExecute($connexion, $query_maj, $params_maj);

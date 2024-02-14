@@ -23,13 +23,13 @@ if (isset($_POST['ticket_libre']) && isset($_POST['technicien_attribue'])) {
     $connexion = connectDB();
 
     // Sélectionner les tickets non attribués
-    $queryTickets = "SELECT id_tic, objet, date_crea_tic FROM Ticket WHERE tech_charge_tic IS NULL ORDER BY date_crea_tic DESC";
+    $queryTickets = "SELECT id_tic, objet, date_crea_tic FROM ticket WHERE tech_charge_tic IS NULL ORDER BY date_crea_tic DESC";
     $resultatTickets = prepareAndExecute($connexion, $queryTickets);
 
     // Sélectionner les techniciens avec le nombre de tickets actuels
     $queryTechniciens = "SELECT t.identifiant, COUNT(t2.id_tic) AS nb_tickets
-                         FROM Technicien t
-                         LEFT JOIN Ticket t2 ON t.identifiant = t2.tech_charge_tic
+                         FROM technicien t
+                         LEFT JOIN ticket t2 ON t.identifiant = t2.tech_charge_tic
                          GROUP BY t.identifiant";
     $resultatTechniciens = prepareAndExecute($connexion, $queryTechniciens);
 
@@ -44,7 +44,7 @@ if (isset($_POST['ticket_libre']) && isset($_POST['technicien_attribue'])) {
     }
 
     // Attribuer le ticket au technicien
-    $updateQuery = "UPDATE Ticket SET tech_charge_tic = ? WHERE id_tic = ?";
+    $updateQuery = "UPDATE ticket SET tech_charge_tic = ? WHERE id_tic = ?";
     $updateParams = ["si", $technicienId, $ticketId];
     prepareAndExecute($connexion, $updateQuery, $updateParams);
 

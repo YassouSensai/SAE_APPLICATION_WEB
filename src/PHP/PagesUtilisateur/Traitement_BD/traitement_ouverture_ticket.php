@@ -9,7 +9,7 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
 
     $connexion = connectDB();
 
-    $query = "SELECT * FROM Utilisateur WHERE identifiant = ? AND mdp = ?;";
+    $query = "SELECT * FROM utilisateur WHERE identifiant = ? AND mdp = ?;";
     $params = ['ss', $username, $mdp];
     $resultat = prepareAndExecute($connexion, $query, $params);
 
@@ -23,7 +23,7 @@ if (isset($_SESSION['utilisateur']) && isset($_POST['mdp'])) {
             $adresse_ip = $_SERVER['REMOTE_ADDR'];
 
             // Insertion du ticket dans la base de données
-            $insert_query = "INSERT INTO Ticket (date_crea_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic) VALUES (NOW(),?, ?, ?, ?, ?, ?, ?)";
+            $insert_query = "INSERT INTO ticket (date_crea_tic, objet, desc_pb_tic, adresse_ip, salle, createur_tic, status_tic, nv_urgence_tic) VALUES (NOW(),?, ?, ?, ?, ?, ?, ?)";
             $insert_params = ['sssssss', $sujet_ticket, $description_ticket, $adresse_ip, $salle, $username, 1, $niveau_urgence];
 
             $insert_result = prepareAndExecute($connexion, $insert_query, $insert_params);

@@ -16,13 +16,13 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2']) && isset($_SESSION['utili
         if (verifCaptcha($captcha) && ($nouveau_mdp == $nouveau_mdp2)) {
             $connexion = connectDB();
 
-            $query = "SELECT * FROM Utilisateur WHERE identifiant = ? AND mdp = ?;";
+            $query = "SELECT * FROM utilisateur WHERE identifiant = ? AND mdp = ?;";
             $params = ['ss', $username, $ancien_mdp];
 
             $resultat = prepareAndExecute($connexion, $query, $params);
 
             if (mysqli_num_rows($resultat) > 0) {
-                $query_maj = "UPDATE Utilisateur SET mdp = ? WHERE identifiant = ? AND mdp = ?;";
+                $query_maj = "UPDATE utilisateur SET mdp = ? WHERE identifiant = ? AND mdp = ?;";
                 $params_maj = ['sss', $nouveau_mdp, $username, $ancien_mdp];
 
                 $resultat_maj = prepareAndExecute($connexion, $query_maj, $params_maj);

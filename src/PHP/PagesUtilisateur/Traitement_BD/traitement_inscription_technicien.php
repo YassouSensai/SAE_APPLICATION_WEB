@@ -24,7 +24,7 @@ if (isset($_POST['identifiant']) && isset($_POST['mdp']) && isset($_POST['nom_te
     $connexion = connectDB();
 
     // Vérifier si l'identifiant est déjà utilisé
-    $checkQuery = "SELECT * FROM Technicien WHERE identifiant = ?";
+    $checkQuery = "SELECT * FROM technicien WHERE identifiant = ?";
     $checkParams = ["s", $identifiant];
     $checkResult = prepareAndExecute($connexion, $checkQuery, $checkParams);
 
@@ -32,7 +32,7 @@ if (isset($_POST['identifiant']) && isset($_POST['mdp']) && isset($_POST['nom_te
         header("Location: ../tableau_de_bord_utilisateur.php?inscr=echec_id&action=".$action."&liste=".$liste);
     } else {
         // Insérer le nouveau technicien dans la table Utilisateur
-        $insertQuery = "INSERT INTO Technicien (identifiant, nom_tech, prenom_tech, mdp) VALUES (?, ?, ?, ?)";
+        $insertQuery = "INSERT INTO technicien (identifiant, nom_tech, prenom_tech, mdp) VALUES (?, ?, ?, ?)";
         $insertParams = ["ssss", $identifiant, $nom_tech, $prenom_tech, $mdp];
         prepareAndExecute($connexion, $insertQuery, $insertParams);
 
