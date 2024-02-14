@@ -123,9 +123,9 @@ function afficherModifierMotDePasse() {
 
     echo "<form action='../PagesUtilisateur/Traitement_BD/traitement_modifier_mdp.php' method='post'>";
 
-    oeilMdp("nouveau_mdp", "nouveau_mdp", "Ancien mot de passe");
-    oeilMdp("ancien_mdp", "ancien_mdp", "Nouveau mot de passe");
-    oeilMdp("nouveau_mdp2", "nouveau_mdp2", "Nouveau mot de passe");
+    oeilMdp("nouveau_mdp", "Votre mot de passe actuel :","nouveau_mdp", "Ancien mot de passe");
+    oeilMdp("ancien_mdp", "Votre nouveau mot de passe :","ancien_mdp", "Nouveau mot de passe");
+    oeilMdp("nouveau_mdp2", "Retapez votre nouveau mot de passe :","nouveau_mdp2", "Nouveau mot de passe");
 
 
     captchaForm();

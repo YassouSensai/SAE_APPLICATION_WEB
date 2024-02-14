@@ -21,7 +21,7 @@ if (!function_exists('connectDB')) {
         if (!$connexion) {
             die("La connexion a échoué : " . mysqli_connect_error());
         }
-        echo "<br><br>connexion réussie !!<br><br>";
+
         return $connexion;
     }
 }
@@ -106,9 +106,9 @@ if (!function_exists('scriptsMdp')) {
 
 
 if (!function_exists('oeilMdp')) {
-    function oeilMdp($id, $name, $placeholder, $required = true)
+    function oeilMdp($id, $title, $name, $placeholder, $required = true)
     {
-        echo "<label for='$id'>Votre mot de passe:</label>";
+        echo "<label for='$id'>$title</label>";
         echo "<label class='password-container'>";
         echo "<input type='password' id='$id' name='$name' placeholder='$placeholder' " . ($required ? 'required' : '') . "><br>";
         echo "<div class='password-icon'>";
