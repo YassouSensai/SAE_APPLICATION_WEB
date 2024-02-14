@@ -54,10 +54,8 @@ if (!function_exists('logActivity')) {
         $connexion = connectDB();
         $query = "INSERT INTO journalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
 
-        if (isset($_SESSION['table_user'])) {
-            $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
-            prepareAndExecute($connexion, $query, $params);
-        }
+        $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
+        prepareAndExecute($connexion, $query, $params);
 
         mysqli_close($connexion);
     }
