@@ -30,7 +30,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
                 $_SESSION['utilisateur'] = $username;
                 $_SESSION['table_user'] = $table_user;
 
-                // Ajouter une entrée au journal d'activité pour la connexion réussie
+                echo "<strong>Etape d'insertion dans le journal d'activité</strong><br>";
                 logActivity($username, 1, "L'utilisateur $username s'est connecté avec succès !");
 
                 header('Location: ../PagesUtilisateur/utilisateur.php');
