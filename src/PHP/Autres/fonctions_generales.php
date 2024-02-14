@@ -52,7 +52,7 @@ if (!function_exists('logActivity')) {
     function logActivity($username, $type, $description)
     {
         $connexion = connectDB();
-        $query = "INSERT INTO JournalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
+        $query = "INSERT INTO journalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
 
         if (isset($_SESSION['table_user'])) {
             $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
