@@ -55,11 +55,7 @@ if (!function_exists('logActivity')) {
         $query = "INSERT INTO JournalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
 
         if (isset($_SESSION['table_user'])) {
-            if ($_SESSION['table_user'] === 'utilisateur') {
-                $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
-            } else {
-                $params = ["ssss", $_SERVER['REMOTE_ADDR'], 'NULL', $type, $description];
-            }
+            $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
             prepareAndExecute($connexion, $query, $params);
         }
 
