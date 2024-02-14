@@ -54,20 +54,19 @@ if (!function_exists('logActivity')) {
         $connexion = connectDB();
         $query = "INSERT INTO JournalActivite (date_activite, adresse_ip, id_utilisateur, type_activite, description_activite) VALUES (NOW(), ?, ?, ?, ?)";
 
-
         if (isset($_SESSION['table_user'])) {
-            if ($_SESSION['table_user'] == 'Utilisateur') {
+            if ($_SESSION['table_user'] === 'utilisateur') {
                 $params = ["ssss", $_SERVER['REMOTE_ADDR'], $username, $type, $description];
-                prepareAndExecute($connexion, $query, $params);
             } else {
-                $params = ["ssss", $_SERVER['REMOTE_ADDR'], 'NULL', $type, $description];
-                prepareAndExecute($connexion, $query, $params);
+                $params = ["ssss", $_SERVER['REMOTE_ADDR'], NULL, $type, $description];
             }
+            prepareAndExecute($connexion, $query, $params);
         }
 
         mysqli_close($connexion);
     }
 }
+
 
 if (!function_exists('captchaForm')) {
     function captchaForm()
