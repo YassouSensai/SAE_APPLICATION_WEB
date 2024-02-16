@@ -27,7 +27,7 @@ if (isset($_SESSION['nb1'], $_SESSION['nb2'], $_SESSION['utilisateur'])) {
 
                     $resultat_maj = prepareAndExecute($connexion, $query_maj, $params_maj);
 
-                    if ($resultat_maj) {
+                    if (!$resultat_maj) {
                         header('Location: ../utilisateur.php?modif_profil=succes_mdp');
                         exit();
                     } else {
