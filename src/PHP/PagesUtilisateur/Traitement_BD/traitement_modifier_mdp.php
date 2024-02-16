@@ -27,12 +27,10 @@ if (isset($_SESSION['nb1'], $_SESSION['nb2'], $_SESSION['utilisateur'])) {
 
                     $resultat_maj = prepareAndExecute($connexion, $query_maj, $params_maj);
 
-                    if (!$resultat_maj) {
-                        logActivity($username, "1", "L'utilisateur $username a bien changé son mdp");
+                    if ($resultat_maj) {
                         header('Location: ../utilisateur.php?modif_profil=succes_mdp');
                         exit();
                     } else {
-                        logActivity($username, "1", "L'utilisateur $username n'a pas réussi a changer son mdp");
                         header('Location: ../utilisateur.php?modif_profil=echec_maj');
                         exit();
                     }
