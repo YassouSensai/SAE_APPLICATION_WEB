@@ -100,7 +100,7 @@ function afficherFormulaireModifierProfil($username, $table_user) {
         echo "<label for='nouvel_email'>Nouvel email:</label>";
         echo "<input type='email' id='nouvel_email' name='nouvel_email' value='" . htmlspecialchars($profilActuel['email_util']) . "' required><br>";
 
-        oeilMdp("mot_de_passe", "mot_de_passe", "mot de passe");
+        oeilMdp("mot_de_passe", "Votre mot de passe","mot_de_passe", "mot de passe");
 
 
         echo "<input type='submit' value='Modifier'>";

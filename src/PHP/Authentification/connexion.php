@@ -61,7 +61,7 @@
 
                     <?php
                     include("../Autres/fonctions_generales.php");
-                    oeilMdp("password", "password", "Mot de passe");
+                    oeilMdp("password", "Votre mot de passe" , "password", "Mot de passe");
                     session_start();
                     captchaForm();
                     ?>

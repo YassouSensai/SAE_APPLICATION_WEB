@@ -59,8 +59,8 @@
 
                     <?php
                     include("../Autres/fonctions_generales.php");
-                    oeilMdp("password", "password", "Mot de passe");
-                    oeilMdp("confirm_password", "confirm_password", "Confirmer le mot de passe");
+                    oeilMdp("password","Votre mot de passe" ,"password", "Mot de passe");
+                    oeilMdp("confirm_password", "Confirmez votre mot de passe","confirm_password", "Confirmer le mot de passe");
                     ?>
 
                     <label for="type_util">Type d'utilisateur</label>
