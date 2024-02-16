@@ -2,7 +2,9 @@
 session_start();
 include("../../Autres/fonctions_generales.php");
 include("../../Crypto/crypto.php");
-
+/**
+ * Il y a encore des problemes
+ */
 if (isset($_SESSION['nb1'], $_SESSION['nb2'], $_SESSION['utilisateur'])) {
     $username = $_SESSION['utilisateur'];
 
