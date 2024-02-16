@@ -22,8 +22,8 @@ if (isset($_SESSION['nb1'], $_SESSION['nb2'], $_SESSION['utilisateur'])) {
                 $resultat = prepareAndExecute($connexion, $query, $params);
 
                 if ($resultat && mysqli_num_rows($resultat) > 0) {
-                    $query_maj = "UPDATE utilisateur SET mdp = ? WHERE identifiant = ? AND mdp = ?";
-                    $params_maj = ['sss', $nouveau_mdp, $username, $ancien_mdp];
+                    $query_maj = "UPDATE utilisateur SET mdp = ? WHERE identifiant = ?";
+                    $params_maj = ['ss', $nouveau_mdp, $username];
 
                     $resultat_maj = prepareAndExecute($connexion, $query_maj, $params_maj);
 
