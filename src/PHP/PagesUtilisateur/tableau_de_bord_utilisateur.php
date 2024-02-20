@@ -49,8 +49,16 @@ include("../Autres/fonctions_administrateur_systeme.php");
 <br>
 <br>
 <div class="action-button-profil">
-    <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
-    <br>
+    <table>
+        <tr>
+            <td>
+            <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
+            </td>
+            <td>
+            <a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>
+            </td>
+        <tr>
+    <table>
 </div>
 
 
