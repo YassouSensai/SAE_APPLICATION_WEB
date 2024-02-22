@@ -32,6 +32,7 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
         } else {
             // Ajouter une entrée au journal d'activité pour l'échec de connexion
             logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
+            // stocker le username et le mdp et la date dans échec de connexion
 
             header('Location: connexion.php?err');
             exit();
