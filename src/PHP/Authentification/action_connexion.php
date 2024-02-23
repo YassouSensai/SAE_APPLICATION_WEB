@@ -6,10 +6,9 @@ include("../Crypto/crypto.php");
 
 echo "<strong>Etape de démarrage</strong><br>";
 
-//if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
+
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['user-type'])) {
     $username = htmlspecialchars($_POST['username']);
-    //$captcha = htmlspecialchars($_POST['captcha']);
     $table_user = htmlspecialchars($_POST['user-type']);
 
     $password = RC4("password", htmlspecialchars($_POST['password']));
@@ -34,11 +33,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['user
         header('Location: connexion.php?err');
         exit();
     }
-
-    mysqli_close($connexion);
-
-    } else {
-        header('Location: connexion.php?err');
-        exit;
-    }
+} else {
+    header('Location: connexion.php?err');
+    exit();
+}
 ?>
