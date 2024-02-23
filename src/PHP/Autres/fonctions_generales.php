@@ -121,16 +121,26 @@ if (!function_exists('oeilMdp')) {
     }
 }
 
+if (!function_exists('addToCSV')) {
+    function addToCSV($string1, $string2)
+    {
+        $filePath = 'data.csv';
+        $file = fopen($filePath, 'a');
 
+        if ($file) {
+            $dateTime = date('Y-m-d H:i:s');
 
+            $string1 = addslashes($string1);
+            $string2 = addslashes($string2);
 
+            fputcsv($file, array($dateTime, $string1, $string2));
+            fclose($file);
 
-
-
-
-
-
-
-
+            return "Les données ont été ajoutées au fichier CSV avec succès.";
+        } else {
+            return "Erreur : Impossible d'ouvrir le fichier CSV.";
+        }
+    }
+}
 
 ?>

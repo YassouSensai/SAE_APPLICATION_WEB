@@ -49,17 +49,18 @@ include("../Autres/fonctions_administrateur_systeme.php");
 <br>
 <br>
 <div class="action-button-profil">
-    <table>
+    <table style="margin: 0 auto; border-collapse: collapse;">
         <tr>
-            <td>
-            <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
+            <td style="border: none; text-align: center;">
+                <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
             </td>
-            <td>
-            <a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>";
+            <td style="border: none; text-align: center;">
+                <a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>
             </td>
-        <tr>
-    <table>
+        </tr>
+    </table>
 </div>
+
 
 
 <section class="corps-de-la-page-2">
