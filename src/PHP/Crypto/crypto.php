@@ -1,17 +1,20 @@
 <?php
 function initialize($cle) {
+    #bloc d'instruction 1
     $longueur_cle = strlen($cle);
     $sequence_cle = range(0, 255);
     $j = 0;
 
+    #boucle condition 2
     for ($i = 0; $i < 256; $i++) {
+        #bloc d'instruction 3
         $j = ($j + $sequence_cle[$i] + ord($cle[$i % $longueur_cle])) % 256;
-
         // échange des valeurs
         $temp = $sequence_cle[$i];
         $sequence_cle[$i] = $sequence_cle[$j];
         $sequence_cle[$j] = $temp;
     }
+    #bloc d'instruction 4
     return $sequence_cle;
 }
 

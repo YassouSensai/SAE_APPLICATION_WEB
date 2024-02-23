@@ -49,8 +49,16 @@ include("../Autres/fonctions_administrateur_systeme.php");
 <br>
 <br>
 <div class="action-button-profil">
-    <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
-    <br>
+    <table>
+        <tr>
+            <td>
+            <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
+            </td>
+            <td>
+            <a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>";
+            </td>
+        <tr>
+    <table>
 </div>
 
 
@@ -58,7 +66,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
 
     <?php
-    if ($table_user == 'utilisateur'){
+    if ($table_user == 'Utilisateur'){
         echo "<div id='vos-tickets-utilisateurs'>";
 
         echo "<h2>Vos tickets :</h2>";
@@ -68,7 +76,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == 'technicien') {
+    } elseif ($table_user == 'Technicien') {
         echo "<div id='vos-tickets-techniciens'>";
 
         echo "<h2>Vos tickets pris en charge :</h2>";
@@ -99,7 +107,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == "adminsysteme") {
+    } elseif ($table_user == "AdminSysteme") {
         echo "<div id='journal'>";
 
         echo "<ul class='button-list'>";
@@ -129,7 +137,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == 'adminweb') {
+    } elseif ($table_user == 'AdminWeb') {
 
         if (isset($_GET['liste'])) {
             $_SESSION['liste'] = $_GET['liste'];

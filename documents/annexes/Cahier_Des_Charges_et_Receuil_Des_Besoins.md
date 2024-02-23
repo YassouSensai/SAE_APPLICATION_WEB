@@ -24,7 +24,7 @@
 
 # Introduction
 
->Ce document regroupe le cahier des charges aibqi que le recueil des besoins de la SAE du
+>Ce document regroupe le cahier des charges ainsi que le recueil des besoins de la SAE du
 >troisième semestre de BUT informatique. Cette SAE concerne la création d’une
 >plateforme de ticketing interne demandée par notre client, M. Hoguin.
 >Cette plateforme sera réalisée par notre équipe qui est composée de trois étudiants
