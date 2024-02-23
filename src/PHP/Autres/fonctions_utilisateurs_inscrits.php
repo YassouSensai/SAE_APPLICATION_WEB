@@ -123,8 +123,8 @@ function afficherModifierMotDePasse() {
 
     echo "<form action='../PagesUtilisateur/Traitement_BD/traitement_modifier_mdp.php' method='post'>";
 
-    oeilMdp("nouveau_mdp", "Votre mot de passe actuel :","nouveau_mdp", "Ancien mot de passe");
-    oeilMdp("ancien_mdp", "Votre nouveau mot de passe :","ancien_mdp", "Nouveau mot de passe");
+    oeilMdp("ancien_mdp", "Votre mot de passe actuel :","ancien_mdp", "Ancien mot de passe");
+    oeilMdp("nouveau_mdp", "Votre nouveau mot de passe :","nouveau_mdp", "Nouveau mot de passe");
     oeilMdp("nouveau_mdp2", "Retapez votre nouveau mot de passe :","nouveau_mdp2", "Nouveau mot de passe");
 
 
@@ -200,7 +200,7 @@ function afficherTicketsUtilisateurs($username, $table_user) {
 
     $query = "";
 
-    if ($table_user == 'Utilisateur') {
+    if ($table_user == 'utilisateur') {
 
         $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
               FROM Ticket t
@@ -209,7 +209,7 @@ function afficherTicketsUtilisateurs($username, $table_user) {
               WHERE t.createur_tic = ?
               ORDER BY t.date_crea_tic DESC";
 
-    } elseif ($table_user == 'Technicien') {
+    } elseif ($table_user == 'technicien') {
 
         $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
               FROM Ticket t
