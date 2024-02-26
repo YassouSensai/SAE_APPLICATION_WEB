@@ -120,11 +120,10 @@ if (!function_exists('oeilMdp')) {
         scriptsMdp();
     }
 }
-
 if (!function_exists('addToCSV')) {
     function addToCSV($string1, $string2)
     {
-        $filePath = 'data.csv';
+        $filePath = '../../csv/echec_connexion.csv';
         $file = fopen($filePath, 'a');
 
         if ($file) {
@@ -142,5 +141,6 @@ if (!function_exists('addToCSV')) {
         }
     }
 }
+
 
 ?>

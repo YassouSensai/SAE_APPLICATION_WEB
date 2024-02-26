@@ -26,14 +26,20 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['user
         exit();
 
     } else {
-        //ajout_csv($username,$password);
+        addToCSV($username,$password);
         logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
+        mysqli_close($connexion);
 
         header('Location: connexion.php?err');
         exit();
     }
+
 } else {
+
+
     header('Location: connexion.php?err');
     exit();
 }
-?>
+
+
+
