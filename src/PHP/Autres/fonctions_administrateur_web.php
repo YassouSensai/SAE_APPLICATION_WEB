@@ -160,7 +160,7 @@ function afficherFormulaireAttributionTicket() {
     // Sélectionner les techniciens avec le nombre de tickets actuels
     $queryTechniciens = "SELECT t.identifiant, COUNT(t2.id_tic) AS nb_tickets
                          FROM technicien t
-                         LEFT JOIN Ticket t2 ON t.identifiant = t2.tech_charge_tic
+                         LEFT JOIN ticket t2 ON t.identifiant = t2.tech_charge_tic
                          GROUP BY t.identifiant";
     $resultatTechniciens = prepareAndExecute($connexion, $queryTechniciens);
 
