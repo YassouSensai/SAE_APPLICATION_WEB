@@ -203,18 +203,18 @@ function afficherTicketsUtilisateurs($username, $table_user) {
     if ($table_user == 'utilisateur') {
 
         $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
-              FROM Ticket t
-              JOIN StatutTicket s ON t.status_tic = s.id_statut_tic
-              JOIN NiveauUrgence u ON t.nv_urgence_tic = u.id_nv_urgence
+              FROM ticket t
+              JOIN statutticket s ON t.status_tic = s.id_statut_tic
+              JOIN niveauurgence u ON t.nv_urgence_tic = u.id_nv_urgence
               WHERE t.createur_tic = ?
               ORDER BY t.date_crea_tic DESC";
 
     } elseif ($table_user == 'technicien') {
 
         $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
-              FROM Ticket t
-              JOIN StatutTicket s ON t.status_tic = s.id_statut_tic
-              JOIN NiveauUrgence u ON t.nv_urgence_tic = u.id_nv_urgence
+              FROM ticket t
+              JOIN statutticket s ON t.status_tic = s.id_statut_tic
+              JOIN niveauurgence u ON t.nv_urgence_tic = u.id_nv_urgence
               WHERE t.tech_charge_tic = ?
               ORDER BY t.date_crea_tic DESC";
     }
