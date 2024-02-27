@@ -8,6 +8,7 @@
  * - La fonction afficherFormulaireSuppressionTicket() qui affiche un formulaire pour supprimer un ticket
  * */
 
+include("fonctions_generales.php");
 
 // ####################################################################################################################
 // ####################################################################################################################
@@ -128,8 +129,7 @@ function afficherFormulaireInscriptionTechnicien() {
     echo "<label for='identifiant'>Identifiant :</label>";
     echo "<input type='text' id='identifiant' name='identifiant' placeholder='Identifiant du technicien' required>";
 
-
-    oeilMdp('mdp', 'mdp', 'Mot de passe du technicien');
+    oeilMdp('mdp', 'mdp', 'mdp','Mot de passe du technicien');
 
     echo "<label for='nom_tech'>Nom du technicien :</label>";
     echo "<input type='text' id='nom_tech' name='nom_tech' placeholder='Nom du technicien' required>";
