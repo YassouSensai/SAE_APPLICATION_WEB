@@ -13,7 +13,7 @@ function afficherActivitesParType($type) {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
-    $query = "SELECT * FROM JournalActivite WHERE type_activite = ? ORDER BY date_activite DESC";
+    $query = "SELECT * FROM journalactivite WHERE type_activite = ? ORDER BY date_activite DESC";
     $params = ["i", $type];
     $resultat = prepareAndExecute($connexion, $query, $params);
 

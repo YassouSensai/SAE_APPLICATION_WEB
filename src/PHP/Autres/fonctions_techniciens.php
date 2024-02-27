@@ -14,7 +14,7 @@ function afficherFormChoixTicketsNonAttribues() {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
-    $query = "SELECT id_tic, objet, date_crea_tic FROM Ticket WHERE tech_charge_tic IS NULL ORDER BY date_crea_tic DESC";
+    $query = "SELECT id_tic, objet, date_crea_tic FROM ticket WHERE tech_charge_tic IS NULL ORDER BY date_crea_tic DESC";
     $resultat = prepareAndExecute($connexion, $query);
 
     echo "<form action='Traitement_BD/traitement_attribuer_ticket.php' method='post'>";
@@ -47,9 +47,9 @@ function afficherFormModifierStatutTicket($username) {
     $connexion = connectDB();
 
     $query = "SELECT t.id_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
-              FROM Ticket t
-              JOIN StatutTicket s ON t.status_tic = s.id_statut_tic
-              JOIN NiveauUrgence u ON t.nv_urgence_tic = u.id_nv_urgence
+              FROM ticket t
+              JOIN statutticket s ON t.status_tic = s.id_statut_tic
+              JOIN niveauurgence u ON t.nv_urgence_tic = u.id_nv_urgence
               WHERE t.tech_charge_tic = ?
               ORDER BY t.date_crea_tic DESC";
     $params = ['s', $username];
