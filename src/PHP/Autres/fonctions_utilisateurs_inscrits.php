@@ -1,3 +1,4 @@
+
 <?php
 include("fonctions_generales.php");
 /* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations des utilisateurs inscrits dont :
@@ -202,7 +203,7 @@ function afficherTicketsUtilisateurs($username, $table_user) {
 
     if ($table_user == 'utilisateur') {
 
-        $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
+        $query = "SELECT t.id_tic, t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
               FROM ticket t
               JOIN statutticket s ON t.status_tic = s.id_statut_tic
               JOIN niveauurgence u ON t.nv_urgence_tic = u.id_nv_urgence
@@ -211,7 +212,7 @@ function afficherTicketsUtilisateurs($username, $table_user) {
 
     } elseif ($table_user == 'technicien') {
 
-        $query = "SELECT t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
+        $query = "SELECT t.id_tic, t.date_crea_tic, t.objet, t.desc_pb_tic, t.adresse_ip, t.salle, s.libelle_statut_tic AS statut, u.libelle_nv_urgence AS urgence
               FROM ticket t
               JOIN statutticket s ON t.status_tic = s.id_statut_tic
               JOIN niveauurgence u ON t.nv_urgence_tic = u.id_nv_urgence
@@ -225,7 +226,7 @@ function afficherTicketsUtilisateurs($username, $table_user) {
     echo "<table id='table-mes-tickets'>
             <thead>
                 <tr>
-                    <th>Ticket</th>
+                    <th>ID Ticket</th>
                     <th>Date de création</th>
                     <th>Objet</th>
                     <th>Description</th>
@@ -239,9 +240,8 @@ function afficherTicketsUtilisateurs($username, $table_user) {
 
     $num = 0;
     while ($row = mysqli_fetch_assoc($resultat)) {
-        $num = $num + 1;
         echo "<tr>";
-        echo "<td>" . $num . "</td>";
+        echo "<td>" . htmlspecialchars($row['id_tic']) . "</td>";
         echo "<td>" . htmlspecialchars($row['date_crea_tic']) . "</td>";
         echo "<td>" . htmlspecialchars($row['objet']) . "</td>";
         echo "<td>" . htmlspecialchars($row['desc_pb_tic']) . "</td>";
@@ -249,6 +249,9 @@ function afficherTicketsUtilisateurs($username, $table_user) {
         echo "<td>" . htmlspecialchars($row['salle']) . "</td>";
         echo "<td>" . htmlspecialchars($row['statut']) . "</td>";
         echo "<td>" . htmlspecialchars($row['urgence']) . "</td>";
+
+        echo "<td><img src='../../images/poubelles.svg' alt='Supprimer' width='20' height='20' class='delete-icon' onclick=\"supprimerTicket(" . $row['id_tic'] . ")\" style='cursor:pointer;'></td>";
+
         echo "</tr>";
     }
 

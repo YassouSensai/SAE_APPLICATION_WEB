@@ -12,6 +12,24 @@ include("../Autres/fonctions_administrateur_systeme.php");
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
     <title>Tableau de bord</title>
     <script src="../../JS/messages.js"></script>
+    <script>
+        function supprimerTicket(ticketId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce ticket ?')) {
+                var form = document.createElement('form');
+                document.body.appendChild(form);
+                form.method = 'post';
+                form.action = '../PagesUtilisateur/Traitement_BD/traitement_suppression_ticket.php';
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'ticket_supprimer';
+                input.value = ticketId;
+                form.appendChild(input);
+                form.submit();
+            }
+        }
+    </script>
+
+
     <meta charset="utf-8">
     <meta name="description" content="Cette page permet aux personnes connecté de visionner leur tableau de bord">
     <meta name="keywords" content="tableau">
