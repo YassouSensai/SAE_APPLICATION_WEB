@@ -17,6 +17,8 @@
     * Connexion d'un utilisateur
     * Bilan
 4. [Seance réalisée en cours le 1 mars 2024](#Seance-réalisée-en-cours-le-1-mars-2024)
+    * Boîte noir
+    * Boîte blanche 
    
 
 
@@ -140,3 +142,103 @@ aux actions de l'utilisateur, assurant une expérience fluide et sécurisée. Ce
 confiance dans la qualité globale de la base de donnée et surtout, de la plateforme de ticketing en développement. Le prochain stade du processus de 
 test impliquera une évaluation approfondie des fonctionnalités interactives et en temps réel pour assurer une 
 performance optimale.
+
+# Seance réalisée en cours le 1 mars 2024
+
+Cette séance sera réalisée sur la fonction initialize du module de crypto. Deux tests seront réalisés pour
+cette séance ; un en boîte noir et un autre en boîte blanche.
+
+```php
+/**
+ * Fonction initialize du module de crypto.
+ * Cette fonction prend en paramètre une clé (chaine de caractère)
+ * et créé une séquence (un tableau de 256 éléments) 
+ * @param $cle (string)
+ * @return tab [256]
+ */
+function initialize($cle) {
+    $longueur_cle = strlen($cle);
+    $sequence_cle = range(0, 255);
+    $j = 0;
+
+    for ($i = 0; $i < 256; $i++) {
+        $j = ($j + $sequence_cle[$i] + ord($cle[$i % $longueur_cle])) % 256;
+
+        // échange des valeurs
+        $temp = $sequence_cle[$i];
+        $sequence_cle[$i] = $sequence_cle[$j];
+        $sequence_cle[$j] = $temp;
+    }
+    return $sequence_cle;
+}
+```
+
+### Boite noir
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">Identification : Test de la fonction initialize</th>
+    </tr>
+    <tr>
+      <th colspan="2">Réalisateur : notre groupe</th>
+      <th>Version : 1.0</th>
+    </tr>
+    <tr>
+      <th>Cas</th>
+      <th>Test</th>
+      <th>Sortie Attendue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Clé vide</td>
+      <td>Un tableau de 256 éléments ordonné de 0 à 255</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Clé non vide</td>
+      <td>Un tableau de 256 éléments, l'ordre des éléments du tableau doit être différent pour différentes clés.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Clé de longueur maximale (256 caractères)</td>
+      <td>Un tableau de 256 éléments, l'ordre des éléments du tableau doit être différent pour différentes clés.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Clé de longueur supérieure à 256 caractères</td>
+      <td>Même comportement que pour une clé de 256 caractères, car la longueur est réduite modulo 256.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Clé de longueur inférieure à 256 caractères</td>
+      <td>Un tableau de 256 éléments, mais l'ordre des éléments du tableau doit être différent pour différentes clés. Certains éléments du tableau peuvent ne pas être affectés par la clé.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Clé contenant des caractères spéciaux</td>
+      <td>Un tableau de 256 éléments, l'ordre des éléments du tableau doit être différent pour différentes clés.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Clé contenant des caractères Unicode</td>
+      <td>Un tableau de 256 éléments, l'ordre des éléments du tableau doit être différent pour différentes clés.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Clé contenant des caractères de contrôle ou non imprimables</td>
+      <td>Un tableau de 256 éléments, l'ordre des éléments du tableau doit être différent pour différentes clés.</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Clé de longueur 1</td>
+      <td>Un tableau de 256 éléments, mais l'ordre des éléments du tableau doit être différent pour différentes clés.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
