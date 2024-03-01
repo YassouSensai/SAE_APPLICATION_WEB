@@ -436,6 +436,96 @@ function verifCaptcha($result_captcha)
 
 ### Boite blanche (chemins indépendants)
 
+![graphe_chemins_independants_2.png](images%2FTESTS%2Fgraphe_chemins_independants_2.png)
+
+### Chemins indépendants :
+- **2 chemins :**
+   - **P1 :** {1, 2, 3, 5}
+   - **P2 :** {1, 2, 4, 5}
+
+<table>
+  <tr>
+    <th colspan="4">Identification de test : Tests pour le fichier verifCaptcha
+</th>
+  </tr>
+  <tr>
+    <td colspan="4">Description de test : Test de différentes valeurs incluses dans les ensembles différents ci-dessus pour chacun des cas possibles (également vu ci-dessus) </td>
+  </tr>
+  <tr>
+    <td colspan="4">Ressources requises : aucune</td>
+  </tr>
+  <tr>
+    <td colspan="4">Responsables : Tymchyshyn Ostap, Elkhalki Yassine, Husleag Aaron</td>
+  </tr>
+  <tr>
+    <th>Cas ou méthode testé</th>
+    <th>Acteurs</th>
+    <th>Action</th>
+    <th>Résultat attendu</th>
+  </tr>
+  <tr>
+    <td>verifCaptcha()</td>
+    <td>int nombres entier </td>
+    <td>renvoyer un booléen en comparant le résultat donné (nombre) avec le résultat de la méthode (nombre).</td>
+    <td>Une réponse générée qui peut être true or false.</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Classe</th>
+    <th>$nb1</th>
+    <th>$nb2</th>
+    <th>$operation_fonc</th>
+    <th>$resultat_captcha</th>
+    <th>Résultat attendu</th>
+  </tr>
+  <tr>
+    <td >P1 résultat incorrecte du captcha</td>
+    <td>Valeur de nb1</td>
+    <td>Valeur de nb2</td>
+    <td>nb1 * nb2</td>
+    <td>exclu de nb1 * nb2</td>
+    <td>false</td>
+  </tr>
+  <tr>
+    <td >P1 résultat correcte du captcha</td>
+    <td>Valeur de nb1</td>
+    <td>Valeur de nb2</td>
+    <td>nb1 * nb2</td>
+    <td>nb1 * nb2</td>
+    <td>true</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Classe</th>
+    <th>$nb1</th>
+    <th>$nb2</th>
+    <th>$operation_fonc</th>
+    <th>$resultat_captcha</th>
+    <th>Résultat attendu</th>
+  </tr>
+  <tr>
+    <td >P1 résultat incorrecte du captcha</td>
+    <td>3</td>
+    <td>3</td>
+    <td>9</td>
+    <td>8</td>
+    <td>false</td>
+  </tr>
+  <tr>
+    <td >P1 résultat correcte du captcha</td>
+    <td>5</td>
+    <td>5</td>
+    <td>25</td>
+    <td>25</td>
+    <td>true</td>
+  </tr>
+</table>
+
+Les tests ont été conçus pour garantir que la fonction verifCaptcha() réponde correctement dans les scénarios où le résultat du captcha est correct ainsi que dans les cas où il est incorrect. Chaque jeu de données de test est associé à un résultat attendu clairement défini, permettant ainsi de vérifier avec précision le bon fonctionnement de la fonction verifCaptcha() dans différentes situations.
 
 
 ### Boite noire
