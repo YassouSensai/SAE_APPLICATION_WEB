@@ -180,8 +180,8 @@ function initialize($cle) {
 
 ### Chemins indépendants :
 - **2 chemins :**
-   - **P1 :** 1, 2, 3, 4
-   - **P2 :** 1, 2, 4
+   - **P1 :** {1, 2, 3, 4}
+   - **P2 :** {1, 2, 4}
 
 <table>
   <tr>
@@ -259,7 +259,7 @@ Les tests ont été conçus pour s'assurer que la fonction réponde correctement
       <th colspan="3">Identification : Test de la fonction initialize</th>
     </tr>
     <tr>
-      <th colspan="2">Réalisateur : notre groupe</th>
+      <th colspan="2">Responsables : Tymchyshyn Ostap, Elkhalki Yassine, Husleag Aaron</th>
       <th>Version : 1.0</th>
     </tr>
     <tr>
@@ -316,6 +316,75 @@ Les tests ont été conçus pour s'assurer que la fonction réponde correctement
     </tr>
   </tbody>
 </table>
+
+Quelques données de tests concernant les 
+
+<table>
+  <thead>
+    <tr>
+      <th>Cas</th>
+      <th>Exemple de Clé</th>
+      <th>Résultat de la Fonction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>""</td>
+      <td>
+        <pre>[
+  0 => 0,
+  1 => 1,
+  ...,
+  255 => 255
+]</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>"secretkey"</td>
+      <td>
+        <pre>[
+  0 => 97,
+  1 => 186,
+  ...,
+  255 => 101
+]</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>"!@#$%^&*()"</td>
+      <td>
+        <pre>[
+  0 => 38,
+  1 => 227,
+  ...,
+  255 => 112
+]</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>"a"</td>
+      <td>
+        <pre>[
+  0 => 97,
+  1 => 1,
+  ...,
+  255 => 255
+]</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Comparaison 
+
+* Les tests de chemins indépendants se concentrent sur des parties spécifiques de la fonction, tandis que les tests de boite noire examinent la fonction dans son ensemble.
+* Les tests de chemins indépendants sont utiles pour détecter des erreurs spécifiques dans des parties spécifiques de la fonction, tandis que les tests de boite noire valident le fonctionnement global de la fonction dans différentes situations.
+
 
 
 
