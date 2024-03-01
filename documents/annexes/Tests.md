@@ -176,6 +176,8 @@ function initialize($cle) {
 
 ### Graphe des chemins indépendants indépendants :
 
+![graphe_chemins_independants.png](images%2FTESTS%2Fgraphe_chemins_independants.png)
+
 ### Chemins indépendants :
 - **2 chemins :**
    - **P1 :** 1, 2, 3, 4
