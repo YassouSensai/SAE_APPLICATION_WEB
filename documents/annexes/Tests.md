@@ -523,9 +523,7 @@ function verifCaptcha($result_captcha)
     <td>25</td>
     <td>true</td>
   </tr>
-</table> 
-
-Les tests ont été conçus pour garantir que la fonction verifCaptcha() réponde correctement dans les scénarios où le résultat du captcha est correct ainsi que dans les cas où il est incorrect. Chaque jeu de données de test est associé à un résultat attendu clairement défini, permettant ainsi de vérifier avec précision le bon fonctionnement de la fonction verifCaptcha() dans différentes situations.
+</table>
 
 
 ### Boite noire
@@ -550,27 +548,117 @@ Les tests ont été conçus pour garantir que la fonction verifCaptcha() répond
     <tr>
       <td>1</td>
       <td>Resultat correct</td>
-      <td>$result_captcha = $nb1 * $nb2</td>
+      <td>nb1 > 0, nb2 > 0 et result = nb1 * nb2</td>
       <td>true</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Résultat incorrect</td>
-      <td>$result_captcha ≠ $nb1 * $nb2</td>
+      <td>nb1 > 0, nb2 > 0 et result ≠ nb1 * nb2</td>
       <td>false</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Resultat correct avec zero</td>
-      <td>$result_captcha = 0</td>
+      <td>nb1 = 0, nb2 > 0 et result = 0</td>
       <td>true</td>
     </tr>
     <tr>
       <td>4</td>
       <td>Résultat incorrect avec zero</td>
-      <td>$result_captcha ≠ 0</td>
+      <td>nb1= 0, nb2 > 0 et result ≠ 0</td>
       <td>false</td>
     </tr>
   </tbody>
 </table>
 
+***Quelques données de test pour les cas précédents :***
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5">Identification : Tests pour la fonction verifCaptcha</th>
+    </tr>
+    <tr>
+      <th colspan="3">Responsables : Tymchyshyn Ostap, Elkhalki Yassine, Husleag Aaron</th>
+      <th colspan="2">Version : 1.0</th>
+    </tr>
+    <tr>
+      <th>Cas</th>
+      <th>Description</th>
+      <th>
+        <table>
+          <tr>
+            <th colspan="3">Données de Test</th>
+          </tr>
+          <tr>
+            <th>nb1</th>
+            <th>nb2</th>
+            <th>Résultat Attendu</th>
+          </tr>
+        </table>
+      </th>
+      <th>Sortie Attendue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Resultat correct</td>
+      <td>
+        <table>
+          <tr>
+            <td>5</td>
+            <td>5</td>
+            <td>25</td>
+          </tr>
+        </table>
+      </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Résultat incorrect</td>
+      <td>
+        <table>
+          <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>5</td>
+          </tr>
+        </table>
+      </td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Resultat correct avec zero</td>
+      <td>
+        <table>
+          <tr>
+            <td>0</td>
+            <td>15</td>
+            <td>0</td>
+          </tr>
+        </table>
+      </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Résultat incorrect avec zero</td>
+      <td>
+        <table>
+          <tr>
+            <td>0</td>
+            <td>15</td>
+            <td>5</td>
+          </tr>
+        </table>
+      </td>
+      <td>false</td>
+    </tr>
+    </tbody>
+</table>
+
+Les tests ont été conçus pour garantir que la fonction verifCaptcha() réponde correctement dans les scénarios où le résultat du captcha est correct ainsi que dans les cas où il est incorrect. Chaque jeu de données de test est associé à un résultat attendu clairement défini, permettant ainsi de vérifier avec précision le bon fonctionnement de la fonction verifCaptcha() dans différentes situations.
