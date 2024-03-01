@@ -523,7 +523,7 @@ function verifCaptcha($result_captcha)
     <td>25</td>
     <td>true</td>
   </tr>
-</table>
+</table> 
 
 Les tests ont été conçus pour garantir que la fonction verifCaptcha() réponde correctement dans les scénarios où le résultat du captcha est correct ainsi que dans les cas où il est incorrect. Chaque jeu de données de test est associé à un résultat attendu clairement défini, permettant ainsi de vérifier avec précision le bon fonctionnement de la fonction verifCaptcha() dans différentes situations.
 
