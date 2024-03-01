@@ -17,8 +17,8 @@
     * Connexion d'un utilisateur
     * Bilan
 4. [Seance réalisée en cours le 1 mars 2024](#Seance-réalisée-en-cours-le-1-mars-2024)
-    * Boîte noir
-    * Boîte blanche 
+    * Fonction crypto
+    * Fonction captcha
    
 
 
@@ -145,7 +145,9 @@ performance optimale.
 
 # Seance réalisée en cours le 1 mars 2024
 
-Cette séance sera réalisée sur la fonction initialize du module de crypto. Deux tests seront réalisés pour
+## Fonction crypto
+
+Cette partie sera réalisée sur la fonction initialize du module de crypto. Deux tests seront réalisés pour
 cette séance ; un en boîte noir et un autre en boîte blanche.
 
 ```php
@@ -386,6 +388,99 @@ Quelques données de tests concernant les
 * Les tests de chemins indépendants sont utiles pour détecter des erreurs spécifiques dans des parties spécifiques de la fonction, tandis que les tests de boite noire valident le fonctionnement global de la fonction dans différentes situations.
 
 
+## Fonction captcha
+
+Cette partie sera réalisée sur la fonction captcha du module de crypto. Deux tests seront réalisés pour
+cette séance ; un en boîte noir et un autre en boîte blanche.
+
+```php
+
+/**
+ * Fonction captcha.
+ * Cette fonction génère un captcha pour le formulaire d'inscription
+ * @return void
+ */
+function captchaForm()
+{
+    $nb1 = rand(1, 10);
+    $nb2 = rand(1, 20);
+
+    $_SESSION['nb1'] = $nb1;
+    $_SESSION['nb2'] = $nb2;
+
+    echo "<label for='captcha'>Captcha : " . $nb1 . " x " . $nb2 . " = ? (requis)</label>";
+    echo "<input id='captcha' type='number' name='captcha' placeholder='Résultat' required>";
+}
+
+/**
+ * Fonction captcha.
+ * Cette fonction verifie si le captcha généré par la fonction précédente est valide
+ * @return boolean
+ */
+
+function verifCaptcha($result_captcha)
+{
+    $nb1 = $_SESSION['nb1'];
+    $nb2 = $_SESSION['nb2'];
+    $result = $nb1 * $nb2;
+
+    if ($result == $result_captcha) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+```
+
+### Boite blanche (chemins indépendants)
 
 
+
+### Boite noire
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">Identification : Tests pour la fonction verifCaptcha</th>
+    </tr>
+    <tr>
+      <th colspan="3">Responsables : Tymchyshyn Ostap, Elkhalki Yassine, Husleag Aaron</th>
+      <th>Version : [Numéro de version]</th>
+    </tr>
+    <tr>
+      <th>Cas</th>
+      <th>Description</th>
+      <th>Données de Test</th>
+      <th>Sortie Attendue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Resultat correct</td>
+      <td>$result_captcha = $nb1 * $nb2</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Résultat incorrect</td>
+      <td>$result_captcha ≠ $nb1 * $nb2</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Resultat correct avec zero</td>
+      <td>$result_captcha = 0</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Résultat incorrect avec zero</td>
+      <td>$result_captcha ≠ 0</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
 
