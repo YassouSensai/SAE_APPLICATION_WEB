@@ -172,8 +172,84 @@ function initialize($cle) {
     return $sequence_cle;
 }
 ```
+### Boite blanche (chemins indépendants)
 
-### Boite noir
+### Graphe des chemins indépendants indépendants :
+
+### Chemins indépendants :
+- **2 chemins :**
+   - **P1 :** 1, 2, 3, 4
+   - **P2 :** 1, 2, 4
+
+<table>
+  <tr>
+    <th colspan="4">Identification de test : Tests pour le fichier crypto</th>
+  </tr>
+  <tr>
+    <td colspan="4">Description de test : Test de différentes valeurs incluses dans les ensembles différents ci-dessus pour chacun des cas possibles (également vu ci-dessus)</td>
+  </tr>
+  <tr>
+    <td colspan="4">Ressources requises : aucune</td>
+  </tr>
+  <tr>
+    <td colspan="4">Responsables : Tymchyshyn Ostap, Elkhalki Yassine, Husleag Aaron</td>
+  </tr>
+  <tr>
+    <th>Cas ou méthode testé</th>
+    <th>Acteurs</th>
+    <th>Action</th>
+    <th>Résultat attendu</th>
+  </tr>
+  <tr>
+    <td>initialize()</td>
+    <td>char chaine de caractères</td>
+    <td>renvoyer un clé générée à partir du paramètre donné</td>
+    <td>tableau généré à partir de la clé</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Classe</th>
+    <th>Ensemble de a</th>
+    <th>Valeur de sortie c</th>
+  </tr>
+  <tr>
+    <td >P1 clé est vide</td>
+    <td>Lorsque la clé est vide, le nombre d'éléments dans le tableau retourné doit être égal à 256.</td>
+    <td>tableau (0,1,2,3…255)</td>
+  </tr>
+  
+  <tr>
+    <td>P2 n’est pas vide</td>
+    <td>Lorsque la clé a une longueur de 256</td>
+    <td>Tableau généré en fonction de la clé</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Classe</th>
+    <th>Ensemble de a</th>
+    <th>Valeur de sortie c</th>
+  </tr>
+  <tr>
+    <td >P1 clé est vide</td>
+    <td>initialize() retourne [0, 1, 2, ..., 255]</td>
+    <td>Tableau de 256 éléments
+</td>
+  </tr>
+
+  <tr>
+    <td>P2 n’est pas vide</td>
+    <td>initialize('example_key')                                              [67, 153, 25, ..., x] (où 'example_key' est utilisée pour générer la séquence de clé)</td>
+    <td>Tableau de 256 éléments</td>
+  </tr>
+</table>
+
+Les tests ont été conçus pour s'assurer que la fonction réponde correctement tant aux scénarios où la clé est vide que lorsqu'elle est non vide. Chaque ensemble de données de test est accompagné d'un résultat attendu clairement défini, ce qui permettra de vérifier avec précision si la fonction `initialize()` fonctionne comme prévu dans diverses situations.
+
+### Boite noire
 
 <table>
   <thead>
