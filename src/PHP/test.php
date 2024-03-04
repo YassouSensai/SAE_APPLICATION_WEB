@@ -21,45 +21,44 @@
 <body>
 
 <?php
-// Chemin vers le fichier log de Fail2Ban
-$logFilePath = '/var/log/fail2ban.log';
+// Chemin vers le fichier de configuration de Fail2Ban
+$configFilePath = '/etc/fail2ban/jail.conf';
 
-// Lit le fichier log et stocke le contenu dans une variable
-$logContent = file_get_contents($logFilePath);
+// Lit le contenu du fichier de configuration
+$configContent = file_get_contents($configFilePath);
 
-// Divise le log en sections basées sur un motif spécifique (chaque démarrage de Fail2Ban)
-$sections = preg_split('/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} fail2ban.server\s+[\d+]: INFO\s+--------------------------------------------------/', $logContent);
+// Utilise une expression régulière pour trouver les adresses IP bannies et leur temps restant
+preg_match_all('/^banned = (\S+) \d+; time *= *(\d+)/m', $configContent, $matches);
 
-// Détermine la section actuelle à afficher
-$currentSection = isset($_GET['section']) ? intval($_GET['section']) : 0;
-$currentSection = max(0, min($currentSection, count($sections) - 1));
+// Stocke les adresses IP bannies et leur temps restant dans des tableaux associatifs
+$bannedIPs = $matches[1];
+$remainingTime = $matches[2];
 
-// Affiche la section actuelle du log dans un tableau HTML
-$lines = explode("\n", $sections[$currentSection]);
-
+// Affiche les adresses IP bannies dans un tableau avec la date, l'heure et le temps restant
+echo "<h2>Adresses IP Bannies :</h2>";
 echo "<table>";
-echo "<tr><th>Date et Heure</th><th>Processus</th><th>Action</th><th>IP/Info</th></tr>";
+echo "<tr><th>Date</th><th>Heure</th><th>Adresse IP</th><th>Temps Restant (en secondes)</th></tr>";
 
-foreach ($lines as $line) {
-    if (preg_match('/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}) (fail2ban\.[\w+]+\s+\[[\d+]\]): (\w+)\s+\[(\w+)\] (.+)/', $line, $matches)) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($matches[1]) . "</td>";
-        echo "<td>" . htmlspecialchars($matches[2]) . "</td>";
-        echo "<td>" . htmlspecialchars($matches[3]) . "</td>";
-        echo "<td>" . htmlspecialchars($matches[5]) . "</td>";
-        echo "</tr>";
-    }
+for ($i = 0; $i < count($bannedIPs); $i++) {
+    // Récupère la date et l'heure actuelles
+    $currentDateTime = date('Y-m-d H:i:s');
+
+    // Calcule la date et l'heure où l'adresse IP a été bannie
+    $bannedDateTime = strtotime($currentDateTime) - intval($remainingTime[$i]);
+
+    echo "<tr>";
+    // Affiche la date et l'heure de la bannissement
+    echo "<td>" . date('Y-m-d', $bannedDateTime) . "</td>";
+    echo "<td>" . date('H:i:s', $bannedDateTime) . "</td>";
+    // Affiche l'adresse IP bannie
+    echo "<td>" . htmlspecialchars($bannedIPs[$i]) . "</td>";
+    // Affiche le temps restant (en secondes)
+    echo "<td>" . htmlspecialchars($remainingTime[$i]) . "</td>";
+    echo "</tr>";
 }
 
 echo "</table>";
 
-// Boutons de navigation
-if ($currentSection > 0) {
-    echo '<a href="?section=' . ($currentSection - 1) . '">Section Précédente</a> | ';
-}
-if ($currentSection < count($sections) - 1) {
-    echo '<a href="?section=' . ($currentSection + 1) . '">Section Suivante</a>';
-}
 ?>
 
 </body>
