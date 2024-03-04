@@ -20,7 +20,7 @@ function tableau_profil($username, $table_user) {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
-    if ($table_user == 'Utilisateur') {
+    if ($table_user == 'utilisateur') {
         echo "<table id='table-utilisateur'>
             <thead>
                 <tr>
@@ -234,6 +234,7 @@ function afficherTicketsUtilisateurs($username, $table_user) {
                     <th>Salle</th>
                     <th>Statut</th>
                     <th>Niveau d'urgence</th>
+                    <th>Supprimer</th>
                 </tr>
             </thead>
             <tbody>";

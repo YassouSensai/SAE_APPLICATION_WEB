@@ -11,6 +11,6 @@ if (isset($_SESSION['utilisateur'])) {
     session_destroy();
 }
 
-header('Location: ../index.php');
+header('Location: connexion.php?deco');
 exit();
 ?>

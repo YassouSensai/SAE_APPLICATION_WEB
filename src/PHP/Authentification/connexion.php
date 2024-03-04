@@ -78,6 +78,8 @@ if (isset($_GET['err'])){
     echo "<p id='error-message' style='color: red'>Impossible de vous connecter. Veuillez réessayer !</p>";
 } elseif (isset($_GET['reussite'])) {
     echo "<p id='success' style='color: green'>Inscription réalisée avec succès !</p>";
+} elseif (isset($_GET['deco'])) {
+    echo "<p id='success' style='color: green'>Vous vous êtes déconnecté avec succès !</p>";
 }
 ?>
 <?php

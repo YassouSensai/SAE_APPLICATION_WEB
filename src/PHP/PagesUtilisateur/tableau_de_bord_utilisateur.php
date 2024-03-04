@@ -144,12 +144,24 @@ include("../Autres/fonctions_administrateur_systeme.php");
                 echo "<h2>Journal des connexions :</h2>";
                 echo "<br>";
                 echo "<br>";
-                afficherActivitesParType(1);
+                // Ajout de la pagination pour le journal des connexions
+                if(isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                afficherActivitesParType(1, $page);
             } elseif ($journal == 'tickets') {
                 echo "<h2>Journal des tickets :</h2>";
                 echo "<br>";
                 echo "<br>";
-                afficherActivitesParType(0);
+                // Ajout de la pagination pour le journal des tickets
+                if(isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                afficherActivitesParType(0, $page);
             }
 
         }
