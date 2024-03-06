@@ -70,24 +70,14 @@ function afficherActivitesParType($type, $page = 1) {
  * Cette fonction permet d'afficher un formulaire pour télécharger un journal d'activité au fomat CSV
  * @param $type_journal : le type de journal d'activité à télécharger
  */
-
-
-
-/*
-function afficherFormulaireTelechargementJournal($type_journal)
-{
-    echo '<br><br>';
-    echo '<form action="traitements_csv/telecharger_journal_app.php" method="POST">
-            <input type="hidden" name="type_journal" value="'.$type_journal.'"> <!--  Ajoutez le type de journal ici -->
-            <label for="nom_fichier">Nom du fichier :</label>
-            <input type="text" id="nom_fichier" name="nom_fichier" required>
-            <br>
-            <label for="repertoire">Répertoire de téléchargement :</label>
-            <input type="file" id="repertoire" name="repertoire" webkitdirectory directory required>
-            <input type="text" id="repertoire-text" name="repertoire-text" readonly>
-            <br>
-            <button type="submit" name="telecharger">Télécharger au format CSV</button>
-          </form> ';
+function afficherBoutonTelechargementJournalAppCSV($type) {
+    echo '<form action="traitements_csv/telecharger_journal_app.php" method="POST">';
+    echo '<input id="type_journal" type="hidden" name="type_journal" value="' . $type . '">';
+    echo '<button type="submit" name="telecharger_csv">Télécharger le journal d\'activité au format CSV</button>';
+    echo '<br>';
+    echo '<label for="repertoire">Répertoire de téléchargement :</label>';
+    echo '<input type="file" id="repertoire" name="repertoire" webkitdirectory directory required>';
+    echo '<input type="hidden" id="chemin_selectionne" name="repertoire" required>';
+    echo '<br>';
+    echo '</form>';
 }
-
-*/

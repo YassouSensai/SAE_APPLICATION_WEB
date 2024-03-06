@@ -29,6 +29,15 @@ include("../Autres/fonctions_administrateur_systeme.php");
         }
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('repertoire').addEventListener('change', function(e) {
+                var chemin = e.target.value;
+                document.getElementById('chemin_selectionne').value = chemin;
+            });
+        });
+    </script>
+
 
     <meta charset="utf-8">
     <meta name="description" content="Cette page permet aux personnes connecté de visionner leur tableau de bord">
@@ -151,7 +160,9 @@ include("../Autres/fonctions_administrateur_systeme.php");
                     $page = 1;
                 }
                 afficherActivitesParType(1, $page);
-                afficherFormulaireTelechargementJournal(1);
+                echo "<br>";
+                echo "<br>";
+                afficherBoutonTelechargementJournalAppCSV(1);
             } elseif ($journal == 'tickets') {
                 echo "<h2>Journal des tickets :</h2>";
                 echo "<br>";
@@ -163,9 +174,10 @@ include("../Autres/fonctions_administrateur_systeme.php");
                     $page = 1;
                 }
                 afficherActivitesParType(0, $page);
-                afficherFormulaireTelechargementJournal(0);
+                echo "<br>";
+                echo "<br>";
+                afficherBoutonTelechargementJournalAppCSV(0);
             }
-
 
         }
 
