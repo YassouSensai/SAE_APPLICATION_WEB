@@ -22,7 +22,7 @@
 
 <?php
 // Chemin vers le fichier de configuration de Fail2Ban
-$configFilePath = '/etc/fail2ban/jail.conf';
+$configFilePath = '../../../../etc/fail2ban/jail.conf';
 
 // Lit le contenu du fichier de configuration
 $configContent = file_get_contents($configFilePath);
