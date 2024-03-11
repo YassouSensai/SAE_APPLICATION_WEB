@@ -23,9 +23,12 @@
 <?php
 // Chemin vers le fichier de configuration de Fail2Ban
 $configFilePath = '../../../../etc/fail2ban/jail.conf';
+
 echo($configFilePath);
+
 // Lit le contenu du fichier de configuration
 $configContent = file_get_contents($configFilePath);
+echo($configContent);
 
 // Utilise une expression régulière pour trouver les adresses IP bannies et leur temps restant
 preg_match_all('/^banned = (\S+) \d+; time *= *(\d+)/m', $configContent, $matches);
