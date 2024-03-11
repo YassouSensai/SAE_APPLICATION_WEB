@@ -22,24 +22,19 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['user
         $_SESSION['utilisateur'] = $username;
         $_SESSION['table_user'] = $table_user;
 
+        logActivity($username, 1, "L'utilisateur $username s'est connecté avec succés.");
         header('Location: ../PagesUtilisateur/utilisateur.php');
         exit();
 
     } else {
-        addToCSV($username,$password);
-        logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter.");
-        mysqli_close($connexion);
-
+        //ajout_csv($username,$password);
+        logActivity($username, 1, "L'utilisateur $username n'a pas pu se connecter pour une raison inconnu.");
         header('Location: connexion.php?err');
         exit();
     }
-
 } else {
-
-
+    logActivity("FORM-ERROR", 1, "Le formulaire de connexion a été envoyé avec des champs non complété.");
     header('Location: connexion.php?err');
     exit();
 }
-
-
-
+?>

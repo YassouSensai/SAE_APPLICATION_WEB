@@ -8,6 +8,7 @@
  * - La fonction afficherFormulaireSuppressionTicket() qui affiche un formulaire pour supprimer un ticket
  * */
 
+include("fonctions_generales.php");
 
 // ####################################################################################################################
 // ####################################################################################################################
@@ -20,9 +21,9 @@ function afficherTicketsAvecDetails() {
     $connexion = connectDB();
 
     $query = "SELECT t.date_crea_tic, t.objet, u.identifiant AS createur, t.desc_pb_tic, t.adresse_ip, n.libelle_nv_urgence
-              FROM Ticket t
-              JOIN Utilisateur u ON t.createur_tic = u.identifiant
-              JOIN NiveauUrgence n ON t.nv_urgence_tic = n.id_nv_urgence
+              FROM ticket t
+              JOIN utilisateur u ON t.createur_tic = u.identifiant
+              JOIN niveauurgence n ON t.nv_urgence_tic = n.id_nv_urgence
               ORDER BY t.date_crea_tic DESC";
 
     $resultat = prepareAndExecute($connexion, $query);
@@ -68,13 +69,13 @@ function afficherUtilisateurs() {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
-    $query = "SELECT identifiant FROM Utilisateur";
+    $query = "SELECT identifiant FROM utilisateur";
     $resultatUtilisateur = prepareAndExecute($connexion, $query);
 
-    $query = "SELECT identifiant FROM Technicien";
+    $query = "SELECT identifiant FROM technicien";
     $resultatTechnicien = prepareAndExecute($connexion, $query);
 
-    $query = "SELECT identifiant FROM AdminSysteme";
+    $query = "SELECT identifiant FROM adminsysteme";
     $resultatAdminSysteme = prepareAndExecute($connexion, $query);
 
     echo "<table>
@@ -128,8 +129,7 @@ function afficherFormulaireInscriptionTechnicien() {
     echo "<label for='identifiant'>Identifiant :</label>";
     echo "<input type='text' id='identifiant' name='identifiant' placeholder='Identifiant du technicien' required>";
 
-
-    oeilMdp('mdp', 'mdp', 'Mot de passe du technicien');
+    oeilMdp('mdp', 'mdp', 'mdp','Mot de passe du technicien');
 
     echo "<label for='nom_tech'>Nom du technicien :</label>";
     echo "<input type='text' id='nom_tech' name='nom_tech' placeholder='Nom du technicien' required>";
@@ -154,13 +154,13 @@ function afficherFormulaireAttributionTicket() {
     $connexion = connectDB();
 
     // Sélectionner les tickets non attribués
-    $queryTickets = "SELECT id_tic, objet, date_crea_tic FROM Ticket WHERE tech_charge_tic IS NULL ORDER BY date_crea_tic DESC";
+    $queryTickets = "SELECT id_tic, objet, date_crea_tic FROM ticket WHERE tech_charge_tic IS NULL ORDER BY date_crea_tic DESC";
     $resultatTickets = prepareAndExecute($connexion, $queryTickets);
 
     // Sélectionner les techniciens avec le nombre de tickets actuels
     $queryTechniciens = "SELECT t.identifiant, COUNT(t2.id_tic) AS nb_tickets
-                         FROM Technicien t
-                         LEFT JOIN Ticket t2 ON t.identifiant = t2.tech_charge_tic
+                         FROM technicien t
+                         LEFT JOIN ticket t2 ON t.identifiant = t2.tech_charge_tic
                          GROUP BY t.identifiant";
     $resultatTechniciens = prepareAndExecute($connexion, $queryTechniciens);
 
@@ -208,7 +208,7 @@ function afficherFormulaireSuppressionTicket() {
     $connexion = connectDB();
 
     // Sélectionner tous les tickets
-    $queryTickets = "SELECT id_tic, objet, date_crea_tic FROM Ticket ORDER BY date_crea_tic DESC";
+    $queryTickets = "SELECT id_tic, objet, date_crea_tic FROM ticket ORDER BY date_crea_tic DESC";
     $resultatTickets = prepareAndExecute($connexion, $queryTickets);
 
     echo "<form action='Traitement_BD/traitement_suppression_ticket.php' method='post'>";

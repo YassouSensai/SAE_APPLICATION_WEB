@@ -12,6 +12,33 @@ include("../Autres/fonctions_administrateur_systeme.php");
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
     <title>Tableau de bord</title>
     <script src="../../JS/messages.js"></script>
+    <script>
+        function supprimerTicket(ticketId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce ticket ?')) {
+                var form = document.createElement('form');
+                document.body.appendChild(form);
+                form.method = 'post';
+                form.action = '../PagesUtilisateur/Traitement_BD/traitement_suppression_ticket.php';
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'ticket_supprimer';
+                input.value = ticketId;
+                form.appendChild(input);
+                form.submit();
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('repertoire').addEventListener('change', function(e) {
+                var chemin = e.target.value;
+                document.getElementById('chemin_selectionne').value = chemin;
+            });
+        });
+    </script>
+
+
     <meta charset="utf-8">
     <meta name="description" content="Cette page permet aux personnes connecté de visionner leur tableau de bord">
     <meta name="keywords" content="tableau">
@@ -52,10 +79,10 @@ include("../Autres/fonctions_administrateur_systeme.php");
     <table style="margin: 0 auto; border-collapse: collapse;">
         <tr>
             <td style="border: none; text-align: center;">
-                <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50'></a>
+                <a href='../PagesUtilisateur/utilisateur.php'><img src='../../images/fleche-de-reference.svg' width='50' height='50' alt="revenir en arrière"></a>
             </td>
             <td style="border: none; text-align: center;">
-                <a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50'></a>
+                <a href='../Authentification/deconnexion.php'><img src='../../images/out.svg' width='50' height='50' alt="se déconnecter"></a>
             </td>
         </tr>
     </table>
@@ -67,7 +94,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
 
     <?php
-    if ($table_user == 'Utilisateur'){
+    if ($table_user == 'utilisateur'){
         echo "<div id='vos-tickets-utilisateurs'>";
 
         echo "<h2>Vos tickets :</h2>";
@@ -77,7 +104,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == 'Technicien') {
+    } elseif ($table_user == 'technicien') {
         echo "<div id='vos-tickets-techniciens'>";
 
         echo "<h2>Vos tickets pris en charge :</h2>";
@@ -108,7 +135,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
         echo "</div>";
 
-    } elseif ($table_user == "AdminSysteme") {
+    } elseif ($table_user == "adminsysteme") {
         echo "<div id='journal'>";
 
         echo "<ul class='button-list'>";
@@ -126,19 +153,37 @@ include("../Autres/fonctions_administrateur_systeme.php");
                 echo "<h2>Journal des connexions :</h2>";
                 echo "<br>";
                 echo "<br>";
-                afficherActivitesParType(1);
+                // Ajout de la pagination pour le journal des connexions
+                if(isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                afficherActivitesParType(1, $page);
+                echo "<br>";
+                echo "<br>";
+                afficherBoutonTelechargementJournalAppCSV(1);
             } elseif ($journal == 'tickets') {
                 echo "<h2>Journal des tickets :</h2>";
                 echo "<br>";
                 echo "<br>";
-                afficherActivitesParType(0);
+                // Ajout de la pagination pour le journal des tickets
+                if(isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                afficherActivitesParType(0, $page);
+                echo "<br>";
+                echo "<br>";
+                afficherBoutonTelechargementJournalAppCSV(0);
             }
 
         }
 
         echo "</div>";
 
-    } elseif ($table_user == 'AdminWeb') {
+    } elseif ($table_user == 'adminweb') {
 
         if (isset($_GET['liste'])) {
             $_SESSION['liste'] = $_GET['liste'];

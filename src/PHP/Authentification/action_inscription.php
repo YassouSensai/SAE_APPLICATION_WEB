@@ -36,19 +36,23 @@ if (isset($_SESSION['nb1']) && isset($_SESSION['nb2'])) {
                 $resultat = prepareAndExecute($connexion, $query, $params);
 
                 if (!$resultat) {
+                    logActivity($username, 1, "L'utilisateur $username vient de créer son compte.");
                     header('Location: connexion.php?reussite');
                     exit;
                 } else {
+                    logActivity($username, 1, "L'utilisateur $username n'a pas réussi à créer son compte.");
                     header('Location: inscription.php?err=err_inscription');
                     exit;
                 }
             }
             mysqli_close($connexion);
         } else {
+            logActivity($username, 1, "L'utilisateur $username n'a pas réussi à créer son compte en raison d'un captcha invalide ou d'un mot de passe diférent de l'autre.");
             header('Location: inscription.php?err=err_inscription');
             exit;
         }
     } else {
+        logActivity("FORM-ERROR", 1, "Le formulaire d'inscription a été envoyé avec des champs vides.");
         header('Location: inscription.php?err=err_inscription');
         exit;
     }
