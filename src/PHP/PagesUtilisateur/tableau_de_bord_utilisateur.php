@@ -161,9 +161,6 @@ include("../Autres/fonctions_administrateur_systeme.php");
                     $page = 1;
                 }
                 afficherActivitesParType(1, $page);
-                echo "<br>";
-                echo "<br>";
-                afficherBoutonTelechargementJournalAppCSV(1);
             } elseif ($journal == 'tickets') {
                 echo "<h2>Journal des tickets :</h2>";
                 echo "<br>";
@@ -175,9 +172,6 @@ include("../Autres/fonctions_administrateur_systeme.php");
                     $page = 1;
                 }
                 afficherActivitesParType(0, $page);
-                echo "<br>";
-                echo "<br>";
-                afficherBoutonTelechargementJournalAppCSV(0);
             }
 
         }

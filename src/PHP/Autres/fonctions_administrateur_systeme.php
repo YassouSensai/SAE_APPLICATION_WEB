@@ -7,7 +7,12 @@
 // ####################################################################################################################
 // ####################################################################################################################
 
-/* Cette fonction permet d'afficher un journal d'activité de connexion si $type vaut 0 et de tickets si $type vaut 1 */
+/**
+ * Cette fonction permet d'afficher un journal d'activité de connexion si $type vaut 0 et de tickets si $type vaut 1
+ * Elle affiche également un formulaire pour télécharger le journal d'activité au format CSV
+ * @param $type : le type de journal d'activité à afficher et à télécharger
+ * @param $page : le numéro de la page du journal d'activité à afficher
+ */
 function afficherActivitesParType($type, $page = 1) {
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
@@ -62,22 +67,16 @@ function afficherActivitesParType($type, $page = 1) {
         echo "</div>";
     }
 
-    mysqli_close($connexion);
-}
+    echo '<br>';
+    echo '<br>';
 
-
-/**
- * Cette fonction permet d'afficher un formulaire pour télécharger un journal d'activité au fomat CSV
- * @param $type_journal : le type de journal d'activité à télécharger
- */
-function afficherBoutonTelechargementJournalAppCSV($type) {
+    // Afficher le formulaire de téléchargement CSV
     echo '<form action="traitements_csv/telecharger_journal_app.php" method="POST">';
     echo '<input id="type_journal" type="hidden" name="type_journal" value="' . $type . '">';
     echo '<button type="submit" name="telecharger_csv">Télécharger le journal d\'activité au format CSV</button>';
     echo '<br>';
-    echo '<label for="repertoire">Répertoire de téléchargement :</label>';
-    echo '<input type="file" id="repertoire" name="repertoire" webkitdirectory directory required>';
-    echo '<input type="hidden" id="chemin_selectionne" name="repertoire" required>';
-    echo '<br>';
     echo '</form>';
+
+    mysqli_close($connexion);
 }
+?>
