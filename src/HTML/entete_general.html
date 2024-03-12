@@ -2,10 +2,11 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../CSS/css_site_statique.css">
-    <title>Entete</title>
+    <link rel="icon" href="../images/logo1noirtrans.webp">
+    <title>Work Wise</title>
     <meta charset="utf-8">
-    <meta name="description" content="la description du site">
-    <meta name="keywords" content="mots-clés 1 mots-clés 2">
+    <meta name="description" content="Pages du site statique">
+    <meta name="keywords" content="site statique work wise">
     <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
     <script src="../JS/script-entete-generale-animation.js"></script>
     <style>
@@ -37,7 +38,97 @@
             backdrop-filter: blur(10px); /* Ajustez la valeur selon vos préférences */
             background-size: cover;
         }
+
+        .logo-trans {
+            position: relative;
+        }
+
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: transform 0.8s ease-in-out, visibility 0s 0.3s;
+        }
+
+        .logo-trans:hover .logo-overlay {
+            transform: translateX(0);
+            visibility: visible;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .logo-trans img {
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .logo-trans img.move-right {
+            transform: translateX(10px);
+        }
+
+        body, h1, p, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            margin: 5em;
+            text-align: center;
+            color: white;
+        }
+
+        .wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top : 8em;
+            margin-bottom : 8em;
+        }
+
+        .member {
+            background-color: transparent;
+            border: 3px solid #ffcdb2;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 25px; /* Ajustement de l'espace entre les membres */
+        }
+
+        .member img {
+            width: 100%;
+            border-radius: 50%;
+            max-width: 150px;
+            border: 2px solid #ffcdb2;
+        }
+
+        .member-info p {
+            margin: 10px 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
     </style>
+
+    <script>
+        function moveRightOnHover(element) {
+            const logoOverlay = element.nextElementSibling;
+            logoOverlay.classList.add("move-right");
+            logoOverlay.style.visibility = "visible";
+        }
+
+        function resetPosition(element) {
+            const logoOverlay = element.nextElementSibling;
+            logoOverlay.classList.remove("move-right");
+            logoOverlay.style.visibility = "visible";
+            logoOverlay.style.transform = "translateX(0)";
+        }
+    </script>
+
 </head>
 <body>
 <section class="header-image">
@@ -94,5 +185,4 @@
         <h1> Work Wise : votre source de billets pour les équipements de l'IUT</h1>
     </div>
 </section>
-</body>
-</html>
+

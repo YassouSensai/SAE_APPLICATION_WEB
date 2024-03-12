@@ -1,59 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <link rel="stylesheet" href="../CSS/css_site_statique.css">
-    <title>Charte Graphique</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Description de la charte graphique de la plateforme de ticketing de l'IUT Vélizy.">
-    <meta name="keywords" content="charte graphique, palette de couleurs, typographie, formes, accessibilité">
-    <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
-    <style>
-        .logo-trans {
-            position: relative;
-        }
-
-        .logo-overlay {
-            position: absolute;
-            top: 0;
-            left: 100%;
-            visibility: hidden;
-            transform: translateX(100%);
-            transition: transform 0.8s ease-in-out, visibility 0s 0.3s;
-        }
-
-        .logo-trans:hover .logo-overlay {
-            transform: translateX(0);
-            visibility: visible;
-            transition: transform 0.8s ease-in-out;
-        }
-
-        .logo-trans img {
-            transition: transform 0.8s ease-in-out;
-        }
-
-        .logo-trans img.move-right {
-            transform: translateX(10px);
-        }
-    </style>
-    <script>
-        function moveRightOnHover(element) {
-            const logoOverlay = element.nextElementSibling;
-            logoOverlay.classList.add("move-right");
-            logoOverlay.style.visibility = "visible";
-        }
-
-        function resetPosition(element) {
-            const logoOverlay = element.nextElementSibling;
-            logoOverlay.classList.remove("move-right");
-            logoOverlay.style.visibility = "visible";
-            logoOverlay.style.transform = "translateX(0)";
-        }
-    </script>
-</head>
-<body>
 <?php
 include('../HTML/entete_general.html');
 ?>
+
+
+
 <section>
     <div class="Toute-la-page">
         <div class="bas-page">

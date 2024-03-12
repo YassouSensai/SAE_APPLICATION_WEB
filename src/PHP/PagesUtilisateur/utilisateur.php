@@ -11,7 +11,8 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
 <head>
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
-    <title>Utilisateur</title>
+    <link rel="icon" href="../../images/logo1noirtrans.webp">
+    <title>Votre compte utilisateur</title>
     <script src="../../JS/messages.js"></script>
     <meta charset="utf-8">
     <meta name="description" content="la description du site">

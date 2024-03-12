@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="../CSS/css_site_statique.css">
-    <title>Mentions Légales</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Les mentions légales contiennent des informations que tout site web ou service en ligne doit fournir pour se conformer à la réglementation en vigueur">
-    <meta name="keywords" content="mentions légales">
-    <meta name="author" content="TYMCHYSHYN Ostap, Elkhalki Yassine, Husleag Aaron">
-</head>
-<body>
 <?php
 include('../HTML/entete_general.html');
 ?>

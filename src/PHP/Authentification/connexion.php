@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../../CSS/css_site_statique.css">
-    <title>Connexion</title>
+    <link rel="icon" href="../../images/logo1noirtrans.webp">
+    <title>Connexion : Work Wise</title>
     <script src="../../JS/messages.js"></script>
     <meta charset="UTF-8">
     <meta name="description" content="La description du site">

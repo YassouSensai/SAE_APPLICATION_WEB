@@ -9,8 +9,9 @@ include("../Autres/fonctions_administrateur_systeme.php");
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" href="../../images/logo1noirtrans.webp">
     <link rel="stylesheet" href="../../CSS/css_site_dynamique.css">
-    <title>Tableau de bord</title>
+    <title>Votre tableau de bord</title>
     <script src="../../JS/messages.js"></script>
     <script>
         function supprimerTicket(ticketId) {

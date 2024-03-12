@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../../CSS/css_site_statique.css">
-    <title>Inscription</title>
+    <link rel="icon" href="../../images/logo1noirtrans.webp">
+    <title>Inscription : Work Wise</title>
     <script src="../../JS/messages.js"></script>
     <meta charset="UTF-8">
     <meta name="description" content="La description du site">
