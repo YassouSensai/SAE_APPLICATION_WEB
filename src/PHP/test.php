@@ -58,6 +58,17 @@ $lines = explode("\n", $content);
     ?>
 </table>
 
+<?php
+$file = '/var/log/apache2/access.log';
+$content = file_get_contents($file);
+if ($content === false) {
+    echo "Impossible de lire le fichier";
+} else {
+    echo "<pre>$content</pre>";
+}
+?>
+
+
 </body>
 </html>
 
