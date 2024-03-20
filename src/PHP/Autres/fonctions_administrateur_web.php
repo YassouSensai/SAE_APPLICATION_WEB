@@ -14,7 +14,9 @@ include("fonctions_generales.php");
 // ####################################################################################################################
 // ####################################################################################################################
 
-/* Cette fonction affiche absolument tous les tickets avec toutes les informations necessaires pour l'administrateur web*/
+/**
+ * Cette fonction permet d'afficher tous les tickets avec les détails nécessaires pour l'administrateur web
+ */
 function afficherTicketsAvecDetails() {
 
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
@@ -63,7 +65,9 @@ function afficherTicketsAvecDetails() {
 // ####################################################################################################################
 // ####################################################################################################################
 
-/* Cette fonction permet d'afficher tous les utilisateurs, techniciens et administrateurs syteme pour l'administrateur web */
+/**
+ * Cette fonction permet d'afficher tous les utilisateurs avec leur type d'utilisateur
+ */
 function afficherUtilisateurs() {
 
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
