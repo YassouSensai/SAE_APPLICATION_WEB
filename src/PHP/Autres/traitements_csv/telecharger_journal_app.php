@@ -56,10 +56,10 @@ if (isset($_POST['type_journal']) && isset($_POST['choix_journal'])) {
         fclose($tempCsvFile);
 
         mysqli_close($connexion);
-        header('Location: ../../PagesUtilisateur/tableau_de_bord_utilisateur.php?journal=connexion&csv=success');
+        exit();
     } else {
         mysqli_close($connexion);
-        header('Location: ../../PagesUtilisateur/tableau_de_bord_utilisateur.php?journal=connexion&csv=error');
+        echo "Erreur lors de la création du fichier CSV temporaire. Désolé pour la gène occasionnée. Veuillez reveni en arrière et réessayer !";
     }
 }
 
