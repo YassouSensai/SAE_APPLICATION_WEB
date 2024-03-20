@@ -76,14 +76,14 @@ function afficherActivitesParType($type, $page = 1) {
     echo '<label for="choix_journal">Choisir le type de journal à télécharger :</label>';
     if ($type == 1) {
         echo '<select name="choix_journal" id="choix_journal">';
-        echo '<option value="connexion">Journal des Connexions</option>';
-        echo '<option value="deconnexion">Journal des Déconnexions</option>';
+        echo '<option value="connecté">Journal des Connexions</option>';
+        echo '<option value="déconnecté">Journal des Déconnexions</option>';
         echo '</select>';
     } else {
         echo '<select name="choix_journal" id="choix_journal">';
-        echo '<option value="connexion">Journal des Créations</option>';
-        echo '<option value="deconnexion">Journal des Suppressions</option>';
-        echo '<option value="deconnexion">Journal des Attributions</option>';
+        echo '<option value="créé">Journal des Créations</option>';
+        echo '<option value="supprimé">Journal des Suppressions</option>';
+        echo '<option value="attribué">Journal des Attributions</option>';
         echo '</select>';
     }
     echo '<br>';

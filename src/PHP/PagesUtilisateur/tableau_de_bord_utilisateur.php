@@ -307,6 +307,14 @@ include("../Autres/fonctions_administrateur_systeme.php");
            echo "<p id='error-message' style='color: red'>Ce technicien existe déjà ! Veuillez mettre un autre identifiant.</p>";
        }
    }
+   elseif (isset($_GET['csv'])) {
+       $csv = $_GET['csv'];
+       if ($csv == 'success') {
+           echo "<p id='success' style='color: green'>Le journal a bien été téléchargé au format csv !</p>";
+       } elseif ($csv == 'error') {
+           echo "<p id='error-message' style='color: red'>Le journal n'a pas pu être téléchargé au format csv !</p>";
+       }
+   }
    ?>
 </section>
 
