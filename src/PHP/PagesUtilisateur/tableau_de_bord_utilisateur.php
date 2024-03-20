@@ -142,6 +142,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
         echo "<ul class='button-list'>";
         echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=connexion'\">Journal des connexions</button></li>";
         echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=tickets'\">Journal des tickets</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=rpi'\">Journal du RPI</button></li>";
         echo "</ul>";
 
         echo "<br>";
@@ -172,6 +173,11 @@ include("../Autres/fonctions_administrateur_systeme.php");
                     $page = 1;
                 }
                 afficherActivitesParType(0, $page);
+            } elseif ($journal == 'rpi') {
+                echo "<h2>Journal du RPI :</h2>";
+                echo "<br>";
+                echo "<br>";
+                echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
             }
 
         }
