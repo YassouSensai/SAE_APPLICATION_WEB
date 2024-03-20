@@ -1,26 +1,42 @@
 <?php
-include("../fonctions_generales.php");
-if (isset($_POST["telecharger_csv"], $_POST['type_journal'])) {
-    $type = $_POST['type_journal'];
-    $connexion = connectDB();
 
-    $csvContent = '';
-    $csvContent .= "Date d'activité,Adresse IP,Utilisateur,Description\n";
-    $query_csv = "SELECT date_activite, adresse_ip, id_utilisateur, description_activite FROM journalactivite WHERE type_activite = ?";
-    $resultat_csv = prepareAndExecute($connexion, $query_csv, ["i", $type]);
-    while ($row_csv = mysqli_fetch_assoc($resultat_csv)) {
-        $csvContent .= '"' . $row_csv['date_activite'] . '","' . $row_csv['adresse_ip'] . '","' . $row_csv['id_utilisateur'] . '","' . $row_csv['description_activite'] . "\"\n";
+// Données à inclure dans le fichier CSV
+$data = array(
+    array('Nom', 'Âge', 'Email'),
+    array('John Doe', 30, 'john@example.com'),
+    array('Jane Smith', 25, 'jane@example.com'),
+    array('Bob Johnson', 35, 'bob@example.com')
+);
+
+// Nom du fichier CSV à télécharger
+$csvFileName = 'fichier.csv';
+
+// Ouvrir un flux temporaire en écriture
+$tempCsvFile = fopen('php://temp', 'w+');
+
+// Vérifier si le flux temporaire est ouvert avec succès
+if ($tempCsvFile !== false) {
+    // Écrire les données dans le fichier CSV temporaire
+    foreach ($data as $row) {
+        fputcsv($tempCsvFile, $row);
     }
 
-    // Télécharger le fichier CSV
-    $filename = 'journal_activite.csv';
-    header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-    echo $csvContent;
+    // Positionner le curseur du flux au début du fichier
+    rewind($tempCsvFile);
 
-    // Rediriger vers le tableau de bord
-    mysqli_close($connexion);
-    echo "<script>window.location.href='./tableau_de_bord_utilisateur.php';</script>";
-    exit();
+    // Configurer les en-têtes HTTP pour forcer le téléchargement
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="' . $csvFileName . '"');
+
+    // Transférer le contenu du fichier temporaire vers la sortie standard (navigateur)
+    fpassthru($tempCsvFile);
+
+    // Fermer le flux temporaire
+    fclose($tempCsvFile);
+
+    // Arrêter l'exécution du script après le téléchargement
+    exit;
+} else {
+    echo "Impossible de créer le fichier CSV temporaire.";
 }
 ?>

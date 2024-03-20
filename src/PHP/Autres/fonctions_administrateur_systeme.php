@@ -71,8 +71,7 @@ function afficherActivitesParType($type, $page = 1) {
     echo '<br>';
 
     // Afficher le formulaire de téléchargement CSV
-    echo '<form action="traitements_csv/telecharger_journal_app.php" method="POST">';
-    echo '<input id="type_journal" type="hidden" name="type_journal" value="' . $type . '">';
+    echo '<form action="../Autres/traitements_csv/telecharger_journal_app.php" method="post">';
     echo '<button type="submit" name="telecharger_csv">Télécharger le journal d\'activité au format CSV</button>';
     echo '<br>';
     echo '</form>';
