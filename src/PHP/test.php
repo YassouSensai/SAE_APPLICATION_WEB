@@ -1,13 +1,12 @@
 <?php
-$fail2ban = '/var/log/fail2ban.log';
-$content = file_get_contents($fail2ban);
-$lines = explode("\n", $content);
+$fail2banLogPath = '/var/log/fail2ban.log';
+$lines = file($fail2banLogPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Log Fail2Ban</title>
+    <title>Fail2Ban Log - Bans and Restores</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,26 +34,24 @@ $lines = explode("\n", $content);
 </head>
 <body>
 
-<h2>Fail2Ban Log - Banned IPs</h2>
+<h2>Fail2Ban Log - Bans and Restores</h2>
 <table>
     <tr>
-        <th>Date et Heure</th>
-        <th>IP Bannie</th>
+        <th>Date and Time</th>
+        <th>Action</th>
+        <th>IP Address</th>
     </tr>
     <?php
     foreach ($lines as $line) {
-        // Filtrer pour trouver uniquement les lignes avec une action de bannissement
-        if (preg_match('/\bNOTICE\s+[sshd]\s+Ban\s+(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})\b/', $line, $matches)) {
-            // Capturer la date, l'heure et l'IP bannie
+        if (preg_match('/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}),\d+\s+fail2ban.actions\s+[\d+]:\s+NOTICE\s+[sshd]\s+(Ban|Restore Ban)\s+(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})/', $line, $matches)) {
             echo "<tr>";
-            echo "<td>".substr($matches[0], 0, 19)."</td>"; // Affiche la date et l'heure
-            echo "<td>".$matches[1]."</td>"; // Affiche l'IP bannie
+            echo "<td>" . htmlspecialchars($matches[1]) . "</td>"; // Date and Time
+            echo "<td>" . htmlspecialchars($matches[2]) . "</td>"; // Action
+            echo "<td>" . htmlspecialchars($matches[3]) . "</td>"; // IP Address
             echo "</tr>";
         }
     }
-    //commentaire
     ?>
-
 </table>
 
 </body>
