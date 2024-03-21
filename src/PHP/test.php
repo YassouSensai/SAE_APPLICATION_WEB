@@ -52,7 +52,9 @@ $lines = explode("\n", $content);
             echo "</tr>";
         }
     }
+    //commentaire
     ?>
+
 </table>
 
 </body>
