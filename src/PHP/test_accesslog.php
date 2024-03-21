@@ -8,9 +8,11 @@ $handle = fopen($filename, "r");
 
 if ($handle) {
     while (($line = fgets($handle)) !== false) {
-        // Utilise une expression régulière pour filtrer les lignes
-        if (preg_match('/NOTICE\s+[sshd]\s+Ban\s+\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}/', $line)) {
-            echo $line; // Affiche la ligne si elle correspond au motif
+        // Utilise une expression régulière plus précise pour filtrer les lignes
+        if (preg_match('/NOTICE\s+[sshd]\s+Ban\s+(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})/', $line, $matches)) {
+            // Ici, $matches[1] contiendra l'adresse IP qui a été bannie
+            // Vous pouvez faire des traitements supplémentaires ici si nécessaire
+            echo "Adresse IP bannie : " . $matches[1] . "\n";
         }
     }
     fclose($handle);
