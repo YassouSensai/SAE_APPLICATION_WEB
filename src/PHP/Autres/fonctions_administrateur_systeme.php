@@ -6,9 +6,8 @@
 // ####################################################################################################################
 // ####################################################################################################################
 // ####################################################################################################################
-
 /**
- * Cette fonction permet d'afficher un journal d'activité de connexion si $type vaut 0 et de tickets si $type vaut 1
+ * Cette fonction permet d'afficher un journal d'activité de connexion si $type vaut 1 et de tickets si $type vaut 0
  * Elle affiche également un formulaire pour télécharger le journal d'activité au format CSV
  * @param $type : le type de journal d'activité à afficher et à télécharger
  * @param $page : le numéro de la page du journal d'activité à afficher
@@ -70,13 +69,28 @@ function afficherActivitesParType($type, $page = 1) {
     echo '<br>';
     echo '<br>';
 
-    // Afficher le formulaire de téléchargement CSV
-    echo '<form action="traitements_csv/telecharger_journal_app.php" method="POST">';
-    echo '<input id="type_journal" type="hidden" name="type_journal" value="' . $type . '">';
-    echo '<button type="submit" name="telecharger_csv">Télécharger le journal d\'activité au format CSV</button>';
+    echo '<form action="../Autres/traitements_csv/telecharger_journal_app.php" method="post">';
+    echo '<h3>Télécharger un journal au format csv.</h3>';
     echo '<br>';
+    echo '<input type="hidden" name="type_journal" value="' . $type . '">';
+    echo '<label for="choix_journal">Choisir le type de journal à télécharger :</label>';
+    if ($type == 1) {
+        echo '<select name="choix_journal" id="choix_journal">';
+        echo '<option value="connecté">Journal des Connexions</option>';
+        echo '<option value="déconnecté">Journal des Déconnexions</option>';
+        echo '</select>';
+    } else {
+        echo '<select name="choix_journal" id="choix_journal">';
+        echo '<option value="créé">Journal des Créations</option>';
+        echo '<option value="supprimé">Journal des Suppressions</option>';
+        echo '<option value="attribué">Journal des Attributions</option>';
+        echo '</select>';
+    }
+    echo '<br>';
+    echo '<br>';
+    echo '<button type="submit" name="telecharger_csv">Télécharger</button>';
     echo '</form>';
-
     mysqli_close($connexion);
 }
+
 ?>

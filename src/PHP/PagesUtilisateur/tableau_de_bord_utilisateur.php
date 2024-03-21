@@ -142,6 +142,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
         echo "<ul class='button-list'>";
         echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=connexion'\">Journal des connexions</button></li>";
         echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=tickets'\">Journal des tickets</button></li>";
+        echo "<li><button type='button' onclick=\"window.location.href='./tableau_de_bord_utilisateur.php?journal=rpi'\">Journal du RPI</button></li>";
         echo "</ul>";
 
         echo "<br>";
@@ -172,6 +173,11 @@ include("../Autres/fonctions_administrateur_systeme.php");
                     $page = 1;
                 }
                 afficherActivitesParType(0, $page);
+            } elseif ($journal == 'rpi') {
+                echo "<h2>Journal du RPI :</h2>";
+                echo "<br>";
+                echo "<br>";
+                echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
             }
 
         }
@@ -299,6 +305,14 @@ include("../Autres/fonctions_administrateur_systeme.php");
            echo "<p id='error-message' style='color: red'>Ce technicien n'a pas pu être créé !</p>";
        } elseif ($inscr == 'echec_id') {
            echo "<p id='error-message' style='color: red'>Ce technicien existe déjà ! Veuillez mettre un autre identifiant.</p>";
+       }
+   }
+   elseif (isset($_GET['csv'])) {
+       $csv = $_GET['csv'];
+       if ($csv == 'success') {
+           echo "<p id='success' style='color: green'>Le journal a bien été téléchargé au format csv !</p>";
+       } elseif ($csv == 'error') {
+           echo "<p id='error-message' style='color: red'>Le journal n'a pas pu être téléchargé au format csv !</p>";
        }
    }
    ?>
