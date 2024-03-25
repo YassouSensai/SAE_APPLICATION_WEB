@@ -7,47 +7,45 @@
 // ####################################################################################################################
 // ####################################################################################################################
 
+/**
+ * Cette fonction lit un fichier CSV contenant les adresses IP bannies et retourne la liste des adresses IP.
+ *
+ * @param $cheminCSV : Le chemin vers le fichier CSV à lire.
+ * @return array : Un tableau contenant les adresses IP bannies.
+ */
+function traiterJournal($cheminCSV) {
+    $bannies = [];
 
-function traiterJournal($log) {
-    $banList = [];
-    $unbanList = [];
-
-    // Diviser le journal en lignes
-    $lines = explode("\n", $log);
-
-    foreach ($lines as $line) {
-        // Rechercher des actions de ban
-        if (preg_match('/Ban (\d+\.\d+\.\d+\.\d+)/', $line, $matches)) {
-            $banList[] = $matches[1];
+    $fichier = fopen($cheminCSV, 'r');
+    if ($fichier !== false) {
+        while (($ligne = fgetcsv($fichier)) !== false) {
+            if (count($ligne) >= 2 && $ligne[0] === '- Banned IP list:') {
+                for ($i = 1; $i < count($ligne); $i++) {
+                    $adresseIP = trim($ligne[$i]);
+                    if (filter_var($adresseIP, FILTER_VALIDATE_IP)) {
+                        $bannies[] = $adresseIP;
+                    }
+                }
+                break;
+            }
         }
-        // Rechercher des actions de unban
-        elseif (preg_match('/Unban (\d+\.\d+\.\d+\.\d+)/', $line, $matches)) {
-            $unbanList[] = $matches[1];
-        }
+        fclose($fichier);
     }
-
-    // Retourner les listes
-    return ['bannies' => $banList, 'débannies' => $unbanList];
+    return $bannies;
 }
+
+/**
+ * Cette fonction affiche les adresses IP bannies dans un tableau.
+ *
+ * @param array $resultats Un tableau associatif contenant la liste des adresses IP bannies.
+ */
 function afficherTraiterJournal($resultats) {
     echo "<div style='display: flex;'>";
 
-    // Tableau pour les adresses IP bannies
-    echo "<div style='flex: 1; margin-right: 20px;'>";
-    echo "<table class='table-fonctions-logs'>";
-    echo "<tr><th>Adresses IP bannies</th></tr>";
-    foreach ($resultats['bannies'] as $key => $ip) {
-        $class = ($key % 2 == 0) ? 'even' : 'odd';
-        echo "<tr class='$class'><td>$ip</td></tr>";
-    }
-    echo "</table>";
-    echo "</div>";
-
-    // Tableau pour les adresses IP débannies
     echo "<div style='flex: 1;'>";
     echo "<table class='table-fonctions-logs'>";
-    echo "<tr><th>Adresses IP débannies</th></tr>";
-    foreach ($resultats['débannies'] as $key => $ip) {
+    echo "<tr><th>Adresses IP bannies</th></tr>";
+    foreach ($resultats as $key => $ip) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
         echo "<tr class='$class'><td>$ip</td></tr>";
     }
