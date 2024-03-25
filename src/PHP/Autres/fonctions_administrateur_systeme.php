@@ -27,7 +27,8 @@ function traiterJournal($cheminCSV) {
 }
 
 /**
- * Cette fonction affiche les adresses IP bannies dans un tableau.
+ * Cette fonction affiche les adresses IP bannies dans un tableau avec une icône de poubelle pour chaque ligne,
+ * permettant de débannir une adresse IP lorsqu'on clique sur l'icône.
  *
  * @param array $resultats Un tableau contenant la liste des adresses IP bannies.
  */
@@ -36,10 +37,13 @@ function afficherTraiterJournal($resultats) {
 
     echo "<div style='flex: 1;'>";
     echo "<table class='table-fonctions-logs'>";
-    echo "<tr><th>Adresses IP bannies</th></tr>";
+    echo "<tr><th>Adresses IP bannies</th><th>Action</th></tr>";
     foreach ($resultats as $key => $ip) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
-        echo "<tr class='$class'><td>$ip</td></tr>";
+        echo "<tr class='$class'>";
+        echo "<td>$ip</td>";
+        echo "<td><a href='debannir.php?ip=$ip'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>"; // debannir.php a coder, aaron le fera
+        echo "</tr>";
     }
     echo "</table>";
     echo "</div>";
