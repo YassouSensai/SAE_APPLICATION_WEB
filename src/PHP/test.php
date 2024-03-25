@@ -13,14 +13,17 @@ foreach ($ips as $ip) {
 
 
     // Exécuter la commande
-    exec($command, $output, $returnVar);
+    //exec($command, $output, $returnVar);
+
+    $output = shell_exec($command);
+    echo $output;
 
     // Vérifier si la commande a réussi
-    if ($returnVar === 0) {
-        echo "L'adresse IP $ip a été débannie avec succès.\n";
-    } else {
-        echo "Échec du débannissement de l'adresse IP $ip.\n";
-    }
+    //if ($returnVar === 0) {
+    //    echo "L'adresse IP $ip a été débannie avec succès.\n";
+    //} else {
+    //    echo "Échec du débannissement de l'adresse IP $ip.\n";
+    //}
 }
 
 ?>
