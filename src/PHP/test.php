@@ -9,7 +9,7 @@ $jail = 'sshd';
 
 foreach ($ips as $ip) {
     // Commande pour débannir l'IP
-    $command = "sudo -i /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
+    $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
 
 
     // Exécuter la commande
