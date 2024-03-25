@@ -187,6 +187,7 @@ journal-navigation button {
     background-color:  #434865;
 }
 
-#table-fonctions-logs tbody tr.even  {
+.table-fonctions-logs tr.even {
     background-color: #434865;
 }
+
