@@ -29,6 +29,33 @@ function traiterJournal($log) {
     // Retourner les listes
     return ['bannies' => $banList, 'débannies' => $unbanList];
 }
+function afficherTraiterJournal($resultats) {
+    echo "<div style='display: flex;'>";
+
+    // Tableau pour les adresses IP bannies
+    echo "<div style='flex: 1; margin-right: 20px;'>";
+    echo "<table class='table-fonctions-logs'>";
+    echo "<tr><th>Adresses IP bannies</th></tr>";
+    foreach ($resultats['bannies'] as $key => $ip) {
+        $class = ($key % 2 == 0) ? 'even' : 'odd';
+        echo "<tr class='$class'><td>$ip</td></tr>";
+    }
+    echo "</table>";
+    echo "</div>";
+
+    // Tableau pour les adresses IP débannies
+    echo "<div style='flex: 1;'>";
+    echo "<table class='table-fonctions-logs'>";
+    echo "<tr><th>Adresses IP débannies</th></tr>";
+    foreach ($resultats['débannies'] as $key => $ip) {
+        $class = ($key % 2 == 0) ? 'even' : 'odd';
+        echo "<tr class='$class'><td>$ip</td></tr>";
+    }
+    echo "</table>";
+    echo "</div>";
+
+    echo "</div>";
+}
 
 
 /**
