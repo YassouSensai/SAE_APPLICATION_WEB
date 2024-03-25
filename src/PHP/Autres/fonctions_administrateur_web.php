@@ -19,6 +19,12 @@ include("fonctions_generales.php");
  */
 function afficherTicketsAvecDetails() {
 
+    echo "<style>
+            #table-tickets-details tbody tr:nth-child(even) {
+                background-color:  #434865;
+            }
+        </style>";
+
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
 
@@ -30,7 +36,7 @@ function afficherTicketsAvecDetails() {
 
     $resultat = prepareAndExecute($connexion, $query);
 
-    echo "<table border='1'>
+    echo "<table id='table-tickets-details' border='1'>
             <thead>
                 <tr>
                     <th>Date de création</th>
@@ -69,6 +75,11 @@ function afficherTicketsAvecDetails() {
  * Cette fonction permet d'afficher tous les utilisateurs avec leur type d'utilisateur
  */
 function afficherUtilisateurs() {
+    echo "<style>
+            #table-utilisateurs tbody tr:nth-child(even) {
+                background-color:  #434865;
+            }
+        </style>";
 
     echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
     $connexion = connectDB();
@@ -82,7 +93,7 @@ function afficherUtilisateurs() {
     $query = "SELECT identifiant FROM adminsysteme";
     $resultatAdminSysteme = prepareAndExecute($connexion, $query);
 
-    echo "<table>
+    echo "<table id='table-utilisateurs'>
             <thead>
                 <tr>
                     <th>Identifiant</th>
@@ -91,31 +102,39 @@ function afficherUtilisateurs() {
             </thead>
             <tbody>";
 
+    $row_num = 0; // Variable pour suivre le numéro de ligne
     while ($row = mysqli_fetch_assoc($resultatUtilisateur)) {
-        echo "<tr>";
+        $class = ($row_num % 2 == 0) ? 'even' : 'odd'; // Alternance des couleurs des lignes
+        echo "<tr class='$class'>";
         echo "<td>" . htmlspecialchars($row['identifiant']) . "</td>";
         echo "<td>Utilisateur</td>";
         echo "</tr>";
+        $row_num++;
     }
 
     while ($row = mysqli_fetch_assoc($resultatTechnicien)) {
-        echo "<tr>";
+        $class = ($row_num % 2 == 0) ? 'even' : 'odd';
+        echo "<tr class='$class'>";
         echo "<td>" . htmlspecialchars($row['identifiant']) . "</td>";
         echo "<td>Technicien</td>";
         echo "</tr>";
+        $row_num++;
     }
 
     while ($row = mysqli_fetch_assoc($resultatAdminSysteme)) {
-        echo "<tr>";
+        $class = ($row_num % 2 == 0) ? 'even' : 'odd';
+        echo "<tr class='$class'>";
         echo "<td>" . htmlspecialchars($row['identifiant']) . "</td>";
         echo "<td>Administrateur Système</td>";
         echo "</tr>";
+        $row_num++;
     }
 
     echo "</tbody></table>";
 
     mysqli_close($connexion);
 }
+
 
 
 // ####################################################################################################################

@@ -224,24 +224,25 @@ function afficherTicketsUtilisateurs($username, $table_user) {
     $resultat = prepareAndExecute($connexion, $query, $params);
 
     echo "<table id='table-mes-tickets'>
-            <thead>
-                <tr>
-                    <th>ID Ticket</th>
-                    <th>Date de création</th>
-                    <th>Objet</th>
-                    <th>Description</th>
-                    <th>Adresse IP</th>
-                    <th>Salle</th>
-                    <th>Statut</th>
-                    <th>Niveau d'urgence</th>
-                    <th>Supprimer</th>
-                </tr>
-            </thead>
-            <tbody>";
+        <thead>
+            <tr>
+                <th>ID Ticket</th>
+                <th>Date de création</th>
+                <th>Objet</th>
+                <th>Description</th>
+                <th>Adresse IP</th>
+                <th>Salle</th>
+                <th>Statut</th>
+                <th>Niveau d'urgence</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>";
 
     $num = 0;
     while ($row = mysqli_fetch_assoc($resultat)) {
-        echo "<tr>";
+        $class = ($num % 2 == 0) ? 'even' : 'odd';
+        echo "<tr class='$class'>";
         echo "<td>" . htmlspecialchars($row['id_tic']) . "</td>";
         echo "<td>" . htmlspecialchars($row['date_crea_tic']) . "</td>";
         echo "<td>" . htmlspecialchars($row['objet']) . "</td>";
@@ -254,10 +255,13 @@ function afficherTicketsUtilisateurs($username, $table_user) {
         echo "<td><img src='../../images/poubelles.svg' alt='Supprimer' width='20' height='20' class='delete-icon' onclick=\"supprimerTicket(" . $row['id_tic'] . ")\" style='cursor:pointer;'></td>";
 
         echo "</tr>";
+        $num++;
     }
 
     echo "</tbody>
-        </table>";
+    </table>";
+
 
     mysqli_close($connexion);
 }
+

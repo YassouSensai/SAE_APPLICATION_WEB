@@ -23,7 +23,7 @@ function afficherActivitesParType($type, $page = 1) {
     $params = ["iii", $type, $offset, $limit];
     $resultat = prepareAndExecute($connexion, $query, $params);
 
-    echo "<table border='1'>
+    echo "<table id='table-activites' border='1'>
             <thead>
                 <tr>
                     <th>Date d'activité</th>
@@ -34,13 +34,17 @@ function afficherActivitesParType($type, $page = 1) {
             </thead>
             <tbody>";
 
+    $num = 0;
     while ($row = mysqli_fetch_assoc($resultat)) {
-        echo "<tr>";
+        // Alternance des couleurs des lignes
+        $class = ($num % 2 == 0) ? 'even' : 'odd';
+        echo "<tr class='$class'>";
         echo "<td>" . htmlspecialchars($row['date_activite']) . "</td>";
         echo "<td>" . htmlspecialchars($row['adresse_ip']) . "</td>";
         echo "<td>" . htmlspecialchars($row['id_utilisateur']) . "</td>";
         echo "<td>" . htmlspecialchars($row['description_activite']) . "</td>";
         echo "</tr>";
+        $num++;
     }
 
     echo "</tbody></table>";
@@ -92,5 +96,7 @@ function afficherActivitesParType($type, $page = 1) {
     echo '</form>';
     mysqli_close($connexion);
 }
+
+
 
 ?>

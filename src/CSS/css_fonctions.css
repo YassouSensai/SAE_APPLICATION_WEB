@@ -174,3 +174,15 @@ journal-navigation button {
     backdrop-filter: blur(2px);
     color: white;
 }
+
+#table-mes-tickets tbody tr.even {
+    background-color: #434865;
+}
+
+#table-tickets-details tbody tr.even {
+    background-color: #434865;
+}
+
+#table-activites tbody tr:nth-child(even) {
+    background-color:  #434865;
+}
