@@ -178,7 +178,7 @@ include("../Autres/fonctions_administrateur_systeme.php");
                 echo "<br>";
                 echo "<br>";
                 echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
-                $cheminCSV = '/chemin/vers/le/fichier/ip_banned_2024-03-25_09-18-01.csv';
+                $cheminCSV = '../../../csv/ip_banned_2024-03-25_09-18-01.csv';
                 $resultats = traiterJournal($cheminCSV);
                 afficherTraiterJournal($resultats);
             }

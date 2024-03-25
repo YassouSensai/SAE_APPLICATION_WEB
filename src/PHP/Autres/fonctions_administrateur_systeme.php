@@ -14,30 +14,22 @@
  * @return array : Un tableau contenant les adresses IP bannies.
  */
 function traiterJournal($cheminCSV) {
-    $bannies = [];
-
-    $fichier = fopen($cheminCSV, 'r');
-    if ($fichier !== false) {
-        while (($ligne = fgetcsv($fichier)) !== false) {
-            if (count($ligne) >= 2 && $ligne[0] === '- Banned IP list:') {
-                for ($i = 1; $i < count($ligne); $i++) {
-                    $adresseIP = trim($ligne[$i]);
-                    if (filter_var($adresseIP, FILTER_VALIDATE_IP)) {
-                        $bannies[] = $adresseIP;
-                    }
-                }
-                break;
-            }
-        }
-        fclose($fichier);
+    if (!file_exists($cheminCSV)) {
+        die("Le fichier n'existe pas.");
     }
-    return $bannies;
+    $content = file_get_contents($cheminCSV);
+    preg_match("/Banned IP list:\s*(.*)/", $content, $matches);
+    $bannedIPs = [];
+    if (!empty($matches)) {
+        $bannedIPs = explode(' ', $matches[1]);
+    }
+    return $bannedIPs;
 }
 
 /**
  * Cette fonction affiche les adresses IP bannies dans un tableau.
  *
- * @param array $resultats Un tableau associatif contenant la liste des adresses IP bannies.
+ * @param array $resultats Un tableau contenant la liste des adresses IP bannies.
  */
 function afficherTraiterJournal($resultats) {
     echo "<div style='display: flex;'>";
@@ -54,6 +46,7 @@ function afficherTraiterJournal($resultats) {
 
     echo "</div>";
 }
+
 
 
 /**
