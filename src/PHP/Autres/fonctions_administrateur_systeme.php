@@ -6,6 +6,31 @@
 // ####################################################################################################################
 // ####################################################################################################################
 // ####################################################################################################################
+
+
+function traiterJournal($log) {
+    $banList = [];
+    $unbanList = [];
+
+    // Diviser le journal en lignes
+    $lines = explode("\n", $log);
+
+    foreach ($lines as $line) {
+        // Rechercher des actions de ban
+        if (preg_match('/Ban (\d+\.\d+\.\d+\.\d+)/', $line, $matches)) {
+            $banList[] = $matches[1];
+        }
+        // Rechercher des actions de unban
+        elseif (preg_match('/Unban (\d+\.\d+\.\d+\.\d+)/', $line, $matches)) {
+            $unbanList[] = $matches[1];
+        }
+    }
+
+    // Retourner les listes
+    return ['bannies' => $banList, 'débannies' => $unbanList];
+}
+
+
 /**
  * Cette fonction permet d'afficher un journal d'activité de connexion si $type vaut 1 et de tickets si $type vaut 0
  * Elle affiche également un formulaire pour télécharger le journal d'activité au format CSV

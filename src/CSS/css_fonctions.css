@@ -186,3 +186,7 @@ journal-navigation button {
 #table-activites tbody tr:nth-child(even) {
     background-color:  #434865;
 }
+
+#table-fonctions-logs tbody tr.even  {
+    background-color: #434865;
+}
