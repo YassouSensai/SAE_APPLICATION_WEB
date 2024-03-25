@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#Chemin vers le fichier de log et le répertoire de destination
-LOGFILE="/var/log/fail2ban.log"
+#Chemin vers le répertoire de destination
 DEST_DIR="/home/pisae/Documents/SAE_APPLICATION_WEB/csv"
 
 #Création du répertoire de destination s'il n'existe pas
@@ -10,11 +9,17 @@ mkdir -p "$DEST_DIR"
 #Format de la date pour nommer le fichier
 DATE=$(date +'%Y-%m-%d%H-%M-%S')
 
-#Nom du fichier CSV de destination
-CSVFILE="$DEST_DIR/fail2ban$DATE.csv"
+#Nom du fichier ZIP de destination
+ZIPFILE="$DESTDIR/csv_backup$DATE.zip"
 
-#Convertir le log en CSV (ajustez cette commande selon le format souhaité)
-awk '{print $1","$2","$3","$4","$5","$6","$7","$8}' "$LOG_FILE" > "$CSV_FILE"
+#Compresser tous les fichiers CSV existants dans le répertoire csv
+zip -j "$ZIPFILE" "$DESTDIR"/.csv
 
-#Vider le fichier de log
-#cat /dev/null > "$LOG_FILE"
+#Supprimer les fichiers CSV après compression
+rm "$DEST_DIR"/.csv
+
+#Nom du nouveau fichier CSV
+CSVFILE="$DEST_DIR/ip_banned$DATE.csv"
+
+#Exécuter la commande et sauvegarder le résultat dans le nouveau fichier CSV
+sudo fail2ban-client status sshd > "$CSVFILE"
