@@ -13,6 +13,13 @@
  * @param string $jail Le jail Fail2ban concerné. Par défaut, 'sshd'.
  * @return bool True si l'adresse IP est débannie avec succès, sinon False.
  */
+/**
+ * Débannir une adresse IP.
+ *
+ * @param string $ip L'adresse IP à débannir.
+ * @param string $jail Le jail Fail2ban concerné. Par défaut, 'sshd'.
+ * @return bool True si l'adresse IP est débannie avec succès, sinon False.
+ */
 function debannirIP($ip, $jail = 'sshd') {
     $bannedIPs = getBannedIPs($jail);
     if (!in_array($ip, $bannedIPs)) {
@@ -25,6 +32,26 @@ function debannirIP($ip, $jail = 'sshd') {
 
     if ($returnVar === 0) {
         enregistrerLog("L'adresse IP $ip a été débannie du jail $jail.");
+
+        // Mise à jour du fichier CSV
+        $cheminDossier = '../../../csv/';
+        $modele = 'ip_banned_*.csv';
+        $fichiers = glob($cheminDossier . $modele);
+
+        foreach ($fichiers as $fichier) {
+            $bannedIPs = traiterJournal($fichier);
+
+            // Supprimer l'adresse IP débannie du tableau
+            $key = array_search($ip, $bannedIPs);
+            if ($key !== false) {
+                unset($bannedIPs[$key]);
+            }
+
+            // Réécrire le fichier CSV avec les adresses IP restantes
+            file_put_contents($fichier, "Banned IP list: " . implode(' ', $bannedIPs));
+        }
+
+        // Exécuter le script pour nettoyer les logs fail2ban
         $cheminScript = '../../../save_and_clear_fail2ban_log.sh';
         exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
         if ($returnVarScript === 0) {
@@ -38,6 +65,7 @@ function debannirIP($ip, $jail = 'sshd') {
         return false;
     }
 }
+
 
 
 /**
