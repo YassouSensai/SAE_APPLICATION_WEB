@@ -15,7 +15,8 @@ function debannirIP($ip, $jail = 'sshd') {
     } else {
         echo "<script>alert('Échec du débannissement de l\'adresse IP $ip.');</script>";
     }
-    $cheminScript = '/../../save_and_clear_fail2ban_log.sh';
+//    $cheminScript = '/../../save_and_clear_fail2ban_log.sh';
+    $cheminScript = dirname(__FILE__) . '/../../save_and_clear_fail2ban_log.sh';
 
     exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
 
