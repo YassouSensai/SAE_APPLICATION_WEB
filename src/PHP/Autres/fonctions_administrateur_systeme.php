@@ -13,13 +13,6 @@
  * @param string $jail Le jail Fail2ban concerné. Par défaut, 'sshd'.
  * @return bool True si l'adresse IP est débannie avec succès, sinon False.
  */
-/**
- * Débannir une adresse IP.
- *
- * @param string $ip L'adresse IP à débannir.
- * @param string $jail Le jail Fail2ban concerné. Par défaut, 'sshd'.
- * @return bool True si l'adresse IP est débannie avec succès, sinon False.
- */
 function debannirIP($ip, $jail = 'sshd') {
     $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
 
@@ -68,6 +61,7 @@ function traiterJournal($cheminCSV) {
  * @param array $resultats Un tableau contenant la liste des adresses IP bannies.
  */
 function afficherTraiterJournal($resultats) {
+
     echo "<div style='display: flex;'>";
 
     echo "<div style='flex: 1;'>";
@@ -77,8 +71,7 @@ function afficherTraiterJournal($resultats) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
         echo "<tr class='$class'>";
         echo "<td>$ip</td>";
-        echo "<td><a href='#' onclick='debannirIP(\"$ip\");'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>";
-        echo "</tr>";
+        echo "<td><button><a href='../fonction_deban_ip.php?ip=$ip'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></button></td>";        echo "</tr>";
     }
     echo "</table>";
     echo "</div>";
@@ -86,26 +79,9 @@ function afficherTraiterJournal($resultats) {
     echo "</div>";
 
     // Ajout du script JavaScript pour débannir l'IP
-    echo "<script>
-            function debannirIP(ip) {
-                if (confirm('Êtes-vous sûr de vouloir débannir cette adresse IP ?')) {
-                    fetch('../fonctions_administrateur_systeme/fonction_deban_ip.php?ip=' + ip)
-                        .then(response => {
-                            if (response.ok) {
-                                // Actualiser la page pour refléter les changements
-                                location.reload();
-                            } else {
-                                alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Erreur lors de la demande de débannissement :', error);
-                            alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
-                        });
-                }
-            }
-          </script>";
+
 }
+
 
 
 
