@@ -199,5 +199,55 @@ function afficherActivitesParType($type, $page = 1) {
 }
 
 
+/**
+ * Cette fonction permet de télécharger les fichiers d'un répertoire spécifié.
+ * Elle affiche un tableau contenant les fichiers du répertoire avec un lien pour télécharger chaque fichier.
+ *
+ * Cette fonction sera principalement utilisée pour télécharger les fichiers de logs (cron).
+ *
+ * @param $cheminRepertoire
+ * @return string|void
+ */
+function telechargerFichiersCron($cheminRepertoire) {
+    // Vérifier si le chemin est un répertoire valide
+    if (!is_dir($cheminRepertoire)) {
+        return "Le chemin spécifié n'est pas un répertoire valide.";
+    }
+
+    echo "<link rel='stylesheet' href='../../CSS/css_fonctions.css'>";
+
+    // Ouvrir le répertoire
+    if ($handle = opendir($cheminRepertoire)) {
+        // Début du tableau
+        echo "<table border='1'><tr><th>Nom du fichier</th><th>Date de création</th><th>Action</th></tr>";
+
+        // Parcourir chaque fichier dans le répertoire
+        while (false !== ($fichier = readdir($handle))) {
+            // Ignorer les entrées spéciales
+            if ($fichier != "." && $fichier != "..") {
+                // Récupérer la date de création du fichier
+                $dateCreation = date("Y-m-d H:i:s", filemtime($cheminRepertoire . '/' . $fichier));
+
+                // Vérifier si le fichier est un fichier régulier
+                if (is_file($cheminRepertoire . '/' . $fichier)) {
+                    // Afficher les informations dans une ligne du tableau
+                    echo "<tr>";
+                    echo "<td>$fichier</td>";
+                    echo "<td>$dateCreation</td>";
+                    echo "<td><a href='$cheminRepertoire/$fichier' download>Télécharger</a></td>";
+                    echo "</tr>";
+                }
+            }
+        }
+        echo "</table>";
+
+        // Fermer le gestionnaire de répertoire
+        closedir($handle);
+    } else {
+        return "Impossible d'ouvrir le répertoire.";
+    }
+}
+
+
 
 ?>

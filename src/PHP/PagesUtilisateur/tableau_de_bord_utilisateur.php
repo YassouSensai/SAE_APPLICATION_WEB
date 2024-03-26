@@ -184,6 +184,11 @@ include("../Autres/fonctions_administrateur_systeme.php");
                 $cheminCSV = $fichiers[0];
                 $resultats = traiterJournal($cheminCSV);
                 afficherTraiterJournal($resultats);
+
+                echo "<br>";
+                echo "<br>";
+
+                //telechargerFichiersCron("/csv");
             }
         }
 
