@@ -1,4 +1,15 @@
 <?php
+// Vérifier si l'adresse IP est passée en paramètre GET
+if(isset($_GET['ip'])) {
+    // Récupérer l'adresse IP depuis le paramètre GET
+    $ip = $_GET['ip'];
+
+    // Appeler la fonction debannirIP avec l'adresse IP récupérée
+    debannirIP($ip);
+} else {
+    // Afficher un message d'erreur si aucune adresse IP n'est fournie
+    echo "Erreur : Aucune adresse IP fournie.";
+}
 
 function debannirIP($ip, $jail = 'sshd') {
     // Construire la commande pour débannir l'IP
@@ -23,6 +34,4 @@ function debannirIP($ip, $jail = 'sshd') {
         echo "Échec de l'exécution du script save_and_clear_fail2ban_log.sh.\n";
     }
 }
-
-
 ?>
