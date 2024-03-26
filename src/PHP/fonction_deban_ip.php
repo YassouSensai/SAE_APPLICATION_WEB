@@ -1,5 +1,10 @@
 <?php
+if(isset($_GET['ip'])) {
+    $ip = $_GET['ip'];
 
+} else {
+    echo "Erreur : Aucune adresse IP fournie.";
+}
 function debannirIP($ip, $jail = 'sshd') {
     // Construire la commande pour débannir l'IP
     $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
@@ -23,5 +28,5 @@ function debannirIP($ip, $jail = 'sshd') {
         echo "Échec de l'exécution du script save_and_clear_fail2ban_log.sh.\n";
     }
 }
-debannirIP("192.168.0.87");
+debannirIP($ip);
 ?>
