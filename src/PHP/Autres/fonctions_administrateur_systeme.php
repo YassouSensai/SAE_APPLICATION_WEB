@@ -1,4 +1,8 @@
 <?php
+require_once '../fonctions_administrateurs_systeme.php'; // Ajustez le chemin selon votre structure de fichiers
+
+// Le reste de votre script...
+
 /* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations de l'administrateur système dont :
  * - La fonction afficherActivitesParType() qui affiche un journal d'activité différent en fonction de celui voulu par l'administrateur
  * */
@@ -6,41 +10,6 @@
 // ####################################################################################################################
 // ####################################################################################################################
 // ####################################################################################################################
-/**
- * Débannir une adresse IP.
- *
- * @param string $ip L'adresse IP à débannir.
- * @param string $jail Le jail Fail2ban concerné. Par défaut, 'sshd'.
- * @return bool True si l'adresse IP est débannie avec succès, sinon False.
- */
-/**
- * Débannir une adresse IP.
- *
- * @param string $ip L'adresse IP à débannir.
- * @param string $jail Le jail Fail2ban concerné. Par défaut, 'sshd'.
- * @return bool True si l'adresse IP est débannie avec succès, sinon False.
- */
-function debannirIP($ip, $jail = 'sshd') {
-    $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
-
-    exec($command, $output, $returnVar);
-
-    if ($returnVar === 0) {
-        echo "L'adresse IP $ip a été débannie avec succès.\n";
-    } else {
-        echo "Échec du débannissement de l'adresse IP $ip.\n";
-    }
-    $cheminScript = '/../../save_and_clear_fail2ban_log.sh';
-
-    exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
-
-    if ($returnVarScript === 0) {
-        echo "Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.\n";
-    } else {
-        echo "Échec de l'exécution du script save_and_clear_fail2ban_log.sh.\n";
-    }
-}
-
 
 /**
  * Cette fonction lit un fichier CSV contenant les adresses IP bannies et retourne la liste des adresses IP.
@@ -77,35 +46,16 @@ function afficherTraiterJournal($resultats) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
         echo "<tr class='$class'>";
         echo "<td>$ip</td>";
-        echo "<td><a href='#' onclick='debannirIP(\"$ip\");'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>";
+        // Modification ici : lien direct pour débannir avec méthode GET
+        echo "<td><a href='fonction_deban_ip.php?ip=$ip' class='debannir-btn'>Débannir</a></td>";
         echo "</tr>";
     }
     echo "</table>";
     echo "</div>";
 
     echo "</div>";
-
-    // Ajout du script JavaScript pour débannir l'IP
-    echo "<script>
-            function debannirIP(ip) {
-                if (confirm('Êtes-vous sûr de vouloir débannir cette adresse IP ?')) {
-                    fetch('../fonctions_administrateur_systeme/fonction_deban_ip.php?ip=' + ip)
-                        .then(response => {
-                            if (response.ok) {
-                                // Actualiser la page pour refléter les changements
-                                location.reload();
-                            } else {
-                                alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Erreur lors de la demande de débannissement :', error);
-                            alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
-                        });
-                }
-            }
-          </script>";
 }
+
 
 
 
