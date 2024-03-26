@@ -37,4 +37,5 @@ function debannirIP($ip, $jail = 'sshd') {
         echo "Échec de l'exécution du script save_and_clear_fail2ban_log.sh.\n";
     }
 }
+debannirIP("192.168.0.87");
 ?>
