@@ -46,7 +46,7 @@ function afficherTraiterJournal($resultats) {
         echo "<tr class='$class'>";
         echo "<td>$ip</td>";
         // Modification ici : lien direct pour débannir avec méthode GET
-        echo "<td><a href='fonction_deban_ip.php?ip=$ip' class='debannir-btn'>Débannir</a></td>";
+        echo "<td><a href='../fonction_deban_ip.php?ip=$ip' class='debannir-btn'>Débannir</a></td>";
         echo "</tr>";
     }
     echo "</table>";
