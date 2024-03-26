@@ -3,7 +3,7 @@ if(isset($_GET['ip'])) {
     $ip = $_GET['ip'];
 
 } else {
-    echo "Erreur : Aucune adresse IP fournie.";
+    echo "<script>alert('Erreur : Aucune adresse IP fournie.');</script>";
 }
 function debannirIP($ip, $jail = 'sshd') {
     $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
@@ -11,20 +11,20 @@ function debannirIP($ip, $jail = 'sshd') {
     exec($command, $output, $returnVar);
 
     if ($returnVar === 0) {
-        echo "L'adresse IP $ip a été débannie avec succès.\n";
+        echo "<script>alert('L\'adresse IP $ip a été débannie avec succès.');</script>";
     } else {
-        echo "Échec du débannissement de l'adresse IP $ip.\n";
+        echo "<script>alert('Échec du débannissement de l\'adresse IP $ip.');</script>";
     }
     $cheminScript = '/../../save_and_clear_fail2ban_log.sh';
 
     exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
 
     if ($returnVarScript === 0) {
-        echo "Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.\n";
+        echo "<script>alert('Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.');</script>";
     } else {
-        echo "Échec de l'exécution du script save_and_clear_fail2ban_log.sh.\n";
+        echo "<script>alert('Échec de l\'exécution du script save_and_clear_fail2ban_log.sh.');</script>";
     }
 }
 debannirIP($ip);
-header("Location: PagesUtilisateur/tableau_de_bord_utilisateur.php?journal=rpi");
+echo "<script>window.location.href = 'PagesUtilisateur/tableau_de_bord_utilisateur.php';</script>";
 ?>
