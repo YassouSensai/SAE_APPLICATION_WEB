@@ -190,6 +190,10 @@ include("../Autres/fonctions_administrateur_systeme.php");
 
 
                 echo '<a href="ssh://pisae@192.168.1.167:22">Prendre la main en ligne de commandes</a>';
+
+                echo "<br>";
+
+                echo "<p>Vous pouvez utiliser la commande man manuel pour voir les commandes nécessaires</p>";
             }
         }
 
