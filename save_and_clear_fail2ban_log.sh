@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Chemin vers le répertoire de destination
+# Chemin vers le répertoire de destination en effet
 DEST_DIR="/home/pisae/Documents/SAE_APPLICATION_WEB/csv"
 
 # Création du répertoire de destination s'il n'existe pas
