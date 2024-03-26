@@ -1,4 +1,8 @@
 <?php
+require_once '../fonctions_administrateurs_systeme.php'; // Ajustez le chemin selon votre structure de fichiers
+
+// Le reste de votre script...
+
 /* Cette page php regroupe les fonctions nécessaires pour les cas d'utilisations de l'administrateur système dont :
  * - La fonction afficherActivitesParType() qui affiche un journal d'activité différent en fonction de celui voulu par l'administrateur
  * */
@@ -33,7 +37,6 @@ function traiterJournal($cheminCSV) {
  * @param array $resultats Un tableau contenant la liste des adresses IP bannies.
  */
 function afficherTraiterJournal($resultats) {
-
     echo "<div style='display: flex;'>";
 
     echo "<div style='flex: 1;'>";
@@ -43,15 +46,14 @@ function afficherTraiterJournal($resultats) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
         echo "<tr class='$class'>";
         echo "<td>$ip</td>";
-        echo "<td><button><a href='../fonction_deban_ip.php?ip=$ip'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></button></td>";        echo "</tr>";
+        // Modification ici : lien direct pour débannir avec méthode GET
+        echo "<td><a href='fonction_deban_ip.php?ip=$ip' class='debannir-btn'>Débannir</a></td>";
+        echo "</tr>";
     }
     echo "</table>";
     echo "</div>";
 
     echo "</div>";
-
-    // Ajout du script JavaScript pour débannir l'IP
-
 }
 
 
