@@ -21,51 +21,25 @@
  * @return bool True si l'adresse IP est débannie avec succès, sinon False.
  */
 function debannirIP($ip, $jail = 'sshd') {
-    $bannedIPs = getBannedIPs($jail);
-    if (!in_array($ip, $bannedIPs)) {
-        enregistrerLog("L'adresse IP $ip n'est pas actuellement bannie du jail $jail.");
-        return false;
-    }
-
     $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
+
     exec($command, $output, $returnVar);
 
     if ($returnVar === 0) {
-        enregistrerLog("L'adresse IP $ip a été débannie du jail $jail.");
-
-        // Mise à jour du fichier CSV
-        $cheminDossier = '../../../csv/';
-        $modele = 'ip_banned_*.csv';
-        $fichiers = glob($cheminDossier . $modele);
-
-        foreach ($fichiers as $fichier) {
-            $bannedIPs = traiterJournal($fichier);
-
-            // Supprimer l'adresse IP débannie du tableau
-            $key = array_search($ip, $bannedIPs);
-            if ($key !== false) {
-                unset($bannedIPs[$key]);
-            }
-
-            // Réécrire le fichier CSV avec les adresses IP restantes
-            file_put_contents($fichier, "Banned IP list: " . implode(' ', $bannedIPs));
-        }
-
-        // Exécuter le script pour nettoyer les logs fail2ban
-        $cheminScript = '../../../save_and_clear_fail2ban_log.sh';
-        exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
-        if ($returnVarScript === 0) {
-            enregistrerLog("Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.");
-        } else {
-            enregistrerLog("Échec de l'exécution du script save_and_clear_fail2ban_log.sh.");
-        }
-        return true;
+        echo "L'adresse IP $ip a été débannie avec succès.\n";
     } else {
-        enregistrerLog("Échec du débannissement de l'adresse IP $ip du jail $jail.");
-        return false;
+        echo "Échec du débannissement de l'adresse IP $ip.\n";
+    }
+    $cheminScript = '/../../save_and_clear_fail2ban_log.sh';
+
+    exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
+
+    if ($returnVarScript === 0) {
+        echo "Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.\n";
+    } else {
+        echo "Échec de l'exécution du script save_and_clear_fail2ban_log.sh.\n";
     }
 }
-
 
 
 /**
@@ -103,7 +77,7 @@ function afficherTraiterJournal($resultats) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
         echo "<tr class='$class'>";
         echo "<td>$ip</td>";
-        echo "<td><a href='#' onclick='debanirIP(\"$ip\");'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>";
+        echo "<td><a href='#' onclick='debannirIP(\"$ip\");'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>";
         echo "</tr>";
     }
     echo "</table>";
@@ -113,9 +87,9 @@ function afficherTraiterJournal($resultats) {
 
     // Ajout du script JavaScript pour débannir l'IP
     echo "<script>
-            function debanirIP(ip) {
+            function debannirIP(ip) {
                 if (confirm('Êtes-vous sûr de vouloir débannir cette adresse IP ?')) {
-                    fetch('../fonctions_administrateur_systeme/debannir.php?ip=' + ip)
+                    fetch('../fonctions_administrateur_systeme/fonction_deban_ip.php?ip=' + ip)
                         .then(response => {
                             if (response.ok) {
                                 // Actualiser la page pour refléter les changements
