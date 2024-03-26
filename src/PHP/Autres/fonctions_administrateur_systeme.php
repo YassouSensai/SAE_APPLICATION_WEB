@@ -25,12 +25,20 @@ function debannirIP($ip, $jail = 'sshd') {
 
     if ($returnVar === 0) {
         enregistrerLog("L'adresse IP $ip a été débannie du jail $jail.");
+        $cheminScript = '../../../save_and_clear_fail2ban_log.sh';
+        exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
+        if ($returnVarScript === 0) {
+            enregistrerLog("Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.");
+        } else {
+            enregistrerLog("Échec de l'exécution du script save_and_clear_fail2ban_log.sh.");
+        }
         return true;
     } else {
         enregistrerLog("Échec du débannissement de l'adresse IP $ip du jail $jail.");
         return false;
     }
 }
+
 
 /**
  * Cette fonction lit un fichier CSV contenant les adresses IP bannies et retourne la liste des adresses IP.
