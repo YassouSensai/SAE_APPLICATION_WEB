@@ -6,13 +6,10 @@ if(isset($_GET['ip'])) {
     echo "Erreur : Aucune adresse IP fournie.";
 }
 function debannirIP($ip, $jail = 'sshd') {
-    // Construire la commande pour débannir l'IP
     $command = "sudo /usr/bin/fail2ban-client set $jail unbanip $ip 2>&1";
 
-    // Exécuter la commande
     exec($command, $output, $returnVar);
 
-    // Vérifier si la commande a réussi
     if ($returnVar === 0) {
         echo "L'adresse IP $ip a été débannie avec succès.\n";
     } else {
@@ -29,4 +26,5 @@ function debannirIP($ip, $jail = 'sshd') {
     }
 }
 debannirIP($ip);
+header("Location: PagesUtilisateur/tableau_de_bord_utilisateur.php");
 ?>
