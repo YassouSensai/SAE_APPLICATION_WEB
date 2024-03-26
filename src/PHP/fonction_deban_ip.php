@@ -48,7 +48,7 @@ function debannirIP($ip, $jail = 'sshd') {
     } else {
         echo "<script>alert('Échec de la mise à jour du fichier CSV.');</script>";
     }
-}
+}//sa maman
 debannirIP($ip);
 echo "<script>window.location.href = 'PagesUtilisateur/tableau_de_bord_utilisateur.php?journal=rpi';</script>";
 ?>
