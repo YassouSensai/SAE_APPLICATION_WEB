@@ -24,7 +24,5 @@ function debannirIP($ip, $jail = 'sshd') {
     }
 }
 
-// Exemple d'utilisation de la fonction
-debannirIP('192.168.0.88');
 
 ?>

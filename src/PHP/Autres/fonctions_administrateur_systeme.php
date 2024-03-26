@@ -85,26 +85,26 @@ function afficherTraiterJournal($resultats) {
 
     echo "</div>";
 
-//    // Ajout du script JavaScript pour débannir l'IP
-//    echo "<script>
-//            function debanirIP(ip) {
-//                if (confirm('Êtes-vous sûr de vouloir débannir cette adresse IP ?')) {
-//                    fetch('../fonctions_administrateur_systeme/debannir.php?ip=' + ip)
-//                        .then(response => {
-//                            if (response.ok) {
-//                                // Actualiser la page pour refléter les changements
-//                                location.reload();
-//                            } else {
-//                                alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
-//                            }
-//                        })
-//                        .catch(error => {
-//                            console.error('Erreur lors de la demande de débannissement :', error);
-//                            alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
-//                        });
-//                }
-//            }
-//          </script>";
+    // Ajout du script JavaScript pour débannir l'IP
+    echo "<script>
+            function debannirIP(ip) {
+                if (confirm('Êtes-vous sûr de vouloir débannir cette adresse IP ?')) {
+                    fetch('../fonctions_administrateur_systeme/fonction_deban_ip.php?ip=' + ip)
+                        .then(response => {
+                            if (response.ok) {
+                                // Actualiser la page pour refléter les changements
+                                location.reload();
+                            } else {
+                                alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erreur lors de la demande de débannissement :', error);
+                            alert('Une erreur est survenue lors du débannissement de l\'adresse IP.');
+                        });
+                }
+            }
+          </script>";
 }
 
 
