@@ -15,13 +15,13 @@ function debannirIP($ip, $jail = 'sshd') {
     } else {
         echo "<script>alert('Échec du débannissement de l\'adresse IP $ip.');</script>";
     }
-//    $cheminScript = '/../../save_and_clear_fail2ban_log.sh';
-    $cheminScript = dirname(__FILE__) . '/../../save_and_clear_fail2ban_log.sh';
+    $cheminScript = '/save_and_clear_fail2ban_log.sh';
+//    $cheminScript = dirname(__FILE__) . '/../../save_and_clear_fail2ban_log.sh';
 
     exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
 
     if ($returnVarScript === 0) {
-        echo "<script>alert('Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.');</script>";
+        echo "<script>alert('$outputScript');</script>";
     } else {
         echo "<script>alert('Échec de l\'exécution du script save_and_clear_fail2ban_log.sh.');</script>";
     }
