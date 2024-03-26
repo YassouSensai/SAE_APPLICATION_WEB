@@ -188,7 +188,8 @@ include("../Autres/fonctions_administrateur_systeme.php");
                 echo "<br>";
                 echo "<br>";
 
-                //telechargerFichiersCron("/csv");
+
+                echo '<a href="ssh://pisae@192.168.1.167:22">Prendre la main en ligne de commandes</a>';
             }
         }
 
