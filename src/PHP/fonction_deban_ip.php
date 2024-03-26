@@ -15,9 +15,9 @@ function debannirIP($ip, $jail = 'sshd') {
     } else {
         echo "<script>alert('Échec du débannissement de l\'adresse IP $ip.');</script>";
     }
-    $cheminScript = '../../../save_and_clear_fail2ban_log.sh';
-
-    exec($cheminScript, $outputScript, $returnVarScript);
+    //$cheminScript = '../../../save_and_clear_fail2ban_log.sh';
+    $returnVarScript = shell_exec("../../../save_and_clear_fail2ban_log.sh");
+    //exec($cheminScript, $outputScript, $returnVarScript);
 
     if ($returnVarScript === 0) {
         echo "<script>alert('Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.');</script>";
@@ -25,9 +25,9 @@ function debannirIP($ip, $jail = 'sshd') {
         echo "<script>alert('Échec de l\'exécution du script save_and_clear_fail2ban_log.sh.');</script>";
     }
 
-    foreach ($outputScript as $line) {
-        echo "<script>alert('$line');</script>";
-    }
+    //foreach ($outputScript as $line) {
+    //    echo "<script>alert('$line');</script>";
+    //}
 
 }
 debannirIP($ip);
