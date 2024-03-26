@@ -20,11 +20,16 @@ function debannirIP($ip, $jail = 'sshd') {
     exec("sudo bash $cheminScript", $outputScript, $returnVarScript);
 
     if ($returnVarScript === 0) {
-        echo "<script>alert('$outputScript');</script>";
+        echo "<script>alert('Le script save_and_clear_fail2ban_log.sh a été exécuté avec succès.');</script>";
     } else {
-        echo "<script>alert('$outputScript');</script>";
+        echo "<script>alert('Échec de l\'exécution du script save_and_clear_fail2ban_log.sh.');</script>";
     }
+
+    foreach ($outputScript as $line) {
+        echo "<script>alert('$line');</script>";
+    }
+
 }
 debannirIP($ip);
-echo "<script>window.location.href = 'PagesUtilisateur/tableau_de_bord_utilisateur.php';</script>";
+echo "<script>window.location.href = 'PagesUtilisateur/tableau_de_bord_utilisateur.php?journal=rpi';</script>";
 ?>
