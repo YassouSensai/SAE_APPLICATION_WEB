@@ -77,7 +77,7 @@ function afficherTraiterJournal($resultats) {
         $class = ($key % 2 == 0) ? 'even' : 'odd';
         echo "<tr class='$class'>";
         echo "<td>$ip</td>";
-        echo "<td><a href='#' onclick='debanirIP(\"$ip\");'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>";
+        echo "<td><a href='#' onclick='debannirIP(\"$ip\");'><img src='../../images/poubelles.svg' alt='Débannir' width='20' height='20' /></a></td>";
         echo "</tr>";
     }
     echo "</table>";
