@@ -1,4 +1,7 @@
 <?php
+
+require_once '/Autres/fonctions_administrateurs_systeme.php'; // Ajustez le chemin selon votre structure de fichiers
+
 // Vérifier si l'adresse IP est passée en paramètre GET
 if(isset($_GET['ip'])) {
     // Récupérer l'adresse IP depuis le paramètre GET

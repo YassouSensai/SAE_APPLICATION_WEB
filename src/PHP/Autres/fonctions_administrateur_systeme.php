@@ -1,5 +1,4 @@
 <?php
-require_once '../fonctions_administrateurs_systeme.php'; // Ajustez le chemin selon votre structure de fichiers
 
 // Le reste de votre script...
 
