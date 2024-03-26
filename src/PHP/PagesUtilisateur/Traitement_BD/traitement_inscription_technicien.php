@@ -37,7 +37,7 @@ if (isset($_POST['identifiant']) && isset($_POST['mdp']) && isset($_POST['nom_te
         prepareAndExecute($connexion, $insertQuery, $insertParams);
 
 
-        logActivity($_SESSION['username'], 1, "L'administrateur web a inscrit un nouveau technicien avec l'identifiant $identifiant.");
+        logActivity($_SESSION['utilisateur'], 1, "L'administrateur web a inscrit un nouveau technicien avec l'identifiant $identifiant.");
 
         header("Location: ../tableau_de_bord_utilisateur.php?inscr=ok&action=".$action."&liste=".$liste);
 
