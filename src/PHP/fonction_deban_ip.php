@@ -26,5 +26,5 @@ function debannirIP($ip, $jail = 'sshd') {
     }
 }
 debannirIP($ip);
-header("Location: PagesUtilisateur/tableau_de_bord_utilisateur.php");
+header("Location: PagesUtilisateur/tableau_de_bord_utilisateur.php?journal=rpi");
 ?>
